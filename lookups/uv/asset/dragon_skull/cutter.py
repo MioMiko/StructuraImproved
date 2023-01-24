@@ -1,0 +1,17 @@
+from PIL import Image
+
+img = Image.open('dragon.tga')
+target = Image.new('RGBA',(16,112))
+tmp = img.crop((128,30,144,46))
+target.paste(tmp,(0,0),tmp)
+tmp = img.crop((144,30,160,46))
+target.paste(tmp,(0,16),tmp)
+tmp = img.crop((112,46,128,62))
+target.paste(tmp,(0,32),tmp)
+tmp = img.crop((128,46,144,62))
+target.paste(tmp,(0,48),tmp)
+tmp = img.crop((144,46,160,62))
+target.paste(tmp,(0,64),tmp)
+tmp = img.crop((160,46,176,62))
+target.paste(tmp,(0,80),tmp)
+target.save('result/dragon.png')

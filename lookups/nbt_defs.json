@@ -1,0 +1,95 @@
+{
+	"variant": [
+		"wall_block_type",
+		"old_leaf_type",
+		"new_leaf_type",
+		"old_log_type",
+		"new_log_type",
+		"wood_type",
+		"huge_mushroom_bits",
+		"sapling_type",
+		"stone_type",
+		"dirt_type",
+		"sand_type",
+		"tall_grass_type",
+		"double_plant_type",
+		"flower_type",
+		"prismarine_block_type",
+		"stone_brick_type",
+		"color",
+		"coral_color",
+		"coral_hang_type_bit",
+		"sand_stone_type",
+		"stone_slab_type",
+		"stone_slab_type_2",
+		"stone_slab_type_3",
+		"stone_slab_type_4",
+		"sponge_type",
+		"chisel_type",
+		"monster_egg_stone_type",
+		"sea_grass_type",
+		"moisturized_amount",
+		"honey_level",
+		"cracked_state",
+		"respawn_anchor_charge",
+		"extinguished",
+		"damage",
+		"composter_fill_level",
+		"cauldron_liquid",
+		"liquid_depth",
+		"output_subtract_bit",
+		"rail_direction"
+	],
+	"rot": [
+		"direction",
+		"facing_direction",
+		"coral_direction",
+		"lever_direction",
+		"rail_direction",
+		"torch_facing_direction",
+		"weirdo_direction",
+		"ground_sign_direction",
+		"pillar_axis",
+		"portal_axis"
+	],
+	"top": [
+		"upside_down_bit",
+		"top_slot_bit"
+	],
+	"lit": [
+		"dead_bit",
+		"rail_data_bit",
+		"toggle_bit",
+		"powered_bit",
+		"stripped_bit"
+	],
+	"data": [
+		"open_bit",
+		"hanging",
+		"repeater_delay",
+		"bite_counter",
+		"cluster_count",
+		"height",
+		"extinguished",
+		"attachment",
+		"composter_fill_level",
+		"fill_level",
+		"rail_direction",
+		"head_piece_bit"
+	],
+	"skip": [
+		"liquid_depth",
+		"upper_block_bit"
+	],
+	"block_entity_variant": [
+		"color",
+		"Progress",
+		"SkullType"
+	],
+	"block_entity_rot": [
+		"Rotation"
+	],
+	"block_entity_data": [
+		"Progress"
+	]
+}
