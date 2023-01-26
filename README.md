@@ -7,7 +7,9 @@ This tool is based on Structura and improved to get better building expenrice in
 
 ## Install
 
-To start, you definitely need to install python3.10-tk.</br>
+To start, you need to download the source code.
+
+Then you definitely need to install python3.10-tk.</br>
 Choose the method that suits you:
 
 Arch Linux:
@@ -24,6 +26,10 @@ To start StructuraImproved:
 ```bash
 python structura.py
 ```
+
+## Setting
+
+After StructuraImproved is launched,click the gear icon on the top right side.Then you will see a pop up window.You need to change the setting on it because the setting can run on my device may not run on everyone's devices.
 
 ## Generating an .mcstructure file
 

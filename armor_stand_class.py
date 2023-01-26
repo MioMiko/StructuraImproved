@@ -1,7 +1,4 @@
 import json
-from PIL import Image
-import numpy as np
-import copy
 import os
 
 
@@ -67,6 +64,6 @@ class armorstand:
         path = "{}/entity/armor_stand.entity.json".format(pack_name)
         os.makedirs(os.path.dirname(path), exist_ok = True)
         
-        with open(path, "w+") as json_file:
+        with open(path, "w") as json_file:
             json.dump(self.stand, json_file, indent=2)
-    
+

@@ -1,0 +1,37 @@
+{
+	"browse": "浏览",
+	"structure_file": "结构文件",
+	"icon_file": "资源包图标文件",
+	"packname": "资源包名称",
+	"advanced": "高级",
+	"make_lists": "制作材料列表",
+	"make_pack": "制作投影",
+	"name_tag": "名称",
+	"offset": "偏移",
+	"transparency": "透明度",
+	"add_model": "添加模型",
+	"remove_model": "移除模型",
+	"error": "错误",
+	"need_structure": "你需要浏览一个结构文件!",
+	"need_models": "你需要添加一些模型",
+	"need_packname": "你需要一个资源包名称",
+	"same_nametag": "命名不能重复",
+
+	"": "关于",
+	"about": "关于",
+	"about_content": "这是一个基于Structura并做出改进的工，并通过MIT协议开源。\n\n开源地址: https://github.com/MioMiko/StructuraImproved\n原版Structura: https://github.com/RavinMaddHatter/Structura\n\nStructuraImproved开源许可证原文:\n\n{}\n\nStructura 开源许可证原文:\n\n{}",
+
+	"": "设置",
+	"setting": "设置",
+	"lang": "语言",
+	"structure_path": "默认结构浏览路径",
+	"save_path": "投影保存路径",
+	"overwrite_same_packname": "覆盖写入相同包名的投影",
+	"cancel": "取消",
+	"confirm": "确认",
+
+	"": "Structura",
+	"unsupported_block": "有一个不支持的方块被跳过了",
+	"block_info": "X:{} Y:{} Z:{}, 方块名:{}, 变种:{}",
+	"pack_complete": "投影制作完成"
+}

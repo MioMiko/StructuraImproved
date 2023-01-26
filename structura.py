@@ -2,6 +2,7 @@ import armor_stand_geo_class_2 as asgc
 import armor_stand_class
 import structure_reader
 import animation_class
+from config import setting_gui
 import render_controller_class as rcc
 import manifest
 from shutil import copyfile
@@ -15,11 +16,15 @@ import re
 
 skip_unsupported_block = True
 debug = False
-# SAVE_PATH = "/sdcard/games/com.mojang/development_resource_packs/"
-SAVE_PATH = ""
 
 with open("lookups/nbt_defs.json") as f:
     nbt_def = json.load(f)
+with open("config/config.json") as f:
+    conf = json.load(f)
+with open(f"config/lang/lang_ref.json") as f:
+    lang_ref = json.load(f)
+with open(f"config/lang/{lang_ref[conf['lang']]}.json") as f:
+    lang = json.load(f)
 
 def process_block(block_states,block_entity):
     rot = None
@@ -175,8 +180,8 @@ makeMaterialsList : sets wether a material list shall be output.
                             try:
                                 armorstand.make_block(x, y, z, blk_name, rot = rot, top = top,variant = variant, lit=lit, data=data)
                             except:
-                                print("There is an unsupported block in this world and it was skipped")
-                                print("x:{} Y:{} Z:{}, Block:{}, Variant: {}".format(x,y,z,blk_name,variant))
+                                print(lang["unsupported_block"])
+                                print(lang["block_info"].format(x,y,z,blk_name,variant))
                         else:
                             armorstand.make_block(x, y, z, blk_name, rot = rot, top = top,variant = variant, lit=lit, data=data)
         ## this is a quick hack to get block lists, doesnt consider vairants.... so be careful
@@ -212,7 +217,7 @@ makeMaterialsList : sets wether a material list shall be output.
         file_paths.extend(glob.glob(os.path.join(directory, "*.*")))
 
     ## add all files to the mcpack file  
-    with ZipFile(f"{SAVE_PATH}{pack_name}.mcpack", 'w',ZIP_DEFLATED) as zip: 
+    with ZipFile(f"{conf['save_path']}{pack_name}.mcpack", 'w',ZIP_DEFLATED) as zip: 
         # writing each file one by one 
         for file in file_paths:
             print(file)
@@ -225,49 +230,54 @@ makeMaterialsList : sets wether a material list shall be output.
 if __name__=="__main__":
     ## this is all the gui stuff that is not needed if you are calling this as a CLI
 
-    from tkinter import ttk
-    from tkinter import filedialog
-    from tkinter import messagebox
+    from tkinter import messagebox,Message,Toplevel
     from tkinter import StringVar, Button, Label, Entry, Tk, Checkbutton, END, ACTIVE
     from tkinter import filedialog, Scale,DoubleVar,HORIZONTAL,IntVar,Listbox, ANCHOR
 
 
+    def showabout():
+        about = Toplevel()
+        with open("LICENSE") as f:
+            License = f.read()
+        with open("LICENSE-Structura") as f:
+            License_Structura = f.read()
+        about.title(lang["about"])
+        msg = Message(about,text=lang["about_content"].format(License,License_Structura))
+        msg.pack()
+        about.mainloop()
+
+    def showsetting():
+        setting_gui(conf,"config/config.json",lang)
+        print("idhhf")
+
     def browseStruct():
         #browse for a structure file.
-        FileGUI.set(filedialog.askopenfilename(filetypes=(
-            ("Structure File", "*.mcstructure *.MCSTRUCTURE"), ),
-            initialdir='/sdcard/结构和投影/结构'))
+        FileGUI.set(
+            filedialog.askopenfilename(
+                filetypes=(("Structure File", "*.mcstructure *.MCSTRUCTURE"),),
+                initialdir=f"{conf['default_structure_path']}"
+            )
+        )
     def browseIcon():
         #browse for a structure file.
         icon_var.set(filedialog.askopenfilename(filetypes=(
             ("Icon File", "*.png *.PNG"), )))
+
     def box_checked():
-        if check_var.get()==0:
+        if check_var.get() == 0:
             modle_name_entry.grid_forget()
             modle_name_lb.grid_forget()
             deleteButton.grid_forget()
             listbox.grid_forget()
             saveButton.grid_forget()
             modelButton.grid_forget()
-            r = 0
-            file_lb.grid(row=r, column=0)
-            file_entry.grid(row=r, column=1)
-            packButton.grid(row=r, column=2)
-            r += 1
-            icon_lb.grid(row=r, column=0)
-            icon_entry.grid(row=r, column=1)
-            IconButton.grid(row=r, column=2)
-            r += 1
-            
-            packName_lb.grid(row=r, column=0)
-            packName_entry.grid(row=r, column=1)
-            r += 1
             cord_lb.grid_forget()
             x_entry.grid_forget()
             y_entry.grid_forget()
             z_entry.grid_forget()
             transparency_lb.grid_forget()
             transparency_entry.grid_forget()
+            r = 4
             advanced_check.grid(row=r, column=0)
             export_check.grid(row=r, column=1)
             saveButton.grid(row=r, column=2)
@@ -275,18 +285,7 @@ if __name__=="__main__":
             # updateButton.grid(row=r, column=2)
         else:
             saveButton.grid_forget()
-            r = 0
-            file_lb.grid(row=r, column=0)
-            file_entry.grid(row=r, column=1)
-            packButton.grid(row=r, column=2)
-            r += 1
-            icon_lb.grid(row=r, column=0)
-            icon_entry.grid(row=r, column=1)
-            IconButton.grid(row=r, column=2)
-            r += 1
-            packName_lb.grid(row=r, column=0)
-            packName_entry.grid(row=r, column=1)
-            r += 1
+            r = 4
             modle_name_entry.grid(row=r, column=1)
             modle_name_lb.grid(row=r, column=0)
             modelButton.grid(row=r, column=2)
@@ -312,13 +311,10 @@ if __name__=="__main__":
     def add_model():
         valid=True
         if len(FileGUI.get()) == 0:
-            messagebox.showinfo("Error", "You need to browse for a structure file!")
+            messagebox.showerror(lang["error"], lang["need_structure"])
             valid=False
-##        if len(model_name_var.get()) == 0:
-##            valid=False
-##            messagebox.showinfo("Error", "You need a name for the Name Tag!")
         if model_name_var.get() in list(models.keys()):
-            messagebox.showinfo("Error", "The Name Tag mut be unique")
+            messagebox.showerror(lang["error"], lang["same_nametag"])
             valid=False
 
         if valid:
@@ -356,21 +352,22 @@ if __name__=="__main__":
         if check_var.get() == 0:
             if len(FileGUI.get()) == 0:
                 stop = True
-                messagebox.showinfo("Error", "You need to browse for a structure file!")
+                messagebox.showerror(lang["error"], lang["need_structure"])
             if len(pack_name) == 0:
                 pack_name = re.sub(r"(?:.*[/\\])?(?:mystructure_)?(.+).mcstructure",r"\1",FileGUI.get())
         else:
             if len(list(models.keys())) == 0:
                 stop = True
-                messagebox.showinfo("Error", "You need to add some models")
+                messagebox.showerror(lang["error"], lang["need_models"])
 
             if len(pack_name) == 0:
-                messagebox.showinfo("Error", "You need to set a pack name")
-        tmp = pack_name
-        i = 1
-        while os.path.isfile(f"{SAVE_PATH}{pack_name}.mcpack"):
-           pack_name = f"{tmp}({i})"
-           i += 1
+                messagebox.showerror(lang["error"], lang["need_packname"])
+        if not conf["overwrite_same_packname"]:
+            tmp = pack_name
+            i = 1
+            while os.path.isfile(f"{conf['save_path']}{pack_name}.mcpack"):
+               pack_name = f"{tmp}({i})"
+               i += 1
         if len(icon_var.get()) > 0:
             pack_icon=icon_var.get()
         else:
@@ -396,49 +393,71 @@ if __name__=="__main__":
 
 
     offsets={}
-    root = Tk()
-    root.title("Structura")
     models={}
+    root = Tk()
+    root.resizable(False,False)
+    root.title("StructuraImproved")
     FileGUI = StringVar()
-    FileGUI.set("/sdcard/结构和投影/结构/")
     packName = StringVar()
     icon_var = StringVar()
     icon_var.set("lookups/pack_icon.png")
     sliderVar = DoubleVar()
+    sliderVar.set(20)
     model_name_var = StringVar()
+
     xvar = DoubleVar()
     xvar.set(0)
     yvar = DoubleVar()
     zvar = DoubleVar()
     zvar.set(0)
+
     check_var = IntVar()
     export_list = IntVar()
-    sliderVar.set(20)
+
+    info = Button(root,text=u"\u24D8",font=("",10,"bold"),bd=0,width=1,command=showabout)
+    setting = Button(root,text=u"\u2699",font=("",10,"bold"),bd=0,width=1,command=showsetting)
     listbox=Listbox(root)
     file_entry = Entry(root, textvariable=FileGUI)
     packName_entry = Entry(root, textvariable=packName)
-    modle_name_lb = Label(root, text="Name Tag")
+    modle_name_lb = Label(root, text=lang["name_tag"])
     modle_name_entry = Entry(root, textvariable=model_name_var)
-    cord_lb = Label(root, text="offset")
+    cord_lb = Label(root, text=lang["offset"])
     x_entry = Entry(root, textvariable=xvar, width=5)
     y_entry = Entry(root, textvariable=yvar, width=5)
     z_entry = Entry(root, textvariable=zvar, width=5)
-    icon_lb = Label(root, text="Icon file")
-    icon_entry = Entry(root, textvariable=icon_var)
-    IconButton = Button(root, text="Browse", command=browseIcon)
-    file_lb = Label(root, text="Structure file")
-    packName_lb = Label(root, text="Pack Name")
-    packButton = Button(root, text="Browse", command=browseStruct)
-    advanced_check = Checkbutton(root, text="advanced", variable=check_var, onvalue=1, offvalue=0, command=box_checked)
-    export_check = Checkbutton(root, text="make lists", variable=export_list, onvalue=1, offvalue=0)
 
-    deleteButton = Button(root, text="Remove Model", command=delete_model)
-    saveButton = Button(root, text="Make Pack", command=runFromGui)
-    modelButton = Button(root, text="Add Model", command=add_model)
+    icon_lb = Label(root, text=lang["icon_file"])
+    icon_entry = Entry(root, textvariable=icon_var)
+    IconButton = Button(root, text=lang["browse"], command=browseIcon)
+
+    file_lb = Label(root, text=lang["structure_file"])
+    packName_lb = Label(root, text=lang["packname"])
+    packButton = Button(root, text=lang["browse"], command=browseStruct)
+    advanced_check = Checkbutton(root, text=lang["advanced"], variable=check_var, onvalue=1, offvalue=0, command=box_checked)
+    export_check = Checkbutton(root, text=lang["make_lists"], variable=export_list, onvalue=1, offvalue=0)
+
+    deleteButton = Button(root, text=lang["remove_model"], command=delete_model)
+    saveButton = Button(root, text=lang["make_pack"], command=runFromGui)
+    modelButton = Button(root, text=lang["add_model"], command=add_model)
 
     # updateButton = Button(root, text="Update Blocks", command=updater.getLatest)
-    transparency_lb = Label(root, text="Transparency")
+    transparency_lb = Label(root, text=lang["transparency"])
     transparency_entry = Scale(root,variable=sliderVar, length=200, from_=0, to=100,tickinterval=10,orient=HORIZONTAL)
+
+    r = 0
+    info.grid(row=r, column=2,sticky="ne")
+    setting.grid(row=r, column=3,sticky="nw")
+    r += 1
+    file_lb.grid(row=r, column=0)
+    file_entry.grid(row=r, column=1)
+    packButton.grid(row=r, column=2)
+    r += 1
+    icon_lb.grid(row=r, column=0)
+    icon_entry.grid(row=r, column=1)
+    IconButton.grid(row=r, column=2)
+    r += 1
+    packName_lb.grid(row=r, column=0)
+    packName_entry.grid(row=r, column=1)
 
     box_checked()
 

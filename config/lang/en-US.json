@@ -1,0 +1,37 @@
+{
+	"browse": "Browse",
+	"structure_file": "Structure file",
+	"icon_file": "Icon file",
+	"packname": "Pack Name",
+	"advanced": "advanced",
+	"make_lists": "make lists",
+	"make_pack": "Make Pack",
+	"name_tag": "Name Tag",
+	"offset": "Offset",
+	"transparency": "Transparency",
+	"add_model": "Add Model",
+	"remove_model": "Remove Model",
+	"error": "Error",
+	"need_structure": "You need to browse for a structure file!",
+	"need_models": "You need to add some models",
+	"need_packname": "You need to set a pack name",
+	"same_nametag": "The Name Tag mut be unique",
+
+	"": "about",
+	"about": "About",
+	"about_content": "This is a tool based on Strictura and make improvement.\nIt's open soucre under MIT License.\n\nOpen source address: https://github.com/MioMiko/StructuraImproved\nOrignal Structura address: https://github.com/RavinMaddHatter/Structura\n\nStructuraImproved Lisence original text:\n\n{}\n\nStructura Lisence original text:\n\n{}",
+
+	"": "setting",
+	"setting": "Setting",
+	"lang": "Language",
+	"structure_path": "Default Structure Browsing Path",
+	"save_path": "Mcpack Save Path",
+	"overwrite_same_packname": "Overwrite Same Packname",
+	"cancel": "cancel",
+	"confirm": "confirm",
+
+	"": "Structura",
+	"unsupported_block": "There is an unsupported block in this world and it was skipped",
+	"block_info": "X:{} Y:{} Z:{}, Block:{}, Variant:{}",
+	"pack_complete": "Pack Making Completed"
+}
