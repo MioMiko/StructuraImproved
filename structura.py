@@ -14,7 +14,7 @@ import ntpath
 import json
 import re
 
-skip_unsupported_block = True
+skip_unsupported_block = False
 debug = False
 
 with open("lookups/nbt_defs.json") as f:
@@ -50,13 +50,18 @@ def process_block(block_states,block_entity):
             lit = bool(block_states[key])
             break
 
-    for key in nbt_def["rot"]:
-        if key in block_states.keys():
-            try:
-                rot = int(block_states[key])
-            except:
-                rot = str(block_states[key])
+    for key in nbt_def["block_entity_rot"]:
+        if key in block_entity.keys():
+            rot = str(block_entity[key])
             break
+    else:
+        for key in nbt_def["rot"]:
+            if key in block_states.keys():
+                try:
+                    rot = int(block_states[key])
+                except:
+                    rot = str(block_states[key])
+                break
 
     # top and data determines the offset of block together
     for key in nbt_def["top"]:

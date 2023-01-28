@@ -4,7 +4,7 @@ import numpy as np
 import copy
 import os
 
-debug = False
+debug = True
 
 class armorstandgeo:
     def __init__(self, name, alpha = 0.8,offsets=[0,0,0], size=[64, 64, 64]):
@@ -83,6 +83,8 @@ class armorstandgeo:
             ## hardcoded to true for now, but this is when the variants will be called
             if block_type == "hopper" and rot != 0:
                 data = "side"
+            elif block_type == "glazed_terracotta":
+                data = str(rot)
             elif top:
                 data += "_top"
 

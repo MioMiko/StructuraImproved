@@ -1,7 +1,8 @@
 {
 	"cube":{"default":{"size":[[1,1,1]],"center":[0.5,0.5,0.5]}},
 	"pumpkin":{"default":{"size":[[1,1,1]],"center":[0.5,0.5,0.5]}},
-	"terracotta":{"default":{"size":[[1,1,1]],"center":[0.5,0.5,0.5]}},
+	"glazed_terracotta":{"default":{"size":[[1,1,1]],"center":[0.5,0.5,0.5]}},
+	"shulker_box":{"default":{"size":[[1,1,1]],"center":[0.5,0.5,0.5]}},
 	"slab":{
 		"0":{"size":[[1,0.5,1]],"offsets":[[0,0,0]],"center":[0.5,0.5,0.5]},
 		"0_top":{"size":[[1,0.5,1]],"offsets":[[0,0.5,0]],"center":[0.5,0.5,0.5]}
@@ -105,8 +106,13 @@
 		],
 		"center": [0.5,0.5,0.5]
 	}},
-	"cactus":{"default":{"size":[[0.875,0.9375,0.875]],"center":[0.5,0.5,0.5]}},
-	
+	"cactus": {
+		"default": {
+			"size":[[0.875,0.9375,0.875]],
+			"offsets": [[0.0625,0,0.0625]],
+			"center":[0.5,0.5,0.5]
+		}
+	},
 	"cauldron": {
 		"0": {
 			"size": [[1,1,1]],

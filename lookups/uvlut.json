@@ -702,13 +702,13 @@
 	},
 	"granite_stairs": {"default": ["stone_granite"]},
 	"grass": {"default": {
-		"up": ["grass_path_top"],
-		"side": ["grass_path_side"],
+		"up": ["grass_top"],
+		"side": ["grass_side"],
 		"down": ["dirt"]
 	}},
 	"grass_path": {"default": {
-		"up": ["grass_top"],
-		"side": ["grass_side"],
+		"up": ["grass_path_top"],
+		"side": ["grass_path_side"],
 		"down": ["dirt"]
 	}},
 	"gravel": {"default": ["gravel"]},

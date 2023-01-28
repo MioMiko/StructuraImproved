@@ -87,6 +87,7 @@
 		"SkullType"
 	],
 	"block_entity_rot": [
+		"facing",
 		"Rotation"
 	],
 	"block_entity_data": [
