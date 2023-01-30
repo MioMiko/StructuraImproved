@@ -36,7 +36,6 @@
 		"damage",
 		"composter_fill_level",
 		"cauldron_liquid",
-		"liquid_depth",
 		"output_subtract_bit",
 		"rail_direction"
 	],
@@ -69,6 +68,7 @@
 		"repeater_delay",
 		"bite_counter",
 		"cluster_count",
+		"turtle_egg_count",
 		"height",
 		"extinguished",
 		"attachment",

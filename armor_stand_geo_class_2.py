@@ -3,29 +3,33 @@ from PIL import Image
 import numpy as np
 import copy
 import os
+from collections import Counter,deque
 
 debug = True
 
+class default_key_dict(dict):
+    def __missing__(self,key):
+        return self["default"]
+
 class armorstandgeo:
+    ## we load all of these items containing the mapping of blocks to the some property that is either hidden, implied or just not clear
+    ## custom look up table i wrote to help with rotations, error messages dump if somehting has undefined rotations 
+    with open("lookups/block_ref.json",encoding="utf-8") as f:
+        block_ref = json.load(f)
+    with open("lookups/block_rotation.json",encoding="utf-8") as f:
+        block_rotations = json.load(f)
+    with open("lookups/block_shapes.json",encoding="utf-8") as f:
+        block_shapes = json.load(f)
+    with open("lookups/block_uv.json",encoding="utf-8") as f:
+        block_uv = json.load(f)
+
     def __init__(self, name, alpha = 0.8,offsets=[0,0,0], size=[64, 64, 64]):
-        ## we load all of these items containing the mapping of blocks to the some property that is either hidden, implied or just not clear
-        with open("lookups/uvlut.json") as f:
-            self.uvlut = json.load(f)
-        ## custom look up table i wrote to help with rotations, error messages dump if somehting has undefined rotations 
-        with open("lookups/block_rotation.json") as f:
-            self.block_rotations = json.load(f)
-        with open("lookups/block_definition.json") as f:
-            self.defs = json.load(f)
-        with open("lookups/block_shapes.json") as f:
-            self.block_shapes = json.load(f)
-        with open("lookups/block_uv.json") as f:
-            self.block_uv = json.load(f)
         self.name = name.replace(" ","_").lower()
         self.stand = {}
         self.offsets = offsets
-        self.offsets[0]+=8
-        self.offsets[2]+=7
-        self.alpha=alpha
+        self.offsets[0] += 8
+        self.offsets[2] += 7
+        self.alpha = alpha
         self.texture_list = []
         self.geometry = {}
         self.stand_init()
@@ -33,19 +37,18 @@ class armorstandgeo:
         self.blocks = {}
         self.size = []
         self.bones = []
-        self.errors={}
-        self.uv_array = None
+        self.errors = {}
+        self.material_list=Counter()
+        self.uv_height = 0
+        self.uv_deque = deque()
         ## The stuff below is a horrible cludge that should get cleaned up. +1 karma to whomever has a better plan for this.
         # this is how i determine if something should be thin. it is ugly, but kinda works
 
-        
-        ## these blocks are either not needed, or cause issue. Grass is banned because the terrian_texture.json has a biome map in it. If someone wants to fix we can un-bann it
-        self.excluded = ["air", "structure_block"]
 
     def export(self, pack_folder):
         ## This exporter just packs up the armorstand json files and dumps them where it should go. as well as exports the UV file
         self.add_blocks_to_bones()
-        self.geometry["description"]["texture_height"] = self.uv_array.shape[0]/16
+        self.geometry["description"]["texture_height"] = self.uv_height/16
         self.stand["minecraft:geometry"] = [self.geometry] ## this is insuring the geometries are imported, there is an implied refference other places.
         path_to_geo = "{}/models/entity/armor_stand.ghost_blocks_{}.geo.json".format(
             pack_folder,self.name)
@@ -57,8 +60,8 @@ class armorstandgeo:
                 self.stand["minecraft:geometry"][0]["bones"][index]["parent"]="ghost_blocks"
                 self.stand["minecraft:geometry"][0]["bones"][index]["pivot"]=[0.5,0.5,0.5]
                 i += 1
-            
-        with open(path_to_geo, "w") as json_file:
+
+        with open(path_to_geo, "w",encoding="utf-8") as json_file:
             json.dump(self.stand, json_file, indent = 2 if debug else None)
         texture_name = "{}/textures/entity/ghost_blocks_{}.png".format(
             pack_folder,self.name)
@@ -72,12 +75,45 @@ class armorstandgeo:
         self.geometry["bones"].append(
             {"name": layer_name, "pivot": [-8, 0, 8], "parent": "ghost_blocks"})
 
-    def make_block(self, x, y, z, block_name, rot=None, top=False, lit=False,data="0", parent=None,variant=None):
+    def add_material(self,name,variant,lit,data):
+        material = None
+        block_ref = self.block_ref[name]
+        if lit and variant+"_lit" in block_ref and \
+                (material := block_ref[variant+"_lit"].get("material")):
+            pass
+        elif variant in block_ref and \
+                (material := block_ref[variant].get("material")):
+            pass
+        elif  "default" in block_ref and \
+                (material := block_ref["default"].get("material")):
+            pass
+
+        if material == "ignore":
+            return
+
+        if material:
+            for name,data_list in material.items():
+                self.material_list[name] += default_key_dict(data_list)[data]
+        else:
+            name = name + (f"_{variant}" if variant != "default" else "") + \
+                              ("_lit" if lit else "")
+            self.material_list[name] += 1
+
+    def make_block(self,x,y,z,block,make_list):
         # make_block handles all the block processing, This function does need cleanup and probably should be broken into other helperfunctions for ledgiblity.
-        block_type = self.defs[block_name]
-        if block_type!="ignore":
+
+        block_name = block[0]
+        rot,variant,lit,data,skip = block[1]
+
+        block_ref = self.block_ref[block_name]
+        block_type = block_ref["definition"][0]
+
+        if make_list and not skip:
+            self.add_material(block_name,variant,lit,data)
+
+        if block_type != "ignore":
             if debug:
-                print(block_name)
+                print(block_name,variant)
             ghost_block_name = "block_{}_{}_{}".format(x, y, z)
             self.blocks[ghost_block_name] = {}
             ## hardcoded to true for now, but this is when the variants will be called
@@ -85,21 +121,12 @@ class armorstandgeo:
                 data = "side"
             elif block_type == "glazed_terracotta":
                 data = str(rot)
-            elif top:
-                data += "_top"
 
             if debug and data != "0":
                 print(data)
 
-            if data in self.block_uv[block_type].keys():
-                block_uv = self.block_uv[block_type][data]
-            else:
-                block_uv = self.block_uv[block_type]["default"]
-
-            if data in self.block_shapes[block_type].keys():
-                block_shapes = self.block_shapes[block_type][data]
-            else:
-                block_shapes = self.block_shapes[block_type]["default"]
+            block_uv = default_key_dict(self.block_uv[block_type])[data]
+            block_shapes = default_key_dict(self.block_shapes[block_type])[data]
 
             if block_type in self.block_rotations.keys():
                 rotation = self.block_rotations[block_type][str(rot)]
@@ -111,7 +138,7 @@ class armorstandgeo:
 
             uv_idx = 0
             for i in range(len(block_shapes["size"])):
-                blockUV = dict(self.block_name_to_uv(block_name,variant=variant,lit=lit,index=i))
+                blockUV = dict(self.block_name_to_uv(block_ref,variant=variant,lit=lit,index=i))
                 block={}
                 if len(block_uv["uv_sizes"]["up"]) > i:
                     uv_idx = i
@@ -132,41 +159,33 @@ class armorstandgeo:
                     for j in range(3):
                         block["rotation"][j] += block_shapes["rot"][i][j]
 
-                blockUV["up"]["uv"][0] += block_uv["offset"]["up"][uv_idx][0]
-                blockUV["up"]["uv"][1] += block_uv["offset"]["up"][uv_idx][1]
-                blockUV["down"]["uv"][0] += block_uv["offset"]["down"][uv_idx][0]
-                blockUV["down"]["uv"][1] += block_uv["offset"]["down"][uv_idx][1]
-                blockUV["east"]["uv"][0] += block_uv["offset"]["east"][uv_idx][0]
-                blockUV["east"]["uv"][1] += block_uv["offset"]["east"][uv_idx][1]
-                blockUV["west"]["uv"][0] += block_uv["offset"]["west"][uv_idx][0]
-                blockUV["west"]["uv"][1] += block_uv["offset"]["west"][uv_idx][1]
-                blockUV["north"]["uv"][0] += block_uv["offset"]["north"][uv_idx][0]
-                blockUV["north"]["uv"][1] += block_uv["offset"]["north"][uv_idx][1]
-                blockUV["south"]["uv"][0] += block_uv["offset"]["south"][uv_idx][0]
-                blockUV["south"]["uv"][1] += block_uv["offset"]["south"][uv_idx][1]
-                blockUV["up"]["uv_size"] = block_uv["uv_sizes"]["up"][uv_idx]
-                blockUV["down"]["uv_size"] = block_uv["uv_sizes"]["down"][uv_idx]
-                blockUV["east"]["uv_size"] = block_uv["uv_sizes"]["east"][uv_idx]
-                blockUV["west"]["uv_size"] = block_uv["uv_sizes"]["west"][uv_idx]
-                blockUV["north"]["uv_size"] = block_uv["uv_sizes"]["north"][uv_idx]
-                blockUV["south"]["uv_size"] = block_uv["uv_sizes"]["south"][uv_idx]
+                uv_offset = block_uv["offset"]
+                blockUV["up"]["uv"][0] += uv_offset["up"][uv_idx][0]
+                blockUV["up"]["uv"][1] += uv_offset["up"][uv_idx][1]
+                blockUV["down"]["uv"][0] += uv_offset["down"][uv_idx][0]
+                blockUV["down"]["uv"][1] += uv_offset["down"][uv_idx][1]
+                blockUV["east"]["uv"][0] += uv_offset["east"][uv_idx][0]
+                blockUV["east"]["uv"][1] += uv_offset["east"][uv_idx][1]
+                blockUV["west"]["uv"][0] += uv_offset["west"][uv_idx][0]
+                blockUV["west"]["uv"][1] += uv_offset["west"][uv_idx][1]
+                blockUV["north"]["uv"][0] += uv_offset["north"][uv_idx][0]
+                blockUV["north"]["uv"][1] += uv_offset["north"][uv_idx][1]
+                blockUV["south"]["uv"][0] += uv_offset["south"][uv_idx][0]
+                blockUV["south"]["uv"][1] += uv_offset["south"][uv_idx][1]
+                uv_size = block_uv["uv_sizes"]
+                blockUV["up"]["uv_size"] = uv_size["up"][uv_idx]
+                blockUV["down"]["uv_size"] = uv_size["down"][uv_idx]
+                blockUV["east"]["uv_size"] = uv_size["east"][uv_idx]
+                blockUV["west"]["uv_size"] = uv_size["west"][uv_idx]
+                blockUV["north"]["uv_size"] = uv_size["north"][uv_idx]
+                blockUV["south"]["uv_size"] = uv_size["south"][uv_idx]
 
-                block["uv"]=blockUV
+                block["uv"] = blockUV
                 self.blocks[ghost_block_name]["cubes"].append(block)
-
-
 
             self.blocks[ghost_block_name]["name"] = ghost_block_name
             self.blocks[ghost_block_name]["parent"] = "layer_{}".format(y)
             self.blocks[ghost_block_name]["pivot"] = block_shapes["center"]
-
-    def save_uv(self, name):
-        # saves the texture file where you tell it to
-        if self.uv_array is None:
-            print("No Blocks Were found")
-        else:
-            im = Image.fromarray(self.uv_array)
-            im.save(name)
 
     def stand_init(self):
         # helper function to initialize the dictionary that will be exported as the json object
@@ -186,8 +205,8 @@ class armorstandgeo:
                                     {"name": "ghost_blocks",
                                      "pivot": [-8, 0, 8]}]
 
-    def extend_uv_image(self, new_image_filename):
-        # helper function that just appends to the uv array to make things
+    def append_uv_image(self, new_image_filename):
+        # push uv to the deque
         image = Image.open(new_image_filename)
         impt = np.array(image)
         shape = list(impt.shape)
@@ -196,37 +215,39 @@ class armorstandgeo:
             impt=impt[:,0:16,:]
         # print(new_image_filename)
         # print(impt)
-        image_array = np.ones([shape[0], 16, 4],np.uint8)*255
+        image_array = np.ones((shape[0], 16, 4),np.uint8)*255
         image_array[0:shape[0], 0:shape[1], 0:impt.shape[2]] = impt
         image_array[:, :, 3] = image_array[:, :, 3] * self.alpha
-        if type(self.uv_array) is type(None):
-            self.uv_array = image_array
-        else:
-            startshape = list(self.uv_array.shape)
-            endshape = startshape.copy()
-            endshape[0] += image_array.shape[0]
-            temp_new = np.zeros(endshape, np.uint8)
-            temp_new[0:startshape[0], :, :] = self.uv_array
-            temp_new[startshape[0]:, :, :] = image_array
-            self.uv_array = temp_new
 
-    def block_name_to_uv(self, block_name, variant = "",lit=False,index=0):
-        
+        self.uv_height += shape[0]
+        self.uv_deque.append(image_array)
+
+    def save_uv(self,name):
+        # pop uv to make sprite
+        if self.uv_height == 0:
+            print("No Blocks Were found")
+        else:
+            end = 0
+            sprite = np.empty((self.uv_height, 16, 4),np.uint8)
+            while self.uv_deque:
+                uv = self.uv_deque.popleft()
+                start = end
+                end += uv.shape[0]
+                sprite[start:end,:,:] = uv
+            im = Image.fromarray(sprite)
+            im.save(name)
+
+    def block_name_to_uv(self, block_ref, variant = "",lit=False,index=0):
+
         # helper function maps the the section of the uv file to the side of the block
         temp_uv = {}
-        if block_name not in self.excluded:  # if you dont want a block to be rendered, exclude the UV
+        texture_files = self.get_block_texture_paths(block_ref,variant,lit,index)
 
-            texture_files = self.get_block_texture_paths(block_name,variant,lit,index)
-
-            for key in texture_files.keys():
-                if texture_files[key] not in self.uv_map.keys():
-                    try:
-                        self.uv_map[texture_files[key]] = self.uv_array.shape[0]/16
-                    except:
-                        self.uv_map[texture_files[key]] = 0
-                    self.extend_uv_image(f"lookups/uv/blocks/{texture_files[key]}.png")
-                temp_uv[key] = {
-                    "uv": [0, self.uv_map[texture_files[key]]], "uv_size": [0, 0]}
+        for key,uv in texture_files.items():
+            if uv not in self.uv_map.keys():
+                self.uv_map[uv] = self.uv_height/16
+                self.append_uv_image(f"lookups/uv/blocks/{uv}.png")
+            temp_uv[key] = {"uv": [0, self.uv_map[uv]]}
 
         return temp_uv
 
@@ -235,18 +256,11 @@ class armorstandgeo:
         for key in self.blocks.keys():
             self.geometry["bones"].append(self.blocks[key])
 
-    def get_block_texture_paths(self, blockName, variant = "",lit=False, index = 0):
+    def get_block_texture_paths(self, block_ref, variant = "",lit=False, index = 0):
         # helper function for getting the texture locations from the vanilla files.
-        if debug:
-            print(f'{blockName},{variant}')
-        if lit and (tmp := variant + "_lit") in self.uvlut[blockName]:
-            textureLayout = self.uvlut[blockName][tmp]
-        elif variant in self.uvlut[blockName]:
-            textureLayout = self.uvlut[blockName][variant]
-        else:
-            textureLayout = self.uvlut[blockName]['default']
-
-        # texturedata = self.terrain_texture["texture_data"]
+        if not (lit and (textureLayout := block_ref.get(variant+"_lit"))):
+            textureLayout = default_key_dict(block_ref)[variant]
+        textureLayout = textureLayout["textures"]
         textures = {}
 
         if type(textureLayout) is dict:

@@ -8,6 +8,7 @@ import manifest
 from shutil import copyfile
 import os
 from zipfile import ZipFile,ZIP_DEFLATED
+from collections import Counter
 import glob
 import shutil
 import ntpath
@@ -17,94 +18,12 @@ import re
 skip_unsupported_block = False
 debug = False
 
-with open("lookups/nbt_defs.json") as f:
-    nbt_def = json.load(f)
-with open("config/config.json") as f:
+with open("config/config.json",encoding="utf-8") as f:
     conf = json.load(f)
-with open(f"config/lang/lang_ref.json") as f:
+with open("config/lang/lang_ref.json",encoding="utf-8") as f:
     lang_ref = json.load(f)
-with open(f"config/lang/{lang_ref[conf['lang']]}.json") as f:
+with open(f"config/lang/{lang_ref[conf['lang']]}.json",encoding="utf-8") as f:
     lang = json.load(f)
-
-def process_block(block_states,block_entity):
-    rot = None
-    top = False
-    lit = False
-    data = "0"
-    skip = False
-    variant = "default"
-
-    # variant and lit determine the texture of blocks together
-    for key in nbt_def["block_entity_variant"]:
-        if key in block_entity.keys():
-            variant = str(block_entity[key])
-            break
-    else:
-        for key in nbt_def["variant"]:
-            if key in block_states.keys():
-                variant = str(block_states[key])
-                break
-
-    for key in nbt_def["lit"]:
-        if key in block_states.keys():
-            lit = bool(block_states[key])
-            break
-
-    for key in nbt_def["block_entity_rot"]:
-        if key in block_entity.keys():
-            rot = str(block_entity[key])
-            break
-    else:
-        for key in nbt_def["rot"]:
-            if key in block_states.keys():
-                try:
-                    rot = int(block_states[key])
-                except:
-                    rot = str(block_states[key])
-                break
-
-    # top and data determines the offset of block together
-    for key in nbt_def["top"]:
-        if key in block_states.keys():
-            top = bool(block_states[key])
-            break
-
-    for key in nbt_def["block_entity_data"]:
-        if key in block_entity.keys():
-            data = str(block_entity[key])
-            break
-    else:
-        for key in nbt_def["data"]:
-            if key in block_states.keys():
-                try:
-                    data = str(int(block_states[key]))
-                except:
-                    data = str(block_states[key])
-                break
-
-    for key in nbt_def["skip"]:
-        if key in block_states.keys():
-            skip = bool(block_states[key])
-            break
-
-    # exception
-    if "id" in block_entity:
-        if block_entity["id"] == "Skull":
-            if block_entity["SkullType"] == 5:
-                data = "dragon"
-            if rot == 1:
-                rot = str(block_entity["Rotation"])
-                data += "_standing"
-        elif block_entity["id"] == "Hopper":
-            variant = str(rot)
-
-    if debug:
-        print([rot, top, variant, lit, data, skip])
-    return [rot, top, variant, lit, data, skip]
-
-
-
-
 
 def generate_pack(pack_name,models_object={},makeMaterialsList=False, icon="lookups/pack_icon.png"):
     """
@@ -116,9 +35,11 @@ makeMaterialsList : sets wether a material list shall be output.
 
 
     visual_name = pack_name
-    if len("".join(list(models_object.keys()))) > 1:
+    multi_model = False
+    if len("".join(list(models_object.keys()))) > 0:
+        multi_model = True
         fileName="{} Nametags.txt".format(pack_name)
-        with open(fileName,"w") as text_file:
+        with open(fileName,"w",encoding="utf-8") as text_file:
             text_file.write("These are the nametags used in this file\n")
             for name in models_object.keys():
                 text_file.write("{}\n".format(name))
@@ -134,8 +55,9 @@ makeMaterialsList : sets wether a material list shall be output.
     ## repeate for each structure after you get it to work
     #creats a base animation controller for us to put pose changes into
     animation = animation_class.animations()
-    longestY=0
-    update_animation=True
+    longestY = 0
+    update_animation = True
+    all_material_list = Counter()
     for model_name in models_object.keys():
         offset=models_object[model_name]["offsets"]
         rc.add_model(model_name)
@@ -149,7 +71,7 @@ makeMaterialsList : sets wether a material list shall be output.
         armorstand = asgc.armorstandgeo(model_name,alpha = models_object[model_name]['opacity'],offsets=models_object[model_name]['offsets'])
 
         #gets the shape for looping
-        [xlen, ylen, zlen] = struct2make.get_size()
+        [xlen, ylen, zlen] = struct2make.size
         if ylen > longestY:
             update_animation=True
             longestY = ylen
@@ -165,40 +87,32 @@ makeMaterialsList : sets wether a material list shall be output.
             for x in range(xlen):
                 for z in range(zlen):
                     #gets block
-                    block,block_entity = struct2make.get_block(x, y, z)
-                    blk_name = block["name"].replace("minecraft:", "")
-                    blockProp = process_block(block["states"],block_entity)
-                    rot = blockProp[0]
-                    top = blockProp[1]
-                    variant = blockProp[2]
-                    lit = blockProp[3]
-                    data = blockProp[4]
-                    skip = blockProp[5]
+                    block = struct2make.get_block(x, y, z)
 
-                    if debug:
-                        print(blk_name)
                     ##  If java worlds are brought into bedrock the tools some times
-                    ##   output unsupported blocks, will log.
-
-                    if not skip:
-                        if skip_unsupported_block:
-                            try:
-                                armorstand.make_block(x, y, z, blk_name, rot = rot, top = top,variant = variant, lit=lit, data=data)
-                            except:
-                                print(lang["unsupported_block"])
-                                print(lang["block_info"].format(x,y,z,blk_name,variant))
-                        else:
-                            armorstand.make_block(x, y, z, blk_name, rot = rot, top = top,variant = variant, lit=lit, data=data)
+                    ##  output unsupported blocks, will log.
+                    if block[1][4]:
+                        continue
+                    try:
+                        armorstand.make_block(x,y,z,block,makeMaterialsList)
+                    except Exception as err:
+                        print(lang["unsupported_block"])
+                        print(lang["block_info"].format(x,y,z,block[0],block[1][1]))
+                        if not skip_unsupported_block:
+                            raise err
         ## this is a quick hack to get block lists, doesnt consider vairants.... so be careful
         if makeMaterialsList:
-            allBlocks = struct2make.get_block_list()
-            fileName="{}-{} block list.txt".format(visual_name,model_name)
-            with open(fileName,"w") as text_file:
-                text_file.write("This is a list of blocks, there is a known issue with variants, all variants are counted together\n")
-                for name in allBlocks.keys():
-                    commonName = name.replace("minecraft:","")
-                    text_file.write("{}: {}\n".format(commonName,allBlocks[name]))
-        
+            if multi_model:
+                fileName="{} - {} block list.csv".format(visual_name,model_name)
+                with open(fileName,"w",encoding="utf-8") as file:
+                    file.write(f"{lang['block_name']},{lang['count']}\n")
+                    for name,count in armorstand.material_list.most_common():
+                        all_material_list[name] += count
+                        name = lang["block_name_ref"].get(name,name)
+                        file.write(f"{name},{int(count)}\n")
+            else:
+                all_material_list = armorstand.material_list
+
         # call export fuctions
         armorstand.export(pack_name)
         animation.export(pack_name)
@@ -206,11 +120,18 @@ makeMaterialsList : sets wether a material list shall be output.
         ##export the armorstand class
         armorstand_entity.export(pack_name)
 
+    if makeMaterialsList:
+        fileName=f"{visual_name} block list.csv"
+        with open(fileName,"w",encoding="utf-8") as file:
+            file.write(f"{lang['block_name']},{lang['count']}\n")
+            for name,count in all_material_list.most_common():
+                name = lang["block_name_ref"].get(name,name)
+                file.write(f"{name},{int(count)}\n")
     # Copy my icons in
     copyfile(icon, "{}/pack_icon.png".format(pack_name))
     # Adds to zip file a modified armor stand geometry to enlarge the render area of the entity
     larger_render = "lookups/armor_stand.larger_render.geo.json"
-    larger_render_path = "{}/models/entity/{}".format(pack_name, "armor_stand.larger_render.geo.json")
+    larger_render_path = f"{pack_name}/models/entity/armor_stand.larger_render.geo.json"
     copyfile(larger_render, larger_render_path)
     # the base render controller is hard coded and just copied in
 
@@ -229,7 +150,7 @@ makeMaterialsList : sets wether a material list shall be output.
             zip.write(file)
     ## delete all the extra files.
     shutil.rmtree(pack_name)
-    print("Pack Making Completed")
+    print(lang["pack_complete"])
 
 
 if __name__=="__main__":
@@ -242,14 +163,13 @@ if __name__=="__main__":
 
     def showabout():
         about = Toplevel()
-        with open("LICENSE") as f:
+        with open("LICENSE",encoding="utf-8") as f:
             License = f.read()
-        with open("LICENSE-Structura") as f:
+        with open("LICENSE-Structura",encoding="utf-8") as f:
             License_Structura = f.read()
         about.title(lang["about"])
         msg = Message(about,text=lang["about_content"].format(License,License_Structura))
         msg.pack()
-        about.mainloop()
 
     def showsetting():
         setting_gui(conf,"config/config.json",lang)
@@ -350,7 +270,7 @@ if __name__=="__main__":
 
     def runFromGui():
         ##wrapper for a gui.
-        global models, offsets
+        global models
         pack_name:str = packName.get()
         stop = False
 
@@ -393,11 +313,9 @@ if __name__=="__main__":
                 makeMaterialsList = (export_list.get()==1),
                 icon = pack_icon
             )
-        packName.set('')
+            packName.set('')
 
 
-
-    offsets={}
     models={}
     root = Tk()
     root.resizable(False,False)

@@ -7,7 +7,7 @@ Structura的灵感来自Litematica模组。它是一个可以用.mcstructure文�
 这是一个基于Stuctura做出改进的工具，以期望更好的提供生存模式建造的体验，目前这个项目只支持1.16.40（这并不代表其他版本完全无法使用），一旦投影被制作出来，将在1.16以上所有版本通用。
 
 改动:
-- 抛弃原有通过官方文件terrain_texture.json和blocks.json查找方块贴图的方式，并使用lookups/uvlut.json替代
+- 抛弃原有通过官方文件terrain_texture.json和blocks.json查找方块贴图的方式，并使用lookups/block_ref.json替代
 - 精细化了部分物品的模型
 - 加入了红石显示功能，可以更清晰得看到漏斗侦测器等物品方向
 - 中文支持
@@ -70,6 +70,5 @@ python structura.py
 ![alt text](docs/example_layer.png?raw=true)
 
 ## 目前企划
-- 改进材料表输出功能
 - 更容易辨识的楼梯和半砖
 - 小瑕疵修复

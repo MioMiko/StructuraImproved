@@ -33,5 +33,12 @@
 	"": "Structura",
 	"unsupported_block": "There is an unsupported block in this world and it was skipped",
 	"block_info": "X:{} Y:{} Z:{}, Block:{}, Variant:{}",
-	"pack_complete": "Pack Making Completed"
+	"pack_complete": "Pack Making Completed",
+
+	"block_name": "Block Name",
+	"count": "Count",
+
+	"block_name_ref": {
+		
+	}
 }

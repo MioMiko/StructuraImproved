@@ -1,15 +1,17 @@
 import nbtlib
+import json
 import numpy as np
 
-loaded = {}
+debug = False
+
 class process_structure:
+    with open("lookups/nbt_defs.json",encoding="utf-8") as f:
+        nbt_def = json.load(f)
     def __init__(self, file):
-        global loaded
         if type(file) is dict:
             self.NBTfile = file
         else:
             self.NBTfile = nbtlib.load(file, byteorder='little')
-        loaded=self.NBTfile
 
         if "" in self.NBTfile.keys():
             self.NBTfile = self.NBTfile[""]
@@ -35,27 +37,84 @@ class process_structure:
         if str(index[1]) in self.block_entities.keys():
             if "block_entity_data" in self.block_entities[str(index[1])]:
                 block_entity = self.block_entities[str(index[1])]["block_entity_data"]
-        return self.palette[int(index[0])],block_entity
+        block_palette = self.palette[int(index[0])]
+        return (
+            block_palette["name"].replace("minecraft:",""),
+            self.process_block(block_palette["states"],block_entity)
+        )
 
-    def get_size(self):
-        return self.size
+    def process_block(self,block_states,block_entity):
+        rot = None
+        top = False
+        lit = False
+        data = "0"
+        skip = False
+        variant = "default"
 
-    def get_block_list(self, ignored_blocks=[]):
-        block_counter = {}
-        for block_id in self.blocks:
-            if self.palette[block_id]["name"] not in ignored_blocks:
-                block_name = self.palette[block_id]["name"]
-                if block_name in block_counter.keys():
-                    block_counter[block_name] += 1
-                else:
-                    block_counter[block_name] = 1
-        return block_counter
+        # variant and lit determine the texture of blocks together
+        for key in self.nbt_def["block_entity_variant"]:
+            if key in block_entity.keys():
+                variant = str(block_entity[key])
+                break
+        else:
+            for key in self.nbt_def["variant"]:
+                if key in block_states.keys():
+                    variant = str(block_states[key])
+                    break
 
+        for key in self.nbt_def["lit"]:
+            if key in block_states.keys():
+                lit = bool(block_states[key])
+                break
 
-#testFileName="ShulkerSandwich.mcstructure"
-#excludedBlocks=["minecraft:structure_block","minecraft:air"]
-#test=process_structure(testFileName)
-# block_count=test.get_block_list(excludedBlocks)
-# for i in block_count.keys():
-##    print("{}: {}".format(i,block_count[i]))
-# print(test.get_block(10,1,8))
+        for key in self.nbt_def["block_entity_rot"]:
+            if key in block_entity.keys():
+                rot = str(block_entity[key])
+                break
+        else:
+            for key in self.nbt_def["rot"]:
+                if key in block_states.keys():
+                    try:
+                        rot = int(block_states[key])
+                    except:
+                        rot = str(block_states[key])
+                    break
+
+        # top and data determines the offset of block together
+        for key in self.nbt_def["block_entity_data"]:
+            if key in block_entity.keys():
+                data = str(block_entity[key])
+                break
+        else:
+            for key in self.nbt_def["data"]:
+                if key in block_states.keys():
+                    try:
+                        data = str(int(block_states[key]))
+                    except:
+                        data = str(block_states[key])
+                    break
+
+        for key in self.nbt_def["top"]:
+            if key in block_states.keys():
+                data += "_top"
+                break
+
+        for key in self.nbt_def["skip"]:
+            if key in block_states.keys():
+                skip = bool(block_states[key])
+                break
+
+        # exception
+        if "id" in block_entity:
+            if block_entity["id"] == "Skull":
+                if block_entity["SkullType"] == 5:
+                    data = "dragon"
+                if rot == 1:
+                    rot = str(block_entity["Rotation"])
+                    data += "_standing"
+            elif block_entity["id"] == "Hopper":
+                variant = str(rot)
+
+        if debug:
+            print((rot, variant, lit, data, skip))
+        return (rot, variant, lit, data, skip)
