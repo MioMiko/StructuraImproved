@@ -15,7 +15,7 @@ import ntpath
 import json
 import re
 
-skip_unsupported_block = False
+skip_unsupported_block = True
 debug = False
 
 with open("config/config.json",encoding="utf-8") as f:

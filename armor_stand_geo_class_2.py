@@ -5,7 +5,7 @@ import copy
 import os
 from collections import Counter,deque
 
-debug = True
+debug = False
 
 class default_key_dict(dict):
     def __missing__(self,key):
