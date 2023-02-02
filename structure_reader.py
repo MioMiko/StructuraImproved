@@ -99,8 +99,9 @@ class process_structure:
 
         for key in self.nbt_def["top"]:
             if key in block_states.keys():
-                data += "_top"
-                break
+                if block_states[key]:
+                    data += "_top"
+                    break
 
         for key in self.nbt_def["skip"]:
             if key in block_states.keys():
