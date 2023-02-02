@@ -1,4 +1,5 @@
 {
+	"": "gui",
 	"browse": "Browse",
 	"structure_file": "Structure file",
 	"icon_file": "Icon file",
@@ -17,6 +18,12 @@
 	"need_packname": "You need to set a pack name",
 	"same_nametag": "The Name Tag mut be unique",
 
+	"": "文件",
+	"name_tags_filename": "Name Tags.txt",
+	"name_tags_contain": "These are the nametags used in this file",
+	"material_list_filename": "{} Block List.txt",
+	"all_material_list_filename": "All Block List.txt",
+
 	"": "about",
 	"about": "About",
 	"about_content": "This is a tool based on Strictura and make improvement.\nIt's open soucre under MIT License.\n\nOpen source address: https://github.com/MioMiko/StructuraImproved\nOrignal Structura address: https://github.com/RavinMaddHatter/Structura\n\nStructuraImproved Lisence original text:\n\n{}\n\nStructura Lisence original text:\n\n{}",
@@ -26,6 +33,8 @@
 	"lang": "Language",
 	"structure_path": "Default Structure Browsing Path",
 	"save_path": "Mcpack Save Path",
+	"info_save_path": "Save path of info such as Name tags and material list",
+	"icon_path": "Mcpack icon path(need to be renamed as pack_icon.png)",
 	"overwrite_same_packname": "Overwrite Same Packname",
 	"cancel": "cancel",
 	"confirm": "confirm",

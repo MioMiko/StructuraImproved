@@ -1,4 +1,5 @@
 {
+	"": "gui",
 	"browse": "浏览",
 	"structure_file": "结构文件",
 	"icon_file": "资源包图标文件",
@@ -17,6 +18,12 @@
 	"need_packname": "你需要一个资源包名称",
 	"same_nametag": "命名不能重复",
 
+	"": "文件",
+	"name_tags_filename": "命名表.txt",
+	"name_tags_contain": "如下为这个投影用到的所有命名",
+	"material_list_filename": "{} 材料表.txt",
+	"all_material_list_filename": "材料总表.txt",
+
 	"": "关于",
 	"about": "关于",
 	"about_content": "这是一个基于Structura并做出改进的工，并通过MIT协议开源。\n\n开源地址: https://github.com/MioMiko/StructuraImproved\n原版Structura: https://github.com/RavinMaddHatter/Structura\n\nStructuraImproved开源许可证原文:\n\n{}\n\nStructura 开源许可证原文:\n\n{}",
@@ -26,6 +33,8 @@
 	"lang": "语言",
 	"structure_path": "默认结构浏览路径",
 	"save_path": "投影保存路径",
+	"info_save_path": "材料表和命名表等信息存储路径",
+	"icon_path": "投影文件图标路径（需要重命名为 pack_icon.png）",
 	"overwrite_same_packname": "覆盖写入相同包名的投影",
 	"cancel": "取消",
 	"confirm": "确认",

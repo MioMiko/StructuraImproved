@@ -3,12 +3,17 @@ import os
 
 
 class animations:
+
+    __slots__ = ("default_size","sizing","poses")
+
     def __init__(self):
-        self.default_size = {"format_version": "1.8.0",
-                             "animations": {"animation.armor_stand.ghost_blocks.scale": {
-                                 "loop": True,
-                                 "bones": {
-                                     "ghost_blocks": {"scale": 16.0}}}}}
+        self.default_size = {
+            "format_version": "1.8.0",
+            "animations": {"animation.armor_stand.ghost_blocks.scale": {
+                "loop": True,
+                "bones": {
+                "ghost_blocks": {"scale": 16.0}}}}
+        }
         pathtofile = "lookups/vanilla/armor_stand.animation.json"
         with open(pathtofile) as f:
             self.sizing = json.load(f)
@@ -28,28 +33,19 @@ class animations:
         self.poses[12] = "animation.armor_stand.hero_pose"
 
     def insert_layer(self, y):
-        name = "layer_{}".format(y)
-        # self.sizing["animations"][self.poses[0]]["bones"][name]={"scale":16}
+        name = f"layer_{y}"
         for i in range(12):
             if y % (12) != i:
-                # self.sizing["animations"][self.poses[i+1]]["bones"][name]={"scale":16}
                 self.sizing["animations"][self.poses[i+1]
                                           ]["bones"][name] = {"scale": 0.08}
 
     def export(self, pack_name):
-        path_to_ani = "{}/animations/armor_stand.animation.json".format(
-            pack_name)
-        try:
+        path_to_ani = f"{pack_name}/animations/armor_stand.animation.json"
 
-            os.makedirs(os.path.dirname(path_to_ani), exist_ok=True)
-        except:
-            pass
+        os.makedirs(os.path.dirname(path_to_ani), exist_ok=True)
+
         with open(path_to_ani, "w") as json_file:
             json.dump(self.sizing, json_file, indent=2)
         path_to_rc = f"{pack_name}/animations/armor_stand.ghost_blocks.scale.animation.json"
-        try:
-            os.makedirs(os.path.dirname(path_to_rc), exist_ok=True)
-        except:
-            pass
         with open(path_to_rc, "w") as json_file:
             json.dump(self.default_size, json_file, indent=2)

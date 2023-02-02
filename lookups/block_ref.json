@@ -99,7 +99,7 @@
 		}
 	},
 	"anvil": {
-		"definition": ["anvil"],
+		"definition": ["anvil","anvil","pumpkin"],
 		"undamaged": {
 			"textures": {
 				"up": ["anvil_top_damaged_0", "anvil_base_damaged_0"],
@@ -139,7 +139,7 @@
 		}
 	},
 	"barrel": {
-		"definition": ["barrel"],
+		"definition": ["cube","cube","barrel"],
 		"default": {
 			"textures": {
 				"up": ["barrel_top"],
@@ -149,7 +149,7 @@
 		}
 	},
 	"basalt": {
-		"definition": ["tree"],
+		"definition": ["cube","cube","tree"],
 		"default": {
 			"textures": {
 				"up": ["basalt_top"],
@@ -169,7 +169,7 @@
 		}
 	},
 	"bed": {
-		"definition": ["bed"],
+		"definition": ["bed","bed","pumpkin"],
 		"Byte(0)": {
 			"textures": ["colorful/bed_white"],
 			"material": {
@@ -322,7 +322,7 @@
 		}
 	},
 	"bee_nest": {
-		"definition": ["pumpkin"],
+		"definition": ["cube","cube","pumpkin"],
 		"default": {
 			"textures": {
 				"up": ["bee_nest_top"],
@@ -342,7 +342,7 @@
 		}
 	},
 	"beehive": {
-		"definition": ["pumpkin"],
+		"definition": ["cube","cube","pumpkin"],
 		"default": {
 			"textures": {
 				"up": ["beehive_top"],
@@ -432,7 +432,7 @@
 		}
 	},
 	"black_glazed_terracotta": {
-		"definition": ["glazed_terracotta"],
+		"definition": ["cube","glazed_terracotta","facing_block"],
 		"default": {
 			"textures": ["colorful/glazed_terracotta_black"]
 		}
@@ -477,7 +477,7 @@
 		}
 	},
 	"blast_furnace": {
-		"definition": ["furnace"],
+		"definition": ["cube","cube","furnace"],
 		"default": {
 			"textures": {
 				"up": ["blast_furnace_top"],
@@ -488,7 +488,7 @@
 		}
 	},
 	"blue_glazed_terracotta": {
-		"definition": ["glazed_terracotta"],
+		"definition": ["cube","glazed_terracotta","facing_block"],
 		"default": {
 			"textures": ["colorful/glazed_terracotta_blue"]
 		}
@@ -500,7 +500,7 @@
 		}
 	},
 	"bone_block": {
-		"definition": ["tree"],
+		"definition": ["cube","cube","tree"],
 		"default": {
 			"textures": {
 				"up": ["bone_block_top"],
@@ -538,7 +538,7 @@
 		}
 	},
 	"brown_glazed_terracotta": {
-		"definition": ["glazed_terracotta"],
+		"definition": ["cube","glazed_terracotta","facing_block"],
 		"default": {
 			"textures": ["colorful/glazed_terracotta_brown"]
 		}
@@ -668,7 +668,7 @@
 		}
 	},
 	"carved_pumpkin": {
-		"definition": ["pumpkin"],
+		"definition": ["cube","cube","pumpkin"],
 		"default": {
 			"textures": {
 				"up": ["plant/pumpkin_top"],
@@ -707,7 +707,7 @@
 		}
 	},
 	"chest": {
-		"definition": ["chest"],
+		"definition": ["chest","chest","furnace"],
 		"default": {
 			"textures": {
 				"up": ["chest_top"],
@@ -1163,7 +1163,7 @@
 		}
 	},
 	"crimson_hyphae": {
-		"definition": ["tree"],
+		"definition": ["cube","cube","tree"],
 		"default": {
 			"textures": ["wood/log_crimson_side"]
 		}
@@ -1218,7 +1218,7 @@
 		}
 	},
 	"crimson_stem": {
-		"definition": ["tree"],
+		"definition": ["cube","cube","tree"],
 		"default": {
 			"textures": {
 				"up": ["wood/log_crimson_top"],
@@ -1249,7 +1249,7 @@
 		}
 	},
 	"cyan_glazed_terracotta": {
-		"definition": ["glazed_terracotta"],
+		"definition": ["cube","glazed_terracotta","facing_block"],
 		"default": {
 			"textures": ["colorful/glazed_terracotta_cyan"]
 		}
@@ -1693,7 +1693,7 @@
 		}
 	},
 	"ender_chest": {
-		"definition": ["chest"],
+		"definition": ["chest","chest","furnace"],
 		"default": {
 			"textures": {
 				"up": ["ender_chest_top"],
@@ -1783,7 +1783,7 @@
 		}
 	},
 	"furnace": {
-		"definition": ["furnace"],
+		"definition": ["cube","cube","furnace"],
 		"default": {
 			"textures": {
 				"up": ["furnace_top"],
@@ -1887,13 +1887,13 @@
 		}
 	},
 	"gray_glazed_terracotta": {
-		"definition": ["glazed_terracotta"],
+		"definition": ["cube","glazed_terracotta","facing_block"],
 		"default": {
 			"textures": ["colorful/glazed_terracotta_gray"]
 		}
 	},
 	"green_glazed_terracotta": {
-		"definition": ["glazed_terracotta"],
+		"definition": ["cube","glazed_terracotta","facing_block"],
 		"default": {
 			"textures": ["colorful/glazed_terracotta_green"]
 		}
@@ -1917,7 +1917,7 @@
 		}
 	},
 	"hay_block": {
-		"definition": ["tree"],
+		"definition": ["cube","cube","tree"],
 		"default": {
 			"textures": {
 				"up": ["hay_block_top"],
@@ -2153,7 +2153,7 @@
 		}
 	},
 	"lava": {
-		"definition": ["water"],
+		"definition": ["cube"],
 		"default": {
 			"textures": ["lava_still"]
 		}
@@ -2183,7 +2183,7 @@
 		}
 	},
 	"lectern": {
-		"definition": ["lectern"],
+		"definition": ["lectern","lectern","pumpkin"],
 		"default": {
 			"textures": {
 				"up": ["lectern_base", "lectern_front", "lectern_top"],
@@ -2200,7 +2200,7 @@
 		}
 	},
 	"light_blue_glazed_terracotta": {
-		"definition": ["glazed_terracotta"],
+		"definition": ["cube","glazed_terracotta","facing_block"],
 		"default": {
 			"textures": ["colorful/glazed_terracotta_light_blue"]
 		}
@@ -2212,13 +2212,13 @@
 		}
 	},
 	"lime_glazed_terracotta": {
-		"definition": ["glazed_terracotta"],
+		"definition": ["cube","glazed_terracotta","facing_block"],
 		"default": {
 			"textures": ["colorful/glazed_terracotta_lime"]
 		}
 	},
 	"lit_pumpkin": {
-		"definition": ["pumpkin"],
+		"definition": ["cube","cube","pumpkin"],
 		"default": {
 			"textures": {
 				"up": ["plant/pumpkin_top"],
@@ -2246,7 +2246,7 @@
 		}
 	},
 	"log": {
-		"definition": ["tree"],
+		"definition": ["cube","cube","tree"],
 		"oak": {
 			"textures": {
 				"up": ["wood/log_oak_top"],
@@ -2277,7 +2277,7 @@
 		}
 	},
 	"log2": {
-		"definition": ["tree"],
+		"definition": ["cube","cube","tree"],
 		"acacia": {
 			"textures": {
 				"up": ["wood/log_acacia_top"],
@@ -2294,7 +2294,7 @@
 		}
 	},
 	"loom": {
-		"definition": ["pumpkin"],
+		"definition": ["cube","cube","pumpkin"],
 		"default": {
 			"textures": {
 				"up": ["loom_top"],
@@ -2305,7 +2305,7 @@
 		}
 	},
 	"magenta_glazed_terracotta": {
-		"definition": ["glazed_terracotta"],
+		"definition": ["cube","glazed_terracotta","facing_block"],
 		"default": {
 			"textures": ["colorful/glazed_terracotta_magenta"]
 		}
@@ -2491,7 +2491,7 @@
 		}
 	},
 	"orange_glazed_terracotta": {
-		"definition": ["glazed_terracotta"],
+		"definition": ["cube","glazed_terracotta","facing_block"],
 		"default": {
 			"textures": ["colorful/glazed_terracotta_orange"]
 		}
@@ -2503,7 +2503,7 @@
 		}
 	},
 	"pink_glazed_terracotta": {
-		"definition": ["glazed_terracotta"],
+		"definition": ["cube","glazed_terracotta","facing_block"],
 		"default": {
 			"textures": ["colorful/glazed_terracotta_pink"]
 		}
@@ -2568,7 +2568,7 @@
 		}
 	},
 	"polished_basalt": {
-		"definition": ["tree"],
+		"definition": ["cube","cube","tree"],
 		"default": {
 			"textures": {
 				"up": ["polished_basalt_top"],
@@ -2676,7 +2676,7 @@
 		}
 	},
 	"powered_comparator": {
-		"definition": ["comparator"],
+		"definition": ["comparator","comparator","pumpkin"],
 		"default": {"material": {"comparator":{"default":1}}},
 		"Byte(0)": {
 			"textures": {
@@ -2694,7 +2694,7 @@
 		}
 	},
 	"powered_repeater": {
-		"definition": ["repeater"],
+		"definition": ["repeater","repeater","pumpkin"],
 		"default": {
 			"textures": {
 				"up": ["redstone/repeater_on", "redstone/torch_on", "redstone/torch_on"],
@@ -2729,7 +2729,7 @@
 		}
 	},
 	"pumpkin": {
-		"definition": ["pumpkin"],
+		"definition": ["cube","cube","pumpkin"],
 		"default": {
 			"textures": {
 				"up": ["plant/pumpkin_top"],
@@ -2745,13 +2745,13 @@
 		}
 	},
 	"purple_glazed_terracotta": {
-		"definition": ["glazed_terracotta"],
+		"definition": ["cube","glazed_terracotta","facing_block"],
 		"default": {
 			"textures": ["colorful/glazed_terracotta_purple"]
 		}
 	},
 	"purpur_block": {
-		"definition": ["tree"],
+		"definition": ["cube","cube","tree"],
 		"default": {
 			"textures": ["purpur_block"]
 		},
@@ -2770,7 +2770,7 @@
 		}
 	},
 	"quartz_block": {
-		"definition": ["tree"],
+		"definition": ["cube","cube","tree"],
 		"default": {
 			"textures": ["quartz_block"]
 		},
@@ -2866,7 +2866,7 @@
 		}
 	},
 	"red_glazed_terracotta": {
-		"definition": ["glazed_terracotta"],
+		"definition": ["cube","glazed_terracotta","facing_block"],
 		"default": {
 			"textures": ["colorful/glazed_terracotta_red"]
 		}
@@ -3131,7 +3131,7 @@
 		}
 	},
 	"shulker_box": {
-		"definition": ["shulker_box"],
+		"definition": ["cube","cube","shulker_box"],
 		"white": {
 			"textures": {
 				"up": ["colorful/shulker_top_white"],
@@ -3246,7 +3246,7 @@
 		}
 	},
 	"silver_glazed_terracotta": {
-		"definition": ["glazed_terracotta"],
+		"definition": ["cube","glazed_terracotta","facing_block"],
 		"default": {
 			"textures": ["colorful/glazed_terracotta_silver"]
 		}
@@ -3291,7 +3291,7 @@
 		}
 	},
 	"smoker": {
-		"definition": ["furnace"],
+		"definition": ["cube","cube","furnace"],
 		"default": {
 			"textures": {
 				"up": ["smoker_top"],
@@ -3838,7 +3838,7 @@
 		}
 	},
 	"stripped_acacia_log": {
-		"definition": ["tree"],
+		"definition": ["cube","cube","tree"],
 		"default": {
 			"textures": {
 				"up": ["wood/stripped_acacia_log_top"],
@@ -3848,7 +3848,7 @@
 		}
 	},
 	"stripped_birch_log": {
-		"definition": ["tree"],
+		"definition": ["cube","cube","tree"],
 		"default": {
 			"textures": {
 				"up": ["wood/stripped_birch_log_top"],
@@ -3858,13 +3858,13 @@
 		}
 	},
 	"stripped_crimson_hyphae": {
-		"definition": ["tree"],
+		"definition": ["cube","cube","tree"],
 		"default": {
 			"textures": ["wood/stripped_crimson_log_side"]
 		}
 	},
 	"stripped_crimson_stem": {
-		"definition": ["tree"],
+		"definition": ["cube","cube","tree"],
 		"default": {
 			"textures": {
 				"up": ["wood/stripped_crimson_log_top"],
@@ -3874,7 +3874,7 @@
 		}
 	},
 	"stripped_dark_oak_log": {
-		"definition": ["tree"],
+		"definition": ["cube","cube","tree"],
 		"default": {
 			"textures": {
 				"up": ["wood/stripped_dark_oak_log_top"],
@@ -3884,7 +3884,7 @@
 		}
 	},
 	"stripped_jungle_log": {
-		"definition": ["tree"],
+		"definition": ["cube","cube","tree"],
 		"default": {
 			"textures": {
 				"up": ["wood/stripped_jungle_log_top"],
@@ -3894,7 +3894,7 @@
 		}
 	},
 	"stripped_oak_log": {
-		"definition": ["tree"],
+		"definition": ["cube","cube","tree"],
 		"default": {
 			"textures": {
 				"up": ["wood/stripped_oak_log_top"],
@@ -3904,7 +3904,7 @@
 		}
 	},
 	"stripped_spruce_log": {
-		"definition": ["tree"],
+		"definition": ["cube","cube","tree"],
 		"default": {
 			"textures": {
 				"up": ["wood/stripped_spruce_log_top"],
@@ -3914,13 +3914,13 @@
 		}
 	},
 	"stripped_warped_hyphae": {
-		"definition": ["tree"],
+		"definition": ["cube","cube","tree"],
 		"default": {
 			"textures": ["wood/stripped_warped_log_side"]
 		}
 	},
 	"stripped_warped_stem": {
-		"definition": ["tree"],
+		"definition": ["cube","cube","tree"],
 		"default": {
 			"textures": {
 				"up": ["wood/stripped_warped_log_top"],
@@ -3983,7 +3983,7 @@
 		}
 	},
 	"trapped_chest": {
-		"definition": ["chest"],
+		"definition": ["chest","chest","furnace"],
 		"default": {
 			"textures": {
 				"up": ["chest_top"],
@@ -4030,7 +4030,7 @@
 		}
 	},
 	"undyed_shulker_box": {
-		"definition": ["shulker_box"],
+		"definition": ["cube","cube","shulker_box"],
 		"default": {
 			"textures": {
 				"up": ["colorful/shulker_top_undyed"],
@@ -4047,7 +4047,7 @@
 		}
 	},
 	"unpowered_comparator": {
-		"definition": ["comparator"],
+		"definition": ["comparator","comparator","pumpkin"],
 		"default": {"material": {"comparator":{"default":1}}},
 		"Byte(0)": {
 			"textures": {
@@ -4065,7 +4065,7 @@
 		}
 	},
 	"unpowered_repeater": {
-		"definition": ["repeater"],
+		"definition": ["repeater","repeater","pumpkin"],
 		"default": {
 			"textures": {
 				"up": ["redstone/repeater_off", "redstone/torch_off", "redstone/torch_off"],
@@ -4131,7 +4131,7 @@
 		}
 	},
 	"warped_hyphae": {
-		"definition": ["tree"],
+		"definition": ["cube","cube","tree"],
 		"default": {
 			"textures": ["wood/log_warped_side"]
 		}
@@ -4217,7 +4217,7 @@
 		}
 	},
 	"water": {
-		"definition": ["water"],
+		"definition": ["cube"],
 		"default": {
 			"textures": ["water_still"],
 			"material": "ignore"
@@ -4275,7 +4275,7 @@
 		}
 	},
 	"white_glazed_terracotta": {
-		"definition": ["glazed_terracotta"],
+		"definition": ["cube","glazed_terracotta","facing_block"],
 		"default": {
 			"textures": ["colorful/glazed_terracotta_white"]
 		}
@@ -4287,7 +4287,7 @@
 		}
 	},
 	"wood": {
-		"definition": ["tree"],
+		"definition": ["cube","cube","tree"],
 		"oak": {
 			"textures": ["wood/log_oak"]
 		},
@@ -4422,7 +4422,7 @@
 		}
 	},
 	"yellow_glazed_terracotta": {
-		"definition": ["glazed_terracotta"],
+		"definition": ["cube","glazed_terracotta","facing_block"],
 		"default": {
 			"textures": ["colorful/glazed_terracotta_yellow"]
 		}

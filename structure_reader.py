@@ -5,8 +5,13 @@ import numpy as np
 debug = False
 
 class process_structure:
+# read the structure file and draw the block info
+
+    __slots__ = ("NBTfile","blocks","size","palette","block_entities","cube")
+
     with open("lookups/nbt_defs.json",encoding="utf-8") as f:
         nbt_def = json.load(f)
+
     def __init__(self, file):
         if type(file) is dict:
             self.NBTfile = file
@@ -20,10 +25,9 @@ class process_structure:
         self.size = list(map(int, self.NBTfile["size"]))
         self.palette = self.NBTfile["structure"]["palette"]["default"]["block_palette"]
         self.block_entities = self.NBTfile["structure"]["palette"]["default"]["block_position_data"]
-        self.get_blockmap()
 
-    def get_blockmap(self):
-        self.cube = np.zeros((self.size[0],self.size[1],self.size[2],2), int)
+        # get block map
+        self.cube = np.empty((self.size[0],self.size[1],self.size[2],2), int)
         i = 0
         for x in range(self.size[0]):
             for y in range(self.size[1]):
@@ -35,8 +39,7 @@ class process_structure:
         index = self.cube[x, y, z]
         block_entity = {}
         if str(index[1]) in self.block_entities.keys():
-            if "block_entity_data" in self.block_entities[str(index[1])]:
-                block_entity = self.block_entities[str(index[1])]["block_entity_data"]
+            block_entity = self.block_entities[str(index[1])].get("block_entity_data",{})
         block_palette = self.palette[int(index[0])]
         return (
             block_palette["name"].replace("minecraft:",""),

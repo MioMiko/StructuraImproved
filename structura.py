@@ -18,6 +18,7 @@ import re
 skip_unsupported_block = True
 debug = False
 
+# load config
 with open("config/config.json",encoding="utf-8") as f:
     conf = json.load(f)
 with open("config/lang/lang_ref.json",encoding="utf-8") as f:
@@ -25,7 +26,7 @@ with open("config/lang/lang_ref.json",encoding="utf-8") as f:
 with open(f"config/lang/{lang_ref[conf['lang']]}.json",encoding="utf-8") as f:
     lang = json.load(f)
 
-def generate_pack(pack_name,models_object={},makeMaterialsList=False, icon="lookups/pack_icon.png"):
+def generate_pack(pack_name,models_object={},multi_model=False,makeMaterialsList=False, icon="lookups/pack_icon.png"):
     """
 This is the funciton that makes a structura pack:
 pack_name : the name of the pack, this will be stored the the manafest.JSON as well as the name of the mcpack file
@@ -34,15 +35,16 @@ makeMaterialsList : sets wether a material list shall be output.
     """
 
 
-    visual_name = pack_name
-    multi_model = False
-    if len("".join(list(models_object.keys()))) > 0:
-        multi_model = True
-        fileName="{} Nametags.txt".format(pack_name)
+    info_save_path = f"{conf['info_save_path']}{pack_name}/"
+    if "".join(tuple(models_object.keys())) != "":
+        os.makedirs(info_save_path, exist_ok=True)
+        fileName=f"{info_save_path}{lang['name_tags_filename']}"
         with open(fileName,"w",encoding="utf-8") as text_file:
-            text_file.write("These are the nametags used in this file\n")
+            text_file.write(lang["name_tags_contain"])
             for name in models_object.keys():
-                text_file.write("{}\n".format(name))
+                text_file.write("\n{}".format(name))
+    elif makeMaterialsList:
+        os.makedirs(info_save_path, exist_ok=True)
 
 
     ## makes a render controller class that we will use to hide models
@@ -50,7 +52,7 @@ makeMaterialsList : sets wether a material list shall be output.
     ##makes a armor stand entity class that we will use to add models 
     armorstand_entity = armor_stand_class.armorstand()
     ##manifest is mostly hard coded in this function.
-    manifest.export(visual_name)
+    manifest.export(pack_name)
 
     ## repeate for each structure after you get it to work
     #creats a base animation controller for us to put pose changes into
@@ -58,20 +60,19 @@ makeMaterialsList : sets wether a material list shall be output.
     longestY = 0
     update_animation = True
     all_material_list = Counter()
-    for model_name in models_object.keys():
-        offset=models_object[model_name]["offsets"]
+    for model_name in tuple(models_object.keys()):
+        model = models_object.pop(model_name)
         rc.add_model(model_name)
         armorstand_entity.add_model(model_name)
-        copyfile(models_object[model_name]["structure"], "{}/{}.mcstructure".format(pack_name,model_name))
         if debug:
-            print(models_object[model_name]['offsets'])
+            print(model['offsets'])
         #reads structure
-        struct2make = structure_reader.process_structure(models_object[model_name]["structure"])
+        struct2make = structure_reader.process_structure(model["structure"])
         #creates a base armorstand class for us to insert blocks
-        armorstand = asgc.armorstandgeo(model_name,alpha = models_object[model_name]['opacity'],offsets=models_object[model_name]['offsets'])
+        armorstand = asgc.armorstandgeo(model_name,model['opacity'],model["offsets"])
 
         #gets the shape for looping
-        [xlen, ylen, zlen] = struct2make.size
+        xlen, ylen, zlen = struct2make.size
         if ylen > longestY:
             update_animation=True
             longestY = ylen
@@ -103,7 +104,7 @@ makeMaterialsList : sets wether a material list shall be output.
         ## this is a quick hack to get block lists, doesnt consider vairants.... so be careful
         if makeMaterialsList:
             if multi_model:
-                fileName="{} - {} block list.csv".format(visual_name,model_name)
+                fileName=f"{info_save_path}{lang['material_list_filename']}".format(model_name)
                 with open(fileName,"w",encoding="utf-8") as file:
                     file.write(f"{lang['block_name']},{lang['count']}\n")
                     for name,count in armorstand.material_list.most_common():
@@ -120,15 +121,16 @@ makeMaterialsList : sets wether a material list shall be output.
         ##export the armorstand class
         armorstand_entity.export(pack_name)
 
+    # endfor models
     if makeMaterialsList:
-        fileName=f"{visual_name} block list.csv"
+        fileName=f"{info_save_path}{lang['all_material_list_filename']}"
         with open(fileName,"w",encoding="utf-8") as file:
             file.write(f"{lang['block_name']},{lang['count']}\n")
             for name,count in all_material_list.most_common():
                 name = lang["block_name_ref"].get(name,name)
                 file.write(f"{name},{int(count)}\n")
     # Copy my icons in
-    copyfile(icon, "{}/pack_icon.png".format(pack_name))
+    copyfile(icon, f"{pack_name}/pack_icon.png")
     # Adds to zip file a modified armor stand geometry to enlarge the render area of the entity
     larger_render = "lookups/armor_stand.larger_render.geo.json"
     larger_render_path = f"{pack_name}/models/entity/armor_stand.larger_render.geo.json"
@@ -234,23 +236,21 @@ if __name__=="__main__":
             # updateButton.grid(row=r, column=2)
 
     def add_model():
-        valid=True
         if len(FileGUI.get()) == 0:
             messagebox.showerror(lang["error"], lang["need_structure"])
-            valid=False
+            return
         if model_name_var.get() in list(models.keys()):
             messagebox.showerror(lang["error"], lang["same_nametag"])
-            valid=False
+            return
 
-        if valid:
-            name_tag = model_name_var.get()
-            push_model(
-                name_tag,
-                (100-sliderVar.get())/100,
-                [xvar.get(),yvar.get(),zvar.get()],
-                FileGUI.get()
-            )
-            listbox.insert(END,name_tag)
+        name_tag = model_name_var.get()
+        push_model(
+            name_tag,
+            (100-sliderVar.get())/100,
+            [xvar.get(),yvar.get(),zvar.get()],
+            FileGUI.get()
+        )
+        listbox.insert(END,name_tag)
 
     def push_model(name,opacity,offset,structure):
         global models
@@ -273,20 +273,29 @@ if __name__=="__main__":
         global models
         pack_name:str = packName.get()
         stop = False
+        multi_model = False
 
-        if check_var.get() == 0:
+        if len(models) == 0:
+            multi_model = False
             if len(FileGUI.get()) == 0:
                 stop = True
                 messagebox.showerror(lang["error"], lang["need_structure"])
             if len(pack_name) == 0:
                 pack_name = re.sub(r"(?:.*[/\\])?(?:mystructure_)?(.+).mcstructure",r"\1",FileGUI.get())
+            if check_var.get:
+                add_model()
+            else:
+                push_model(
+                    "",
+                    0.8,
+                    [0,0,0],
+                    FileGUI.get()
+                )
         else:
-            if len(list(models.keys())) == 0:
-                stop = True
-                messagebox.showerror(lang["error"], lang["need_models"])
-
+            multi_model = True
             if len(pack_name) == 0:
                 messagebox.showerror(lang["error"], lang["need_packname"])
+
         if not conf["overwrite_same_packname"]:
             tmp = pack_name
             i = 1
@@ -297,19 +306,14 @@ if __name__=="__main__":
             pack_icon=icon_var.get()
         else:
             pack_icon="lookups/pack_icon.png"
+
         if not stop:
-            if not(check_var.get()):
-                push_model(
-                    "",
-                    0.8,
-                    [0,0,0],
-                    FileGUI.get()
-                )
             if debug:
                 print(models)
             generate_pack(
                 pack_name,
                 models_object = models,
+                multi_model = multi_model,
                 makeMaterialsList = (export_list.get()==1),
                 icon = pack_icon
             )
