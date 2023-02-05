@@ -37,6 +37,7 @@
 		"composter_fill_level",
 		"cauldron_liquid",
 		"output_subtract_bit",
+		"bite_counter",
 		"rail_direction"
 	],
 	"rot": [

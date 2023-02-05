@@ -574,6 +574,25 @@
 			}
 		}
 	},
+	"cake": {
+		"definition": ["cake"],
+		"default": {
+			"textures": {
+				"up": ["cake_top"],
+				"side": ["cake_side"],
+				"west": ["cake_inner"],
+				"down": ["cake_bottom"]
+			},
+			"material": {"cake":{"default":1}}
+		},
+		"Int(0)": {
+			"textures": {
+				"up": ["cake_top"],
+				"side": ["cake_side"],
+				"down": ["cake_bottom"]
+			}
+		}
+	},
 	"camera": {
 		"definition": ["ignore"]
 	},
