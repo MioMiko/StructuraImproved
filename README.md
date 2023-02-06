@@ -3,6 +3,7 @@
 English丨[**简体中文**](README-zh-cn.md)
 
 Structura is inspired by Litematica. It is a tool that generates Resource packs from .mcstructure files. In this resource pack the armor stands were modified to render when off screen, and have all the blocks from your structure file as bones in their model. then "ghost blocks" are used to show the user where to place the real blocks.
+
 This tool is based on Structura and improved to get better building expenrice in survival.Currently this tool only supports 1.16.40(not means totally unavailable in other versions).Once the mcpack file is generated,it will work in all ther versions above 1.16.40.
 
 ## Install
@@ -59,3 +60,6 @@ The structure will appear around every armor stand in the worlds you load. It is
 ![alt text](docs/example_full.png?raw=true)
 You can go through a structure layer by layer if you like by shift right clicking on the stand. This will minimize all layers except the "active" ones. I cannot add poses without adding a behavior pack so for large structures there will be mutiple layers displayed at a time (12 blocks apart)
 ![alt text](docs/example_layer.png?raw=true)
+
+## LICENSE
+All the images made by StructuraImproved are under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).

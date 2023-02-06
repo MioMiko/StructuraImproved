@@ -10,6 +10,7 @@ Structura的灵感来自Litematica模组。它是一个可以用.mcstructure文�
 - 抛弃原有通过官方文件terrain_texture.json和blocks.json查找方块贴图的方式，并使用lookups/block_ref.json替代
 - 精细化了部分物品的模型
 - 加入了红石显示功能，可以更清晰得看到漏斗侦测器等物品方向
+- 更容易辨识的楼梯和半砖
 - 中文支持
 
 ## 安装
@@ -69,6 +70,5 @@ python structura.py
 你可以通过右击盔甲架来逐层浏览结构。这将最小化除“活动”层之外的所有层。然而对于大型结构，它一次会显示多层（相隔12个方块）
 ![alt text](docs/example_layer.png?raw=true)
 
-## 目前企划
-- 更容易辨识的楼梯和半砖
-- 小瑕疵修复
+## 版权声明
+所有StructuraImproved的自制贴图均以[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)开放。

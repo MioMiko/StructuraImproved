@@ -26,7 +26,7 @@
 
 	"": "关于",
 	"about": "关于",
-	"about_content": "这是一个基于Structura并做出改进的工，并通过MIT协议开源。\n\n开源地址: https://github.com/MioMiko/StructuraImproved\n原版Structura: https://github.com/RavinMaddHatter/Structura\n\nStructuraImproved开源许可证原文:\n\n{}\n\nStructura 开源许可证原文:\n\n{}",
+	"about_content": "这是一个基于Structura并做出改进的工，并通过MIT协议开源，其自制贴图以CC BY 4.0开放(https://creativecommons.org/licenses/by/4.0/)。\n\n开源地址: https://github.com/MioMiko/StructuraImproved\n原版Structura: https://github.com/RavinMaddHatter/Structura\n\nStructuraImproved开源许可证原文:\n\n{}\n\nStructura 开源许可证原文:\n\n{}",
 
 	"": "设置",
 	"setting": "设置",
