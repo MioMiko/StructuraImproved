@@ -3900,7 +3900,7 @@
 			}
 		},
 		"quartz": {
-			"textures": ["quartz_block"]
+			"textures": ["slabs/quartz_block"]
 		}
 	},
 	"stone_slab2": {
