@@ -65,7 +65,8 @@ class armorstandgeo:
     def export(self, pack_folder):
         ## This exporter just packs up the armorstand json files and dumps them where it should go. as well as exports the UV file
         # self.add_blocks_to_bones()
-        self.geometry["description"]["texture_height"] = self.uv_height/16
+        self.uv_height = (((self.uv_height - 1) >> 4) + 1) << 4
+        self.geometry["description"]["texture_height"] = self.uv_height//16
         self.stand["minecraft:geometry"] = [self.geometry] ## this is insuring the geometries are imported, there is an implied refference other places.
         path_to_geo = "{}/models/entity/armor_stand.ghost_blocks_{}.geo.json".format(
             pack_folder,self.name)
