@@ -2,7 +2,11 @@
 unused/
 lookups/uv/blocks/unused/
 
+# cache
+structura/cache/
+
 # Byte-compiled / optimized / DLL files
+structura/__pycache__/
 __pycache__/
 *.py[cod]
 *$py.class
