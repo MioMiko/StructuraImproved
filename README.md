@@ -9,6 +9,8 @@ This tool is based on Structura and improved to get better building expenrice in
 ## Support Version
 - 1.16.40
 - 1.17.30
+- 1.18.31
+
 The versions above is what I tested it in.It not means this tool can only be used in these versions.Once the mcpack file is generated,it will work in all versions above 1.16.40.
 
 ## Install

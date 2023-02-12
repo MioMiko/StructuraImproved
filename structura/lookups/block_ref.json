@@ -1088,6 +1088,57 @@
 			"textures": ["colorful/concrete_pink"]
 		}
 	},
+	"concrete_powder": {
+		"definition": ["cube"],
+		"white": {
+			"textures": ["colorful/concrete_powder_white"]
+		},
+		"silver": {
+			"textures": ["colorful/concrete_powder_silver"]
+		},
+		"gray": {
+			"textures": ["colorful/concrete_powder_gray"]
+		},
+		"black": {
+			"textures": ["colorful/concrete_powder_black"]
+		},
+		"brown": {
+			"textures": ["colorful/concrete_powder_brown"]
+		},
+		"red": {
+			"textures": ["colorful/concrete_powder_red"]
+		},
+		"orange": {
+			"textures": ["colorful/concrete_powder_orange"]
+		},
+		"yellow": {
+			"textures": ["colorful/concrete_powder_yellow"]
+		},
+		"lime": {
+			"textures": ["colorful/concrete_powder_lime"]
+		},
+		"green": {
+			"textures": ["colorful/concrete_powder_green"]
+		},
+		"cyan": {
+			"textures": ["colorful/concrete_powder_cyan"]
+		},
+		"light_blue": {
+			"textures": ["colorful/concrete_powder_light_blue"]
+		},
+		"blue": {
+			"textures": ["colorful/concrete_powder_blue"]
+		},
+		"purple": {
+			"textures": ["colorful/concrete_powder_purple"]
+		},
+		"magenta": {
+			"textures": ["colorful/concrete_powder_magenta"]
+		},
+		"pink": {
+			"textures": ["colorful/concrete_powder_pink"]
+		}
+	},
 	"concretePowder": {
 		"definition": ["cube"],
 		"white": {
@@ -3129,6 +3180,10 @@
 			}
 		}
 	},
+	"piston_arm_collision": {
+		"definition": ["ignore"],
+		"default": {"material": "ignore"}
+	},
 	"pistonArmCollision": {
 		"definition": ["ignore"],
 		"default": {"material": "ignore"}
@@ -3844,6 +3899,12 @@
 			}
 		}
 	},
+	"sea_lantern": {
+		"definition": ["cube"],
+		"default": {
+			"textures": ["sea_lantern"]
+		}
+	},
 	"seaLantern": {
 		"definition": ["cube"],
 		"default": {
@@ -4443,6 +4504,10 @@
 			}
 		}
 	},
+	"sticky_piston_arm_collision": {
+		"definition": ["ignore"],
+		"default": {"material": "ignore"}
+	},
 	"stickyPistonArmCollision": {
 		"definition": ["ignore"],
 		"default": {"material": "ignore"}
@@ -4806,6 +4871,12 @@
 				"south": ["trapped_chest_front"],
 				"down": ["chest_top"]
 			}
+		}
+	},
+	"trip_wire": {
+		"definition": ["tripwire"],
+		"default": {
+			"textures": ["trip_wire"]
 		}
 	},
 	"tripWire": {
