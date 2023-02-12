@@ -2,7 +2,7 @@ import structura
 import re
 import traceback
 
-debug = True
+debug = False
 
 
 class para_count_check:

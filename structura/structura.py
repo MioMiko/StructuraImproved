@@ -15,7 +15,7 @@ import ntpath
 import json
 import re
 
-skip_unsupported_block = False
+skip_unsupported_block = True
 debug = False
 
 # load config

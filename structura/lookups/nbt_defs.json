@@ -38,6 +38,7 @@
 		"cauldron_liquid",
 		"output_subtract_bit",
 		"bite_counter",
+		"dripstone_thickness",
 		"rail_direction"
 	],
 	"rot": [
@@ -61,9 +62,13 @@
 		"rail_data_bit",
 		"toggle_bit",
 		"powered_bit",
+		"hanging",
+		"lit",
 		"stripped_bit"
 	],
 	"data": [
+		"big_dripleaf_head",
+		"candles",
 		"open_bit",
 		"hanging",
 		"repeater_delay",

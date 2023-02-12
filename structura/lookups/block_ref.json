@@ -93,6 +93,12 @@
 			"textures": ["amethyst_block"]
 		}
 	},
+	"amethyst_cluster": {
+		"definition": ["cross_texture","cross_texture","dispenser"],
+		"default": {
+			"textures": ["amethyst_cluster"]
+		}
+	},
 	"ancient_debris": {
 		"definition": ["cube"],
 		"default": {
@@ -141,6 +147,28 @@
 			"material": {"anvil_very_damaged":{"default":1}}
 		}
 	},
+	"azalea": {
+		"definition": ["azalea"],
+		"default":{
+			"textures": {
+				"up": ["plant/azalea_top"],
+				"side": ["plant/azalea_side"],
+				"down": ["plant/azalea_top"]
+			}
+		}
+	},
+	"azalea_leaves": {
+		"definition": ["cube"],
+		"default": {
+			"textures": ["plant/azalea_leaves"]
+		}
+	},
+	"azalea_leaves_flowered": {
+		"definition": ["cube"],
+		"default": {
+			"textures": ["plant/azalea_leaves_flowers"]
+		}
+	},
 	"bamboo": {
 		"definition": ["bamboo"],
 		"default": {
@@ -155,7 +183,7 @@
 		}
 	},
 	"barrel": {
-		"definition": ["cube","cube","barrel"],
+		"definition": ["cube","cube","dispenser"],
 		"default": {
 			"textures": {
 				"up": ["barrel_top"],
@@ -384,12 +412,24 @@
 		}
 	},
 	"bell": {
-		"definition": ["bell"],
+		"definition": ["bell","bell","pumpkin_reverse"],
 		"default": {
 			"textures": {
 				"up": ["bell_top", "wood/log_spruce", "stone", "stone"],
 				"side": ["bell_side", "wood/log_spruce", "stone", "stone"],
 				"down": ["bell_bottom", "wood/log_spruce", "stone", "stone"]
+			}
+		}
+	},
+	"big_dripleaf": {
+		"definition": ["big_dripleaf","big_dripleaf","pumpkin_reverse"],
+		"default": {
+			"textures": {
+				"up": ["null","null","plant/big_dripleaf_top"],
+				"side": ["null","null","plant/big_dripleaf_side1"],
+				"south": ["plant/big_dripleaf_stem","plant/big_dripleaf_stem","plant/big_dripleaf_side2"],
+				"north": ["plant/big_dripleaf_stem","plant/big_dripleaf_stem","null"],
+				"down": ["null","null","null"]
 			}
 		}
 	},
@@ -660,6 +700,39 @@
 			}
 		}
 	},
+	"candle": {
+		"definition": ["candle"],
+		"default": {
+			"textures": ["colorful/candle"],
+			"material": {"candle":{
+				"0": 1, "1": 2, "2": 3, "3": 4
+			}}
+		},
+		"default_lit": {
+			"textures": ["colorful/candle_lit"]
+		}
+	},
+	"candle_cake": {
+		"definition": ["candle_cake"],
+		"default": {
+			"textures": {
+				"up": ["cake_top","colorful/candle"],
+				"side": ["cake_side","colorful/candle"],
+				"down": ["cake_bottom","colorful/candle"]
+			},
+			"material": {
+				"candle": {"default": 1},
+				"cake": {"default": 1}
+			}
+		},
+		"default_lit": {
+			"textures": {
+				"up": ["cake_top","colorful/candle_lit"],
+				"side": ["cake_side","colorful/candle_lit"],
+				"down": ["cake_bottom","colorful/candle_lit"]
+			}
+		}
+	},
 	"carpet": {
 		"definition": ["carpet"],
 		"white": {
@@ -761,6 +834,24 @@
 	"cave_air": {
 		"definition": ["ignore"],
 		"default": {"material": "ignore"}
+	},
+	"cave_vines": {
+		"definition": ["cross_texture"],
+		"default": {
+			"textures": ["plant/cave_vines_body"]
+		}
+	},
+	"cave_vines_body_with_berries": {
+		"definition": ["cross_texture"],
+		"default": {
+			"textures": ["plant/cave_vines_body_berries"]
+		}
+	},
+	"cave_vines_head_with_berries": {
+		"definition": ["cross_texture"],
+		"default": {
+			"textures": ["plant/cave_vines_head_berries"]
+		}
 	},
 	"chain": {
 		"definition": ["chain"],
@@ -923,7 +1014,7 @@
 		}
 	},
 	"cocoa": {
-		"definition": ["cocoa"],
+		"definition": ["cocoa","cocoa","pumpkin"],
 		"default": {
 			"textures": ["plant/cocoa_stage_2"]
 		}
@@ -1701,7 +1792,7 @@
 		}
 	},
 	"dispenser": {
-		"definition": ["dispenser"],
+		"definition": ["cube","cube","dispenser"],
 		"default": {
 			"textures": {
 				"up": ["redstone/dispenser_front_vertical"],
@@ -1935,7 +2026,7 @@
 		}
 	},
 	"dropper": {
-		"definition": ["dispenser"],
+		"definition": ["cube","cube","dispenser"],
 		"default": {
 			"textures": {
 				"up": ["redstone/dropper_front_vertical"],
@@ -1996,7 +2087,7 @@
 		}
 	},
 	"end_portal_frame": {
-		"definition": ["portal_frame"],
+		"definition": ["portal_frame","portal_frame","pumpkin_reverse"],
 		"default": {
 			"textures": {
 				"up": ["endframe_top"],
@@ -2133,6 +2224,16 @@
 			"textures": ["flower_pot"]
 		}
 	},
+	"flowering_azalea": {
+		"definition": ["azalea"],
+		"default": {
+			"textures": {
+				"up": ["plant/flowering_azalea_top"],
+				"side": ["plant/flowering_azalea_side"],
+				"down": ["plant/flowering_azalea_top"]
+			}
+		}
+	},
 	"frame": {
 		"definition": ["frame"],
 		"default": {
@@ -2170,6 +2271,22 @@
 		"definition": ["pane"],
 		"default": {
 			"textures": ["colorful/glass"]
+		}
+	},
+	"glow_frame": {
+		"definition": ["frame"],
+		"default": {
+			"textures": {
+				"up": ["glow_item_frame"],
+				"side": ["wood/planks_birch"],
+				"down": ["glow_item_frame"]
+			}
+		}
+	},
+	"glow_lichen": {
+		"definition": ["cube"],
+		"default": {
+			"textures": ["plant/glow_lichen"]
 		}
 	},
 	"glowstone": {
@@ -2265,7 +2382,7 @@
 		}
 	},
 	"grindstone": {
-		"definition": ["grindstone"],
+		"definition": ["grindstone","grindstone","punmpkin_reverse"],
 		"default": {
 			"textures": {
 				"up": ["grindstone_round", "wood/log_spruce"],
@@ -2274,6 +2391,12 @@
 				"west": ["grindstone_side", "wood/log_spruce"],
 				"down": ["grindstone_round", "wood/log_spruce"]
 			}
+		}
+	},
+	"hanging_roots": {
+		"definition": ["cross_texture"],
+		"default": {
+			"textures": ["plant/hanging_roots"]
 		}
 	},
 	"hardened_clay": {
@@ -2534,6 +2657,12 @@
 			"textures": ["ore/lapis_ore"]
 		}
 	},
+	"large_amethyst_bud": {
+		"definition": ["cross_texture","cross_texture","dispenser"],
+		"default": {
+			"textures": ["large_amethyst_bud"]
+		}
+	},
 	"lava": {
 		"definition": ["cube"],
 		"default": {
@@ -2591,6 +2720,12 @@
 		"definition": ["pressure_plate"],
 		"default": {
 			"textures": ["ore/gold_block"]
+		}
+	},
+	"lightning_rod": {
+		"definition": ["lightning_rod","lightning_rod","dispenser"],
+		"default": {
+			"textures": ["lightning_rod"]
 		}
 	},
 	"lime_glazed_terracotta": {
@@ -2705,6 +2840,12 @@
 			"textures": ["magma"]
 		}
 	},
+	"medium_amethyst_bud": {
+		"definition": ["cross_texture","cross_texture","dispenser"],
+		"default": {
+			"textures": ["medium_amethyst_bud"]
+		}
+	},
 	"melon_block": {
 		"definition": ["cube"],
 		"default": {
@@ -2752,6 +2893,12 @@
 	},
 	"moss_block": {
 		"definition": ["cube"],
+		"default": {
+			"textures": ["moss_block"]
+		}
+	},
+	"moss_carpet": {
+		"definition": ["carpet"],
 		"default": {
 			"textures": ["moss_block"]
 		}
@@ -2882,7 +3029,7 @@
 		}
 	},
 	"observer": {
-		"definition": ["observer"],
+		"definition": ["cube","cube","facing_block"],
 		"default": {
 			"textures": {
 				"up": ["redstone/observer_top"],
@@ -3015,6 +3162,42 @@
 				"side": ["dirt_podzol_side"],
 				"down": ["dirt"]
 			}
+		}
+	},
+	"pointed_dripstone": {
+		"definition": ["cross_texture"],
+		"default": {
+			"material": {"pointed_dripstone":{"default":2}}
+		},
+		"tip": {
+			"textures": ["pointed_dripstone_up_tip"]
+		},
+		"tip_lit": {
+			"textures": ["pointed_dripstone_down_tip"]
+		},
+		"merge": {
+			"textures": ["pointed_dripstone_up_merge"]
+		},
+		"merge_lit": {
+			"textures": ["pointed_dripstone_down_merge"]
+		},
+		"frustum": {
+			"textures": ["pointed_dripstone_up_frustum"]
+		},
+		"frustum_lit": {
+			"textures": ["pointed_dripstone_down_frustum"]
+		},
+		"middle": {
+			"textures": ["pointed_dripstone_up_middle"]
+		},
+		"middle_lit": {
+			"textures": ["pointed_dripstone_down_middle"]
+		},
+		"base": {
+			"textures": ["pointed_dripstone_up_base"]
+		},
+		"base_lit": {
+			"textures": ["pointed_dripstone_down_base"]
 		}
 	},
 	"polished_andesite_stairs": {
@@ -3858,6 +4041,22 @@
 			}
 		}
 	},
+	"small_amethyst_bud": {
+		"definition": ["cross_texture","cross_texture","dispenser"],
+		"default": {
+			"textures": ["small_amethyst_bud"]
+		}
+	},
+	"small_dripleaf_block": {
+		"definition": ["small_dripleaf","small_dripleaf","pumpkin_reverse"],
+		"default": {
+			"textures": {
+				"up": ["plant/small_dripleaf_stem","plant/small_dripleaf_stem","plant/small_dripleaf_top"],
+				"side": ["plant/small_dripleaf_stem","plant/small_dripleaf_stem","plant/small_dripleaf_side"],
+				"down": ["plant/small_dripleaf_stem","plant/small_dripleaf_stem","plant/small_dripleaf_side"]
+			}
+		}
+	},
 	"smoker": {
 		"definition": ["cube","cube","furnace"],
 		"default": {
@@ -3994,6 +4193,12 @@
 		},
 		"wet": {
 			"textures": ["sponge_wet"]
+		}
+	},
+	"spore_blossom": {
+		"definition": ["spore_blossom"],
+		"default": {
+			"textures": ["plant/spore_blossom_base", "plant/spore_blossom"]
 		}
 	},
 	"spruce_button": {
@@ -4432,7 +4637,7 @@
 		}
 	},
 	"stonecutter_block": {
-		"definition": ["stonecutter"],
+		"definition": ["stonecutter","stonecutter","facing_block"],
 		"default": {
 			"textures": {
 				"up": ["stonecutter2_top", "stonecutter2_saw"],
@@ -4610,7 +4815,7 @@
 		}
 	},
 	"tripwire_hook": {
-		"definition": ["tripwire_hook"],
+		"definition": ["tripwire_hook","tripwire_hook","punmpkin_reverse"],
 		"default": {
 			"textures": ["wood/planks_oak", "trip_wire_source", "trip_wire_source"]
 		}
@@ -5075,6 +5280,39 @@
 			"textures": ["plant/wheat_stage_7"]
 		}
 	},
+	"white_candle": {
+		"definition": ["candle"],
+		"default": {
+			"textures": ["colorful/white_candle"],
+			"material": {"white_candle":{
+				"0": 1, "1": 2, "2": 3, "3": 4
+			}}
+		},
+		"default_lit": {
+			"textures": ["colorful/white_candle_lit"]
+		}
+	},
+	"white_candle_cake": {
+		"definition": ["candle_cake"],
+		"default": {
+			"textures": {
+				"up": ["cake_top","colorful/white_candle"],
+				"side": ["cake_side","colorful/white_candle"],
+				"down": ["cake_bottom","colorful/white_candle"]
+			},
+			"material": {
+				"white_candle": {"default": 1},
+				"cake": {"default": 1}
+			}
+		},
+		"default_lit": {
+			"textures": {
+				"up": ["cake_top","colorful/white_candle_lit"],
+				"side": ["cake_side","colorful/white_candle_lit"],
+				"down": ["cake_bottom","colorful/white_candle_lit"]
+			}
+		}
+	},
 	"white_glazed_terracotta": {
 		"definition": ["cube","glazed_terracotta","facing_block"],
 		"default": {
@@ -5226,6 +5464,501 @@
 		"definition": ["cube","glazed_terracotta","facing_block"],
 		"default": {
 			"textures": ["colorful/glazed_terracotta_yellow"]
+		}
+	},
+	"light_gray_candle": {
+		"definition": ["candle"],
+		"default": {
+			"textures": ["colorful/light_gray_candle"],
+			"material": {"light_gray_candle":{
+				"0": 1, "1": 2, "2": 3, "3": 4
+			}}
+		},
+		"default_lit": {
+			"textures": ["colorful/light_gray_candle_lit"]
+		}
+	},
+	"light_gray_candle_cake": {
+		"definition": ["candle_cake"],
+		"default": {
+			"textures": {
+				"up": ["cake_top","colorful/light_gray_candle"],
+				"side": ["cake_side","colorful/light_gray_candle"],
+				"down": ["cake_bottom","colorful/light_gray_candle"]
+			},
+			"material": {
+				"light_gray_candle": {"default": 1},
+				"cake": {"default": 1}
+			}
+		},
+		"default_lit": {
+			"textures": {
+				"up": ["cake_top","colorful/light_gray_candle_lit"],
+				"side": ["cake_side","colorful/light_gray_candle_lit"],
+				"down": ["cake_bottom","colorful/light_gray_candle_lit"]
+			}
+		}
+	},
+	"gray_candle": {
+		"definition": ["candle"],
+		"default": {
+			"textures": ["colorful/gray_candle"],
+			"material": {"gray_candle":{
+				"0": 1, "1": 2, "2": 3, "3": 4
+			}}
+		},
+		"default_lit": {
+			"textures": ["colorful/gray_candle_lit"]
+		}
+	},
+	"gray_candle_cake": {
+		"definition": ["candle_cake"],
+		"default": {
+			"textures": {
+				"up": ["cake_top","colorful/gray_candle"],
+				"side": ["cake_side","colorful/gray_candle"],
+				"down": ["cake_bottom","colorful/gray_candle"]
+			},
+			"material": {
+				"gray_candle": {"default": 1},
+				"cake": {"default": 1}
+			}
+		},
+		"default_lit": {
+			"textures": {
+				"up": ["cake_top","colorful/gray_candle_lit"],
+				"side": ["cake_side","colorful/gray_candle_lit"],
+				"down": ["cake_bottom","colorful/gray_candle_lit"]
+			}
+		}
+	},
+	"red_candle": {
+		"definition": ["candle"],
+		"default": {
+			"textures": ["colorful/red_candle"],
+			"material": {"red_candle":{
+				"0": 1, "1": 2, "2": 3, "3": 4
+			}}
+		},
+		"default_lit": {
+			"textures": ["colorful/red_candle_lit"]
+		}
+	},
+	"red_candle_cake": {
+		"definition": ["candle_cake"],
+		"default": {
+			"textures": {
+				"up": ["cake_top","colorful/red_candle"],
+				"side": ["cake_side","colorful/red_candle"],
+				"down": ["cake_bottom","colorful/red_candle"]
+			},
+			"material": {
+				"red_candle": {"default": 1},
+				"cake": {"default": 1}
+			}
+		},
+		"default_lit": {
+			"textures": {
+				"up": ["cake_top","colorful/red_candle_lit"],
+				"side": ["cake_side","colorful/red_candle_lit"],
+				"down": ["cake_bottom","colorful/red_candle_lit"]
+			}
+		}
+	},
+	"black_candle": {
+		"definition": ["candle"],
+		"default": {
+			"textures": ["colorful/black_candle"],
+			"material": {"black_candle":{
+				"0": 1, "1": 2, "2": 3, "3": 4
+			}}
+		},
+		"default_lit": {
+			"textures": ["colorful/black_candle_lit"]
+		}
+	},
+	"black_candle_cake": {
+		"definition": ["candle_cake"],
+		"default": {
+			"textures": {
+				"up": ["cake_top","colorful/black_candle"],
+				"side": ["cake_side","colorful/black_candle"],
+				"down": ["cake_bottom","colorful/black_candle"]
+			},
+			"material": {
+				"black_candle": {"default": 1},
+				"cake": {"default": 1}
+			}
+		},
+		"default_lit": {
+			"textures": {
+				"up": ["cake_top","colorful/black_candle_lit"],
+				"side": ["cake_side","colorful/black_candle_lit"],
+				"down": ["cake_bottom","colorful/black_candle_lit"]
+			}
+		}
+	},
+	"brown_candle": {
+		"definition": ["candle"],
+		"default": {
+			"textures": ["colorful/brown_candle"],
+			"material": {"brown_candle":{
+				"0": 1, "1": 2, "2": 3, "3": 4
+			}}
+		},
+		"default_lit": {
+			"textures": ["colorful/brown_candle_lit"]
+		}
+	},
+	"brown_candle_cake": {
+		"definition": ["candle_cake"],
+		"default": {
+			"textures": {
+				"up": ["cake_top","colorful/brown_candle"],
+				"side": ["cake_side","colorful/brown_candle"],
+				"down": ["cake_bottom","colorful/brown_candle"]
+			},
+			"material": {
+				"brown_candle": {"default": 1},
+				"cake": {"default": 1}
+			}
+		},
+		"default_lit": {
+			"textures": {
+				"up": ["cake_top","colorful/brown_candle_lit"],
+				"side": ["cake_side","colorful/brown_candle_lit"],
+				"down": ["cake_bottom","colorful/brown_candle_lit"]
+			}
+		}
+	},
+	"orange_candle": {
+		"definition": ["candle"],
+		"default": {
+			"textures": ["colorful/orange_candle"],
+			"material": {"orange_candle":{
+				"0": 1, "1": 2, "2": 3, "3": 4
+			}}
+		},
+		"default_lit": {
+			"textures": ["colorful/orange_candle_lit"]
+		}
+	},
+	"orange_candle_cake": {
+		"definition": ["candle_cake"],
+		"default": {
+			"textures": {
+				"up": ["cake_top","colorful/orange_candle"],
+				"side": ["cake_side","colorful/orange_candle"],
+				"down": ["cake_bottom","colorful/orange_candle"]
+			},
+			"material": {
+				"orange_candle": {"default": 1},
+				"cake": {"default": 1}
+			}
+		},
+		"default_lit": {
+			"textures": {
+				"up": ["cake_top","colorful/orange_candle_lit"],
+				"side": ["cake_side","colorful/orange_candle_lit"],
+				"down": ["cake_bottom","colorful/orange_candle_lit"]
+			}
+		}
+	},
+	"yellow_candle": {
+		"definition": ["candle"],
+		"default": {
+			"textures": ["colorful/yellow_candle"],
+			"material": {"yellow_candle":{
+				"0": 1, "1": 2, "2": 3, "3": 4
+			}}
+		},
+		"default_lit": {
+			"textures": ["colorful/yellow_candle_lit"]
+		}
+	},
+	"yellow_candle_cake": {
+		"definition": ["candle_cake"],
+		"default": {
+			"textures": {
+				"up": ["cake_top","colorful/yellow_candle"],
+				"side": ["cake_side","colorful/yellow_candle"],
+				"down": ["cake_bottom","colorful/yellow_candle"]
+			},
+			"material": {
+				"yellow_candle": {"default": 1},
+				"cake": {"default": 1}
+			}
+		},
+		"default_lit": {
+			"textures": {
+				"up": ["cake_top","colorful/yellow_candle_lit"],
+				"side": ["cake_side","colorful/yellow_candle_lit"],
+				"down": ["cake_bottom","colorful/yellow_candle_lit"]
+			}
+		}
+	},
+	"lime_candle": {
+		"definition": ["candle"],
+		"default": {
+			"textures": ["colorful/lime_candle"],
+			"material": {"lime_candle":{
+				"0": 1, "1": 2, "2": 3, "3": 4
+			}}
+		},
+		"default_lit": {
+			"textures": ["colorful/lime_candle_lit"]
+		}
+	},
+	"lime_candle_cake": {
+		"definition": ["candle_cake"],
+		"default": {
+			"textures": {
+				"up": ["cake_top","colorful/lime_candle"],
+				"side": ["cake_side","colorful/lime_candle"],
+				"down": ["cake_bottom","colorful/lime_candle"]
+			},
+			"material": {
+				"lime_candle": {"default": 1},
+				"cake": {"default": 1}
+			}
+		},
+		"default_lit": {
+			"textures": {
+				"up": ["cake_top","colorful/lime_candle_lit"],
+				"side": ["cake_side","colorful/lime_candle_lit"],
+				"down": ["cake_bottom","colorful/lime_candle_lit"]
+			}
+		}
+	},
+	"green_candle": {
+		"definition": ["candle"],
+		"default": {
+			"textures": ["colorful/green_candle"],
+			"material": {"green_candle":{
+				"0": 1, "1": 2, "2": 3, "3": 4
+			}}
+		},
+		"default_lit": {
+			"textures": ["colorful/green_candle_lit"]
+		}
+	},
+	"green_candle_cake": {
+		"definition": ["candle_cake"],
+		"default": {
+			"textures": {
+				"up": ["cake_top","colorful/green_candle"],
+				"side": ["cake_side","colorful/green_candle"],
+				"down": ["cake_bottom","colorful/green_candle"]
+			},
+			"material": {
+				"green_candle": {"default": 1},
+				"cake": {"default": 1}
+			}
+		},
+		"default_lit": {
+			"textures": {
+				"up": ["cake_top","colorful/green_candle_lit"],
+				"side": ["cake_side","colorful/green_candle_lit"],
+				"down": ["cake_bottom","colorful/green_candle_lit"]
+			}
+		}
+	},
+	"blue_candle": {
+		"definition": ["candle"],
+		"default": {
+			"textures": ["colorful/blue_candle"],
+			"material": {"blue_candle":{
+				"0": 1, "1": 2, "2": 3, "3": 4
+			}}
+		},
+		"default_lit": {
+			"textures": ["colorful/blue_candle_lit"]
+		}
+	},
+	"blue_candle_cake": {
+		"definition": ["candle_cake"],
+		"default": {
+			"textures": {
+				"up": ["cake_top","colorful/blue_candle"],
+				"side": ["cake_side","colorful/blue_candle"],
+				"down": ["cake_bottom","colorful/blue_candle"]
+			},
+			"material": {
+				"blue_candle": {"default": 1},
+				"cake": {"default": 1}
+			}
+		},
+		"default_lit": {
+			"textures": {
+				"up": ["cake_top","colorful/blue_candle_lit"],
+				"side": ["cake_side","colorful/blue_candle_lit"],
+				"down": ["cake_bottom","colorful/blue_candle_lit"]
+			}
+		}
+	},
+	"light_blue_candle": {
+		"definition": ["candle"],
+		"default": {
+			"textures": ["colorful/light_blue_candle"],
+			"material": {"light_blue_candle":{
+				"0": 1, "1": 2, "2": 3, "3": 4
+			}}
+		},
+		"default_lit": {
+			"textures": ["colorful/light_blue_candle_lit"]
+		}
+	},
+	"light_blue_candle_cake": {
+		"definition": ["candle_cake"],
+		"default": {
+			"textures": {
+				"up": ["cake_top","colorful/light_blue_candle"],
+				"side": ["cake_side","colorful/light_blue_candle"],
+				"down": ["cake_bottom","colorful/light_blue_candle"]
+			},
+			"material": {
+				"light_blue_candle": {"default": 1},
+				"cake": {"default": 1}
+			}
+		},
+		"default_lit": {
+			"textures": {
+				"up": ["cake_top","colorful/light_blue_candle_lit"],
+				"side": ["cake_side","colorful/light_blue_candle_lit"],
+				"down": ["cake_bottom","colorful/light_blue_candle_lit"]
+			}
+		}
+	},
+	"cyan_candle": {
+		"definition": ["candle"],
+		"default": {
+			"textures": ["colorful/cyan_candle"],
+			"material": {"cyan_candle":{
+				"0": 1, "1": 2, "2": 3, "3": 4
+			}}
+		},
+		"default_lit": {
+			"textures": ["colorful/cyan_candle_lit"]
+		}
+	},
+	"cyan_candle_cake": {
+		"definition": ["candle_cake"],
+		"default": {
+			"textures": {
+				"up": ["cake_top","colorful/cyan_candle"],
+				"side": ["cake_side","colorful/cyan_candle"],
+				"down": ["cake_bottom","colorful/cyan_candle"]
+			},
+			"material": {
+				"cyan_candle": {"default": 1},
+				"cake": {"default": 1}
+			}
+		},
+		"default_lit": {
+			"textures": {
+				"up": ["cake_top","colorful/cyan_candle_lit"],
+				"side": ["cake_side","colorful/cyan_candle_lit"],
+				"down": ["cake_bottom","colorful/cyan_candle_lit"]
+			}
+		}
+	},
+	"purple_candle": {
+		"definition": ["candle"],
+		"default": {
+			"textures": ["colorful/purple_candle"],
+			"material": {"purple_candle":{
+				"0": 1, "1": 2, "2": 3, "3": 4
+			}}
+		},
+		"default_lit": {
+			"textures": ["colorful/purple_candle_lit"]
+		}
+	},
+	"purple_candle_cake": {
+		"definition": ["candle_cake"],
+		"default": {
+			"textures": {
+				"up": ["cake_top","colorful/purple_candle"],
+				"side": ["cake_side","colorful/purple_candle"],
+				"down": ["cake_bottom","colorful/purple_candle"]
+			},
+			"material": {
+				"purple_candle": {"default": 1},
+				"cake": {"default": 1}
+			}
+		},
+		"default_lit": {
+			"textures": {
+				"up": ["cake_top","colorful/purple_candle_lit"],
+				"side": ["cake_side","colorful/purple_candle_lit"],
+				"down": ["cake_bottom","colorful/purple_candle_lit"]
+			}
+		}
+	},
+	"magenta_candle": {
+		"definition": ["candle"],
+		"default": {
+			"textures": ["colorful/magenta_candle"],
+			"material": {"magenta_candle":{
+				"0": 1, "1": 2, "2": 3, "3": 4
+			}}
+		},
+		"default_lit": {
+			"textures": ["colorful/magenta_candle_lit"]
+		}
+	},
+	"magenta_candle_cake": {
+		"definition": ["candle_cake"],
+		"default": {
+			"textures": {
+				"up": ["cake_top","colorful/magenta_candle"],
+				"side": ["cake_side","colorful/magenta_candle"],
+				"down": ["cake_bottom","colorful/magenta_candle"]
+			},
+			"material": {
+				"magenta_candle": {"default": 1},
+				"cake": {"default": 1}
+			}
+		},
+		"default_lit": {
+			"textures": {
+				"up": ["cake_top","colorful/magenta_candle_lit"],
+				"side": ["cake_side","colorful/magenta_candle_lit"],
+				"down": ["cake_bottom","colorful/magenta_candle_lit"]
+			}
+		}
+	},
+	"pink_candle": {
+		"definition": ["candle"],
+		"default": {
+			"textures": ["colorful/pink_candle"],
+			"material": {"pink_candle":{
+				"0": 1, "1": 2, "2": 3, "3": 4
+			}}
+		},
+		"default_lit": {
+			"textures": ["colorful/pink_candle_lit"]
+		}
+	},
+	"pink_candle_cake": {
+		"definition": ["candle_cake"],
+		"default": {
+			"textures": {
+				"up": ["cake_top","colorful/pink_candle"],
+				"side": ["cake_side","colorful/pink_candle"],
+				"down": ["cake_bottom","colorful/pink_candle"]
+			},
+			"material": {
+				"pink_candle": {"default": 1},
+				"cake": {"default": 1}
+			}
+		},
+		"default_lit": {
+			"textures": {
+				"up": ["cake_top","colorful/pink_candle_lit"],
+				"side": ["cake_side","colorful/pink_candle_lit"],
+				"down": ["cake_bottom","colorful/pink_candle_lit"]
+			}
 		}
 	}
 }

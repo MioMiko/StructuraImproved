@@ -4,14 +4,18 @@
 
 Structura的灵感来自Litematica模组。它是一个可以用.mcstructure文件生成资源包的工具，这个资源包被称作投影。在这个资源包中，盔甲架模型被修改为被投影的方块。它会把结构文件中的所有方块作为模型中的骨骼。然后投影出“幽灵块”用于向玩家显示原本方块的位置。
 
-这是一个基于Stuctura做出改进的工具，以期望更好的提供生存模式建造的体验，目前这个项目只支持1.16.40（这并不代表其他版本完全无法使用），一旦投影被制作出来，将在1.16以上所有版本通用。
+这是一个基于Stuctura做出改进的工具，以期望更好的提供生存模式建造的体验。
 
 改动:
 - 抛弃原有通过官方文件terrain_texture.json和blocks.json查找方块贴图的方式，并使用lookups/block_ref.json替代
 - 精细化了部分物品的模型
 - 加入了红石显示功能，可以更清晰得看到漏斗侦测器等物品方向
-- 更容易辨识的楼梯和半砖
 - 中文支持
+
+## 支持版本
+- 1.16.40
+- 1.17.30
+以上版本是我测试这个工具的版本，并不意味着这个工具只能在以上版本运行，一旦投影被制作，将在1.16.40以上所有版本通用。
 
 ## 安装
 
@@ -32,6 +36,7 @@ pip install -r requirements.txt
 
 运行StructuraImproved程序:
 ```bash
+cd structura
 python structura.py
 ```
 ## 修改设置
@@ -69,6 +74,10 @@ python structura.py
 ![alt text](docs/example_full.png?raw=true)
 你可以通过右击盔甲架来逐层浏览结构。这将最小化除“活动”层之外的所有层。然而对于大型结构，它一次会显示多层（相隔12个方块）
 ![alt text](docs/example_layer.png?raw=true)
+
+## 目前企划
+- 更容易辨识的楼梯和半砖
+- 小瑕疵修复
 
 ## 版权声明
 所有StructuraImproved的自制贴图均以[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)开放。

@@ -170,14 +170,20 @@ class armorstandgeo:
         if rot_type in self.block_rotations.keys():
             rotation = self.block_rotations[rot_type][str(rot)]
         else:
-            rotation = [0, 0, 0]
+            rotation = (0, 0, 0)
             if debug:
                 print("no rotation for {} found".format(block_name))
 
+        pivot = [
+            -x - self.offsets[0] + 0.5,
+            y + self.offsets[1] + 0.5,
+            z + self.offsets[2] + 0.5
+        ]
         block = {
             "name": f"block_{x}_{y}_{z}",
             "cubes": [],
-            "pivot": block_shapes["center"],
+            "pivot": pivot.copy(),
+            "rotation": rotation,
             "parent": f"layer_{y}"
         }
 
@@ -194,17 +200,15 @@ class armorstandgeo:
                 y + yoff + self.offsets[1],
                 z + zoff + self.offsets[2]
             )
-            cube["pivot"] = (
-                -x - self.offsets[0] + 0.5,
-                y + self.offsets[1] + 0.5,
-                z + self.offsets[2] + 0.5
-            )
+            cube["pivot"] = pivot.copy()
+            if "pivot" in block_shapes:
+                cube["pivot"][0] += block_shapes["pivot"][i][0]
+                cube["pivot"][1] += block_shapes["pivot"][i][1]
+                cube["pivot"][2] += block_shapes["pivot"][i][2]
             cube["size"] = block_shapes["size"][i]
             cube["inflate"] = -0.03
-            cube["rotation"] = rotation.copy()
-            if "rot" in block_shapes.keys():
-                for j in range(3):
-                    cube["rotation"][j] += block_shapes["rot"][i][j]
+            if "rot" in block_shapes:
+                cube["rotation"] = block_shapes["rot"][i]
 
             cube_uv = self.block_name_to_uv(block_ref,variant=variant,lit=lit,index=i)
             uv_offset = block_uv["offset"]
@@ -249,6 +253,7 @@ class armorstandgeo:
 
         self.uv_height += shape[0]
         self.uv_deque.append(image_array)
+        return self.uv_height - shape[0]
 
     def block_name_to_uv(self, block_ref, variant = "",lit=False,index=0):
         # helper function maps the the section of the uv file to the side of the block
@@ -257,8 +262,7 @@ class armorstandgeo:
 
         for key,uv in texture_files.items():
             if uv not in self.uv_map.keys():
-                self.uv_map[uv] = self.uv_height/16
-                self.append_uv_image(f"lookups/uv/blocks/{uv}.png")
+                self.uv_map[uv] = self.append_uv_image(f"lookups/uv/blocks/{uv}.png")/16
             temp_uv[key] = {"uv": [0, self.uv_map[uv]]}
 
         return temp_uv

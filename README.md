@@ -4,7 +4,12 @@ English丨[**简体中文**](README-zh-cn.md)
 
 Structura is inspired by Litematica. It is a tool that generates Resource packs from .mcstructure files. In this resource pack the armor stands were modified to render when off screen, and have all the blocks from your structure file as bones in their model. then "ghost blocks" are used to show the user where to place the real blocks.
 
-This tool is based on Structura and improved to get better building expenrice in survival.Currently this tool only supports 1.16.40(not means totally unavailable in other versions).Once the mcpack file is generated,it will work in all ther versions above 1.16.40.
+This tool is based on Structura and improved to get better building expenrice in survival.
+
+## Support Version
+- 1.16.40
+- 1.17.30
+The versions above is what I tested it in.It not means this tool can only be used in these versions.Once the mcpack file is generated,it will work in all versions above 1.16.40.
 
 ## Install
 
@@ -25,6 +30,7 @@ pip install -r requirements.txt
 
 To start StructuraImproved:
 ```bash
+cd structura
 python structura.py
 ```
 
