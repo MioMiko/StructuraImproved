@@ -7,7 +7,7 @@
 	"azalea":{
 		"default":{
 			"size":[[1,0.6875,1]],
-			"offsets":[[1,0.3125,1]]
+			"offsets":[[0,0.3125,0]]
 		}
 	},
 	"bubble_column":{"default":{"size": [[1,1,1]]}},

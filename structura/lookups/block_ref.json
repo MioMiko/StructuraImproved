@@ -153,7 +153,7 @@
 			"textures": {
 				"up": ["plant/azalea_top"],
 				"side": ["plant/azalea_side"],
-				"down": ["plant/azalea_top"]
+				"down": ["null"]
 			}
 		}
 	},
@@ -1880,6 +1880,150 @@
 			"textures": ["plant/double_plant_syringa"]
 		}
 	},
+	"double_stone_block_slab": {
+		"definition": ["cube"],
+		"cobblestone": {
+			"textures": ["double_slabs/cobblestone"],
+			"material": {"stone_slab_cobblestone":{"default":2}}
+		},
+		"smooth_stone": {
+			"textures": {
+				"up": ["double_slabs/smooth_stone"],
+				"side": ["double_slabs/smooth_stone_slab_side"],
+				"down": ["double_slabs/smooth_stone"]
+			},
+			"material": {"stone_slab_smooth_stone":{"default":2}}
+		},
+		"stone_brick": {
+			"textures": ["double_slabs/stonebrick"],
+			"material": {"stone_slab_stone_brick":{"default":2}}
+		},
+		"brick": {
+			"textures": ["double_slabs/brick"],
+			"material": {"stone_slab_brick":{"default":2}}
+		},
+		"nether_brick": {
+			"textures": ["double_slabs/nether_brick"],
+			"material": {"stone_slab_nether_brick":{"default":2}}
+		},
+		"sandstone": {
+			"textures": {
+				"up": ["double_slabs/sandstone_top"],
+				"side": ["double_slabs/sandstone_normal"],
+				"down": ["double_slabs/sandstone_bottom"]
+			},
+			"material": {"stone_slab_sandstone":{"default":2}}
+		},
+		"quartz": {
+			"textures": ["double_slabs/quartz_block"],
+			"material": {"stone_slab_quartz":{"default":2}}
+		}
+	},
+	"double_stone_block_slab2": {
+		"definition": ["cube"],
+		"mossy_cobblestone": {
+			"textures": ["double_slabs/cobblestone_mossy"],
+			"material": {"stone_slab2_mossy_cobblestone":{"default":2}}
+		},
+		"red_nether_brick": {
+			"textures": ["double_slabs/red_nether_brick"],
+			"material": {"stone_slab2_red_nether_brick":{"default":2}}
+		},
+		"smooth_sandstone": {
+			"textures": ["double_slabs/sandstone_top"],
+			"material": {"stone_slab2_smooth_sandstone":{"default":2}}
+		},
+		"red_sandstone": {
+			"textures": {
+				"up": ["double_slabs/red_sandstone_top"],
+				"side": ["double_slabs/red_sandstone_normal"],
+				"down": ["double_slabs/red_sandstone_bottom"]
+			},
+			"material": {"stone_slab2_red_sandstone":{"default":2}}
+		},
+		"purpur": {
+			"textures": ["double_slabs/purpur_block"],
+			"material": {"stone_slab2_purpur":{"default":2}}
+		},
+		"prismarine_rough": {
+			"textures": ["double_slabs/prismarine_rough"],
+			"material": {"stone_slab2_prismarine_rough":{"default":2}}
+		},
+		"prismarine_dark": {
+			"textures": ["double_slabs/prismarine_dark"],
+			"material": {"stone_slab2_prismarine_dark":{"default":2}}
+		},
+		"prismarine_brick": {
+			"textures": ["double_slabs/prismarine_brick"],
+			"material": {"stone_slab2_prismarine_brick":{"default":2}}
+		}
+	},
+	"double_stone_block_slab3": {
+		"definition": ["cube"],
+		"andesite": {
+			"textures": ["double_slabs/stone_andesite"],
+			"material": {"stone_slab3_andesite":{"default":2}}
+		},
+		"polished_andesite": {
+			"textures": ["double_slabs/stone_andesite_smooth"],
+			"material": {"stone_slab3_polished_andesite":{"default":2}}
+		},
+		"diorite": {
+			"textures": ["double_slabs/stone_diorite"],
+			"material": {"stone_slab3_diorite":{"default":2}}
+		},
+		"polished_diorite": {
+			"textures": ["double_slabs/stone_diorite_smooth"],
+			"material": {"stone_slab3_polished_diorite":{"default":2}}
+		},
+		"granite": {
+			"textures": ["double_slabs/stone_granite"],
+			"material": {"stone_slab3_granite":{"default":2}}
+		},
+		"polished_granite": {
+			"textures": ["double_slabs/stone_granite_smooth"],
+			"material": {"stone_slab3_polished_granite":{"default":2}}
+		},
+		"end_stone_brick": {
+			"textures": ["double_slabs/end_brick"],
+			"material": {"stone_slab3_end_stone_brick":{"default":2}}
+		},
+		"smooth_red_sandstone": {
+			"textures": ["double_slabs/red_sandstone_top"],
+			"material": {"stone_slab3_smooth_red_sandstone":{"default":2}}
+		}
+	},
+	"double_stone_block_slab4": {
+		"definition": ["cube"],
+		"stone": {
+			"textures": ["double_slabs/stone"],
+			"material": {"stone_slab4_stone":{"default":2}}
+		},
+		"mossy_stone_brick": {
+			"textures": ["double_slabs/stonebrick_mossy"],
+			"material": {"stone_slab4_mossy_stone_brick":{"default":2}}
+		},
+		"cut_sandstone": {
+			"textures": {
+				"up": ["double_slabs/sandstone_top"],
+				"side": ["double_slabs/sandstone_smooth"],
+				"down": ["double_slabs/sandstone_top"]
+			},
+			"material": {"stone_slab4_cut_sandstone":{"default":2}}
+		},
+		"cut_red_sandstone": {
+			"textures": {
+				"up": ["double_slabs/red_sandstone_top"],
+				"side": ["double_slabs/red_sandstone_smooth"],
+				"down": ["double_slabs/red_sandstone_top"]
+			},
+			"material": {"stone_slab4_cut_red_sandstone":{"default":2}}
+		},
+		"smooth_quartz": {
+			"textures": ["double_slabs/quartz_block_smooth"],
+			"material": {"stone_slab4_smooth_quartz":{"default":2}}
+		}
+	},
 	"double_stone_slab": {
 		"definition": ["cube"],
 		"cobblestone": {
@@ -2281,7 +2425,7 @@
 			"textures": {
 				"up": ["plant/flowering_azalea_top"],
 				"side": ["plant/flowering_azalea_side"],
-				"down": ["plant/flowering_azalea_top"]
+				"down": ["null"]
 			}
 		}
 	},
@@ -2433,7 +2577,7 @@
 		}
 	},
 	"grindstone": {
-		"definition": ["grindstone","grindstone","punmpkin_reverse"],
+		"definition": ["grindstone","grindstone","pumpkin_reverse"],
 		"default": {
 			"textures": {
 				"up": ["grindstone_round", "wood/log_spruce"],
@@ -4557,6 +4701,122 @@
 		"definition": ["pressure_plate"],
 		"default": {
 			"textures": ["stone"]
+		}
+	},
+	"stone_block_slab": {
+		"definition": ["slab"],
+		"cobblestone": {
+			"textures": ["slabs/cobblestone"]
+		},
+		"smooth_stone": {
+			"textures": {
+				"up": ["slabs/smooth_stone"],
+				"side": ["slabs/smooth_stone_slab_side"],
+				"down": ["slabs/smooth_stone"]
+			}
+		},
+		"stone_brick": {
+			"textures": ["slabs/stonebrick"]
+		},
+		"brick": {
+			"textures": ["slabs/brick"]
+		},
+		"nether_brick": {
+			"textures": ["slabs/nether_brick"]
+		},
+		"sandstone": {
+			"textures": {
+				"up": ["slabs/sandstone_top"],
+				"side": ["slabs/sandstone_normal"],
+				"down": ["slabs/sandstone_bottom"]
+			}
+		},
+		"quartz": {
+			"textures": ["slabs/quartz_block"]
+		}
+	},
+	"stone_block_slab2": {
+		"definition": ["slab"],
+		"mossy_cobblestone": {
+			"textures": ["slabs/cobblestone_mossy"]
+		},
+		"red_nether_brick": {
+			"textures": ["slabs/red_nether_brick"]
+		},
+		"smooth_sandstone": {
+			"textures": ["slabs/sandstone_top"]
+		},
+		"red_sandstone": {
+			"textures": {
+				"up": ["slabs/red_sandstone_top"],
+				"side": ["slabs/red_sandstone_normal"],
+				"down": ["slabs/red_sandstone_bottom"]
+			}
+		},
+		"purpur": {
+			"textures": ["slabs/purpur_block"]
+		},
+		"prismarine_rough": {
+			"textures": ["slabs/prismarine_rough"]
+		},
+		"prismarine_dark": {
+			"textures": ["slabs/prismarine_dark"]
+		},
+		"prismarine_brick": {
+			"textures": ["slabs/prismarine_brick"]
+		}
+	},
+	"stone_block_slab3": {
+		"definition": ["slab"],
+		"andesite": {
+			"textures": ["slabs/stone_andesite"]
+		},
+		"polished_andesite": {
+			"textures": ["slabs/stone_andesite_smooth"]
+		},
+		"diorite": {
+			"textures": ["slabs/stone_diorite"]
+		},
+		"polished_diorite": {
+			"textures": ["slabs/stone_diorite_smooth"]
+		},
+		"granite": {
+			"textures": ["slabs/stone_granite"]
+		},
+		"polished_granite": {
+			"textures": ["slabs/stone_granite_smooth"]
+		},
+		"end_stone_brick": {
+			"textures": ["slabs/end_brick"]
+		},
+		"smooth_red_sandstone": {
+			"textures": ["slabs/red_sandstone_top"]
+		}
+	},
+	"stone_block_slab4": {
+		"definition": ["slab"],
+		"stone": {
+			"textures": ["slabs/stone"]
+		},
+		"mossy_stone_brick": {
+			"textures": ["slabs/stonebrick_mossy"]
+		},
+		"cut_sandstone": {
+			"textures": {
+				"up": ["slabs/sandstone_top"],
+				"side": ["slabs/sandstone_smooth"],
+				"down": ["slabs/sandstone_top"]
+			}
+		},
+		"cut_red_sandstone": {
+			"textures": {
+				"up": ["slabs/red_sandstone_top"],
+				"side": ["slabs/red_sandstone_smooth"],
+				"down": ["slabs/red_sandstone_top"]
+			}
+		},
+		"smooth_quartz": {
+			"textures": ["slabs/quartz_block_smooth"]
 		}
 	},
 	"stone_slab": {
