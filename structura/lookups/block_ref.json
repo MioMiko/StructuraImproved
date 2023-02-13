@@ -2439,6 +2439,12 @@
 			}
 		}
 	},
+	"frog_spawn": {
+		"definition": ["lilypad"],
+		"default": {
+			"textures": ["frogspawn"]
+		}
+	},
 	"furnace": {
 		"definition": ["cube","cube","furnace"],
 		"default": {
@@ -3035,6 +3041,128 @@
 			"textures": ["magma"]
 		}
 	},
+	"mangrove_button": {
+		"definition": ["button"],
+		"default": {
+			"textures": ["wood/mangrove_planks"]
+		}
+	},
+	"mangrove_door": {
+		"definition": ["door"],
+		"default": {
+			"textures": ["wood/mangrove_door"]
+		}
+	},
+	"mangrove_double_slab": {
+		"definition": ["cube"],
+		"default": {
+			"textures": ["double_slabs/mangrove_planks"],
+			"material": {"mangrove_slab":{"default":2}}
+		}
+	},
+	"mangrove_fence": {
+		"definition": ["fence"],
+		"default": {
+			"textures": ["wood/mangrove_planks"]
+		}
+	},
+	"mangrove_fence_gate": {
+		"definition": ["fence_gate"],
+		"default": {
+			"textures": ["wood/mangrove_planks"]
+		}
+	},
+	"mangrove_leaves": {
+		"definition": ["cube"],
+		"default": {
+			"textures": ["plant/mangrove_leaves_carried"]
+		}
+	},
+	"mangrove_log": {
+		"definition": ["cube","cube","tree"],
+		"default": {
+			"textures": {
+				"up": ["wood/mangrove_log_top"],
+				"side": ["wood/mangrove_log_side"],
+				"down": ["wood/mangrove_log_top"]
+			}
+		}
+	},
+	"mangrove_planks": {
+		"definition": ["cube"],
+		"default": {
+			"textures": ["wood/mangrove_planks"]
+		}
+	},
+	"mangrove_pressure_plate": {
+		"definition": ["pressure_plate"],
+		"default": {
+			"textures": ["wood/mangrove_planks"]
+		}
+	},
+	"mangrove_propagule": {
+		"definition": ["cross_texture"],
+		"default": {
+			"textures": ["plant/mangrove_propagule"]
+		}
+	},
+	"mangrove_roots": {
+		"definition": ["cube"],
+		"default": {
+			"textures": {
+				"up": ["plant/mangrove_roots_top"],
+				"side": ["plant/mangrove_roots_side"],
+				"down": ["plant/mangrove_roots_top"]
+			}
+		}
+	},
+	"mangrove_slab": {
+		"definition": ["slab"],
+		"default": {
+			"textures": ["slabs/mangrove_planks"]
+		}
+	},
+	"mangrove_stairs": {
+		"definition": ["stairs"],
+		"default": {
+			"textures": {
+				"up": ["stairs/mangrove_planks","wood/mangrove_planks"],
+				"side": ["wood/mangrove_planks","wood/mangrove_planks"],
+				"north": ["stairs/mangrove_planks","wood/mangrove_planks"],
+				"down": ["stairs/mangrove_planks","wood/mangrove_planks"]
+			}
+		}
+	},
+	"mangrove_trapdoor": {
+		"definition": ["trapdoor"],
+		"default": {
+			"textures": ["wood/mangrove_trapdoor"]
+		}
+	},
+	"mangrove_standing_sign": {
+		"definition": ["standing_sign"],
+		"default": {
+			"textures": ["wood/mangrove_planks", "wood/mangrove_log_side"],
+			"material": {
+				"mangrove_sign": {"default": 1}
+			}
+		}
+	},
+	"mangrove_wall_sign": {
+		"definition": ["wall_sign"],
+		"default": {
+			"textures": ["wood/mangrove_planks"],
+			"material": {
+				"mangrove_sign": {"default": 1}
+			}
+		}
+	},
+	"mangrove_wood": {
+		"definition": ["cube","cube","tree"],
+		"default": {
+			"textures": ["wood/mangrove_log_side"]
+		}
+	},
 	"medium_amethyst_bud": {
 		"definition": ["cross_texture","cross_texture","dispenser"],
 		"default": {
@@ -3123,6 +3251,58 @@
 				"side": ["stonebrick_mossy","stonebrick_mossy"],
 				"north": ["stairs/stonebrick_mossy","stonebrick_mossy"],
 				"down": ["stairs/stonebrick_mossy","stonebrick_mossy"]
+			}
+		}
+	},
+	"mud": {
+		"definition": ["cube"],
+		"default": {
+			"textures": ["mud"]
+		}
+	},
+	"mud_brick_double_slab": {
+		"definition": ["cube"],
+		"default": {
+			"textures": ["double_slabs/mud_bricks"],
+			"material": {"mud_brick_slab":{"default":2}}
+		}
+	},
+	"mud_brick_slab": {
+		"definition": ["slab"],
+		"default": {
+			"textures": ["slabs/mud_bricks"]
+		}
+	},
+	"mud_brick_stairs": {
+		"definition": ["stairs"],
+		"default": {
+			"textures": {
+				"up": ["stairs/mud_bricks","mud_bricks"],
+				"side": ["mud_bricks","mud_bricks"],
+				"north": ["stairs/mud_bricks","mud_bricks"],
+				"down": ["stairs/mud_bricks","mud_bricks"]
+			}
+		}
+	},
+	"mud_brick_wall": {
+		"definition": ["wall"],
+		"default": {
+			"textures": ["mud_bricks"]
+		}
+	},
+	"mud_bricks": {
+		"definition": ["cube"],
+		"default": {
+			"textures": ["mud_bricks"]
+		}
+	},
+	"muddy_mangrove_roots": {
+		"definition": ["cube","cube","tree"],
+		"default": {
+			"textures": {
+				"up": ["plant/muddy_mangrove_roots_top"],
+				"side": ["plant/muddy_mangrove_roots_side"],
+				"down": ["plant/muddy_mangrove_roots_top"]
 			}
 		}
 	},
@@ -3252,6 +3432,16 @@
 			"textures": ["obsidian"]
 		}
 	},
+	"ochre_froglight": {
+		"definition": ["cube","cube","tree"],
+		"default": {
+			"textures": {
+				"up": ["ochre_froglight_top"],
+				"side": ["ochre_froglight_side"],
+				"down": ["ochre_froglight_top"]
+			}
+		}
+	},
 	"orange_glazed_terracotta": {
 		"definition": ["cube","glazed_terracotta","facing_block"],
 		"default": {
@@ -3298,6 +3488,22 @@
 		"definition": ["cube"],
 		"default": {
 			"textures": ["ice_packed"]
+		}
+	},
+	"packed_mud": {
+		"definition": ["cube"],
+		"default": {
+			"textures": ["packed_mud"]
+		}
+	},
+	"pearlescent_froglight": {
+		"definition": ["cube","cube","tree"],
+		"default": {
+			"textures": {
+				"up": ["pearlescent_froglight_top"],
+				"side": ["pearlescent_froglight_side"],
+				"down": ["pearlescent_froglight_top"]
+			}
 		}
 	},
 	"pink_glazed_terracotta": {
@@ -3926,6 +4132,16 @@
 			"textures": ["plant/reeds"]
 		}
 	},
+	"reinforced_deepslate": {
+		"definition": ["cube"],
+		"default": {
+			"textures": {
+				"up": ["reinforced_deepslate_top"],
+				"side": ["reinforced_deepslate_side"],
+				"down": ["reinforced_deepslate_bottom"]
+			}
+		}
+	},
 	"respawn_anchor": {
 		"definition": ["cube"],
 		"default": {"material": {"respawn_anchor": {"default":1}}},
@@ -4041,6 +4257,55 @@
 				"side": ["scaffolding_side"],
 				"down": ["scaffolding_bottom"]
 			}
+		}
+	},
+	"sculk": {
+		"definition": ["cube"],
+		"default": {
+			"textures": ["sculk"]
+		}
+	},
+	"sculk_catalyst": {
+		"definition": ["cube"],
+		"default": {
+			"textures": {
+				"up": ["sculk_catalyst_top"],
+				"side": ["sculk_catalyst_side"],
+				"down": ["sculk_catalyst_bottom"]
+			}
+		}
+	},
+	"sculk_sensor": {
+		"definition": ["slab"],
+		"default": {
+			"textures": {
+				"up": ["sculk_sensor_top"],
+				"side": ["sculk_sensor_side"],
+				"down": ["sculk_sensor_bottom"]
+			}
+		}
+	},
+	"sculk_shrieker": {
+		"definition": ["slab"],
+		"default": {
+			"textures": {
+				"up": ["sculk_shrieker_inner_top"],
+				"side": ["sculk_shrieker_side"],
+				"down": ["sculk_shrieker_bottom"]
+			}
+		},
+		"default_lit": {
+			"textures": {
+				"up": ["sculk_shrieker_can_summon_top"],
+				"side": ["sculk_shrieker_side"],
+				"down": ["sculk_shrieker_bottom"]
+			}
+		}
+	},
+	"sculk_vein": {
+		"definition": ["cube"],
+		"default": {
+			"textures": ["sculk_vein"]
 		}
 	},
 	"sea_lantern": {
@@ -5027,6 +5292,22 @@
 			}
 		}
 	},
+	"stripped_mangrove_log": {
+		"definition": ["cube","cube","tree"],
+		"default": {
+			"textures": {
+				"up": ["wood/stripped_mangrove_log_top"],
+				"side": ["wood/stripped_mangrove_log_side"],
+				"down": ["wood/stripped_mangrove_log_top"]
+			}
+		}
+	},
+	"stripped_mangrove_wood": {
+		"definition": ["cube","cube","tree"],
+		"default": {
+			"textures": ["wood/stripped_mangrove_log_side"]
+		}
+	},
 	"stripped_oak_log": {
 		"definition": ["cube","cube","tree"],
 		"default": {
@@ -5225,6 +5506,16 @@
 				"down": ["redstone/repeater_floor_off", "redstone/torch_off", "redstone/torch_off"]
 			},
 		"material": {"repeater":{"default":1}}
+		}
+	},
+	"verdant_froglight": {
+		"definition": ["cube","cube","tree"],
+		"default": {
+			"textures": {
+				"up": ["verdant_froglight_top"],
+				"side": ["verdant_froglight_side"],
+				"down": ["verdant_froglight_top"]
+			}
 		}
 	},
 	"vine": {

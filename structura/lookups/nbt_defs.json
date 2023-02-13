@@ -60,6 +60,7 @@
 	"lit": [
 		"dead_bit",
 		"rail_data_bit",
+		"can_summon",
 		"toggle_bit",
 		"powered_bit",
 		"hanging",

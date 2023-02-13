@@ -9,7 +9,7 @@ layer = Image.fromarray(layer)
 
 for img_path in popen(r'ls -1 *.png').read().strip('\n').split('\n'):
     target = Image.new("RGBA",(16,32))
-    img = Image.open(img_path)
+    img = Image.open(img_path).convert("RGBA")
     target.paste(img,(0,0),img)
     target.paste(img,(0,16),img)
     target.paste(layer,(0,0),layer)

@@ -9,6 +9,6 @@ layer[4:-4,0:16,3] = 0
 layer = Image.fromarray(layer)
 
 for img_path in popen(r'ls -1 *.png').read().strip('\n').split('\n'):
-    img = Image.open(img_path)
+    img = Image.open(img_path).convert("RGBA")
     img.paste(layer,(0,0),layer)
     img.save(f'result/{img_path}')
