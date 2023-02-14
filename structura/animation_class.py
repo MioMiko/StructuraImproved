@@ -3,35 +3,38 @@ import os
 
 
 class animations:
+    # control the scale animation when change poses
 
-    __slots__ = ("default_size","sizing","poses")
+    __slots__ = ("sizing")
+
+    poses = (
+        "animation.armor_stand.no_pose",
+        "animation.armor_stand.solemn_pose",
+        "animation.armor_stand.athena_pose",
+        "animation.armor_stand.brandish_pose",
+        "animation.armor_stand.honor_pose",
+        "animation.armor_stand.entertain_pose",
+        "animation.armor_stand.salute_pose",
+        "animation.armor_stand.riposte_pose",
+        "animation.armor_stand.zombie_pose",
+        "animation.armor_stand.cancan_a_pose",
+        "animation.armor_stand.cancan_b_pose",
+        "animation.armor_stand.hero_pose",
+        "animation.armor_stand.default_pose"
+    )
+
+    default_size = {
+        "format_version": "1.8.0",
+        "animations": {"animation.armor_stand.ghost_blocks.scale": {
+            "loop": True,
+            "bones": {
+            "ghost_blocks": {"scale": 1.28}}}}
+    }
 
     def __init__(self):
-        self.default_size = {
-            "format_version": "1.8.0",
-            "animations": {"animation.armor_stand.ghost_blocks.scale": {
-                "loop": True,
-                "bones": {
-                "ghost_blocks": {"scale": 1.28}}}}
-        }
         pathtofile = "lookups/vanilla/armor_stand.animation.json"
         with open(pathtofile) as f:
             self.sizing = json.load(f)
-        self.poses = (
-            "animation.armor_stand.no_pose",
-            "animation.armor_stand.solemn_pose",
-            "animation.armor_stand.athena_pose",
-            "animation.armor_stand.brandish_pose",
-            "animation.armor_stand.honor_pose",
-            "animation.armor_stand.entertain_pose",
-            "animation.armor_stand.salute_pose",
-            "animation.armor_stand.riposte_pose",
-            "animation.armor_stand.zombie_pose",
-            "animation.armor_stand.cancan_a_pose",
-            "animation.armor_stand.cancan_b_pose",
-            "animation.armor_stand.hero_pose",
-            "animation.armor_stand.default_pose"
-        )
 
     def insert_layer(self, y):
         name = f"layer_{y}"
@@ -47,4 +50,4 @@ class animations:
         with open(path_to_ani, "w") as json_file:
             json.dump(self.sizing, json_file, indent=2)
         with open(path_to_rc, "w") as json_file:
-            json.dump(self.default_size, json_file, indent=2)
+            json.dump(self.default_size, json_file)

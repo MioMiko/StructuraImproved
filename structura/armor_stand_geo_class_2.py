@@ -39,11 +39,9 @@ class armorstandgeo:
         self.uv_map = {}
         self.blocks = {}
         self.bones = []
-        self.material_list=Counter()
+        self.material_list = Counter()
         self.uv_height = 0
         self.uv_deque = deque()
-        ## The stuff below is a horrible cludge that should get cleaned up. +1 karma to whomever has a better plan for this.
-        # this is how i determine if something should be thin. it is ugly, but kinda works
 
     def stand_init(self):
         # helper function to initialize the dictionary that will be exported as the json object

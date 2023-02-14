@@ -2,6 +2,7 @@ import json
 import os
 
 class render_controller:
+    # control which model to display when nametag is changed
 
     __slots__ = ("rc","geometry","textures")
     rcname = "controller.render.armor_stand.ghost_blocks"

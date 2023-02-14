@@ -844,13 +844,15 @@
 	"cave_vines_body_with_berries": {
 		"definition": ["cross_texture"],
 		"default": {
-			"textures": ["plant/cave_vines_body_berries"]
+			"textures": ["plant/cave_vines_body_berries"],
+			"material": {"cave_vines":{"default":1}}
 		}
 	},
 	"cave_vines_head_with_berries": {
 		"definition": ["cross_texture"],
 		"default": {
-			"textures": ["plant/cave_vines_head_berries"]
+			"textures": ["plant/cave_vines_head_berries"],
+			"material": {"cave_vines":{"default":1}}
 		}
 	},
 	"chain": {
@@ -928,7 +930,7 @@
 		"definition": ["cube"],
 		"default": {
 			"textures": ["double_slabs/cobbled_deepslate"],
-			"material": {"polished_deepslate_slab":{"default":2}}
+			"material": {"cobbled_deepslate_slab":{"default":2}}
 		}
 	},
 	"cobbled_deepslate_slab": {
@@ -1142,52 +1144,68 @@
 	"concretePowder": {
 		"definition": ["cube"],
 		"white": {
-			"textures": ["colorful/concrete_powder_white"]
+			"textures": ["colorful/concrete_powder_white"],
+			"material": {"concrete_powder_white": {"default":1}}
 		},
 		"silver": {
-			"textures": ["colorful/concrete_powder_silver"]
+			"textures": ["colorful/concrete_powder_silver"],
+			"material": {"concrete_powder_silver": {"default":1}}
 		},
 		"gray": {
-			"textures": ["colorful/concrete_powder_gray"]
+			"textures": ["colorful/concrete_powder_gray"],
+			"material": {"concrete_powder_gray": {"default":1}}
 		},
 		"black": {
-			"textures": ["colorful/concrete_powder_black"]
+			"textures": ["colorful/concrete_powder_black"],
+			"material": {"concrete_powder_black": {"default":1}}
 		},
 		"brown": {
-			"textures": ["colorful/concrete_powder_brown"]
+			"textures": ["colorful/concrete_powder_brown"],
+			"material": {"concrete_powder_brown": {"default":1}}
 		},
 		"red": {
-			"textures": ["colorful/concrete_powder_red"]
+			"textures": ["colorful/concrete_powder_red"],
+			"material": {"concrete_powder_red": {"default":1}}
 		},
 		"orange": {
-			"textures": ["colorful/concrete_powder_orange"]
+			"textures": ["colorful/concrete_powder_orange"],
+			"material": {"concrete_powder_orange": {"default":1}}
 		},
 		"yellow": {
-			"textures": ["colorful/concrete_powder_yellow"]
+			"textures": ["colorful/concrete_powder_yellow"],
+			"material": {"concrete_powder_yellow": {"default":1}}
 		},
 		"lime": {
-			"textures": ["colorful/concrete_powder_lime"]
+			"textures": ["colorful/concrete_powder_lime"],
+			"material": {"concrete_powder_lime": {"default":1}}
 		},
 		"green": {
-			"textures": ["colorful/concrete_powder_green"]
+			"textures": ["colorful/concrete_powder_green"],
+			"material": {"concrete_powder_green": {"default":1}}
 		},
 		"cyan": {
-			"textures": ["colorful/concrete_powder_cyan"]
+			"textures": ["colorful/concrete_powder_cyan"],
+			"material": {"concrete_powder_cyan": {"default":1}}
 		},
 		"light_blue": {
-			"textures": ["colorful/concrete_powder_light_blue"]
+			"textures": ["colorful/concrete_powder_light_blue"],
+			"material": {"concrete_powder_light_blue": {"default":1}}
 		},
 		"blue": {
-			"textures": ["colorful/concrete_powder_blue"]
+			"textures": ["colorful/concrete_powder_blue"],
+			"material": {"concrete_powder_blue": {"default":1}}
 		},
 		"purple": {
-			"textures": ["colorful/concrete_powder_purple"]
+			"textures": ["colorful/concrete_powder_purple"],
+			"material": {"concrete_powder_purple": {"default":1}}
 		},
 		"magenta": {
-			"textures": ["colorful/concrete_powder_magenta"]
+			"textures": ["colorful/concrete_powder_magenta"],
+			"material": {"concrete_powder_magenta": {"default":1}}
 		},
 		"pink": {
-			"textures": ["colorful/concrete_powder_pink"]
+			"textures": ["colorful/concrete_powder_pink"],
+			"material": {"concrete_powder_pink": {"default":1}}
 		}
 	},
 	"conduit": {
@@ -2843,7 +2861,8 @@
 	"lantern": {
 		"definition": ["lantern"],
 		"default": {
-			"textures": ["lantern"]
+			"textures": ["lantern"],
+			"material": {"lantern":{"default":1}}
 		}
 	},
 	"lapis_block": {
@@ -3423,7 +3442,8 @@
 				"east": ["redstone/observer_right_lit"],
 				"west": ["redstone/observer_left_lit"],
 				"down": ["redstone/observer_bottom_lit"]
-			}
+			},
+			"material": {"observer":{"default":1}}
 		}
 	},
 	"obsidian": {
@@ -4299,7 +4319,8 @@
 				"up": ["sculk_shrieker_can_summon_top"],
 				"side": ["sculk_shrieker_side"],
 				"down": ["sculk_shrieker_bottom"]
-			}
+			},
+		"material": "ignore"
 		}
 	},
 	"sculk_vein": {
@@ -4317,7 +4338,8 @@
 	"seaLantern": {
 		"definition": ["cube"],
 		"default": {
-			"textures": ["sea_lantern"]
+			"textures": ["sea_lantern"],
+			"material": {"sea_lantern": {"default":1}}
 		}
 	},
 	"sea_pickle": {
@@ -4635,7 +4657,8 @@
 	"soul_lantern": {
 		"definition": ["lantern"],
 		"default": {
-			"textures": ["soul_lantern"]
+			"textures": ["soul_lantern"],
+			"material": {"soul_lantern":{"default":1}}
 		}
 	},
 	"soul_sand": {
@@ -4971,117 +4994,145 @@
 	"stone_block_slab": {
 		"definition": ["slab"],
 		"cobblestone": {
-			"textures": ["slabs/cobblestone"]
+			"textures": ["slabs/cobblestone"],
+			"material": {"stone_slab_cobblestone":{"default":1}}
 		},
 		"smooth_stone": {
 			"textures": {
 				"up": ["slabs/smooth_stone"],
 				"side": ["slabs/smooth_stone_slab_side"],
 				"down": ["slabs/smooth_stone"]
-			}
+			},
+			"material": {"stone_slab_smooth_stone":{"default":1}}
 		},
 		"stone_brick": {
-			"textures": ["slabs/stonebrick"]
+			"textures": ["slabs/stonebrick"],
+			"material": {"stone_slab_stone_brick":{"default":1}}
 		},
 		"brick": {
-			"textures": ["slabs/brick"]
+			"textures": ["slabs/brick"],
+			"material": {"stone_slab_brick":{"default":1}}
 		},
 		"nether_brick": {
-			"textures": ["slabs/nether_brick"]
+			"textures": ["slabs/nether_brick"],
+			"material": {"stone_slab_nether_brick":{"default":1}}
 		},
 		"sandstone": {
 			"textures": {
 				"up": ["slabs/sandstone_top"],
 				"side": ["slabs/sandstone_normal"],
 				"down": ["slabs/sandstone_bottom"]
-			}
+			},
+			"material": {"stone_slab_sandstone":{"default":1}}
 		},
 		"quartz": {
-			"textures": ["slabs/quartz_block"]
+			"textures": ["slabs/quartz_block"],
+			"material": {"stone_slab_quartz":{"default":1}}
 		}
 	},
 	"stone_block_slab2": {
 		"definition": ["slab"],
 		"mossy_cobblestone": {
-			"textures": ["slabs/cobblestone_mossy"]
+			"textures": ["slabs/cobblestone_mossy"],
+			"material": {"stone_slab2_mossy_cobblestone":{"default":1}}
 		},
 		"red_nether_brick": {
-			"textures": ["slabs/red_nether_brick"]
+			"textures": ["slabs/red_nether_brick"],
+			"material": {"stone_slab2_red_nether_brick":{"default":1}}
 		},
 		"smooth_sandstone": {
-			"textures": ["slabs/sandstone_top"]
+			"textures": ["slabs/sandstone_top"],
+			"material": {"stone_slab2_smooth_sandstone":{"default":1}}
 		},
 		"red_sandstone": {
 			"textures": {
 				"up": ["slabs/red_sandstone_top"],
 				"side": ["slabs/red_sandstone_normal"],
 				"down": ["slabs/red_sandstone_bottom"]
-			}
+			},
+			"material": {"stone_slab2_red_sandstone":{"default":1}}
 		},
 		"purpur": {
-			"textures": ["slabs/purpur_block"]
+			"textures": ["slabs/purpur_block"],
+			"material": {"stone_slab2_purpur":{"default":1}}
 		},
 		"prismarine_rough": {
-			"textures": ["slabs/prismarine_rough"]
+			"textures": ["slabs/prismarine_rough"],
+			"material": {"stone_slab2_prismarine_rough":{"default":1}}
 		},
 		"prismarine_dark": {
-			"textures": ["slabs/prismarine_dark"]
+			"textures": ["slabs/prismarine_dark"],
+			"material": {"stone_slab2_prismarine_dark":{"default":1}}
 		},
 		"prismarine_brick": {
-			"textures": ["slabs/prismarine_brick"]
+			"textures": ["slabs/prismarine_brick"],
+			"material": {"stone_slab2_prismarine_brick":{"default":1}}
 		}
 	},
 	"stone_block_slab3": {
 		"definition": ["slab"],
 		"andesite": {
-			"textures": ["slabs/stone_andesite"]
+			"textures": ["slabs/stone_andesite"],
+			"material": {"stone_slab3_andesite":{"default":1}}
 		},
 		"polished_andesite": {
-			"textures": ["slabs/stone_andesite_smooth"]
+			"textures": ["slabs/stone_andesite_smooth"],
+			"material": {"stone_slab3_polished_andesite":{"default":1}}
 		},
 		"diorite": {
-			"textures": ["slabs/stone_diorite"]
+			"textures": ["slabs/stone_diorite"],
+			"material": {"stone_slab3_diorite":{"default":1}}
 		},
 		"polished_diorite": {
-			"textures": ["slabs/stone_diorite_smooth"]
+			"textures": ["slabs/stone_diorite_smooth"],
+			"material": {"stone_slab3_polished_diorite":{"default":1}}
 		},
 		"granite": {
-			"textures": ["slabs/stone_granite"]
+			"textures": ["slabs/stone_granite"],
+			"material": {"stone_slab3_granite":{"default":1}}
 		},
 		"polished_granite": {
-			"textures": ["slabs/stone_granite_smooth"]
+			"textures": ["slabs/stone_granite_smooth"],
+			"material": {"stone_slab3_polished_granite":{"default":1}}
 		},
 		"end_stone_brick": {
-			"textures": ["slabs/end_brick"]
+			"textures": ["slabs/end_brick"],
+			"material": {"stone_slab3_end_stone_brick":{"default":1}}
 		},
 		"smooth_red_sandstone": {
-			"textures": ["slabs/red_sandstone_top"]
+			"textures": ["slabs/red_sandstone_top"],
+			"material": {"stone_slab3_smooth_red_sandstone":{"default":1}}
 		}
 	},
 	"stone_block_slab4": {
 		"definition": ["slab"],
 		"stone": {
-			"textures": ["slabs/stone"]
+			"textures": ["slabs/stone"],
+			"material": {"stone_slab4_stone":{"default":1}}
 		},
 		"mossy_stone_brick": {
-			"textures": ["slabs/stonebrick_mossy"]
+			"textures": ["slabs/stonebrick_mossy"],
+			"material": {"stone_slab4_mossy_stone_brick":{"default":1}}
 		},
 		"cut_sandstone": {
 			"textures": {
 				"up": ["slabs/sandstone_top"],
 				"side": ["slabs/sandstone_smooth"],
 				"down": ["slabs/sandstone_top"]
-			}
+			},
+			"material": {"stone_slab4_cut_sandstone":{"default":1}}
 		},
 		"cut_red_sandstone": {
 			"textures": {
 				"up": ["slabs/red_sandstone_top"],
 				"side": ["slabs/red_sandstone_smooth"],
 				"down": ["slabs/red_sandstone_top"]
-			}
+			},
+			"material": {"stone_slab4_cut_red_sandstone":{"default":1}}
 		},
 		"smooth_quartz": {
-			"textures": ["slabs/quartz_block_smooth"]
+			"textures": ["slabs/quartz_block_smooth"],
+			"material": {"stone_slab4_smooth_quartz":{"default":1}}
 		}
 	},
 	"stone_slab": {
@@ -5345,7 +5396,8 @@
 		}
 	},
 	"structure_block": {
-		"definition": ["ignore"]
+		"definition": ["ignore"],
+		"default": {"material": "ignore"}
 	},
 	"structure_void": {
 		"definition": ["ignore"]
@@ -5423,7 +5475,8 @@
 	"tripWire": {
 		"definition": ["tripwire"],
 		"default": {
-			"textures": ["trip_wire"]
+			"textures": ["trip_wire"],
+			"material": {"trip_wire": {"default":1}}
 		}
 	},
 	"tripwire_hook": {

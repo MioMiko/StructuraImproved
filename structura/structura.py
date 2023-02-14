@@ -2,7 +2,6 @@ import armor_stand_geo_class_2 as asgc
 import armor_stand_class
 import structure_reader
 import animation_class
-from config import setting_gui
 import render_controller_class as rcc
 import manifest
 from shutil import copyfile
@@ -37,6 +36,8 @@ makeMaterialsList : sets wether a material list shall be output.
 
 
     info_save_path = f"{conf['info_save_path']}{pack_name}/"
+
+    # create info dir and export nametags file
     if "".join(tuple(models_object.keys())) != "":
         os.makedirs(info_save_path, exist_ok=True)
         fileName=f"{info_save_path}{lang['name_tags_filename']}"
@@ -48,50 +49,32 @@ makeMaterialsList : sets wether a material list shall be output.
         os.makedirs(info_save_path, exist_ok=True)
 
 
-    ## makes a render controller class that we will use to hide models
-    rc=rcc.render_controller()
-    ##makes a armor stand entity class that we will use to add models 
+    rc= rcc.render_controller()
     armorstand_entity = armor_stand_class.armorstand()
-    ##manifest is mostly hard coded in this function.
     manifest.export(pack_name)
 
-    ## repeate for each structure after you get it to work
-    #creats a base animation controller for us to put pose changes into
     animation = animation_class.animations()
-    longestY = 0
-    update_animation = True
     all_material_list = Counter()
     for model_name,model in models_object.items():
-        rc.add_model(model_name)
-        armorstand_entity.add_model(model_name)
+
         if debug:
             print(model['offsets'])
-        #reads structure
-        struct2make = structure_reader.process_structure(model["structure"])
-        #creates a base armorstand class for us to insert blocks
+        rc.add_model(model_name)
+        armorstand_entity.add_model(model_name)
+        struct2make = structure_reader.structure_processor(model["structure"])
         armorstand = asgc.armorstandgeo(model_name,model['opacity'],model["offsets"])
 
-        #gets the shape for looping
-        xlen, ylen, zlen = struct2make.size
-        if ylen > longestY:
-            update_animation=True
-            longestY = ylen
-        else:
-            update_animation=False
+        xlen,ylen,zlen = struct2make.size
+
         for y in range(ylen):
             #creates the layer for controlling. Note there is implied formating here
-            #for layer names
             armorstand.make_layer(y)
-            #adds links the layer name to an animation
-            if update_animation:
-                animation.insert_layer(y)
+            animation.insert_layer(y)
             for x in range(xlen):
                 for z in range(zlen):
-                    #gets block
+
                     block = struct2make.get_block(x, y, z)
 
-                    ##  If java worlds are brought into bedrock the tools some times
-                    ##  output unsupported blocks, will log.
                     if block[1][4]:
                         continue
                     try:
@@ -101,7 +84,9 @@ makeMaterialsList : sets wether a material list shall be output.
                         print(lang["block_info"].format(x,y,z,block[0],block[1][1]))
                         if not skip_unsupported_block:
                             raise err
-        ## this is a quick hack to get block lists, doesnt consider vairants.... so be careful
+
+        # endfor(ylen)
+
         if makeMaterialsList:
             if multi_model:
                 fileName=f"{info_save_path}{lang['material_list_filename']}".format(model_name)
@@ -114,14 +99,12 @@ makeMaterialsList : sets wether a material list shall be output.
             else:
                 all_material_list = armorstand.material_list
 
-        # call export fuctions
         armorstand.export(pack_name)
         animation.export(pack_name)
-
-        ##export the armorstand class
         armorstand_entity.export(pack_name)
 
     # endfor models
+
     if makeMaterialsList:
         fileName=f"{info_save_path}{lang['all_material_list_filename']}"
         with open(fileName,"w",encoding="utf-8") as file:
@@ -129,27 +112,27 @@ makeMaterialsList : sets wether a material list shall be output.
             for name,count in all_material_list.most_common():
                 name = lang["block_name_ref"].get(name,name)
                 file.write(f"{name},{int(count)}\n")
-    # Copy my icons in
+
     copyfile(icon, f"cache/{pack_name}/pack_icon.png")
+
     # Adds to zip file a modified armor stand geometry to enlarge the render area of the entity
     larger_render = "lookups/armor_stand.larger_render.geo.json"
     larger_render_path = f"cache/{pack_name}/models/entity/armor_stand.larger_render.geo.json"
-    copyfile(larger_render, larger_render_path)
     # the base render controller is hard coded and just copied in
-
+    copyfile(larger_render, larger_render_path)
 
     rc.export(pack_name)
-    ## get all files
+
+    # compress
 
     os.chdir(f"cache/{pack_name}")
 
+    ## get all files
     file_paths = []
     for directory,_,_ in os.walk("./"):
         file_paths.extend(glob.glob(os.path.join(directory, "*.*")))
 
-    ## add all files to the mcpack file  
     with ZipFile(f"{conf['save_path']}{pack_name}.mcpack", 'w',ZIP_DEFLATED) as zip: 
-        # writing each file one by one 
         for file in file_paths:
             print(file)
             zip.write(file)
@@ -157,17 +140,20 @@ makeMaterialsList : sets wether a material list shall be output.
     os.chdir("../../")
 
     models_object.clear()
-    ## delete all the extra files.
+
+    ## delete cache files.
     shutil.rmtree(f"cache/{pack_name}")
+
     print(lang["pack_complete"])
 
 
 if __name__=="__main__":
     ## this is all the gui stuff that is not needed if you are calling this as a CLI
 
-    from tkinter import messagebox,Message,Toplevel
-    from tkinter import StringVar, Button, Label, Entry, Tk, Checkbutton, END, ACTIVE
-    from tkinter import filedialog, Scale,DoubleVar,HORIZONTAL,IntVar,Listbox, ANCHOR
+    from tkinter import messagebox,Message,Toplevel,\
+            StringVar, Button, Label, Entry, Tk, Checkbutton, END, ACTIVE,\
+            filedialog, Scale,DoubleVar,HORIZONTAL,IntVar,Listbox, ANCHOR
+    from config import setting_gui
 
 
     def showabout():
@@ -276,7 +262,6 @@ if __name__=="__main__":
 
 
     def runFromGui():
-        ##wrapper for a gui.
         global models
         pack_name:str = packName.get()
         stop = False
@@ -333,7 +318,7 @@ if __name__=="__main__":
                 listbox.delete(0,END)
 
 
-    models={}
+    models = {}
     root = Tk()
     root.resizable(False,False)
     root.title("StructuraImproved")
