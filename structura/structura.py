@@ -1,16 +1,15 @@
+import os
+os.chdir(os.path.dirname(__file__))
+
 import armor_stand_geo_class_2 as asgc
 import armor_stand_class
 import structure_reader
 import animation_class
 import render_controller_class as rcc
 import manifest
-from shutil import copyfile
-import os
+from shutil import copyfile,rmtree
 from zipfile import ZipFile,ZIP_DEFLATED
 from collections import Counter
-import glob
-import shutil
-import ntpath
 import json
 import re
 
@@ -35,12 +34,12 @@ makeMaterialsList : sets wether a material list shall be output.
     """
 
 
-    info_save_path = f"{conf['info_save_path']}{pack_name}/"
+    info_save_path = os.path.join(conf["info_save_path"],pack_name)
 
     # create info dir and export nametags file
     if "".join(tuple(models_object.keys())) != "":
         os.makedirs(info_save_path, exist_ok=True)
-        fileName=f"{info_save_path}{lang['name_tags_filename']}"
+        fileName=f"{info_save_path}/{lang['name_tags_filename']}"
         with open(fileName,"w",encoding="utf-8") as text_file:
             text_file.write(lang["name_tags_contain"])
             for name in models_object.keys():
@@ -89,7 +88,7 @@ makeMaterialsList : sets wether a material list shall be output.
 
         if makeMaterialsList:
             if multi_model:
-                fileName=f"{info_save_path}{lang['material_list_filename']}".format(model_name)
+                fileName=f"{info_save_path}/{lang['material_list_filename']}".format(model_name)
                 with open(fileName,"w",encoding="utf-8") as file:
                     file.write(f"{lang['block_name']},{lang['count']}\n")
                     for name,count in armorstand.material_list.most_common():
@@ -103,10 +102,10 @@ makeMaterialsList : sets wether a material list shall be output.
         animation.export(pack_name)
         armorstand_entity.export(pack_name)
 
-    # endfor models
+    # endfor(models)
 
     if makeMaterialsList:
-        fileName=f"{info_save_path}{lang['all_material_list_filename']}"
+        fileName=f"{info_save_path}/{lang['all_material_list_filename']}"
         with open(fileName,"w",encoding="utf-8") as file:
             file.write(f"{lang['block_name']},{lang['count']}\n")
             for name,count in all_material_list.most_common():
@@ -127,22 +126,18 @@ makeMaterialsList : sets wether a material list shall be output.
 
     os.chdir(f"cache/{pack_name}")
 
-    ## get all files
-    file_paths = []
-    for directory,_,_ in os.walk("./"):
-        file_paths.extend(glob.glob(os.path.join(directory, "*.*")))
-
-    with ZipFile(f"{conf['save_path']}{pack_name}.mcpack", 'w',ZIP_DEFLATED) as zip: 
-        for file in file_paths:
-            print(file)
-            zip.write(file)
+    with ZipFile(os.path.join(conf["save_path"],f"{pack_name}.mcpack"),"w",ZIP_DEFLATED) as zip: 
+        for dire,_,files in os.walk("./"):
+            for f in files:
+                f = os.path.join(dire, f)
+                print(f)
+                zip.write(f)
 
     os.chdir("../../")
 
-    models_object.clear()
+    rmtree(f"cache/{pack_name}")
 
-    ## delete cache files.
-    shutil.rmtree(f"cache/{pack_name}")
+    models_object.clear()
 
     print(lang["pack_complete"])
 
@@ -291,7 +286,7 @@ if __name__=="__main__":
         if not conf["overwrite_same_packname"]:
             tmp = pack_name
             i = 1
-            while os.path.isfile(f"{conf['save_path']}{pack_name}.mcpack"):
+            while os.path.isfile(os.path.join(conf["save_path"],f"pack_name.mcpack")):
                pack_name = f"{tmp}({i})"
                i += 1
         if len(icon_var.get()) > 0:

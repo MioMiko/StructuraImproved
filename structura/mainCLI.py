@@ -4,6 +4,7 @@ import traceback
 
 debug = False
 
+lang = structura.lang
 
 class para_count_check:
     def __init__(self,count):
@@ -12,7 +13,6 @@ class para_count_check:
         def fun(para,*args,**kwards):
             if len(para) < self.count:
                 raise Exception(f"Too less parameters, it takes at least {self.count} parameters.")
-                return False
             return callback(para,*args,**kwards)
         return fun
 
@@ -22,7 +22,6 @@ def add_model(para):
     global model
     if para[1] in model.keys():
         raise Exception("Model name must be unique")
-        return False
     model[para[1]] = {
         "structure": "",
         "offsets": [0,0,0],
@@ -40,31 +39,25 @@ def modify_model(para):
                 i += 1
                 if i >= len(para):
                     raise Exception("-s option takes no parameters.")
-                    return False
                 model[para[1]]["structure"] = para[i]
             case "-o":
                 i += 1
                 if i >= len(para):
                     raise Exception("-o option takes no parameters.")
-                    return False
                 if i + 2 >= len(para):
                     raise Exception("-o option takes too less parameters,need 3.")
-                    return False
                 model[para[1]]["offsets"] = [int(i) for i in para[i:i+3]]
                 i += 2
             case "-a":
                 i += 1
                 if i >= len(para):
                     raise Exception("-a option takes no parameters.")
-                    return False
                 try:
                     alpha = int(para[i])
                 except ValueError:
                     raise Exception("-a option need a integer from 0 to 100.")
-                    return False
                 if not 0 <= para[i] <= 100:
                     raise Exception("-a option need a integer from 0 to 100.")
-                    return False
                 model[para[1]]["structure"] = para[i]
             case _:
                 raise Exception(f"Unknown parameter {para[i]}")
@@ -73,12 +66,16 @@ def modify_model(para):
 
 @para_count_check(2)
 def del_model(para):
-    try:
-        model.pop(para[1])
-        return True
-    except:
-        raise Exception("Model doesn't exist.")
-        return False
+    fail = False
+    fail_model = []
+    for name in para[1:]:
+        try:
+            model.pop(name)
+        except:
+            fail = True
+            fail_model.append(name)
+    if fail:
+        raise Exception(f"Model {','.join(fail_model)} doesn't exist.")
 
 def list_model():
     print(f"Packname:{pack_name},Makelist:{make_list},Icon:{icon}")
@@ -94,7 +91,7 @@ def clear_model():
 
 @para_count_check(3)
 def set_pack(para):
-    global pack_name,make_list
+    global pack_name,make_list,icon
     match para[1].lower():
         case "packname":
             pack_name = para[2]
@@ -105,13 +102,10 @@ def set_pack(para):
                 make_list = True
             else:
                 raise Exception(f"Unknown value {para[2]}")
-                return False
         case "icon":
             icon = para[2]
         case _:
             raise Exception(f"Unknown setting {para[1]}")
-            return False
-    return True
 
 @para_count_check(2)
 def load_file(para):
@@ -158,6 +152,12 @@ def make_pack():
     else:
         pack_name = ""
 
+def show_help(para):
+    if len(para) == 1:
+        print(lang["help_summary"])
+    for cmd in para[1:]:
+        print(lang.get(f"help_{cmd}",f"Unknown command {cmd}"))
+
 def parse_line(line:str) -> bool:
     para = re.findall(r'".*?"|\S+',line)
     para = [i.strip('"') for i in para]
@@ -180,6 +180,8 @@ def parse_line(line:str) -> bool:
             make_pack()
         case "load":
             load_file(para)
+        case "help":
+            show_help(para)
         case "quit":
             quit()
         case _:

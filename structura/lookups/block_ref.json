@@ -12,7 +12,7 @@
 		}
 	},
 	"acacia_fence_gate": {
-		"definition": ["fence_gate"],
+		"definition": ["fence_gate","fence_gate","pumpkin"],
 		"default": {
 			"textures": ["wood/planks_acacia"]
 		}
@@ -446,7 +446,7 @@
 		}
 	},
 	"birch_fence_gate": {
-		"definition": ["fence_gate"],
+		"definition": ["fence_gate","fence_gate","pumpkin"],
 		"default": {
 			"textures": ["wood/planks_birch"]
 		}
@@ -1439,7 +1439,7 @@
 		}
 	},
 	"crimson_fence_gate": {
-		"definition": ["fence_gate"],
+		"definition": ["fence_gate","fence_gate","pumpkin"],
 		"default": {
 			"textures": ["wood/crimson_planks"]
 		}
@@ -1583,7 +1583,7 @@
 		}
 	},
 	"dark_oak_fence_gate": {
-		"definition": ["fence_gate"],
+		"definition": ["fence_gate","fence_gate","pumpkin"],
 		"default": {
 			"textures": ["wood/planks_dark_oak"]
 		}
@@ -2408,7 +2408,7 @@
 		}
 	},
 	"fence_gate": {
-		"definition": ["fence_gate"],
+		"definition": ["fence_gate","fence_gate","pumpkin"],
 		"default": {
 			"textures": ["wood/planks_oak"]
 		}
@@ -2800,7 +2800,7 @@
 		}
 	},
 	"jungle_fence_gate": {
-		"definition": ["fence_gate"],
+		"definition": ["fence_gate","fence_gate","pumpkin"],
 		"default": {
 			"textures": ["wood/planks_jungle"]
 		}
@@ -3086,7 +3086,7 @@
 		}
 	},
 	"mangrove_fence_gate": {
-		"definition": ["fence_gate"],
+		"definition": ["fence_gate","fence_gate","pumpkin"],
 		"default": {
 			"textures": ["wood/mangrove_planks"]
 		}
@@ -4707,7 +4707,7 @@
 		}
 	},
 	"spruce_fence_gate": {
-		"definition": ["fence_gate"],
+		"definition": ["fence_gate","fence_gate","pumpkin"],
 		"default": {
 			"textures": ["wood/planks_spruce"]
 		}
@@ -5615,7 +5615,7 @@
 		}
 	},
 	"warped_fence_gate": {
-		"definition": ["fence_gate"],
+		"definition": ["fence_gate","fence_gate","pumpkin"],
 		"default": {
 			"textures": ["wood/warped_planks"]
 		}

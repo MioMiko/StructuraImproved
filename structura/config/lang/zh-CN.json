@@ -47,6 +47,18 @@
 	"block_name": "方块名称",
 	"count": "数量",
 
+	"": "CLI help",
+	"help_summary": "This tool is just a simple simulation of input and it is not useful to input manually.I suggest to use \"load\" command to read commands from a file.\nUse double quotes to input an empty string or string with spaces\n  help [command]: show this help and if commands are followed,it will show details of the command\n  add <name_tag> [options]: Add a model.\n  modify <name_tag> [options]: modify details of a model.\n  del <name_tag>: delete a model.\n  clear: clear all models.\n  list: list all the model exist.\n  set <option_name> <value>: set options of the pack.\n  make: start making the pack.\n  load <file_path>: read commands from a text file.\n  quit: exit this tool.\n",
+	"help_add": "add <name_tag> [options]\nAdd a model.\noptions:\n  -s <mcstructure_file_path>: add a structure to the model.\n  -o <x_offset> <y_offset> <z_offset>: set the offset of the model.\n  -a <transparency:an integer from 0 to 100>: set the transparency of the model.\n",
+	"help_modify": "add <name_tag> [options]\nModify details of a model.\noptions:\n  -s <mcstructure_file_path>: modify a structure of the model.\n  -o <x_offset> <y_offset> <z_offset>: modify the offset of the model.\n  -a <transparency:an integer from 0 to 100>: modify the transparency of the model.\n",
+	"help_del": "del <name_tag>\nDelete a model.\n",
+	"help_clear": "clear\nClear all models.\n",
+	"help_list": "list\nList all the model exist.\n",
+	"help_set": "set <option_name> <value>\nSet options of the pack.\noption_names:\n  packname: value:string. Set the pack name.\n  makelist: value:true/false. Make a material list or not.\n  icon: value:string(image_file_path). Set an icon for the pack\n",
+	"help_make": "make\nStart making the pack.\n",
+	"help_load": "load <file_path>\nRead commands from a text file.\n",
+	"help_quit": "quit\nExit this tool.\n",
+
 	"block_name_ref": {
 		"acacia_button": "金合欢木按钮",
 		"acacia_door": "金合欢木门",
