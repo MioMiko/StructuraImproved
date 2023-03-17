@@ -26,7 +26,7 @@
 
 	"": "about",
 	"about": "About",
-	"about_content": "This is a tool based on Strictura and make improvement.\nIt's open soucre under MIT License and images made by it(not vanilla) are under CC BY 4.0(https://creativecommons.org/licenses/by/4.0/).\n\nOpen source address: https://github.com/MioMiko/StructuraImproved\nOrignal Structura address: https://github.com/RavinMaddHatter/Structura\n\nStructuraImproved Lisence original text:\n\n{}\n\nStructura Lisence original text:\n\n{}",
+	"about_content": "This is a tool based on Strictura and make improvement.\nIt's open soucre under MIT License and images made by it(not vanilla) are under CC BY 4.0 License(https://creativecommons.org/licenses/by/4.0/).\n\nOpen source address: https://github.com/MioMiko/StructuraImproved\nOrignal Structura address: https://github.com/RavinMaddHatter/Structura\n\nStructuraImproved Lisence original text:\n\n{}\n\nStructura Lisence original text:\n\n{}",
 
 	"": "setting",
 	"setting": "Setting",
@@ -48,9 +48,9 @@
 	"count": "Count",
 
 	"": "CLI help",
-	"help_summary": "This tool is just a simple simulation of input and it is not useful to input manually.I suggest to use \"load\" command to read commands from a file.\nUse double quotes to input an empty string or string with spaces\n  help [command]: show this help and if commands are followed,it will show details of the command\n  add <name_tag> [options]: Add a model.\n  modify <name_tag> [options]: modify details of a model.\n  del <name_tag>: delete a model.\n  clear: clear all models.\n  list: list all the model exist.\n  set <option_name> <value>: set options of the pack.\n  make: start making the pack.\n  load <file_path>: read commands from a text file.\n  quit: exit this tool.\n",
+	"help_summary": "Use double quotes to input an empty string or string with spaces\n\nCommands:\n  help [command]: show this help and if commands are followed,it will show details of the command.\n  add <name_tag> [options]: Add a model.\n  modify <name_tag> [options]: modify details of a model.\n  del <name_tag>: delete a model.\n  clear: clear all models.\n  list: list all the model exist.\n  set <option_name> <value>: set options of the pack.\n  make: start making the pack.\n  load <file_path>: read commands from a text file.\n  quit: exit this tool.\n",
 	"help_add": "add <name_tag> [options]\nAdd a model.\noptions:\n  -s <mcstructure_file_path>: add a structure to the model.\n  -o <x_offset> <y_offset> <z_offset>: set the offset of the model.\n  -a <transparency:an integer from 0 to 100>: set the transparency of the model.\n",
-	"help_modify": "add <name_tag> [options]\nModify details of a model.\noptions:\n  -s <mcstructure_file_path>: modify a structure of the model.\n  -o <x_offset> <y_offset> <z_offset>: modify the offset of the model.\n  -a <transparency:an integer from 0 to 100>: modify the transparency of the model.\n",
+	"help_modify": "modify <name_tag> [options]\nModify details of a model.\noptions:\n  -s <mcstructure_file_path>: modify a structure of the model.\n  -o <x_offset> <y_offset> <z_offset>: modify the offset of the model.\n  -a <transparency:an integer from 0 to 100>: modify the transparency of the model.\n",
 	"help_del": "del <name_tag>\nDelete a model.\n",
 	"help_clear": "clear\nClear all models.\n",
 	"help_list": "list\nList all the model exist.\n",

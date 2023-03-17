@@ -25,7 +25,7 @@ Choose the method that suits you:
 
 Arch Linux:
 ```bash
-sudo pacman -S python
+sudo pacman -S python python-pip
 ```
 
 Then you need to install some python dependencies:
@@ -55,13 +55,13 @@ Next click the export button at the bottom to produce a save prompt, this will a
 ## Converting a structure into a .mcpack file
 Start StructuraImproved.
 ![alt text](docs/launch_structura.PNG?raw=true)
-Next open your exported structure from earlier using browse button, or type the path in manually.
+Next open your exported structure from earlier using browse button, or type the path manually.
 ![alt text](docs/browse_file.PNG?raw=true)
 Enter a name for you structura pack.
 ![alt text](docs/name.PNG?raw=true)
 If you mistakenly name two files the same it will be renamed automaticly with an index to differentiate.
 
-If everything worked you should now have an mcpack file 
+If everything worked you should now have an mcpack file.
 ![alt text](docs/pack_made.PNG?raw=true)
 
 ## Using the pack
@@ -69,8 +69,23 @@ This pack is like any resource pack. To use it you must make sure it is active, 
 ![alt text](docs/make_pack_active.PNG?raw=true)
 The structure will appear around every armor stand in the worlds you load. It is how we are able to make it work on any world. So get out an armor stand and place it down to see your structure.
 ![alt text](docs/example_full.png?raw=true)
-You can go through a structure layer by layer if you like by shift right clicking on the stand. This will minimize all layers except the "active" ones. I cannot add poses without adding a behavior pack so for large structures there will be mutiple layers displayed at a time (12 blocks apart)
+You can go through a structure layer by layer by shift right clicking on the stand. This will minimize all layers except the "active" ones. I cannot add poses without adding a behavior pack so for large structures there will be mutiple layers displayed at a time (12 blocks apart).
 ![alt text](docs/example_layer.png?raw=true)
+
+## Command Line Tool
+For the users unable to acess to desktop environment.StructuraImproved provides a command line tool which can be found in `root of the project/structura`.
+
+Use command line tool:
+```shell
+python main_cli.py
+```
+
+Here's a simple demonstrate:
+```
+set makelist true  # set to output a material list
+add "" -s "some_structure.mcstructure"  # add a model with an empty nametag and assigned it to a structure file
+make  # start making the pack
+```
 
 ## LICENSE
 All the images made by StructuraImproved are under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).

@@ -1,17 +1,19 @@
-import os
-os.chdir(os.path.dirname(__file__))
-
-import armor_stand_geo_class_2 as asgc
-import armor_stand_class
-import structure_reader
-import animation_class
-import render_controller_class as rcc
-import manifest
-from shutil import copyfile,rmtree
-from zipfile import ZipFile,ZIP_DEFLATED
 from collections import Counter
 import json
+import os
 import re
+from shutil import copyfile,rmtree
+import sys
+from zipfile import ZipFile,ZIP_DEFLATED
+
+os.chdir(os.path.dirname(__file__))
+
+import animation_class
+import armor_stand_geo_class_2 as asgc
+import armor_stand_class
+import manifest
+import render_controller_class as rcc
+import structure_reader
 
 skip_unsupported_block = True
 debug = False
@@ -25,26 +27,29 @@ with open(f"config/lang/{lang_ref[conf['lang']]}.json",encoding="utf-8") as f:
     lang = json.load(f)
 os.makedirs("cache", exist_ok=True)
 
-def generate_pack(pack_name,models_object={},multi_model=False,makeMaterialsList=False, icon="lookups/pack_icon.png"):
+def generate_pack(pack_name, models_object={}, multi_model=False,
+                  make_list=False, icon="lookups/pack_icon.png"):
     """
 This is the funciton that makes a structura pack:
 pack_name : the name of the pack, this will be stored the the manafest.JSON as well as the name of the mcpack file
 models : 'NAME_TAG': {offsets: [x, y, z],opacity: percent,structure: file.mcstructure},
-makeMaterialsList : sets wether a material list shall be output.
+make_list : sets wether a material list shall be output.
     """
 
+
+    print("Start Making Pack.")
 
     info_save_path = os.path.join(conf["info_save_path"],pack_name)
 
     # create info dir and export nametags file
     if "".join(tuple(models_object.keys())) != "":
         os.makedirs(info_save_path, exist_ok=True)
-        fileName=f"{info_save_path}/{lang['name_tags_filename']}"
-        with open(fileName,"w",encoding="utf-8") as text_file:
+        file_name=f"{info_save_path}/{lang['name_tags_filename']}"
+        with open(file_name,"w",encoding="utf-8") as text_file:
             text_file.write(lang["name_tags_contain"])
             for name in models_object.keys():
-                text_file.write("\n{}".format(name))
-    elif makeMaterialsList:
+                text_file.write(f"\n{name}")
+    elif make_list:
         os.makedirs(info_save_path, exist_ok=True)
 
 
@@ -77,7 +82,7 @@ makeMaterialsList : sets wether a material list shall be output.
                     if block[1][4]:
                         continue
                     try:
-                        armorstand.make_block(x,y,z,block,makeMaterialsList)
+                        armorstand.make_block(x,y,z,block,make_list)
                     except Exception as err:
                         print(lang["unsupported_block"])
                         print(lang["block_info"].format(x,y,z,block[0],block[1][1]))
@@ -86,10 +91,10 @@ makeMaterialsList : sets wether a material list shall be output.
 
         # endfor(ylen)
 
-        if makeMaterialsList:
+        if make_list:
             if multi_model:
-                fileName=f"{info_save_path}/{lang['material_list_filename']}".format(model_name)
-                with open(fileName,"w",encoding="utf-8") as file:
+                file_name = f"{info_save_path}/{lang['material_list_filename']}".format(model_name)
+                with open(file_name,"w",encoding="utf-8") as file:
                     file.write(f"{lang['block_name']},{lang['count']}\n")
                     for name,count in armorstand.material_list.most_common():
                         all_material_list[name] += count
@@ -104,9 +109,9 @@ makeMaterialsList : sets wether a material list shall be output.
 
     # endfor(models)
 
-    if makeMaterialsList:
-        fileName=f"{info_save_path}/{lang['all_material_list_filename']}"
-        with open(fileName,"w",encoding="utf-8") as file:
+    if make_list:
+        file_name = f"{info_save_path}/{lang['all_material_list_filename']}"
+        with open(file_name,"w",encoding="utf-8") as file:
             file.write(f"{lang['block_name']},{lang['count']}\n")
             for name,count in all_material_list.most_common():
                 name = lang["block_name_ref"].get(name,name)
@@ -114,10 +119,9 @@ makeMaterialsList : sets wether a material list shall be output.
 
     copyfile(icon, f"cache/{pack_name}/pack_icon.png")
 
-    # Adds to zip file a modified armor stand geometry to enlarge the render area of the entity
+    # A modified armor stand geometry to enlarge the render area of the entity
     larger_render = "lookups/armor_stand.larger_render.geo.json"
     larger_render_path = f"cache/{pack_name}/models/entity/armor_stand.larger_render.geo.json"
-    # the base render controller is hard coded and just copied in
     copyfile(larger_render, larger_render_path)
 
     rc.export(pack_name)
@@ -126,12 +130,14 @@ makeMaterialsList : sets wether a material list shall be output.
 
     os.chdir(f"cache/{pack_name}")
 
-    with ZipFile(os.path.join(conf["save_path"],f"{pack_name}.mcpack"),"w",ZIP_DEFLATED) as zip: 
+    print("Compressing.")
+    pack_path = os.path.join(conf["save_path"],f"{pack_name}.mcpack")
+    with ZipFile(pack_path,"w", ZIP_DEFLATED) as zip_file:
         for dire,_,files in os.walk("./"):
             for f in files:
                 f = os.path.join(dire, f)
-                print(f)
-                zip.write(f)
+                zip_file.write(f)
+    print(f"Pack Saved To {pack_path}")
 
     os.chdir("../../")
 
@@ -145,6 +151,7 @@ makeMaterialsList : sets wether a material list shall be output.
 if __name__=="__main__":
     ## this is all the gui stuff that is not needed if you are calling this as a CLI
 
+    from _tkinter import TclError
     from tkinter import messagebox,Message,Toplevel,\
             StringVar, Button, Label, Entry, Tk, Checkbutton, END, ACTIVE,\
             filedialog, Scale,DoubleVar,HORIZONTAL,IntVar,Listbox, ANCHOR
@@ -153,9 +160,9 @@ if __name__=="__main__":
 
     def showabout():
         about = Toplevel()
-        with open("LICENSE",encoding="utf-8") as f:
+        with open("../LICENSE",encoding="utf-8") as f:
             License = f.read()
-        with open("LICENSE-Structura",encoding="utf-8") as f:
+        with open("../LICENSE-Structura",encoding="utf-8") as f:
             License_Structura = f.read()
         about.title(lang["about"])
         msg = Message(about,text=lang["about_content"].format(License,License_Structura))
@@ -241,7 +248,6 @@ if __name__=="__main__":
         listbox.insert(END,name_tag)
 
     def push_model(name,opacity,offset,structure):
-        global models
         models[name] = {
             "offsets": offset,
             "opacity": opacity,
@@ -257,7 +263,6 @@ if __name__=="__main__":
 
 
     def runFromGui():
-        global models
         pack_name:str = packName.get()
         stop = False
         multi_model = False
@@ -268,7 +273,8 @@ if __name__=="__main__":
                 stop = True
                 messagebox.showerror(lang["error"], lang["need_structure"])
             if len(pack_name) == 0:
-                pack_name = re.sub(r"(?:.*[/\\])?(?:mystructure_)?(.+).mcstructure",r"\1",FileGUI.get())
+                pack_name = re.sub(r"(?:.*[/\\])?(?:mystructure_)?(.+).mcstructure",r"\1"
+                                   ,FileGUI.get())
             if check_var.get():
                 add_model()
             else:
@@ -286,9 +292,9 @@ if __name__=="__main__":
         if not conf["overwrite_same_packname"]:
             tmp = pack_name
             i = 1
-            while os.path.isfile(os.path.join(conf["save_path"],f"pack_name.mcpack")):
-               pack_name = f"{tmp}({i})"
-               i += 1
+            while os.path.isfile(os.path.join(conf["save_path"],f"{pack_name}.mcpack")):
+                pack_name = f"{tmp}({i})"
+                i += 1
         if len(icon_var.get()) > 0:
             pack_icon=icon_var.get()
         else:
@@ -302,7 +308,7 @@ if __name__=="__main__":
                     pack_name,
                     models_object = models,
                     multi_model = multi_model,
-                    makeMaterialsList = (export_list.get()==1),
+                    make_list = (export_list.get()==1),
                     icon = pack_icon
                 )
             except Exception as err:
@@ -313,8 +319,13 @@ if __name__=="__main__":
                 listbox.delete(0,END)
 
 
+    try:
+        root = Tk()
+    except TclError:
+        print("Opps, it looks like you don't have a desktop environment.\n"
+              "Please try to use its command line tool.")
+        sys.exit()
     models = {}
-    root = Tk()
     root.resizable(False,False)
     root.title("StructuraImproved")
     FileGUI = StringVar()
@@ -334,8 +345,8 @@ if __name__=="__main__":
     check_var = IntVar()
     export_list = IntVar()
 
-    info = Button(root,text=u"\u24D8",font=("",10,"bold"),bd=0,width=1,command=showabout)
-    setting = Button(root,text=u"\u2699",font=("",10,"bold"),bd=0,width=1,command=showsetting)
+    info = Button(root,text="\u24D8",font=("",10,"bold"),bd=0,width=1,command=showabout)
+    setting = Button(root,text="\u2699",font=("",10,"bold"),bd=0,width=1,command=showsetting)
     listbox=Listbox(root)
     file_entry = Entry(root, textvariable=FileGUI)
     packName_entry = Entry(root, textvariable=packName)
@@ -353,8 +364,11 @@ if __name__=="__main__":
     file_lb = Label(root, text=lang["structure_file"])
     packName_lb = Label(root, text=lang["packname"])
     packButton = Button(root, text=lang["browse"], command=browseStruct)
-    advanced_check = Checkbutton(root, text=lang["advanced"], variable=check_var, onvalue=1, offvalue=0, command=box_checked)
-    export_check = Checkbutton(root, text=lang["make_lists"], variable=export_list, onvalue=1, offvalue=0)
+    advanced_check = Checkbutton(root, text=lang["advanced"],
+                                 variable=check_var, onvalue=1, offvalue=0,
+                                 command=box_checked)
+    export_check = Checkbutton(root, text=lang["make_lists"],
+                               variable=export_list, onvalue=1, offvalue=0)
 
     deleteButton = Button(root, text=lang["remove_model"], command=delete_model)
     saveButton = Button(root, text=lang["make_pack"], command=runFromGui)
@@ -362,7 +376,9 @@ if __name__=="__main__":
 
     # updateButton = Button(root, text="Update Blocks", command=updater.getLatest)
     transparency_lb = Label(root, text=lang["transparency"])
-    transparency_entry = Scale(root,variable=sliderVar, length=200, from_=0, to=100,tickinterval=10,orient=HORIZONTAL)
+    transparency_entry = Scale(root, variable=sliderVar,
+                               length=200, from_=0, to=100,tickinterval=10,
+                               orient=HORIZONTAL)
 
     r = 0
     info.grid(row=r, column=2,sticky="ne")

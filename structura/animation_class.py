@@ -1,11 +1,13 @@
+"""generate animation.json"""
+
 import json
 import os
 
 
 class animations:
-    # control the scale animation when change poses
+    """control the scale animation when change poses"""
 
-    __slots__ = ("sizing")
+    __slots__ = ("sizing",)
 
     poses = (
         "animation.armor_stand.no_pose",
@@ -33,7 +35,7 @@ class animations:
 
     def __init__(self):
         pathtofile = "lookups/vanilla/armor_stand.animation.json"
-        with open(pathtofile) as f:
+        with open(pathtofile, encoding="utf-8") as f:
             self.sizing = json.load(f)
 
     def insert_layer(self, y):
@@ -47,7 +49,7 @@ class animations:
 
         os.makedirs(os.path.dirname(path_to_ani), exist_ok=True)
 
-        with open(path_to_ani, "w") as json_file:
+        with open(path_to_ani,"w",encoding="utf-8") as json_file:
             json.dump(self.sizing, json_file, indent=2)
-        with open(path_to_rc, "w") as json_file:
+        with open(path_to_rc,"w",encoding="utf-8") as json_file:
             json.dump(self.default_size, json_file)

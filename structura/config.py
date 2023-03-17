@@ -3,6 +3,8 @@ from tkinter import ttk
 import json
 
 class setting_gui():
+    """show GUI of setting"""
+
     def __init__(self,conf,save_path,lang):
         self.conf = conf
         self.path = save_path
@@ -88,6 +90,6 @@ class setting_gui():
             "icon_path": self.icon_path.get(),
             "overwrite_same_packname": self.is_overwrite.get()
         }
-        with open("config/config.json","w") as f:
+        with open("config/config.json","w",encoding="utf-8") as f:
             json.dump(self.conf,f)
         self.setting.quit()

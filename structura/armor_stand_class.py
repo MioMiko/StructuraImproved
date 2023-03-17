@@ -8,7 +8,7 @@ class armorstand:
     __slots__ = ("stand","geos","textures")
 
     def __init__(self):
-        with open("lookups/vanilla/armor_stand.entity.json") as f:
+        with open("lookups/vanilla/armor_stand.entity.json",encoding="utf-8") as f:
             self.stand = json.load(f)
 
         desc = self.stand["minecraft:client_entity"]["description"]
@@ -31,5 +31,5 @@ class armorstand:
         path = f"cache/{pack_name}/entity/armor_stand.entity.json"
         os.makedirs(os.path.dirname(path), exist_ok = True)
 
-        with open(path, "w") as json_file:
+        with open(path,"w",encoding="utf-8") as json_file:
             json.dump(self.stand, json_file, indent=2)

@@ -26,7 +26,7 @@
 
 	"": "关于",
 	"about": "关于",
-	"about_content": "这是一个基于Structura并做出改进的工，并通过MIT协议开源，其自制贴图以CC BY 4.0开放(https://creativecommons.org/licenses/by/4.0/)。\n\n开源地址: https://github.com/MioMiko/StructuraImproved\n原版Structura: https://github.com/RavinMaddHatter/Structura\n\nStructuraImproved开源许可证原文:\n\n{}\n\nStructura 开源许可证原文:\n\n{}",
+	"about_content": "这是一个基于Structura并做出改进的工具，并通过MIT协议开源，其自制贴图采用知识共享CC BY 4.0协议进行授权(https://creativecommons.org/licenses/by/4.0/)。\n\n开源地址: https://github.com/MioMiko/StructuraImproved\n原版Structura: https://github.com/RavinMaddHatter/Structura\n\nStructuraImproved开源许可证原文:\n\n{}\n\nStructura 开源许可证原文:\n\n{}",
 
 	"": "设置",
 	"setting": "设置",
@@ -48,16 +48,16 @@
 	"count": "数量",
 
 	"": "CLI help",
-	"help_summary": "This tool is just a simple simulation of input and it is not useful to input manually.I suggest to use \"load\" command to read commands from a file.\nUse double quotes to input an empty string or string with spaces\n  help [command]: show this help and if commands are followed,it will show details of the command\n  add <name_tag> [options]: Add a model.\n  modify <name_tag> [options]: modify details of a model.\n  del <name_tag>: delete a model.\n  clear: clear all models.\n  list: list all the model exist.\n  set <option_name> <value>: set options of the pack.\n  make: start making the pack.\n  load <file_path>: read commands from a text file.\n  quit: exit this tool.\n",
-	"help_add": "add <name_tag> [options]\nAdd a model.\noptions:\n  -s <mcstructure_file_path>: add a structure to the model.\n  -o <x_offset> <y_offset> <z_offset>: set the offset of the model.\n  -a <transparency:an integer from 0 to 100>: set the transparency of the model.\n",
-	"help_modify": "add <name_tag> [options]\nModify details of a model.\noptions:\n  -s <mcstructure_file_path>: modify a structure of the model.\n  -o <x_offset> <y_offset> <z_offset>: modify the offset of the model.\n  -a <transparency:an integer from 0 to 100>: modify the transparency of the model.\n",
-	"help_del": "del <name_tag>\nDelete a model.\n",
-	"help_clear": "clear\nClear all models.\n",
-	"help_list": "list\nList all the model exist.\n",
-	"help_set": "set <option_name> <value>\nSet options of the pack.\noption_names:\n  packname: value:string. Set the pack name.\n  makelist: value:true/false. Make a material list or not.\n  icon: value:string(image_file_path). Set an icon for the pack\n",
-	"help_make": "make\nStart making the pack.\n",
-	"help_load": "load <file_path>\nRead commands from a text file.\n",
-	"help_quit": "quit\nExit this tool.\n",
+	"help_summary": "使用双引号来输入一个空的或带空格的字符串\n\n  help [命令]: 显示这个帮助信息并且如果附带一个命令参数，会显示这个命令的详细信息\n  add <命名> [选项]: 添加一个模型\n  modify <命名> [选项]: 修改一个模型的细节\n  del <命名>: 删除一个模型\n  clear: 清空所有模型\n  list: 列出所有已有模型\n  set <选项> <值>: 设置投影的一些选项\n  make: 开始制作投影\n  load <文件路径>: 从文本文件中读取命令\n  quit: 退出\n",
+	"help_add": "add <命名> [选项]\n添加一个模型\n选项:\n  -s <结构文件路径>: 给模型添加一个结构文件\n  -o <x轴偏移> <y轴偏移> <z轴偏移>: 设置模型的偏移\n  -a <透明度:0到100的整数>: 设置一个模型的透明度\n",
+	"help_modify": "modify <命名> [选项]\n修改一个模型的细节\n选项:\n  -s <结构文件路径>: 修改模型的结构文件\n  -o <x轴偏移> <y轴偏移> <z轴偏移>: 修改模型的偏移\n  -a <透明度:0到100的整数>: 修改一个模型的透明度\n",
+	"help_del": "del <命名>\n删除一个模型\n",
+	"help_clear": "clear\n清空所有模型\n",
+	"help_list": "list\n列出所有存在的模型.\n",
+	"help_set": "set <选项> <值>\n设置一个投影的选项\n选项名称:\n  packname: 值类型:字符串  设置投影的包名\n  makelist: 值类型:true/false(开/关)  是否制作材料表\n  icon: value:字符串(图片路径)  设置投影资源包图片\n",
+	"help_make": "make\n开始制作投影\n",
+	"help_load": "load <文件路径>\n从一个文件读取命令\n",
+	"help_quit": "quit\n退出\n",
 
 	"block_name_ref": {
 		"acacia_button": "金合欢木按钮",

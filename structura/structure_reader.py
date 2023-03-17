@@ -1,11 +1,11 @@
-import nbtlib
 import json
+import nbtlib
 import numpy as np
 
 debug = False
 
 class structure_processor:
-    # read the structure file and draw the block info
+    """read the structure file and draw the block info"""
 
     __slots__ = ("NBTfile","index","size","palette","block_entities","cube")
     """
@@ -52,7 +52,6 @@ class structure_processor:
 
     def process_states(self,block_states):
         rot = None
-        top = False
         lit = False
         data = "0"
         skip = False
@@ -76,7 +75,7 @@ class structure_processor:
             if key in block_states.keys():
                 try:
                     rot = int(block_states[key])
-                except:
+                except ValueError:
                     rot = str(block_states[key])
                 break
 
@@ -85,7 +84,7 @@ class structure_processor:
             if key in block_states.keys():
                 try:
                     data = str(int(block_states[key]))
-                except:
+                except ValueError:
                     data = str(block_states[key])
                 break
 

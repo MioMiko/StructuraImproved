@@ -1,8 +1,10 @@
+"""generte render_controller.json"""
+
 import json
 import os
 
 class render_controller:
-    # control which model to display when nametag is changed
+    """control which model to display when nametag is changed"""
 
     __slots__ = ("rc","geometry","textures")
     rcname = "controller.render.armor_stand.ghost_blocks"
@@ -12,7 +14,7 @@ class render_controller:
             "format_version": "1.8.0",
             "render_controllers": {
                 self.rcname: {
-                    "materials": [{"*": "Material.ghost_blocks"}],
+                    "materials": ({"*": "Material.ghost_blocks"},),
                 }
             }
         }
@@ -20,7 +22,7 @@ class render_controller:
         self.geometry = "{}"
         self.textures = "{}"
 
-    def add_model(self,name_raw):
+    def add_model(self, name_raw):
         name = name_raw.replace(" ","_").lower()
         new_geo = f"query.get_name == '{name_raw}' ? Geometry.ghost_blocks_{name} : ({{}})"
         self.geometry = self.geometry.format(new_geo)
@@ -37,5 +39,5 @@ class render_controller:
         rcpath = f"cache/{pack_name}/render_controllers/{rc}"
         os.makedirs(os.path.dirname(rcpath), exist_ok = True)
 
-        with open(rcpath, "w+") as json_file:
+        with open(rcpath, "w",encoding="utf-8") as json_file:
             json.dump(self.rc, json_file, indent=2)

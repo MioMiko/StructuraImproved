@@ -32,7 +32,7 @@ Structura的灵感来自Litematica模组。它是一个可以用.mcstructure文�
 
 Arch Linux:
 ```bash
-sudo pacman -S python
+sudo pacman -S python python-pip
 ```
 
 接着你需要安装一些Python的依赖库:
@@ -40,11 +40,12 @@ sudo pacman -S python
 pip install -r requirements.txt
 ```
 
-运行StructuraImproved程序:
+进入项目根目录并运行StructuraImproved程序:
 ```bash
 cd structura
 python structura.py
 ```
+
 ## 修改设置
 
 ### 语言设置
@@ -74,16 +75,30 @@ python structura.py
 ![alt text](docs/pack_made.PNG?raw=true)
 
 ## 使用资源包
-这个包就像任何资源包一样。要使用它，你必须确保它处于激活状态，以便在全局资源中启用它。
+这个包就像任何资源包一样。要使用它，你必须确保它处于激活状态。
 ![alt text](docs/make_pack_active.PNG?raw=true)
 该结构将出现在您加载的世界中的每个盔甲架周围。这就是我们能够使其在任何世界上工作的方式。所以拿出一个盔甲架，把它放下来看看你的结构。
 ![alt text](docs/example_full.png?raw=true)
-你可以通过右击盔甲架来逐层浏览结构。这将最小化除“活动”层之外的所有层。然而对于大型结构，它一次会显示多层（相隔12个方块）
+潜行右击盔甲架来逐层浏览结构。这将最小化除“活动”层之外的所有层。然而对于大型结构，它一次会显示多层（相隔12个方块）。
 ![alt text](docs/example_layer.png?raw=true)
 
+## 命令行工具
+对于无法使用桌面环境的用户，StructuraImproved提供了一个命令行工具，可以在 项目根目录/structura 中找到。
+
+使用命令行工具：
+```shell
+python main_cli.py
+```
+
+如下是一个简单的演示：
+```
+set makelist true # 设置制作材料列表
+add "" -s "结构文件.mcstructure" # 添加一个命名为空的模型并指定结构文件
+make # 开始制作投影
+```
+
 ## 目前企划
-- 更容易辨识的楼梯和半砖
 - 小瑕疵修复
 
 ## 版权声明
-所有StructuraImproved的自制贴图均以[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)开放。
+所有StructuraImproved的自制贴图均采用[知识共享CC BY 4.0协议](https://creativecommons.org/licenses/by/4.0/)授权。
