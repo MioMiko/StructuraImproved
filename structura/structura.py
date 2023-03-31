@@ -2,18 +2,16 @@ from collections import Counter
 import json
 import os
 import re
-from shutil import copyfile,rmtree
-import sys
 from zipfile import ZipFile,ZIP_DEFLATED
 
 os.chdir(os.path.dirname(__file__))
 
-import animation_class
-import armor_stand_geo_class_2 as asgc
-import armor_stand_class
+from animation_class import Animation
+from armor_stand_geo_class_2 import Geometry
+from armor_stand_class import Entity
 import manifest
-import render_controller_class as rcc
-import structure_reader
+from render_controller_class import RenderController
+from structure_reader import StructureProcessor
 
 skip_unsupported_block = True
 debug = False
@@ -25,127 +23,139 @@ with open("config/lang/lang_ref.json",encoding="utf-8") as f:
     lang_ref = json.load(f)
 with open(f"config/lang/{lang_ref[conf['lang']]}.json",encoding="utf-8") as f:
     lang = json.load(f)
-os.makedirs("cache", exist_ok=True)
 
-def generate_pack(pack_name, models_object={}, multi_model=False,
-                  make_list=False, icon="lookups/pack_icon.png"):
-    """
-This is the funciton that makes a structura pack:
-pack_name : the name of the pack, this will be stored the the manafest.JSON as well as the name of the mcpack file
-models : 'NAME_TAG': {offsets: [x, y, z],opacity: percent,structure: file.mcstructure},
-make_list : sets wether a material list shall be output.
-    """
+def draw_packname(file_name: str) -> str:
+    return re.sub(r"(?:.*[/\\])?(?:mystructure_)?(.*).mcstructure",r"\1",file_name)
 
+def generate_pack(pack_name, models, make_list:bool=False,
+                  icon:str="lookups/pack_icon.png") -> None:
+    """
+    This is the funciton that makes a structura pack:
+
+    Arguments:
+
+        pack_name: the name of the pack
+            This will be stored the the manafest.json as well as the name of the mcpack file
+
+        models: a dict contains the models info
+            Key(str): name tag of the model
+            Value(dict): {
+                offsets: (x, y, z),
+                opacity: percent,
+                structure: .mcstructure file name
+            },
+
+        make_list: sets wether a material list shall be output
+
+        icon: the icon file path
+    """
 
     print("Start Making Pack.")
+
+    multi_model = len(models) > 1
 
     info_save_path = os.path.join(conf["info_save_path"],pack_name)
 
     # create info dir and export nametags file
-    if "".join(tuple(models_object.keys())) != "":
+    if "".join(tuple(models.keys())) != "":
         os.makedirs(info_save_path, exist_ok=True)
         file_name=f"{info_save_path}/{lang['name_tags_filename']}"
         with open(file_name,"w",encoding="utf-8") as text_file:
             text_file.write(lang["name_tags_contain"])
-            for name in models_object.keys():
+            for name in models.keys():
                 text_file.write(f"\n{name}")
     elif make_list:
         os.makedirs(info_save_path, exist_ok=True)
 
-
-    rc= rcc.render_controller()
-    armorstand_entity = armor_stand_class.armorstand()
-    manifest.export(pack_name)
-
-    animation = animation_class.animations()
     all_material_list = Counter()
-    for model_name,model in models_object.items():
 
-        if debug:
-            print(model['offsets'])
-        rc.add_model(model_name)
-        armorstand_entity.add_model(model_name)
-        struct2make = structure_reader.structure_processor(model["structure"])
-        armorstand = asgc.armorstandgeo(model_name,model['opacity'],model["offsets"])
+    pack_path = os.path.join(conf["save_path"],f"{pack_name}.mcpack")
+    with ZipFile(pack_path, "w", ZIP_DEFLATED) as zip_file:
 
-        xlen,ylen,zlen = struct2make.size
+        rc = RenderController()
+        entity = Entity()
+        animation = Animation()
+        manifest.export(pack_name, zip_file)
 
-        for y in range(ylen):
-            #creates the layer for controlling. Note there is implied formating here
-            armorstand.make_layer(y)
-            animation.insert_layer(y)
-            for x in range(xlen):
-                for z in range(zlen):
+        for model_name,model in models.items():
 
-                    block = struct2make.get_block(x, y, z)
+            if debug:
+                print(model['offsets'])
 
-                    if block[1][4]:
-                        continue
-                    try:
-                        armorstand.make_block(x,y,z,block,make_list)
-                    except Exception as err:
-                        print(lang["unsupported_block"])
-                        print(lang["block_info"].format(x,y,z,block[0],block[1][1]))
-                        if not skip_unsupported_block:
-                            raise err
+            rc.add_model(model_name)
+            entity.add_model(model_name)
+            structure = StructureProcessor(model["structure"])
+            geo = Geometry(model_name,model['opacity'],model["offsets"])
 
-        # endfor(ylen)
+            xlen, ylen, zlen = structure.size
+
+            for y in range(ylen):
+                # creates the layer for controlling. Note there is implied formating here
+                geo.make_layer(y)
+                animation.insert_layer(y)
+
+                # make geometry for each block
+                for x in range(xlen):
+                    for z in range(zlen):
+
+                        if (blk := structure.get_block(x, y, z)) is None:
+                            continue
+
+                        try:
+                            geo.make_block(x,y,z,blk,make_list)
+                        except Exception as err:
+                            print(lang["unsupported_block"])
+                            print(lang["block_info"].format(x,y,z,blk[0],blk[2]))
+                            if not skip_unsupported_block:
+                                raise err
+
+            # endfor(ylen)
+
+            if make_list:
+                if multi_model:
+                    file_name = f"{info_save_path}/{lang['material_list_filename']}".format(model_name)
+                    with open(file_name,"w",encoding="utf-8") as file:
+                        file.write(f"{lang['block_name']},{lang['count']}\n")
+                        for name,count in geo.material_list.most_common():
+                            all_material_list[name] += count
+                            name = lang["block_name_ref"].get(name,name)
+                            file.write(f"{name},{int(count)}\n")
+                else:
+                    all_material_list = geo.material_list
+
+            geo.export(zip_file)
+
+        # endfor(models)
+
+        animation.export(zip_file)
+        entity.export(zip_file)
+        rc.export(zip_file)
 
         if make_list:
-            if multi_model:
-                file_name = f"{info_save_path}/{lang['material_list_filename']}".format(model_name)
-                with open(file_name,"w",encoding="utf-8") as file:
-                    file.write(f"{lang['block_name']},{lang['count']}\n")
-                    for name,count in armorstand.material_list.most_common():
-                        all_material_list[name] += count
-                        name = lang["block_name_ref"].get(name,name)
-                        file.write(f"{name},{int(count)}\n")
-            else:
-                all_material_list = armorstand.material_list
+            file_name = f"{info_save_path}/{lang['all_material_list_filename']}"
+            with open(file_name,"w",encoding="utf-8") as file:
+                file.write(f"{lang['block_name']},{lang['count']}\n")
+                for name,count in all_material_list.most_common():
+                    name = lang["block_name_ref"].get(name,name)
+                    file.write(f"{name},{int(count)}\n")
 
-        armorstand.export(pack_name)
-        animation.export(pack_name)
-        armorstand_entity.export(pack_name)
+        zip_file.write(icon, "pack_icon.png")
 
-    # endfor(models)
+        # A modified armor stand geometry to enlarge the render area of the entity
+        larger_render = "lookups/armor_stand.larger_render.geo.json"
+        larger_render_path = "models/entity/armor_stand.larger_render.geo.json"
+        zip_file.write(larger_render, larger_render_path)
 
-    if make_list:
-        file_name = f"{info_save_path}/{lang['all_material_list_filename']}"
-        with open(file_name,"w",encoding="utf-8") as file:
-            file.write(f"{lang['block_name']},{lang['count']}\n")
-            for name,count in all_material_list.most_common():
-                name = lang["block_name_ref"].get(name,name)
-                file.write(f"{name},{int(count)}\n")
+        print(f"Pack Saved To {pack_path}")
 
-    copyfile(icon, f"cache/{pack_name}/pack_icon.png")
+    # end open zip
 
-    # A modified armor stand geometry to enlarge the render area of the entity
-    larger_render = "lookups/armor_stand.larger_render.geo.json"
-    larger_render_path = f"cache/{pack_name}/models/entity/armor_stand.larger_render.geo.json"
-    copyfile(larger_render, larger_render_path)
+    models.clear()
 
-    rc.export(pack_name)
+    print(f"\033[1;32m{lang['pack_complete']}\033[0m")
 
-    # compress
 
-    os.chdir(f"cache/{pack_name}")
 
-    print("Compressing.")
-    pack_path = os.path.join(conf["save_path"],f"{pack_name}.mcpack")
-    with ZipFile(pack_path,"w", ZIP_DEFLATED) as zip_file:
-        for dire,_,files in os.walk("./"):
-            for f in files:
-                f = os.path.join(dire, f)
-                zip_file.write(f)
-    print(f"Pack Saved To {pack_path}")
-
-    os.chdir("../../")
-
-    rmtree(f"cache/{pack_name}")
-
-    models_object.clear()
-
-    print(lang["pack_complete"])
 
 
 if __name__=="__main__":
@@ -173,7 +183,6 @@ if __name__=="__main__":
         print("idhhf")
 
     def browseStruct():
-        #browse for a structure file.
         FileGUI.set(
             filedialog.askopenfilename(
                 filetypes=(("Structure File", "*.mcstructure *.MCSTRUCTURE"),),
@@ -181,7 +190,6 @@ if __name__=="__main__":
             )
         )
     def browseIcon():
-        #browse for a structure file.
         icon_var.set(filedialog.askopenfilename(filetypes=(
             ("Icon File", "*.png *.PNG"), )))
 
@@ -265,16 +273,13 @@ if __name__=="__main__":
     def runFromGui():
         pack_name:str = packName.get()
         stop = False
-        multi_model = False
 
         if len(models) == 0 or check_var.get() == 0:
-            multi_model = False
             if len(FileGUI.get()) == 0:
                 stop = True
                 messagebox.showerror(lang["error"], lang["need_structure"])
             if len(pack_name) == 0:
-                pack_name = re.sub(r"(?:.*[/\\])?(?:mystructure_)?(.+).mcstructure",r"\1"
-                                   ,FileGUI.get())
+                pack_name = draw_packname(FileGUI.get())
             if check_var.get():
                 add_model()
             else:
@@ -285,7 +290,6 @@ if __name__=="__main__":
                     FileGUI.get()
                 )
         else:
-            multi_model = True
             if len(pack_name) == 0:
                 messagebox.showerror(lang["error"], lang["need_packname"])
 
@@ -306,10 +310,9 @@ if __name__=="__main__":
             try:
                 generate_pack(
                     pack_name,
-                    models_object = models,
-                    multi_model = multi_model,
-                    make_list = (export_list.get()==1),
-                    icon = pack_icon
+                    models=models,
+                    make_list=(export_list.get()==1),
+                    icon=pack_icon
                 )
             except Exception as err:
                 print(f"\a\033[1;31m{err}\033[0m")
@@ -323,8 +326,10 @@ if __name__=="__main__":
         root = Tk()
     except TclError:
         print("Opps, it looks like you don't have a desktop environment.\n"
-              "Please try to use its command line tool.")
-        sys.exit()
+              "Trying to use command line tool.")
+        from main_cli import main
+        main()
+
     models = {}
     root.resizable(False,False)
     root.title("StructuraImproved")

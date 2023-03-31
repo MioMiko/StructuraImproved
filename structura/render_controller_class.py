@@ -1,9 +1,8 @@
 """generte render_controller.json"""
 
 import json
-import os
 
-class render_controller:
+class RenderController:
     """control which model to display when nametag is changed"""
 
     __slots__ = ("rc","geometry","textures")
@@ -29,15 +28,12 @@ class render_controller:
         new_texture = f"query.get_name == '{name_raw}' ? Texture.ghost_blocks_{name} : ({{}})"
         self.textures = self.textures.format(new_texture)
 
-    def export(self, pack_name):
+    def export(self, zip_file):
         self.geometry = self.geometry.format("Geometry.default")
         self.textures = self.textures.format("Texture.default")
         self.rc["render_controllers"][self.rcname]["geometry"] = self.geometry
-        self.rc["render_controllers"][self.rcname]["textures"] = [self.textures]
+        self.rc["render_controllers"][self.rcname]["textures"] = (self.textures,)
 
-        rc = "armor_stand.ghost_blocks.render_controllers.json"
-        rcpath = f"cache/{pack_name}/render_controllers/{rc}"
-        os.makedirs(os.path.dirname(rcpath), exist_ok = True)
-
-        with open(rcpath, "w",encoding="utf-8") as json_file:
-            json.dump(self.rc, json_file, indent=2)
+        rcpath = ("render_controllers/"
+                  "armor_stand.ghost_blocks.render_controllers.json")
+        zip_file.writestr(rcpath, json.dumps(self.rc, indent=2))

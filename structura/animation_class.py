@@ -1,10 +1,9 @@
 """generate animation.json"""
 
 import json
-import os
 
 
-class animations:
+class Animation:
     """control the scale animation when change poses"""
 
     __slots__ = ("sizing",)
@@ -43,13 +42,8 @@ class animations:
         self.sizing["animations"][self.poses[12]]["bones"][name] = {"scale": 12.5}
         self.sizing["animations"][self.poses[y%12]]["bones"][name] = {"scale": 12.5}
 
-    def export(self, pack_name):
-        path_to_ani = f"cache/{pack_name}/animations/armor_stand.animation.json"
-        path_to_rc = f"cache/{pack_name}/animations/armor_stand.ghost_blocks.scale.animation.json"
-
-        os.makedirs(os.path.dirname(path_to_ani), exist_ok=True)
-
-        with open(path_to_ani,"w",encoding="utf-8") as json_file:
-            json.dump(self.sizing, json_file, indent=2)
-        with open(path_to_rc,"w",encoding="utf-8") as json_file:
-            json.dump(self.default_size, json_file)
+    def export(self, zip_file):
+        path_to_ani = "animations/armor_stand.animation.json"
+        zip_file.writestr(path_to_ani, json.dumps(self.sizing, indent=2))
+        path_to_rc = "animations/armor_stand.ghost_blocks.scale.animation.json"
+        zip_file.writestr(path_to_rc, json.dumps(self.default_size, indent=2))

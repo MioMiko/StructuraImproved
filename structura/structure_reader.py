@@ -4,10 +4,18 @@ import numpy as np
 
 debug = False
 
-class structure_processor:
+def nbt_to_str(nbt):
+    if isinstance(nbt,int):
+        return str(int(nbt))
+    if isinstance(nbt,str):
+        return str(nbt)
+    if isinstance(nbt,float):
+        return str(float(nbt))
+
+class StructureProcessor:
     """read the structure file and draw the block info"""
 
-    __slots__ = ("NBTfile","index","size","palette","block_entities","cube")
+    __slots__ = ("index","size","palette","block_entities","cube")
     """
     cube is a list of index mapping to palette by z,y,x order
     palette is a list of block information
@@ -17,106 +25,102 @@ class structure_processor:
         nbt_def = json.load(f)
 
     def __init__(self, file):
-        if type(file) is dict:
-            self.NBTfile = file
-        else:
-            self.NBTfile = nbtlib.load(file, byteorder='little')
 
-        if "" in self.NBTfile.keys():
-            self.NBTfile = self.NBTfile[""]
+        nbt = nbtlib.load(file, byteorder='little')
 
-        self.size = self.NBTfile["size"]
-        self.cube = np.array(self.NBTfile["structure"]["block_indices"][0],dtype=np.int32)
-        self.cube.shape = self.size
-        self.block_entities = self.NBTfile["structure"]["palette"]["default"]["block_position_data"]
-
-        self.palette = list(self.NBTfile["structure"]["palette"]["default"]["block_palette"])
-        # process palette
-        for i, block in enumerate(self.palette):
-            self.palette[i] = (
-                block["name"].replace("minecraft:",""),
-                self.process_states(block["states"])
-            )
-
-        self.index = np.arange(0,np.prod(self.size),1,np.int32)
-        self.index.shape = self.size
+        self.size = nbt["size"]
+        self.cube = np.array(nbt["structure"]["block_indices"][0],dtype=np.int32).reshape(self.size)
+        self.block_entities = nbt["structure"]["palette"]["default"]["block_position_data"]
+        self.palette = tuple(map(self._process_palette, nbt["structure"]["palette"]["default"]["block_palette"]))
+        self.index = np.arange(0, np.prod(self.size), 1, np.int32).reshape(self.size)
 
     def get_block(self, x, y, z):
+        """
+        get the block info by given position
+
+        Return:
+            Option[Tuple[str, str, str, bool, str]]:
+                elem 1: block name without "minecraft:"
+                elem 2: rotation of the block
+                elem 3: texture variant of the block
+                elem 4: a bool furthur describe the texture variant
+                elem 5: other data, determine the shape and uv variant of the block
+                if the block does't needed processing, it returns None
+        """
+
         block_entity_index = str(self.index[x,y,z])
         block_info = self.palette[self.cube[x,y,z]]
         if block_entity_index in self.block_entities.keys():
             block_entity = self.block_entities[block_entity_index].get("block_entity_data")
             if block_entity:
-                block_info = self.process_block_entity(block_info,block_entity)
+                block_info = self._process_block_entity(block_info,block_entity)
         return block_info
 
-    def process_states(self,block_states):
+    @classmethod
+    def _process_palette(cls, block_palette):
         rot = None
         lit = False
         data = "0"
-        skip = False
         variant = "default"
 
+        blk_name = block_palette["name"].replace("minecraft:", "")
+        block_states = block_palette["states"]
+
         if not block_states:
-            return (rot, variant, lit, data, skip)
+            return (blk_name, rot, variant, lit, data)
+
+        for key in cls.nbt_def["skip"]:
+            if key in block_states.keys():
+                if bool(block_states[key]):
+                    return None
 
         # variant and lit determine the texture of blocks together
-        for key in self.nbt_def["variant"]:
+        for key in cls.nbt_def["variant"]:
             if key in block_states.keys():
-                variant = str(block_states[key])
+                variant = nbt_to_str(block_states[key])
                 break
 
-        for key in self.nbt_def["lit"]:
+        for key in cls.nbt_def["lit"]:
             if key in block_states.keys():
                 lit = bool(block_states[key])
                 break
 
-        for key in self.nbt_def["rot"]:
+        for key in cls.nbt_def["rot"]:
             if key in block_states.keys():
-                try:
-                    rot = int(block_states[key])
-                except ValueError:
-                    rot = str(block_states[key])
+                rot = nbt_to_str(block_states[key])
                 break
 
-        # top and data determines the offset of block together
-        for key in self.nbt_def["data"]:
+        # data determines the offset of block together
+        for key in cls.nbt_def["data"]:
             if key in block_states.keys():
-                try:
-                    data = str(int(block_states[key]))
-                except ValueError:
-                    data = str(block_states[key])
+                data = nbt_to_str(block_states[key])
                 break
 
-        for key in self.nbt_def["top"]:
+        for key in cls.nbt_def["top"]:
             if key in block_states.keys():
                 if block_states[key]:
                     data += "_top"
                     break
 
-        for key in self.nbt_def["skip"]:
-            if key in block_states.keys():
-                skip = bool(block_states[key])
-                break
-        return (rot, variant, lit, data, skip)
+        return (blk_name, rot, variant, lit, data)
 
+    @classmethod
+    def _process_block_entity(cls, block_info, block_entity):
+        blk_name, rot, variant, lit, data = block_info
 
-    def process_block_entity(self,block_info,block_entity):
-        rot, variant, lit, data, skip = block_info[1]
-
-        for key in self.nbt_def["block_entity_variant"]:
+        for key in cls.nbt_def["block_entity_variant"]:
             if key in block_entity.keys():
-                variant = str(block_entity[key])
+                variant = nbt_to_str(block_entity[key])
                 break
 
-        for key in self.nbt_def["block_entity_rot"]:
+        for key in cls.nbt_def["block_entity_rot"]:
             if key in block_entity.keys():
-                rot = str(block_entity[key])
+                rot = nbt_to_str(block_entity[key])
                 break
 
-        for key in self.nbt_def["block_entity_data"]:
+        for key in cls.nbt_def["block_entity_data"]:
             if key in block_entity.keys():
-                data = str(block_entity[key])
+                data = nbt_to_str(block_entity[key])
                 break
 
         # exception
@@ -124,12 +128,12 @@ class structure_processor:
             if block_entity["id"] == "Skull":
                 if block_entity["SkullType"] == 5:
                     data = "dragon"
-                if rot == 1:
-                    rot = str(block_entity["Rotation"])
+                if rot == "1":
+                    rot = nbt_to_str(block_entity["Rotation"])
                     data += "_standing"
             elif block_entity["id"] == "Hopper":
-                variant = str(rot)
+                variant = nbt_to_str(rot)
 
         if debug:
-            print((rot, variant, lit, data, skip))
-        return (block_info[0],(rot, variant, lit, data, skip))
+            print((rot, variant, lit, data))
+        return (blk_name, rot, variant, lit, data)

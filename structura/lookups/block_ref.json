@@ -64,28 +64,28 @@
 			"textures": ["rail_activator"],
 			"material": {"activator_rail": {"default":1}}
 		},
-		"Int(0)_lit": {
+		"0_lit": {
 			"textures": ["rail_activator_powered"]
 		},
-		"Int(1)_lit": {
+		"1_lit": {
 			"textures": ["rail_activator_powered"]
 		},
-		"Int(2)_lit": {
+		"2_lit": {
 			"textures": ["rail_activator_powered"]
 		},
-		"Int(3)_lit": {
+		"3_lit": {
 			"textures": ["rail_activator_powered"]
 		},
-		"Int(4)_lit": {
+		"4_lit": {
 			"textures": ["rail_activator_powered"]
 		},
-		"Int(5)_lit": {
+		"5_lit": {
 			"textures": ["rail_activator_powered"]
 		}
 	},
 	"air": {
-		"definition": ["ignore"],
-		"default": {"material": "ignore"}
+		"definition": [null],
+		"default": {"material": null}
 	},
 	"amethyst_block": {
 		"definition": ["cube"],
@@ -214,145 +214,145 @@
 	},
 	"bed": {
 		"definition": ["bed","bed","pumpkin"],
-		"Byte(0)": {
+		"0": {
 			"textures": ["colorful/bed_white"],
 			"material": {
-				"bed_Byte(0)": {
+				"bed_0": {
 					"default": 0,
 					"1": 1
 				}
 			}
 		},
-		"Byte(1)": {
+		"1": {
 			"textures": ["colorful/bed_orange"],
 			"material": {
-				"bed_Byte(1)": {
+				"bed_1": {
 					"default": 0,
 					"1": 1
 				}
 			}
 		},
-		"Byte(2)": {
+		"2": {
 			"textures": ["colorful/bed_magenta"],
 			"material": {
-				"bed_Byte(2)": {
+				"bed_2": {
 					"default": 0,
 					"1": 1
 				}
 			}
 		},
-		"Byte(3)": {
+		"3": {
 			"textures": ["colorful/bed_light_blue"],
 			"material": {
-				"bed_Byte(3)": {
+				"bed_3": {
 					"default": 0,
 					"1": 1
 				}
 			}
 		},
-		"Byte(4)": {
+		"4": {
 			"textures": ["colorful/bed_yellow"],
 			"material": {
-				"bed_Byte(4)": {
+				"bed_4": {
 					"default": 0,
 					"1": 1
 				}
 			}
 		},
-		"Byte(5)": {
+		"5": {
 			"textures": ["colorful/bed_lime"],
 			"material": {
-				"bed_Byte(5)": {
+				"bed_5": {
 					"default": 0,
 					"1": 1
 				}
 			}
 		},
-		"Byte(6)": {
+		"6": {
 			"textures": ["colorful/bed_pink"],
 			"material": {
-				"bed_Byte(6)": {
+				"bed_6": {
 					"default": 0,
 					"1": 1
 				}
 			}
 		},
-		"Byte(7)": {
+		"7": {
 			"textures": ["colorful/bed_gray"],
 			"material": {
-				"bed_Byte(7)": {
+				"bed_7": {
 					"default": 0,
 					"1": 1
 				}
 			}
 		},
-		"Byte(8)": {
+		"8": {
 			"textures": ["colorful/bed_silver"],
 			"material": {
-				"bed_Byte(8)": {
+				"bed_8": {
 					"default": 0,
 					"1": 1
 				}
 			}
 		},
-		"Byte(9)": {
+		"9": {
 			"textures": ["colorful/bed_cyan"],
 			"material": {
-				"bed_Byte(9)": {
+				"bed_9": {
 					"default": 0,
 					"1": 1
 				}
 			}
 		},
-		"Byte(10)": {
+		"10": {
 			"textures": ["colorful/bed_purple"],
 			"material": {
-				"bed_Byte(10)": {
+				"bed_10": {
 					"default": 0,
 					"1": 1
 				}
 			}
 		},
-		"Byte(11)": {
+		"11": {
 			"textures": ["colorful/bed_blue"],
 			"material": {
-				"bed_Byte(11)": {
+				"bed_11": {
 					"default": 0,
 					"1": 1
 				}
 			}
 		},
-		"Byte(12)": {
+		"12": {
 			"textures": ["colorful/bed_brown"],
 			"material": {
-				"bed_Byte(12)": {
+				"bed_12": {
 					"default": 0,
 					"1": 1
 				}
 			}
 		},
-		"Byte(13)": {
+		"13": {
 			"textures": ["colorful/bed_green"],
 			"material": {
-				"bed_Byte(13)": {
+				"bed_13": {
 					"default": 0,
 					"1": 1
 				}
 			}
 		},
-		"Byte(14)": {
+		"14": {
 			"textures": ["colorful/bed_red"],
 			"material": {
-				"bed_Byte(14)": {
+				"bed_14": {
 					"default": 0,
 					"1": 1
 				}
 			}
 		},
-		"Byte(15)": {
+		"15": {
 			"textures": ["colorful/bed_black"],
 			"material": {
-				"bed_Byte(15)": {
+				"bed_15": {
 					"default": 0,
 					"1": 1
 				}
@@ -376,7 +376,7 @@
 			},
 			"material": {"bee_nest":{"default":1}}
 		},
-		"Int(5)": {
+		"5": {
 			"textures": {
 				"up": ["bee_nest_top"],
 				"side": ["bee_nest_side"],
@@ -396,7 +396,7 @@
 			},
 			"material": {"beehive":{"default":1}}
 		},
-		"Int(5)": {
+		"5": {
 			"textures": {
 				"up": ["beehive_top"],
 				"side": ["beehive_side"],
@@ -626,11 +626,11 @@
 			"textures": ["plant/mushroom_block_skin_brown"],
 			"material": {"brown_mushroom_block":{"default":1}}
 		},
-		"Int(10)": {
+		"10": {
 			"textures": ["plant/mushroom_block_skin_stem"],
 			"material": {"mushroom_stem":{"default":1}}
 		},
-		"Int(15)": {
+		"15": {
 			"textures": ["plant/mushroom_block_skin_stem"],
 			"material": {"mushroom_stem":{"default":1}}
 		}
@@ -662,7 +662,7 @@
 			},
 			"material": {"cake":{"default":1}}
 		},
-		"Int(0)": {
+		"0": {
 			"textures": {
 				"up": ["cake_top"],
 				"side": ["cake_side"],
@@ -677,12 +677,12 @@
 		}
 	},
 	"camera": {
-		"definition": ["ignore"]
+		"definition": [null]
 	},
 	"campfire": {
 		"definition": ["campfire"],
 		"default": {"material": {"campfire":{"default":1}}},
-		"Byte(0)": {
+		"0": {
 			"textures": {
 				"up": ["campfire_log_lit", "campfire_log", "campfire_log", "campfire_log", "campfire_log", "campfire", "campfire"],
 				"north": ["campfire_log", "campfire_log", "campfire_log_lit", "campfire_log_lit", "campfire_log_lit", "campfire", "campfire"],
@@ -692,7 +692,7 @@
 				"down": ["campfire_log", "campfire_log", "campfire_log", "campfire_log_lit", "campfire_log_lit", "campfire", "campfire"]
 			}
 		},
-		"Byte(1)": {
+		"1": {
 			"textures": {
 				"up": ["campfire_log"],
 				"side": ["campfire_log"],
@@ -832,8 +832,8 @@
 		}
 	},
 	"cave_air": {
-		"definition": ["ignore"],
-		"default": {"material": "ignore"}
+		"definition": [null],
+		"default": {"material": null}
 	},
 	"cave_vines": {
 		"definition": ["cross_texture"],
@@ -1031,7 +1031,7 @@
 			},
 			"material": {"composter":{"default":1}}
 		},
-		"Int(8)": {
+		"8": {
 			"textures": {
 				"up": ["composter_top", "compost_ready"],
 				"side": ["composter_side", "compost_ready"],
@@ -1330,49 +1330,49 @@
 	},
 	"coral_fan_hang": {
 		"definition": ["coral_fan_hang"],
-		"Byte(0)": {
+		"0": {
 			"textures": ["coral_fan_blue"],
 			"material": {"coral_fan_pink": {"default": 1}}
 		},
-		"Byte(1)": {
+		"1": {
 			"textures": ["coral_fan_pink"],
 			"material": {"coral_fan_blue": {"default": 1}}
 		},
-		"Byte(0)_lit": {
+		"0_lit": {
 			"textures": ["coral_fan_blue_dead"],
 			"material": {"coral_fan_dead_pink": {"default": 1}}
 		},
-		"Byte(1)_lit": {
+		"1_lit": {
 			"textures": ["coral_fan_pink_dead"],
 			"material": {"coral_fan_dead_blue": {"default": 1}}
 		}
 	},
 	"coral_fan_hang2": {
 		"definition": ["coral_fan_hang"],
-		"Byte(0)": {
+		"0": {
 			"textures": ["coral_fan_purple"],
 			"material": {"coral_fan_red": {"default": 1}}
 		},
-		"Byte(1)": {
+		"1": {
 			"textures": ["coral_fan_red"],
 			"material": {"coral_fan_purple": {"default": 1}}
 		},
-		"Byte(0)_lit": {
+		"0_lit": {
 			"textures": ["coral_fan_purple_dead"],
 			"material": {"coral_fan_dead_red": {"default": 1}}
 		},
-		"Byte(1)_lit": {
+		"1_lit": {
 			"textures": ["coral_fan_red_dead"],
 			"material": {"coral_fan_dead_purple": {"default": 1}}
 		}
 	},
 	"coral_fan_hang3": {
 		"definition": ["coral_fan_hang"],
-		"Byte(0)": {
+		"0": {
 			"textures": ["coral_fan_yellow"],
 			"material": {"coral_fan_yellow": {"default": 1}}
 		},
-		"Byte(0)_lit": {
+		"0_lit": {
 			"textures": ["coral_fan_yellow_dead"],
 			"material": {"coral_fan_dead_yellow": {"default": 1}}
 		}
@@ -1803,22 +1803,22 @@
 			"textures": ["rail_detector"],
 			"material": {"detector_rail": {"default":1}}
 		},
-		"Int(0)_lit": {
+		"0_lit": {
 			"textures": ["rail_detector_powered"]
 		},
-		"Int(1)_lit": {
+		"1_lit": {
 			"textures": ["rail_detector_powered"]
 		},
-		"Int(2)_lit": {
+		"2_lit": {
 			"textures": ["rail_detector_powered"]
 		},
-		"Int(3)_lit": {
+		"3_lit": {
 			"textures": ["rail_detector_powered"]
 		},
-		"Int(4)_lit": {
+		"4_lit": {
 			"textures": ["rail_detector_powered"]
 		},
-		"Int(5)_lit": {
+		"5_lit": {
 			"textures": ["rail_detector_powered"]
 		}
 	},
@@ -2378,7 +2378,7 @@
 			},
 			"material": {"farmland":{"default":1}}
 		},
-		"Int(7)": {
+		"7": {
 			"textures": {
 				"up": ["farmland_wet"],
 				"side": ["dirt"],
@@ -2532,22 +2532,22 @@
 			"textures": ["rail_golden"],
 			"material": {"golden_rail": {"default":1}}
 		},
-		"Int(0)_lit": {
+		"0_lit": {
 			"textures": ["rail_golden_powered"]
 		},
-		"Int(1)_lit": {
+		"1_lit": {
 			"textures": ["rail_golden_powered"]
 		},
-		"Int(2)_lit": {
+		"2_lit": {
 			"textures": ["rail_golden_powered"]
 		},
-		"Int(3)_lit": {
+		"3_lit": {
 			"textures": ["rail_golden_powered"]
 		},
-		"Int(4)_lit": {
+		"4_lit": {
 			"textures": ["rail_golden_powered"]
 		},
-		"Int(5)_lit": {
+		"5_lit": {
 			"textures": ["rail_golden_powered"]
 		}
 	},
@@ -2742,7 +2742,7 @@
 		}
 	},
 	"invisibleBedrock": {
-		"definition": ["ignore"]
+		"definition": [null]
 	},
 	"iron_bars": {
 		"definition": ["pane"],
@@ -2775,7 +2775,7 @@
 		}
 	},
 	"jigsaw": {
-		"definition": ["ignore"]
+		"definition": [null]
 	},
 	"jukebox": {
 		"definition": ["cube"],
@@ -3542,7 +3542,7 @@
 			},
 			"material": {"piston": {"default":1}}
 		},
-		"Float(0.0)": {
+		"0.0": {
 			"textures": {
 				"up": ["redstone/piston_top"],
 				"side": ["redstone/piston_side"],
@@ -3551,12 +3551,12 @@
 		}
 	},
 	"piston_arm_collision": {
-		"definition": ["ignore"],
-		"default": {"material": "ignore"}
+		"definition": [null],
+		"default": {"material": null}
 	},
 	"pistonArmCollision": {
-		"definition": ["ignore"],
-		"default": {"material": "ignore"}
+		"definition": [null],
+		"default": {"material": null}
 	},
 	"planks": {
 		"definition": ["cube"],
@@ -3809,14 +3809,14 @@
 	"powered_comparator": {
 		"definition": ["comparator","comparator","pumpkin"],
 		"default": {"material": {"comparator":{"default":1}}},
-		"Byte(0)": {
+		"0": {
 			"textures": {
 				"up": ["redstone/comparator_on", "redstone/torch_on", "redstone/torch_on", "redstone/torch_off"],
 				"side": ["redstone/comparator_slab_on", "redstone/torch_on", "redstone/torch_on", "redstone/torch_off"],
 				"down": ["redstone/comparator_slab_on", "redstone/torch_on", "redstone/torch_on", "redstone/torch_off"]
 			}
 		},
-		"Byte(1)": {
+		"1": {
 			"textures": {
 				"up": ["redstone/comparator_on", "redstone/torch_on", "redstone/torch_on", "redstone/torch_on"],
 				"side": ["redstone/comparator_slab_on", "redstone/torch_on", "redstone/torch_on", "redstone/torch_on"],
@@ -3967,16 +3967,16 @@
 			"textures": ["rail_normal"],
 			"material": {"rail": {"default":1}}
 		},
-		"Int(6)": {
+		"6": {
 			"textures": ["rail_normal_turned"]
 		},
-		"Int(7)": {
+		"7": {
 			"textures": ["rail_normal_turned"]
 		},
-		"Int(8)": {
+		"8": {
 			"textures": ["rail_normal_turned"]
 		},
-		"Int(9)": {
+		"9": {
 			"textures": ["rail_normal_turned"]
 		}
 	},
@@ -4052,11 +4052,11 @@
 			"textures": ["plant/mushroom_block_skin_red"],
 			"material": {"red_mushroom_block":{"default":1}}
 		},
-		"Int(10)": {
+		"10": {
 			"textures": ["plant/mushroom_block_skin_stem"],
 			"material": {"mushroom_stem":{"default":1}}
 		},
-		"Int(15)": {
+		"15": {
 			"textures": ["plant/mushroom_block_skin_stem"],
 			"material": {"mushroom_stem":{"default":1}}
 		}
@@ -4165,35 +4165,35 @@
 	"respawn_anchor": {
 		"definition": ["cube"],
 		"default": {"material": {"respawn_anchor": {"default":1}}},
-		"Int(0)": {
+		"0": {
 			"textures": {
 				"up": ["respawn_anchor_top_off"],
 				"side": ["respawn_anchor_side0"],
 				"down": ["respawn_anchor_bottom"]
 			}
 		},
-		"Int(1)": {
+		"1": {
 			"textures": {
 				"up": ["respawn_anchor_top"],
 				"side": ["respawn_anchor_side1"],
 				"down": ["respawn_anchor_bottom"]
 			}
 		},
-		"Int(2)": {
+		"2": {
 			"textures": {
 				"up": ["respawn_anchor_top"],
 				"side": ["respawn_anchor_side2"],
 				"down": ["respawn_anchor_bottom"]
 			}
 		},
-		"Int(3)": {
+		"3": {
 			"textures": {
 				"up": ["respawn_anchor_top"],
 				"side": ["respawn_anchor_side3"],
 				"down": ["respawn_anchor_bottom"]
 			}
 		},
-		"Int(4)": {
+		"4": {
 			"textures": {
 				"up": ["respawn_anchor_top"],
 				"side": ["respawn_anchor_side4"],
@@ -4320,7 +4320,7 @@
 				"side": ["sculk_shrieker_side"],
 				"down": ["sculk_shrieker_bottom"]
 			},
-		"material": "ignore"
+		"material": null
 		}
 	},
 	"sculk_vein": {
@@ -4364,7 +4364,7 @@
 		},
 		"double_top": {
 			"textures": ["plant/seagrass_doubletall_top"],
-			"material": "ignore"
+			"material": null
 		}
 	},
 	"shroomlight": {
@@ -4374,7 +4374,7 @@
 		}
 	},
 	"shulker_box": {
-		"definition": ["cube","cube","shulker_box"],
+		"definition": ["cube","cube","dispenser"],
 		"white": {
 			"textures": {
 				"up": ["colorful/shulker_top_white"],
@@ -4496,22 +4496,22 @@
 	},
 	"skull": {
 		"definition": ["skull"],
-		"Byte(0)": {
+		"0": {
 			"textures": ["skull/skeleton"]
 		},
-		"Byte(1)": {
+		"1": {
 			"textures": ["skull/wither_skeleton"]
 		},
-		"Byte(2)": {
+		"2": {
 			"textures": ["skull/zombie"]
 		},
-		"Byte(3)": {
+		"3": {
 			"textures": ["skull/steve"]
 		},
-		"Byte(4)": {
+		"4": {
 			"textures": ["skull/creeper"]
 		},
-		"Byte(5)": {
+		"5": {
 			"textures": ["skull/dragon"]
 		}
 	},
@@ -4630,7 +4630,7 @@
 	"soul_campfire": {
 		"definition": ["campfire"],
 		"default": {"material": {"soul_campfire":{"default":1}}},
-		"Byte(0)": {
+		"0": {
 			"textures": {
 				"up": ["soul_campfire_log_lit", "campfire_log", "campfire_log", "campfire_log", "campfire_log", "soul_campfire", "soul_campfire"],
 				"north": ["campfire_log", "campfire_log", "soul_campfire_log_lit", "soul_campfire_log_lit", "soul_campfire_log_lit", "soul_campfire", "soul_campfire"],
@@ -4640,7 +4640,7 @@
 				"down": ["campfire_log", "campfire_log", "campfire_log", "soul_campfire_log_lit", "soul_campfire_log_lit", "soul_campfire", "soul_campfire"]
 			}
 		},
-		"Byte(1)": {
+		"1": {
 			"textures": {
 				"up": ["campfire_log"],
 				"side": ["campfire_log"],
@@ -4907,7 +4907,7 @@
 		}
 	},
 	"standing_banner": {
-		"definition": ["ignore"]
+		"definition": [null]
 	},
 	"standing_sign": {
 		"definition": ["standing_sign"],
@@ -4928,7 +4928,7 @@
 			},
 			"material": {"sticky_piston": {"default":1}}
 		},
-		"Float(0.0)": {
+		"0.0": {
 			"textures": {
 				"up": ["redstone/piston_top_sticky"],
 				"side": ["redstone/piston_side_sticky"],
@@ -4937,12 +4937,12 @@
 		}
 	},
 	"sticky_piston_arm_collision": {
-		"definition": ["ignore"],
-		"default": {"material": "ignore"}
+		"definition": [null],
+		"default": {"material": null}
 	},
 	"stickyPistonArmCollision": {
-		"definition": ["ignore"],
-		"default": {"material": "ignore"}
+		"definition": [null],
+		"default": {"material": null}
 	},
 	"stone": {
 		"definition": ["cube"],
@@ -5396,11 +5396,11 @@
 		}
 	},
 	"structure_block": {
-		"definition": ["ignore"],
-		"default": {"material": "ignore"}
+		"definition": [null],
+		"default": {"material": null}
 	},
 	"structure_void": {
-		"definition": ["ignore"]
+		"definition": [null]
 	},
 	"sweet_berry_bush": {
 		"definition": ["cross_texture"],
@@ -5516,7 +5516,7 @@
 		}
 	},
 	"undyed_shulker_box": {
-		"definition": ["cube","cube","shulker_box"],
+		"definition": ["cube","cube","dispenser"],
 		"default": {
 			"textures": {
 				"up": ["colorful/shulker_top_undyed"],
@@ -5535,14 +5535,14 @@
 	"unpowered_comparator": {
 		"definition": ["comparator","comparator","pumpkin"],
 		"default": {"material": {"comparator":{"default":1}}},
-		"Byte(0)": {
+		"0": {
 			"textures": {
 				"up": ["redstone/comparator_off", "redstone/torch_off", "redstone/torch_off", "redstone/torch_off"],
 				"side": ["redstone/comparator_slab_off", "redstone/torch_off", "redstone/torch_off", "redstone/torch_off"],
 				"down": ["redstone/comparator_slab_off", "redstone/torch_off", "redstone/torch_off", "redstone/torch_off"]
 			}
 		},
-		"Byte(1)": {
+		"1": {
 			"textures": {
 				"up": ["redstone/comparator_off", "redstone/torch_off", "redstone/torch_off", "redstone/torch_on"],
 				"side": ["redstone/comparator_slab_off", "redstone/torch_off", "redstone/torch_off", "redstone/torch_on"],
@@ -5578,7 +5578,7 @@
 		}
 	},
 	"wall_banner": {
-		"definition": ["ignore"]
+		"definition": [null]
 	},
 	"wall_sign": {
 		"definition": ["wall_sign"],
@@ -5721,33 +5721,33 @@
 		"definition": ["cube"],
 		"default": {
 			"textures": ["water_still"],
-			"material": "ignore"
+			"material": null
 		},
-		"Int(0)": {
+		"0": {
 			"material": {"water": {"default": 0}}
 		},
-		"Int(8)": {
+		"8": {
 			"textures": ["water_flow"]
 		},
-		"Int(9)": {
+		"9": {
 			"textures": ["water_flow"]
 		},
-		"Int(10)": {
+		"10": {
 			"textures": ["water_flow"]
 		},
-		"Int(11)": {
+		"11": {
 			"textures": ["water_flow"]
 		},
-		"Int(12)": {
+		"12": {
 			"textures": ["water_flow"]
 		},
-		"Int(13)": {
+		"13": {
 			"textures": ["water_flow"]
 		},
-		"Int(14)": {
+		"14": {
 			"textures": ["water_flow"]
 		},
-		"Int(15)": {
+		"15": {
 			"textures": ["water_flow"]
 		}
 	},

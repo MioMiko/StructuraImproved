@@ -1,4 +1,5 @@
 """
+ad "/sdcard/结构和投影/cmd/multi_testall2.txt"
 cli tool for StructiraImroved
 class Cli(cmd.Cmd): Create a object of it to run the tool
 """
@@ -63,12 +64,14 @@ class Cli(cmd.Cmd):
             return False
 
     def default(self,line):
-        raise Exception(f"Unknown command {line.split(' ')[0]}.")
+        raise Exception(f"Unknown command *{line.split(' ')[0]}*.")
 
     def do_quit(self,para):
         return True
 
-    def modify_model(self,para):
+    def modify_model(self, para):
+        if para[0] not in self.models:
+            raise KeyError(f"No such model *{para[0]}*")
         i = 1
         while i < len(para):
             match para[i]:
@@ -171,21 +174,19 @@ class Cli(cmd.Cmd):
     def do_make(self,para):
         if len(self.models) == 0:
             raise Exception("Please add model first.")
-        multi_model = False
         if len(self.models) > 1:
-            multi_model = True
             if self.pack_name == "":
                 raise Exception("Please set a packname")
         else:
             name = next(iter(self.models))
             if self.pack_name == "":
-                self.pack_name = re.sub(r"(?:.*[/\\])?(?:mystructure_)?(.+).mcstructure",r"\1",self.models[name]["structure"])
+                self.pack_name = structura.draw_packname(self.models[name]["structure"])
         for name,value in self.models.items():
             if value["structure"] == "":
                 raise Exception(f'Model "{name}" need a structure file')
 
         try:
-            structura.generate_pack(self.pack_name,self.models,multi_model,
+            structura.generate_pack(self.pack_name,self.models,
                                     self.make_list,self.icon)
         except Exception:
             traceback.print_exc()
@@ -201,9 +202,11 @@ class Cli(cmd.Cmd):
         for command in arg:
             print(lang.get(f"help_{command}",f"Unknown command *{command}*"))
 
-
-if __name__ == "__main__":
+def main():
     try:
         Cli().cmdloop()
     except KeyboardInterrupt:
-        pass
+        sys.exit()
+
+if __name__ == "__main__":
+    main()

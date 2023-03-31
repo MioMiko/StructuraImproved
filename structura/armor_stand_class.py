@@ -1,8 +1,9 @@
+"""export armor_stand.entity.json"""
+
 import json
-import os
 
 
-class armorstand:
+class Entity:
     # control the entity.json file
 
     __slots__ = ("stand","geos","textures")
@@ -24,12 +25,9 @@ class armorstand:
 
     def add_model(self, name):
         prog_name = "ghost_blocks_{}".format(name.replace(" ","_").lower())
-        self.geos[prog_name] = "geometry.armor_stand.{}".format(prog_name)
-        self.textures[prog_name] = "textures/entity/{}".format(prog_name)
+        self.geos[prog_name] = f"geometry.armor_stand.{prog_name}"
+        self.textures[prog_name] = f"textures/entity/{prog_name}"
 
-    def export(self, pack_name):
-        path = f"cache/{pack_name}/entity/armor_stand.entity.json"
-        os.makedirs(os.path.dirname(path), exist_ok = True)
-
-        with open(path,"w",encoding="utf-8") as json_file:
-            json.dump(self.stand, json_file, indent=2)
+    def export(self, zip_file):
+        path = "entity/armor_stand.entity.json"
+        zip_file.writestr(path,json.dumps(self.stand, indent=2))

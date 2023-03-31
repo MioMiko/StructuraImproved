@@ -1,11 +1,10 @@
 """generating manifest.json file"""
 
 import json
-import os
-import uuid
+from uuid import uuid4
 
 
-def export(pack_name):
+def export(pack_name, zip_file):
     """export manifest.json file"""
 
     manifest = {
@@ -13,18 +12,14 @@ def export(pack_name):
         "header": {
             "name": pack_name,
             "description": "Structura block overlay pack, created by \u00a7o\u00a75DrAv0011\u00a7r, \u00a7o\u00a79 FondUnicycle\u00a7r and\u00a7o\u00a75 RavinMaddHatter\u00a7r,Improved by MioMiko",
-            "uuid": str(uuid.uuid4()),
+            "uuid": str(uuid4()),
             "version": (0,0,1),
             "min_engine_version": (1,16,0)
         },
-        "modules": [
+        "modules": (
             {
                 "type": "resources",
-                "uuid": str(uuid.uuid4()),
-                "version": (0,0,1)}]}
+                "uuid": str(uuid4()),
+                "version": (0,0,1)},)}
 
-    path_to_ani = f"cache/{pack_name}/manifest.json"
-    os.makedirs(os.path.dirname(path_to_ani), exist_ok=True)
-
-    with open(path_to_ani,"w",encoding="utf-8") as json_file:
-        json.dump(manifest, json_file, indent=2)
+    zip_file.writestr("manifest.json", json.dumps(manifest, indent=2))
