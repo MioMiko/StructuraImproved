@@ -36,7 +36,7 @@ pip install -r requirements.txt
 To start StructuraImproved:
 ```bash
 cd structura
-python structura.py
+python main.py
 ```
 
 ## Setting
@@ -73,11 +73,11 @@ You can go through a structure layer by layer by shift right clicking on the sta
 ![alt text](docs/example_layer.png?raw=true)
 
 ## Command Line Tool
-For the users unable to acess to desktop environment.StructuraImproved provides a command line tool which can be found in `root of the project/structura`.
+For the users unable to acess to desktop environment.StructuraImproved provides a command line tool which can be found in `[root of the project]/structura`.
 
-Use command line tool:
+Using command line tool:
 ```shell
-python main_cli.py
+python main.py cli
 ```
 
 Here's a simple demonstrate:

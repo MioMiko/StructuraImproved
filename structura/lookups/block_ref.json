@@ -12,7 +12,7 @@
 		}
 	},
 	"acacia_fence_gate": {
-		"definition": ["fence_gate","fence_gate","pumpkin"],
+		"definition": ["fence_gate", "fence_gate", "pumpkin"],
 		"default": {
 			"textures": ["wood/planks_acacia"]
 		}
@@ -27,10 +27,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/planks_acacia","wood/planks_acacia"],
-				"side": ["wood/planks_acacia","wood/planks_acacia"],
-				"north": ["stairs/planks_acacia","wood/planks_acacia"],
-				"down": ["stairs/planks_acacia","wood/planks_acacia"]
+				"up": ["stairs/planks_acacia", "wood/planks_acacia"],
+				"side": ["wood/planks_acacia", "wood/planks_acacia"],
+				"north": ["stairs/planks_acacia", "wood/planks_acacia"],
+				"down": ["stairs/planks_acacia", "wood/planks_acacia"]
 			}
 		}
 	},
@@ -62,7 +62,7 @@
 		"definition": ["rail"],
 		"default": {
 			"textures": ["rail_activator"],
-			"material": {"activator_rail": {"default":1}}
+			"material": {"activator_rail": {"default": 1}}
 		},
 		"0_lit": {
 			"textures": ["rail_activator_powered"]
@@ -94,7 +94,7 @@
 		}
 	},
 	"amethyst_cluster": {
-		"definition": ["cross_texture","cross_texture","dispenser"],
+		"definition": ["cross_texture", "cross_texture", "dispenser"],
 		"default": {
 			"textures": ["amethyst_cluster"]
 		}
@@ -113,22 +113,22 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/stone_andesite","stone_andesite"],
-				"side": ["stone_andesite","stone_andesite"],
-				"north": ["stairs/stone_andesite","stone_andesite"],
-				"down": ["stairs/stone_andesite","stone_andesite"]
+				"up": ["stairs/stone_andesite", "stone_andesite"],
+				"side": ["stone_andesite", "stone_andesite"],
+				"north": ["stairs/stone_andesite", "stone_andesite"],
+				"down": ["stairs/stone_andesite", "stone_andesite"]
 			}
 		}
 	},
 	"anvil": {
-		"definition": ["anvil","anvil","pumpkin"],
+		"definition": ["anvil", "anvil", "pumpkin"],
 		"undamaged": {
 			"textures": {
 				"up": ["anvil_top_damaged_0", "anvil_base_damaged_0"],
 				"side": ["anvil_base_damaged_0", "anvil_base_damaged_0"],
 				"down": ["anvil_base_damaged_0", "anvil_base_damaged_0"]
 			},
-			"material": {"anvil_undamaged":{"default":1}}
+			"material": {"anvil_undamaged": {"default":1}}
 		},
 		"slightly_damaged": {
 			"textures": {
@@ -136,7 +136,7 @@
 				"side": ["anvil_base_damaged_1", "anvil_base_damaged_1"],
 				"down": ["anvil_base_damaged_1", "anvil_base_damaged_1"]
 			},
-			"material": {"anvil_slightly_damaged":{"default":1}}
+			"material": {"anvil_slightly_damaged": {"default":1}}
 		},
 		"very_damaged": {
 			"textures": {
@@ -144,12 +144,12 @@
 				"side": ["anvil_base_damaged_2", "anvil_base_damaged_2"],
 				"down": ["anvil_base_damaged_2", "anvil_base_damaged_2"]
 			},
-			"material": {"anvil_very_damaged":{"default":1}}
+			"material": {"anvil_very_damaged": {"default":1}}
 		}
 	},
 	"azalea": {
 		"definition": ["azalea"],
-		"default":{
+		"default": {
 			"textures": {
 				"up": ["plant/azalea_top"],
 				"side": ["plant/azalea_side"],
@@ -179,11 +179,11 @@
 		"definition": ["cross_texture"],
 		"default": {
 			"textures": ["plant/bamboo_sapling"],
-			"material": {"bamboo":{"default":1}}
+			"material": {"bamboo": {"default":1}}
 		}
 	},
 	"barrel": {
-		"definition": ["cube","cube","dispenser"],
+		"definition": ["cube", "cube", "dispenser"],
 		"default": {
 			"textures": {
 				"up": ["barrel_top"],
@@ -193,7 +193,7 @@
 		}
 	},
 	"basalt": {
-		"definition": ["cube","cube","tree"],
+		"definition": ["cube", "cube", "tree"],
 		"default": {
 			"textures": {
 				"up": ["basalt_top"],
@@ -213,7 +213,7 @@
 		}
 	},
 	"bed": {
-		"definition": ["bed","bed","pumpkin"],
+		"definition": ["bed", "bed", "pumpkin"],
 		"0": {
 			"textures": ["colorful/bed_white"],
 			"material": {
@@ -366,7 +366,7 @@
 		}
 	},
 	"bee_nest": {
-		"definition": ["cube","cube","pumpkin"],
+		"definition": ["cube", "cube", "pumpkin"],
 		"default": {
 			"textures": {
 				"up": ["bee_nest_top"],
@@ -374,7 +374,7 @@
 				"north": ["bee_nest_front"],
 				"down": ["bee_nest_top"]
 			},
-			"material": {"bee_nest":{"default":1}}
+			"material": {"bee_nest": {"default":1}}
 		},
 		"5": {
 			"textures": {
@@ -386,7 +386,7 @@
 		}
 	},
 	"beehive": {
-		"definition": ["cube","cube","pumpkin"],
+		"definition": ["cube", "cube", "pumpkin"],
 		"default": {
 			"textures": {
 				"up": ["beehive_top"],
@@ -394,7 +394,7 @@
 				"north": ["beehive_front"],
 				"down": ["beehive_top"]
 			},
-			"material": {"beehive":{"default":1}}
+			"material": {"beehive": {"default":1}}
 		},
 		"5": {
 			"textures": {
@@ -412,7 +412,7 @@
 		}
 	},
 	"bell": {
-		"definition": ["bell","bell","pumpkin_reverse"],
+		"definition": ["bell", "bell", "pumpkin_reverse"],
 		"default": {
 			"textures": {
 				"up": ["bell_top", "wood/log_spruce", "stone", "stone"],
@@ -422,14 +422,14 @@
 		}
 	},
 	"big_dripleaf": {
-		"definition": ["big_dripleaf","big_dripleaf","pumpkin_reverse"],
+		"definition": ["big_dripleaf", "big_dripleaf", "pumpkin_reverse"],
 		"default": {
 			"textures": {
-				"up": ["null","null","plant/big_dripleaf_top"],
-				"side": ["null","null","plant/big_dripleaf_side1"],
-				"south": ["plant/big_dripleaf_stem","plant/big_dripleaf_stem","plant/big_dripleaf_side2"],
-				"north": ["plant/big_dripleaf_stem","plant/big_dripleaf_stem","null"],
-				"down": ["null","null","null"]
+				"up": ["null", "null", "plant/big_dripleaf_top"],
+				"side": ["null", "null", "plant/big_dripleaf_side1"],
+				"south": ["plant/big_dripleaf_stem", "plant/big_dripleaf_stem", "plant/big_dripleaf_side2"],
+				"north": ["plant/big_dripleaf_stem", "plant/big_dripleaf_stem", "null"],
+				"down": ["null", "null", "null"]
 			}
 		}
 	},
@@ -446,7 +446,7 @@
 		}
 	},
 	"birch_fence_gate": {
-		"definition": ["fence_gate","fence_gate","pumpkin"],
+		"definition": ["fence_gate", "fence_gate", "pumpkin"],
 		"default": {
 			"textures": ["wood/planks_birch"]
 		}
@@ -461,10 +461,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/planks_birch","wood/planks_birch"],
-				"side": ["wood/planks_birch","wood/planks_birch"],
-				"north": ["stairs/planks_birch","wood/planks_birch"],
-				"down": ["stairs/planks_birch","wood/planks_birch"]
+				"up": ["stairs/planks_birch", "wood/planks_birch"],
+				"side": ["wood/planks_birch", "wood/planks_birch"],
+				"north": ["stairs/planks_birch", "wood/planks_birch"],
+				"down": ["stairs/planks_birch", "wood/planks_birch"]
 			}
 		}
 	},
@@ -493,7 +493,7 @@
 		}
 	},
 	"black_glazed_terracotta": {
-		"definition": ["cube","glazed_terracotta","facing_block"],
+		"definition": ["cube", "glazed_terracotta", "facing_block"],
 		"default": {
 			"textures": ["colorful/glazed_terracotta_black"]
 		}
@@ -512,7 +512,7 @@
 				"side": ["double_slabs/blackstone"],
 				"down": ["double_slabs/blackstone_top"]
 			},
-			"material": {"blackstone_slab":{"default":2}}
+			"material": {"blackstone_slab": {"default":2}}
 		}
 	},
 	"blackstone_slab": {
@@ -529,10 +529,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/blackstone","blackstone"],
-				"side": ["blackstone","blackstone"],
-				"north": ["stairs/blackstone","blackstone"],
-				"down": ["stairs/blackstone","blackstone"]
+				"up": ["stairs/blackstone", "blackstone"],
+				"side": ["blackstone", "blackstone"],
+				"north": ["stairs/blackstone", "blackstone"],
+				"down": ["stairs/blackstone", "blackstone"]
 			}
 		}
 	},
@@ -543,7 +543,7 @@
 		}
 	},
 	"blast_furnace": {
-		"definition": ["cube","cube","furnace"],
+		"definition": ["cube", "cube", "furnace"],
 		"default": {
 			"textures": {
 				"up": ["blast_furnace_top"],
@@ -554,7 +554,7 @@
 		}
 	},
 	"blue_glazed_terracotta": {
-		"definition": ["cube","glazed_terracotta","facing_block"],
+		"definition": ["cube", "glazed_terracotta", "facing_block"],
 		"default": {
 			"textures": ["colorful/glazed_terracotta_blue"]
 		}
@@ -566,7 +566,7 @@
 		}
 	},
 	"bone_block": {
-		"definition": ["cube","cube","tree"],
+		"definition": ["cube", "cube", "tree"],
 		"default": {
 			"textures": {
 				"up": ["bone_block_top"],
@@ -601,15 +601,15 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/brick","brick"],
-				"side": ["brick","brick"],
-				"north": ["stairs/brick","brick"],
-				"down": ["stairs/brick","brick"]
+				"up": ["stairs/brick", "brick"],
+				"side": ["brick", "brick"],
+				"north": ["stairs/brick", "brick"],
+				"down": ["stairs/brick", "brick"]
 			}
 		}
 	},
 	"brown_glazed_terracotta": {
-		"definition": ["cube","glazed_terracotta","facing_block"],
+		"definition": ["cube", "glazed_terracotta", "facing_block"],
 		"default": {
 			"textures": ["colorful/glazed_terracotta_brown"]
 		}
@@ -624,15 +624,15 @@
 		"definition": ["cube"],
 		"default": {
 			"textures": ["plant/mushroom_block_skin_brown"],
-			"material": {"brown_mushroom_block":{"default":1}}
+			"material": {"brown_mushroom_block": {"default":1}}
 		},
 		"10": {
 			"textures": ["plant/mushroom_block_skin_stem"],
-			"material": {"mushroom_stem":{"default":1}}
+			"material": {"mushroom_stem": {"default":1}}
 		},
 		"15": {
 			"textures": ["plant/mushroom_block_skin_stem"],
-			"material": {"mushroom_stem":{"default":1}}
+			"material": {"mushroom_stem": {"default":1}}
 		}
 	},
 	"budding_amethyst": {
@@ -660,7 +660,7 @@
 				"west": ["cake_inner"],
 				"down": ["cake_bottom"]
 			},
-			"material": {"cake":{"default":1}}
+			"material": {"cake": {"default":1}}
 		},
 		"0": {
 			"textures": {
@@ -681,7 +681,7 @@
 	},
 	"campfire": {
 		"definition": ["campfire"],
-		"default": {"material": {"campfire":{"default":1}}},
+		"default": {"material": {"campfire": {"default":1}}},
 		"0": {
 			"textures": {
 				"up": ["campfire_log_lit", "campfire_log", "campfire_log", "campfire_log", "campfire_log", "campfire", "campfire"],
@@ -704,7 +704,7 @@
 		"definition": ["candle"],
 		"default": {
 			"textures": ["colorful/candle"],
-			"material": {"candle":{
+			"material": {"candle": {
 				"0": 1, "1": 2, "2": 3, "3": 4
 			}}
 		},
@@ -716,9 +716,9 @@
 		"definition": ["candle_cake"],
 		"default": {
 			"textures": {
-				"up": ["cake_top","colorful/candle"],
-				"side": ["cake_side","colorful/candle"],
-				"down": ["cake_bottom","colorful/candle"]
+				"up": ["cake_top", "colorful/candle"],
+				"side": ["cake_side", "colorful/candle"],
+				"down": ["cake_bottom", "colorful/candle"]
 			},
 			"material": {
 				"candle": {"default": 1},
@@ -727,9 +727,9 @@
 		},
 		"default_lit": {
 			"textures": {
-				"up": ["cake_top","colorful/candle_lit"],
-				"side": ["cake_side","colorful/candle_lit"],
-				"down": ["cake_bottom","colorful/candle_lit"]
+				"up": ["cake_top", "colorful/candle_lit"],
+				"side": ["cake_side", "colorful/candle_lit"],
+				"down": ["cake_bottom", "colorful/candle_lit"]
 			}
 		}
 	},
@@ -803,7 +803,7 @@
 		}
 	},
 	"carved_pumpkin": {
-		"definition": ["cube","cube","pumpkin"],
+		"definition": ["cube", "cube", "pumpkin"],
 		"default": {
 			"textures": {
 				"up": ["plant/pumpkin_top"],
@@ -821,7 +821,7 @@
 				"side": ["cauldron_side", "water_still"],
 				"down": ["cauldron_inner", "water_still"]
 			},
-			"material": {"cauldron":{"default":1}}
+			"material": {"cauldron": {"default":1}}
 		},
 		"lava": {
 			"textures": {
@@ -845,14 +845,14 @@
 		"definition": ["cross_texture"],
 		"default": {
 			"textures": ["plant/cave_vines_body_berries"],
-			"material": {"cave_vines":{"default":1}}
+			"material": {"cave_vines": {"default":1}}
 		}
 	},
 	"cave_vines_head_with_berries": {
 		"definition": ["cross_texture"],
 		"default": {
 			"textures": ["plant/cave_vines_head_berries"],
-			"material": {"cave_vines":{"default":1}}
+			"material": {"cave_vines": {"default":1}}
 		}
 	},
 	"chain": {
@@ -862,7 +862,7 @@
 		}
 	},
 	"chest": {
-		"definition": ["chest","chest","furnace"],
+		"definition": ["chest", "chest", "furnace"],
 		"default": {
 			"textures": {
 				"up": ["chest_top"],
@@ -930,7 +930,7 @@
 		"definition": ["cube"],
 		"default": {
 			"textures": ["double_slabs/cobbled_deepslate"],
-			"material": {"cobbled_deepslate_slab":{"default":2}}
+			"material": {"cobbled_deepslate_slab": {"default":2}}
 		}
 	},
 	"cobbled_deepslate_slab": {
@@ -943,10 +943,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/cobbled_deepslate","cobbled_deepslate"],
-				"side": ["cobbled_deepslate","cobbled_deepslate"],
-				"north": ["stairs/cobbled_deepslate","cobbled_deepslate"],
-				"down": ["stairs/cobbled_deepslate","cobbled_deepslate"]
+				"up": ["stairs/cobbled_deepslate", "cobbled_deepslate"],
+				"side": ["cobbled_deepslate", "cobbled_deepslate"],
+				"north": ["stairs/cobbled_deepslate", "cobbled_deepslate"],
+				"down": ["stairs/cobbled_deepslate", "cobbled_deepslate"]
 			}
 		}
 	},
@@ -1016,7 +1016,7 @@
 		}
 	},
 	"cocoa": {
-		"definition": ["cocoa","cocoa","pumpkin"],
+		"definition": ["cocoa", "cocoa", "pumpkin"],
 		"default": {
 			"textures": ["plant/cocoa_stage_2"]
 		}
@@ -1029,7 +1029,7 @@
 				"side": ["composter_side", "compost"],
 				"down": ["composter_bottom", "compost"]
 			},
-			"material": {"composter":{"default":1}}
+			"material": {"composter": {"default":1}}
 		},
 		"8": {
 			"textures": {
@@ -1145,67 +1145,67 @@
 		"definition": ["cube"],
 		"white": {
 			"textures": ["colorful/concrete_powder_white"],
-			"material": {"concrete_powder_white": {"default":1}}
+			"material": {"concrete_powder_white": {"default": 1}}
 		},
 		"silver": {
 			"textures": ["colorful/concrete_powder_silver"],
-			"material": {"concrete_powder_silver": {"default":1}}
+			"material": {"concrete_powder_silver": {"default": 1}}
 		},
 		"gray": {
 			"textures": ["colorful/concrete_powder_gray"],
-			"material": {"concrete_powder_gray": {"default":1}}
+			"material": {"concrete_powder_gray": {"default": 1}}
 		},
 		"black": {
 			"textures": ["colorful/concrete_powder_black"],
-			"material": {"concrete_powder_black": {"default":1}}
+			"material": {"concrete_powder_black": {"default": 1}}
 		},
 		"brown": {
 			"textures": ["colorful/concrete_powder_brown"],
-			"material": {"concrete_powder_brown": {"default":1}}
+			"material": {"concrete_powder_brown": {"default": 1}}
 		},
 		"red": {
 			"textures": ["colorful/concrete_powder_red"],
-			"material": {"concrete_powder_red": {"default":1}}
+			"material": {"concrete_powder_red": {"default": 1}}
 		},
 		"orange": {
 			"textures": ["colorful/concrete_powder_orange"],
-			"material": {"concrete_powder_orange": {"default":1}}
+			"material": {"concrete_powder_orange": {"default": 1}}
 		},
 		"yellow": {
 			"textures": ["colorful/concrete_powder_yellow"],
-			"material": {"concrete_powder_yellow": {"default":1}}
+			"material": {"concrete_powder_yellow": {"default": 1}}
 		},
 		"lime": {
 			"textures": ["colorful/concrete_powder_lime"],
-			"material": {"concrete_powder_lime": {"default":1}}
+			"material": {"concrete_powder_lime": {"default": 1}}
 		},
 		"green": {
 			"textures": ["colorful/concrete_powder_green"],
-			"material": {"concrete_powder_green": {"default":1}}
+			"material": {"concrete_powder_green": {"default": 1}}
 		},
 		"cyan": {
 			"textures": ["colorful/concrete_powder_cyan"],
-			"material": {"concrete_powder_cyan": {"default":1}}
+			"material": {"concrete_powder_cyan": {"default": 1}}
 		},
 		"light_blue": {
 			"textures": ["colorful/concrete_powder_light_blue"],
-			"material": {"concrete_powder_light_blue": {"default":1}}
+			"material": {"concrete_powder_light_blue": {"default": 1}}
 		},
 		"blue": {
 			"textures": ["colorful/concrete_powder_blue"],
-			"material": {"concrete_powder_blue": {"default":1}}
+			"material": {"concrete_powder_blue": {"default": 1}}
 		},
 		"purple": {
 			"textures": ["colorful/concrete_powder_purple"],
-			"material": {"concrete_powder_purple": {"default":1}}
+			"material": {"concrete_powder_purple": {"default": 1}}
 		},
 		"magenta": {
 			"textures": ["colorful/concrete_powder_magenta"],
-			"material": {"concrete_powder_magenta": {"default":1}}
+			"material": {"concrete_powder_magenta": {"default": 1}}
 		},
 		"pink": {
 			"textures": ["colorful/concrete_powder_pink"],
-			"material": {"concrete_powder_pink": {"default":1}}
+			"material": {"concrete_powder_pink": {"default": 1}}
 		}
 	},
 	"conduit": {
@@ -1429,7 +1429,7 @@
 		"definition": ["cube"],
 		"default": {
 			"textures": ["double_slabs/crimson_planks"],
-			"material": {"crimson_slab":{"default":2}}
+			"material": {"crimson_slab": {"default":2}}
 		}
 	},
 	"crimson_fence": {
@@ -1439,7 +1439,7 @@
 		}
 	},
 	"crimson_fence_gate": {
-		"definition": ["fence_gate","fence_gate","pumpkin"],
+		"definition": ["fence_gate", "fence_gate", "pumpkin"],
 		"default": {
 			"textures": ["wood/crimson_planks"]
 		}
@@ -1451,7 +1451,7 @@
 		}
 	},
 	"crimson_hyphae": {
-		"definition": ["cube","cube","tree"],
+		"definition": ["cube", "cube", "tree"],
 		"default": {
 			"textures": ["wood/log_crimson_side"]
 		}
@@ -1494,10 +1494,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/crimson_planks","wood/crimson_planks"],
-				"side": ["wood/crimson_planks","wood/crimson_planks"],
-				"north": ["stairs/crimson_planks","wood/crimson_planks"],
-				"down": ["stairs/crimson_planks","wood/crimson_planks"]
+				"up": ["stairs/crimson_planks", "wood/crimson_planks"],
+				"side": ["wood/crimson_planks", "wood/crimson_planks"],
+				"north": ["stairs/crimson_planks", "wood/crimson_planks"],
+				"down": ["stairs/crimson_planks", "wood/crimson_planks"]
 			}
 		}
 	},
@@ -1511,7 +1511,7 @@
 		}
 	},
 	"crimson_stem": {
-		"definition": ["cube","cube","tree"],
+		"definition": ["cube", "cube", "tree"],
 		"default": {
 			"textures": {
 				"up": ["wood/log_crimson_top"],
@@ -1557,15 +1557,15 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/cut_copper","ore/cut_copper"],
-				"side": ["ore/cut_copper","ore/cut_copper"],
-				"north": ["stairs/cut_copper","ore/cut_copper"],
-				"down": ["stairs/cut_copper","ore/cut_copper"]
+				"up": ["stairs/cut_copper", "ore/cut_copper"],
+				"side": ["ore/cut_copper", "ore/cut_copper"],
+				"north": ["stairs/cut_copper", "ore/cut_copper"],
+				"down": ["stairs/cut_copper", "ore/cut_copper"]
 			}
 		}
 	},
 	"cyan_glazed_terracotta": {
-		"definition": ["cube","glazed_terracotta","facing_block"],
+		"definition": ["cube", "glazed_terracotta", "facing_block"],
 		"default": {
 			"textures": ["colorful/glazed_terracotta_cyan"]
 		}
@@ -1583,7 +1583,7 @@
 		}
 	},
 	"dark_oak_fence_gate": {
-		"definition": ["fence_gate","fence_gate","pumpkin"],
+		"definition": ["fence_gate", "fence_gate", "pumpkin"],
 		"default": {
 			"textures": ["wood/planks_dark_oak"]
 		}
@@ -1598,10 +1598,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/planks_dark_oak","wood/planks_dark_oak"],
-				"side": ["wood/planks_dark_oak","wood/planks_dark_oak"],
-				"north": ["stairs/planks_dark_oak","wood/planks_dark_oak"],
-				"down": ["stairs/planks_dark_oak","wood/planks_dark_oak"]
+				"up": ["stairs/planks_dark_oak", "wood/planks_dark_oak"],
+				"side": ["wood/planks_dark_oak", "wood/planks_dark_oak"],
+				"north": ["stairs/planks_dark_oak", "wood/planks_dark_oak"],
+				"down": ["stairs/planks_dark_oak", "wood/planks_dark_oak"]
 			}
 		}
 	},
@@ -1615,10 +1615,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/prismarine_dark","prismarine_dark"],
-				"side": ["prismarine_dark","prismarine_dark"],
-				"north": ["stairs/prismarine_dark","prismarine_dark"],
-				"down": ["stairs/prismarine_dark","prismarine_dark"]
+				"up": ["stairs/prismarine_dark", "prismarine_dark"],
+				"side": ["prismarine_dark", "prismarine_dark"],
+				"north": ["stairs/prismarine_dark", "prismarine_dark"],
+				"down": ["stairs/prismarine_dark", "prismarine_dark"]
 			}
 		}
 	},
@@ -1668,7 +1668,7 @@
 		}
 	},
 	"deepslate": {
-		"definition": ["cube","cube","tree"],
+		"definition": ["cube", "cube", "tree"],
 		"default": {
 			"textures": {
 				"up": ["deepslate_top"],
@@ -1687,7 +1687,7 @@
 		"definition": ["cube"],
 		"default": {
 			"textures": ["double_slabs/deepslate_bricks"],
-			"material": {"deepslate_brick_slab":{"default":2}}
+			"material": {"deepslate_brick_slab": {"default":2}}
 		}
 	},
 	"deepslate_brick_slab": {
@@ -1700,10 +1700,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/deepslate_bricks","deepslate_bricks"],
-				"side": ["deepslate_bricks","deepslate_bricks"],
-				"north": ["stairs/deepslate_bricks","deepslate_bricks"],
-				"down": ["stairs/deepslate_bricks","deepslate_bricks"]
+				"up": ["stairs/deepslate_bricks", "deepslate_bricks"],
+				"side": ["deepslate_bricks", "deepslate_bricks"],
+				"north": ["stairs/deepslate_bricks", "deepslate_bricks"],
+				"down": ["stairs/deepslate_bricks", "deepslate_bricks"]
 			}
 		}
 	},
@@ -1771,7 +1771,7 @@
 		"definition": ["cube"],
 		"default": {
 			"textures": ["double_slabs/deepslate_tiles"],
-			"material": {"deepslate_tile_slab":{"default":2}}
+			"material": {"deepslate_tile_slab": {"default":2}}
 		}
 	},
 	"deepslate_tile_slab": {
@@ -1784,10 +1784,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/deepslate_tiles","deepslate_tiles"],
-				"side": ["deepslate_tiles","deepslate_tiles"],
-				"north": ["stairs/deepslate_tiles","deepslate_tiles"],
-				"down": ["stairs/deepslate_tiles","deepslate_tiles"]
+				"up": ["stairs/deepslate_tiles", "deepslate_tiles"],
+				"side": ["deepslate_tiles", "deepslate_tiles"],
+				"north": ["stairs/deepslate_tiles", "deepslate_tiles"],
+				"down": ["stairs/deepslate_tiles", "deepslate_tiles"]
 			}
 		}
 	},
@@ -1801,7 +1801,7 @@
 		"definition": ["rail"],
 		"default": {
 			"textures": ["rail_detector"],
-			"material": {"detector_rail": {"default":1}}
+			"material": {"detector_rail": {"default": 1}}
 		},
 		"0_lit": {
 			"textures": ["rail_detector_powered"]
@@ -1838,10 +1838,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/stone_diorite","stone_diorite"],
-				"side": ["stone_diorite","stone_diorite"],
-				"north": ["stairs/stone_diorite","stone_diorite"],
-				"down": ["stairs/stone_diorite","stone_diorite"]
+				"up": ["stairs/stone_diorite", "stone_diorite"],
+				"side": ["stone_diorite", "stone_diorite"],
+				"north": ["stairs/stone_diorite", "stone_diorite"],
+				"down": ["stairs/stone_diorite", "stone_diorite"]
 			}
 		}
 	},
@@ -1861,7 +1861,7 @@
 		}
 	},
 	"dispenser": {
-		"definition": ["cube","cube","dispenser"],
+		"definition": ["cube", "cube", "dispenser"],
 		"default": {
 			"textures": {
 				"up": ["redstone/dispenser_front_vertical"],
@@ -1874,7 +1874,7 @@
 		"definition": ["cube"],
 		"default": {
 			"textures": ["double_slabs/cut_copper"],
-			"material": {"cut_copper_slab":{"default":2}}
+			"material": {"cut_copper_slab": {"default":2}}
 		}
 	},
 	"double_plant": {
@@ -1902,7 +1902,7 @@
 		"definition": ["cube"],
 		"cobblestone": {
 			"textures": ["double_slabs/cobblestone"],
-			"material": {"stone_slab_cobblestone":{"default":2}}
+			"material": {"stone_slab_cobblestone": {"default":2}}
 		},
 		"smooth_stone": {
 			"textures": {
@@ -1910,19 +1910,19 @@
 				"side": ["double_slabs/smooth_stone_slab_side"],
 				"down": ["double_slabs/smooth_stone"]
 			},
-			"material": {"stone_slab_smooth_stone":{"default":2}}
+			"material": {"stone_slab_smooth_stone": {"default":2}}
 		},
 		"stone_brick": {
 			"textures": ["double_slabs/stonebrick"],
-			"material": {"stone_slab_stone_brick":{"default":2}}
+			"material": {"stone_slab_stone_brick": {"default":2}}
 		},
 		"brick": {
 			"textures": ["double_slabs/brick"],
-			"material": {"stone_slab_brick":{"default":2}}
+			"material": {"stone_slab_brick": {"default":2}}
 		},
 		"nether_brick": {
 			"textures": ["double_slabs/nether_brick"],
-			"material": {"stone_slab_nether_brick":{"default":2}}
+			"material": {"stone_slab_nether_brick": {"default":2}}
 		},
 		"sandstone": {
 			"textures": {
@@ -1930,26 +1930,26 @@
 				"side": ["double_slabs/sandstone_normal"],
 				"down": ["double_slabs/sandstone_bottom"]
 			},
-			"material": {"stone_slab_sandstone":{"default":2}}
+			"material": {"stone_slab_sandstone": {"default":2}}
 		},
 		"quartz": {
 			"textures": ["double_slabs/quartz_block"],
-			"material": {"stone_slab_quartz":{"default":2}}
+			"material": {"stone_slab_quartz": {"default":2}}
 		}
 	},
 	"double_stone_block_slab2": {
 		"definition": ["cube"],
 		"mossy_cobblestone": {
 			"textures": ["double_slabs/cobblestone_mossy"],
-			"material": {"stone_slab2_mossy_cobblestone":{"default":2}}
+			"material": {"stone_slab2_mossy_cobblestone": {"default":2}}
 		},
 		"red_nether_brick": {
 			"textures": ["double_slabs/red_nether_brick"],
-			"material": {"stone_slab2_red_nether_brick":{"default":2}}
+			"material": {"stone_slab2_red_nether_brick": {"default":2}}
 		},
 		"smooth_sandstone": {
 			"textures": ["double_slabs/sandstone_top"],
-			"material": {"stone_slab2_smooth_sandstone":{"default":2}}
+			"material": {"stone_slab2_smooth_sandstone": {"default":2}}
 		},
 		"red_sandstone": {
 			"textures": {
@@ -1957,69 +1957,69 @@
 				"side": ["double_slabs/red_sandstone_normal"],
 				"down": ["double_slabs/red_sandstone_bottom"]
 			},
-			"material": {"stone_slab2_red_sandstone":{"default":2}}
+			"material": {"stone_slab2_red_sandstone": {"default":2}}
 		},
 		"purpur": {
 			"textures": ["double_slabs/purpur_block"],
-			"material": {"stone_slab2_purpur":{"default":2}}
+			"material": {"stone_slab2_purpur": {"default":2}}
 		},
 		"prismarine_rough": {
 			"textures": ["double_slabs/prismarine_rough"],
-			"material": {"stone_slab2_prismarine_rough":{"default":2}}
+			"material": {"stone_slab2_prismarine_rough": {"default":2}}
 		},
 		"prismarine_dark": {
 			"textures": ["double_slabs/prismarine_dark"],
-			"material": {"stone_slab2_prismarine_dark":{"default":2}}
+			"material": {"stone_slab2_prismarine_dark": {"default":2}}
 		},
 		"prismarine_brick": {
 			"textures": ["double_slabs/prismarine_brick"],
-			"material": {"stone_slab2_prismarine_brick":{"default":2}}
+			"material": {"stone_slab2_prismarine_brick": {"default":2}}
 		}
 	},
 	"double_stone_block_slab3": {
 		"definition": ["cube"],
 		"andesite": {
 			"textures": ["double_slabs/stone_andesite"],
-			"material": {"stone_slab3_andesite":{"default":2}}
+			"material": {"stone_slab3_andesite": {"default":2}}
 		},
 		"polished_andesite": {
 			"textures": ["double_slabs/stone_andesite_smooth"],
-			"material": {"stone_slab3_polished_andesite":{"default":2}}
+			"material": {"stone_slab3_polished_andesite": {"default":2}}
 		},
 		"diorite": {
 			"textures": ["double_slabs/stone_diorite"],
-			"material": {"stone_slab3_diorite":{"default":2}}
+			"material": {"stone_slab3_diorite": {"default":2}}
 		},
 		"polished_diorite": {
 			"textures": ["double_slabs/stone_diorite_smooth"],
-			"material": {"stone_slab3_polished_diorite":{"default":2}}
+			"material": {"stone_slab3_polished_diorite": {"default":2}}
 		},
 		"granite": {
 			"textures": ["double_slabs/stone_granite"],
-			"material": {"stone_slab3_granite":{"default":2}}
+			"material": {"stone_slab3_granite": {"default":2}}
 		},
 		"polished_granite": {
 			"textures": ["double_slabs/stone_granite_smooth"],
-			"material": {"stone_slab3_polished_granite":{"default":2}}
+			"material": {"stone_slab3_polished_granite": {"default":2}}
 		},
 		"end_stone_brick": {
 			"textures": ["double_slabs/end_brick"],
-			"material": {"stone_slab3_end_stone_brick":{"default":2}}
+			"material": {"stone_slab3_end_stone_brick": {"default":2}}
 		},
 		"smooth_red_sandstone": {
 			"textures": ["double_slabs/red_sandstone_top"],
-			"material": {"stone_slab3_smooth_red_sandstone":{"default":2}}
+			"material": {"stone_slab3_smooth_red_sandstone": {"default":2}}
 		}
 	},
 	"double_stone_block_slab4": {
 		"definition": ["cube"],
 		"stone": {
 			"textures": ["double_slabs/stone"],
-			"material": {"stone_slab4_stone":{"default":2}}
+			"material": {"stone_slab4_stone": {"default":2}}
 		},
 		"mossy_stone_brick": {
 			"textures": ["double_slabs/stonebrick_mossy"],
-			"material": {"stone_slab4_mossy_stone_brick":{"default":2}}
+			"material": {"stone_slab4_mossy_stone_brick": {"default":2}}
 		},
 		"cut_sandstone": {
 			"textures": {
@@ -2027,7 +2027,7 @@
 				"side": ["double_slabs/sandstone_smooth"],
 				"down": ["double_slabs/sandstone_top"]
 			},
-			"material": {"stone_slab4_cut_sandstone":{"default":2}}
+			"material": {"stone_slab4_cut_sandstone": {"default":2}}
 		},
 		"cut_red_sandstone": {
 			"textures": {
@@ -2035,18 +2035,18 @@
 				"side": ["double_slabs/red_sandstone_smooth"],
 				"down": ["double_slabs/red_sandstone_top"]
 			},
-			"material": {"stone_slab4_cut_red_sandstone":{"default":2}}
+			"material": {"stone_slab4_cut_red_sandstone": {"default":2}}
 		},
 		"smooth_quartz": {
 			"textures": ["double_slabs/quartz_block_smooth"],
-			"material": {"stone_slab4_smooth_quartz":{"default":2}}
+			"material": {"stone_slab4_smooth_quartz": {"default":2}}
 		}
 	},
 	"double_stone_slab": {
 		"definition": ["cube"],
 		"cobblestone": {
 			"textures": ["double_slabs/cobblestone"],
-			"material": {"stone_slab_cobblestone":{"default":2}}
+			"material": {"stone_slab_cobblestone": {"default":2}}
 		},
 		"smooth_stone": {
 			"textures": {
@@ -2054,19 +2054,19 @@
 				"side": ["double_slabs/smooth_stone_slab_side"],
 				"down": ["double_slabs/smooth_stone"]
 			},
-			"material": {"stone_slab_smooth_stone":{"default":2}}
+			"material": {"stone_slab_smooth_stone": {"default":2}}
 		},
 		"stone_brick": {
 			"textures": ["double_slabs/stonebrick"],
-			"material": {"stone_slab_stone_brick":{"default":2}}
+			"material": {"stone_slab_stone_brick": {"default":2}}
 		},
 		"brick": {
 			"textures": ["double_slabs/brick"],
-			"material": {"stone_slab_brick":{"default":2}}
+			"material": {"stone_slab_brick": {"default":2}}
 		},
 		"nether_brick": {
 			"textures": ["double_slabs/nether_brick"],
-			"material": {"stone_slab_nether_brick":{"default":2}}
+			"material": {"stone_slab_nether_brick": {"default":2}}
 		},
 		"sandstone": {
 			"textures": {
@@ -2074,26 +2074,26 @@
 				"side": ["double_slabs/sandstone_normal"],
 				"down": ["double_slabs/sandstone_bottom"]
 			},
-			"material": {"stone_slab_sandstone":{"default":2}}
+			"material": {"stone_slab_sandstone": {"default":2}}
 		},
 		"quartz": {
 			"textures": ["double_slabs/quartz_block"],
-			"material": {"stone_slab_quartz":{"default":2}}
+			"material": {"stone_slab_quartz": {"default":2}}
 		}
 	},
 	"double_stone_slab2": {
 		"definition": ["cube"],
 		"mossy_cobblestone": {
 			"textures": ["double_slabs/cobblestone_mossy"],
-			"material": {"stone_slab2_mossy_cobblestone":{"default":2}}
+			"material": {"stone_slab2_mossy_cobblestone": {"default":2}}
 		},
 		"red_nether_brick": {
 			"textures": ["double_slabs/red_nether_brick"],
-			"material": {"stone_slab2_red_nether_brick":{"default":2}}
+			"material": {"stone_slab2_red_nether_brick": {"default":2}}
 		},
 		"smooth_sandstone": {
 			"textures": ["double_slabs/sandstone_top"],
-			"material": {"stone_slab2_smooth_sandstone":{"default":2}}
+			"material": {"stone_slab2_smooth_sandstone": {"default":2}}
 		},
 		"red_sandstone": {
 			"textures": {
@@ -2101,69 +2101,69 @@
 				"side": ["double_slabs/red_sandstone_normal"],
 				"down": ["double_slabs/red_sandstone_bottom"]
 			},
-			"material": {"stone_slab2_red_sandstone":{"default":2}}
+			"material": {"stone_slab2_red_sandstone": {"default":2}}
 		},
 		"purpur": {
 			"textures": ["double_slabs/purpur_block"],
-			"material": {"stone_slab2_purpur":{"default":2}}
+			"material": {"stone_slab2_purpur": {"default":2}}
 		},
 		"prismarine_rough": {
 			"textures": ["double_slabs/prismarine_rough"],
-			"material": {"stone_slab2_prismarine_rough":{"default":2}}
+			"material": {"stone_slab2_prismarine_rough": {"default":2}}
 		},
 		"prismarine_dark": {
 			"textures": ["double_slabs/prismarine_dark"],
-			"material": {"stone_slab2_prismarine_dark":{"default":2}}
+			"material": {"stone_slab2_prismarine_dark": {"default":2}}
 		},
 		"prismarine_brick": {
 			"textures": ["double_slabs/prismarine_brick"],
-			"material": {"stone_slab2_prismarine_brick":{"default":2}}
+			"material": {"stone_slab2_prismarine_brick": {"default":2}}
 		}
 	},
 	"double_stone_slab3": {
 		"definition": ["cube"],
 		"andesite": {
 			"textures": ["double_slabs/stone_andesite"],
-			"material": {"stone_slab3_andesite":{"default":2}}
+			"material": {"stone_slab3_andesite": {"default":2}}
 		},
 		"polished_andesite": {
 			"textures": ["double_slabs/stone_andesite_smooth"],
-			"material": {"stone_slab3_polished_andesite":{"default":2}}
+			"material": {"stone_slab3_polished_andesite": {"default":2}}
 		},
 		"diorite": {
 			"textures": ["double_slabs/stone_diorite"],
-			"material": {"stone_slab3_diorite":{"default":2}}
+			"material": {"stone_slab3_diorite": {"default":2}}
 		},
 		"polished_diorite": {
 			"textures": ["double_slabs/stone_diorite_smooth"],
-			"material": {"stone_slab3_polished_diorite":{"default":2}}
+			"material": {"stone_slab3_polished_diorite": {"default":2}}
 		},
 		"granite": {
 			"textures": ["double_slabs/stone_granite"],
-			"material": {"stone_slab3_granite":{"default":2}}
+			"material": {"stone_slab3_granite": {"default":2}}
 		},
 		"polished_granite": {
 			"textures": ["double_slabs/stone_granite_smooth"],
-			"material": {"stone_slab3_polished_granite":{"default":2}}
+			"material": {"stone_slab3_polished_granite": {"default":2}}
 		},
 		"end_stone_brick": {
 			"textures": ["double_slabs/end_brick"],
-			"material": {"stone_slab3_end_stone_brick":{"default":2}}
+			"material": {"stone_slab3_end_stone_brick": {"default":2}}
 		},
 		"smooth_red_sandstone": {
 			"textures": ["double_slabs/red_sandstone_top"],
-			"material": {"stone_slab3_smooth_red_sandstone":{"default":2}}
+			"material": {"stone_slab3_smooth_red_sandstone": {"default":2}}
 		}
 	},
 	"double_stone_slab4": {
 		"definition": ["cube"],
 		"stone": {
 			"textures": ["double_slabs/stone"],
-			"material": {"stone_slab4_stone":{"default":2}}
+			"material": {"stone_slab4_stone": {"default":2}}
 		},
 		"mossy_stone_brick": {
 			"textures": ["double_slabs/stonebrick_mossy"],
-			"material": {"stone_slab4_mossy_stone_brick":{"default":2}}
+			"material": {"stone_slab4_mossy_stone_brick": {"default":2}}
 		},
 		"cut_sandstone": {
 			"textures": {
@@ -2171,7 +2171,7 @@
 				"side": ["double_slabs/sandstone_smooth"],
 				"down": ["double_slabs/sandstone_top"]
 			},
-			"material": {"stone_slab4_cut_sandstone":{"default":2}}
+			"material": {"stone_slab4_cut_sandstone": {"default":2}}
 		},
 		"cut_red_sandstone": {
 			"textures": {
@@ -2179,38 +2179,38 @@
 				"side": ["double_slabs/red_sandstone_smooth"],
 				"down": ["double_slabs/red_sandstone_top"]
 			},
-			"material": {"stone_slab4_cut_red_sandstone":{"default":2}}
+			"material": {"stone_slab4_cut_red_sandstone": {"default":2}}
 		},
 		"smooth_quartz": {
 			"textures": ["double_slabs/quartz_block_smooth"],
-			"material": {"stone_slab4_smooth_quartz":{"default":2}}
+			"material": {"stone_slab4_smooth_quartz": {"default":2}}
 		}
 	},
 	"double_wooden_slab": {
 		"definition": ["cube"],
 		"oak": {
 			"textures": ["double_slabs/planks_oak"],
-			"material": {"wooden_slab_oak":{"default":2}}
+			"material": {"wooden_slab_oak": {"default":2}}
 		},
 		"spruce": {
 			"textures": ["double_slabs/planks_spruce"],
-			"material": {"wooden_slab_spruce":{"default":2}}
+			"material": {"wooden_slab_spruce": {"default":2}}
 		},
 		"birch": {
 			"textures": ["double_slabs/planks_birch"],
-			"material": {"wooden_slab_birch":{"default":2}}
+			"material": {"wooden_slab_birch": {"default":2}}
 		},
 		"jungle": {
 			"textures": ["double_slabs/planks_jungle"],
-			"material": {"wooden_slab_jungle":{"default":2}}
+			"material": {"wooden_slab_jungle": {"default":2}}
 		},
 		"acacia": {
 			"textures": ["double_slabs/planks_acacia"],
-			"material": {"wooden_slab_acacia":{"default":2}}
+			"material": {"wooden_slab_acacia": {"default":2}}
 		},
 		"dark_oak": {
 			"textures": ["double_slabs/planks_dark_oak"],
-			"material": {"wooden_slab_dark_oak":{"default":2}}
+			"material": {"wooden_slab_dark_oak": {"default":2}}
 		}
 	},
 	"dragon_egg": {
@@ -2239,7 +2239,7 @@
 		}
 	},
 	"dropper": {
-		"definition": ["cube","cube","dispenser"],
+		"definition": ["cube", "cube", "dispenser"],
 		"default": {
 			"textures": {
 				"up": ["redstone/dropper_front_vertical"],
@@ -2274,10 +2274,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/end_brick","end_brick"],
-				"side": ["end_brick","end_brick"],
-				"north": ["stairs/end_brick","end_brick"],
-				"down": ["stairs/end_brick","end_brick"]
+				"up": ["stairs/end_brick", "end_brick"],
+				"side": ["end_brick", "end_brick"],
+				"north": ["stairs/end_brick", "end_brick"],
+				"down": ["stairs/end_brick", "end_brick"]
 			}
 		}
 	},
@@ -2300,7 +2300,7 @@
 		}
 	},
 	"end_portal_frame": {
-		"definition": ["portal_frame","portal_frame","pumpkin_reverse"],
+		"definition": ["portal_frame", "portal_frame", "pumpkin_reverse"],
 		"default": {
 			"textures": {
 				"up": ["endframe_top"],
@@ -2322,7 +2322,7 @@
 		}
 	},
 	"ender_chest": {
-		"definition": ["chest","chest","furnace"],
+		"definition": ["chest", "chest", "furnace"],
 		"default": {
 			"textures": {
 				"up": ["ender_chest_top"],
@@ -2354,10 +2354,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/exposed_cut_copper","ore/exposed_cut_copper"],
-				"side": ["ore/exposed_cut_copper","ore/exposed_cut_copper"],
-				"north": ["stairs/exposed_cut_copper","ore/exposed_cut_copper"],
-				"down": ["stairs/exposed_cut_copper","ore/exposed_cut_copper"]
+				"up": ["stairs/exposed_cut_copper", "ore/exposed_cut_copper"],
+				"side": ["ore/exposed_cut_copper", "ore/exposed_cut_copper"],
+				"north": ["stairs/exposed_cut_copper", "ore/exposed_cut_copper"],
+				"down": ["stairs/exposed_cut_copper", "ore/exposed_cut_copper"]
 			}
 		}
 	},
@@ -2365,7 +2365,7 @@
 		"definition": ["cube"],
 		"default": {
 			"textures": ["double_slabs/exposed_cut_copper"],
-			"material": {"exposed_cut_copper_slab":{"default":2}}
+			"material": {"exposed_cut_copper_slab": {"default":2}}
 		}
 	},
 	"farmland": {
@@ -2376,7 +2376,7 @@
 				"side": ["dirt"],
 				"down": ["dirt"]
 			},
-			"material": {"farmland":{"default":1}}
+			"material": {"farmland": {"default":1}}
 		},
 		"7": {
 			"textures": {
@@ -2408,7 +2408,7 @@
 		}
 	},
 	"fence_gate": {
-		"definition": ["fence_gate","fence_gate","pumpkin"],
+		"definition": ["fence_gate", "fence_gate", "pumpkin"],
 		"default": {
 			"textures": ["wood/planks_oak"]
 		}
@@ -2464,7 +2464,7 @@
 		}
 	},
 	"furnace": {
-		"definition": ["cube","cube","furnace"],
+		"definition": ["cube", "cube", "furnace"],
 		"default": {
 			"textures": {
 				"up": ["furnace_top"],
@@ -2530,7 +2530,7 @@
 		"definition": ["rail"],
 		"default": {
 			"textures": ["rail_golden"],
-			"material": {"golden_rail": {"default":1}}
+			"material": {"golden_rail": {"default": 1}}
 		},
 		"0_lit": {
 			"textures": ["rail_golden_powered"]
@@ -2555,10 +2555,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/stone_granite","stone_granite"],
-				"side": ["stone_granite","stone_granite"],
-				"north": ["stairs/stone_granite","stone_granite"],
-				"down": ["stairs/stone_granite","stone_granite"]
+				"up": ["stairs/stone_granite", "stone_granite"],
+				"side": ["stone_granite", "stone_granite"],
+				"north": ["stairs/stone_granite", "stone_granite"],
+				"down": ["stairs/stone_granite", "stone_granite"]
 			}
 		}
 	},
@@ -2589,19 +2589,19 @@
 		}
 	},
 	"gray_glazed_terracotta": {
-		"definition": ["cube","glazed_terracotta","facing_block"],
+		"definition": ["cube", "glazed_terracotta", "facing_block"],
 		"default": {
 			"textures": ["colorful/glazed_terracotta_gray"]
 		}
 	},
 	"green_glazed_terracotta": {
-		"definition": ["cube","glazed_terracotta","facing_block"],
+		"definition": ["cube", "glazed_terracotta", "facing_block"],
 		"default": {
 			"textures": ["colorful/glazed_terracotta_green"]
 		}
 	},
 	"grindstone": {
-		"definition": ["grindstone","grindstone","pumpkin_reverse"],
+		"definition": ["grindstone", "grindstone", "pumpkin_reverse"],
 		"default": {
 			"textures": {
 				"up": ["grindstone_round", "wood/log_spruce"],
@@ -2625,7 +2625,7 @@
 		}
 	},
 	"hay_block": {
-		"definition": ["cube","cube","tree"],
+		"definition": ["cube", "cube", "tree"],
 		"default": {
 			"textures": {
 				"up": ["hay_block_top"],
@@ -2667,7 +2667,7 @@
 				"west": ["redstone/hopper_outside_back", "redstone/hopper_outside", "redstone/hopper_outside"],
 				"down": ["redstone/hopper_inside", "redstone/hopper_outside", "redstone/hopper_outside"]
 			},
-			"material": {"hopper": {"default":1}}
+			"material": {"hopper": {"default": 1}}
 		},
 		"2_lit": {
 			"textures": {
@@ -2731,7 +2731,7 @@
 		}
 	},
 	"infested_deepslate": {
-		"definition": ["cube","cube","tree"],
+		"definition": ["cube", "cube", "tree"],
 		"default": {
 			"textures": {
 				"up": ["deepslate_top"],
@@ -2800,7 +2800,7 @@
 		}
 	},
 	"jungle_fence_gate": {
-		"definition": ["fence_gate","fence_gate","pumpkin"],
+		"definition": ["fence_gate", "fence_gate", "pumpkin"],
 		"default": {
 			"textures": ["wood/planks_jungle"]
 		}
@@ -2815,10 +2815,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/planks_jungle","wood/planks_jungle"],
-				"side": ["wood/planks_jungle","wood/planks_jungle"],
-				"north": ["stairs/planks_jungle","wood/planks_jungle"],
-				"down": ["stairs/planks_jungle","wood/planks_jungle"]
+				"up": ["stairs/planks_jungle", "wood/planks_jungle"],
+				"side": ["wood/planks_jungle", "wood/planks_jungle"],
+				"north": ["stairs/planks_jungle", "wood/planks_jungle"],
+				"down": ["stairs/planks_jungle", "wood/planks_jungle"]
 			}
 		}
 	},
@@ -2862,7 +2862,7 @@
 		"definition": ["lantern"],
 		"default": {
 			"textures": ["lantern"],
-			"material": {"lantern":{"default":1}}
+			"material": {"lantern": {"default":1}}
 		}
 	},
 	"lapis_block": {
@@ -2878,7 +2878,7 @@
 		}
 	},
 	"large_amethyst_bud": {
-		"definition": ["cross_texture","cross_texture","dispenser"],
+		"definition": ["cross_texture", "cross_texture", "dispenser"],
 		"default": {
 			"textures": ["large_amethyst_bud"]
 		}
@@ -2914,7 +2914,7 @@
 		}
 	},
 	"lectern": {
-		"definition": ["lectern","lectern","pumpkin"],
+		"definition": ["lectern", "lectern", "pumpkin"],
 		"default": {
 			"textures": {
 				"up": ["lectern_base", "lectern_front", "lectern_top"],
@@ -2931,7 +2931,7 @@
 		}
 	},
 	"light_blue_glazed_terracotta": {
-		"definition": ["cube","glazed_terracotta","facing_block"],
+		"definition": ["cube", "glazed_terracotta", "facing_block"],
 		"default": {
 			"textures": ["colorful/glazed_terracotta_light_blue"]
 		}
@@ -2943,13 +2943,13 @@
 		}
 	},
 	"lightning_rod": {
-		"definition": ["lightning_rod","lightning_rod","dispenser"],
+		"definition": ["lightning_rod", "lightning_rod", "dispenser"],
 		"default": {
 			"textures": ["lightning_rod"]
 		}
 	},
 	"lime_glazed_terracotta": {
-		"definition": ["cube","glazed_terracotta","facing_block"],
+		"definition": ["cube", "glazed_terracotta", "facing_block"],
 		"default": {
 			"textures": ["colorful/glazed_terracotta_lime"]
 		}
@@ -2958,11 +2958,11 @@
 		"definition": ["cube"],
 		"default": {
 			"textures": ["ore/deepslate_redstone_ore"],
-			"material": {"deepslate_redstone_ore":{"default":1}}
+			"material": {"deepslate_redstone_ore": {"default":1}}
 		}
 	},
 	"lit_pumpkin": {
-		"definition": ["cube","cube","pumpkin"],
+		"definition": ["cube", "cube", "pumpkin"],
 		"default": {
 			"textures": {
 				"up": ["plant/pumpkin_top"],
@@ -2976,7 +2976,7 @@
 		"definition": ["cube"],
 		"default": {
 			"textures": ["redstone/lamp_on"],
-			"material": {"redstone_lamp":{"default":1}}
+			"material": {"redstone_lamp": {"default":1}}
 		}
 	},
 	"lodestone": {
@@ -2990,7 +2990,7 @@
 		}
 	},
 	"log": {
-		"definition": ["cube","cube","tree"],
+		"definition": ["cube", "cube", "tree"],
 		"oak": {
 			"textures": {
 				"up": ["wood/log_oak_top"],
@@ -3021,7 +3021,7 @@
 		}
 	},
 	"log2": {
-		"definition": ["cube","cube","tree"],
+		"definition": ["cube", "cube", "tree"],
 		"acacia": {
 			"textures": {
 				"up": ["wood/log_acacia_top"],
@@ -3038,7 +3038,7 @@
 		}
 	},
 	"loom": {
-		"definition": ["cube","cube","pumpkin"],
+		"definition": ["cube", "cube", "pumpkin"],
 		"default": {
 			"textures": {
 				"up": ["loom_top"],
@@ -3049,7 +3049,7 @@
 		}
 	},
 	"magenta_glazed_terracotta": {
-		"definition": ["cube","glazed_terracotta","facing_block"],
+		"definition": ["cube", "glazed_terracotta", "facing_block"],
 		"default": {
 			"textures": ["colorful/glazed_terracotta_magenta"]
 		}
@@ -3076,7 +3076,7 @@
 		"definition": ["cube"],
 		"default": {
 			"textures": ["double_slabs/mangrove_planks"],
-			"material": {"mangrove_slab":{"default":2}}
+			"material": {"mangrove_slab": {"default":2}}
 		}
 	},
 	"mangrove_fence": {
@@ -3086,7 +3086,7 @@
 		}
 	},
 	"mangrove_fence_gate": {
-		"definition": ["fence_gate","fence_gate","pumpkin"],
+		"definition": ["fence_gate", "fence_gate", "pumpkin"],
 		"default": {
 			"textures": ["wood/mangrove_planks"]
 		}
@@ -3098,7 +3098,7 @@
 		}
 	},
 	"mangrove_log": {
-		"definition": ["cube","cube","tree"],
+		"definition": ["cube", "cube", "tree"],
 		"default": {
 			"textures": {
 				"up": ["wood/mangrove_log_top"],
@@ -3145,10 +3145,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/mangrove_planks","wood/mangrove_planks"],
-				"side": ["wood/mangrove_planks","wood/mangrove_planks"],
-				"north": ["stairs/mangrove_planks","wood/mangrove_planks"],
-				"down": ["stairs/mangrove_planks","wood/mangrove_planks"]
+				"up": ["stairs/mangrove_planks", "wood/mangrove_planks"],
+				"side": ["wood/mangrove_planks", "wood/mangrove_planks"],
+				"north": ["stairs/mangrove_planks", "wood/mangrove_planks"],
+				"down": ["stairs/mangrove_planks", "wood/mangrove_planks"]
 			}
 		}
 	},
@@ -3177,13 +3177,13 @@
 		}
 	},
 	"mangrove_wood": {
-		"definition": ["cube","cube","tree"],
+		"definition": ["cube", "cube", "tree"],
 		"default": {
 			"textures": ["wood/mangrove_log_side"]
 		}
 	},
 	"medium_amethyst_bud": {
-		"definition": ["cross_texture","cross_texture","dispenser"],
+		"definition": ["cross_texture", "cross_texture", "dispenser"],
 		"default": {
 			"textures": ["medium_amethyst_bud"]
 		}
@@ -3214,23 +3214,23 @@
 		"definition": ["cube"],
 		"stone": {
 			"textures": ["stone"],
-			"material": {"stone_stone":{"default":1}}
+			"material": {"stone_stone": {"default":1}}
 		},
 		"cobblestone": {
 			"textures": ["cobblestone"],
-			"material": {"cobblestone":{"default":1}}
+			"material": {"cobblestone": {"default":1}}
 		},
 		"chiseled_stone_brick": {
 			"textures": ["stonebrick_carved"],
-			"material": {"stonebrick_chiseled":{"default":1}}
+			"material": {"stonebrick_chiseled": {"default":1}}
 		},
 		"cracked_stone_brick": {
 			"textures": ["stonebrick_cracked"],
-			"material": {"stonebrick_cracked":{"default":1}}
+			"material": {"stonebrick_cracked": {"default":1}}
 		},
 		"mossy_stone_brick": {
 			"textures": ["stonebrick_mossy"],
-			"material": {"stonebrick_mossy":{"default":1}}
+			"material": {"stonebrick_mossy": {"default":1}}
 		}
 	},
 	"moss_block": {
@@ -3255,10 +3255,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/cobblestone_mossy","cobblestone_mossy"],
-				"side": ["cobblestone_mossy","cobblestone_mossy"],
-				"north": ["stairs/cobblestone_mossy","cobblestone_mossy"],
-				"down": ["stairs/cobblestone_mossy","cobblestone_mossy"]
+				"up": ["stairs/cobblestone_mossy", "cobblestone_mossy"],
+				"side": ["cobblestone_mossy", "cobblestone_mossy"],
+				"north": ["stairs/cobblestone_mossy", "cobblestone_mossy"],
+				"down": ["stairs/cobblestone_mossy", "cobblestone_mossy"]
 			}
 		}
 	},
@@ -3266,10 +3266,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/stonebrick_mossy","stonebrick_mossy"],
-				"side": ["stonebrick_mossy","stonebrick_mossy"],
-				"north": ["stairs/stonebrick_mossy","stonebrick_mossy"],
-				"down": ["stairs/stonebrick_mossy","stonebrick_mossy"]
+				"up": ["stairs/stonebrick_mossy", "stonebrick_mossy"],
+				"side": ["stonebrick_mossy", "stonebrick_mossy"],
+				"north": ["stairs/stonebrick_mossy", "stonebrick_mossy"],
+				"down": ["stairs/stonebrick_mossy", "stonebrick_mossy"]
 			}
 		}
 	},
@@ -3283,7 +3283,7 @@
 		"definition": ["cube"],
 		"default": {
 			"textures": ["double_slabs/mud_bricks"],
-			"material": {"mud_brick_slab":{"default":2}}
+			"material": {"mud_brick_slab": {"default":2}}
 		}
 	},
 	"mud_brick_slab": {
@@ -3296,10 +3296,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/mud_bricks","mud_bricks"],
-				"side": ["mud_bricks","mud_bricks"],
-				"north": ["stairs/mud_bricks","mud_bricks"],
-				"down": ["stairs/mud_bricks","mud_bricks"]
+				"up": ["stairs/mud_bricks", "mud_bricks"],
+				"side": ["mud_bricks", "mud_bricks"],
+				"north": ["stairs/mud_bricks", "mud_bricks"],
+				"down": ["stairs/mud_bricks", "mud_bricks"]
 			}
 		}
 	},
@@ -3316,7 +3316,7 @@
 		}
 	},
 	"muddy_mangrove_roots": {
-		"definition": ["cube","cube","tree"],
+		"definition": ["cube", "cube", "tree"],
 		"default": {
 			"textures": {
 				"up": ["plant/muddy_mangrove_roots_top"],
@@ -3351,10 +3351,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/nether_brick","nether_brick"],
-				"side": ["nether_brick","nether_brick"],
-				"north": ["stairs/nether_brick","nether_brick"],
-				"down": ["stairs/nether_brick","nether_brick"]
+				"up": ["stairs/nether_brick", "nether_brick"],
+				"side": ["nether_brick", "nether_brick"],
+				"north": ["stairs/nether_brick", "nether_brick"],
+				"down": ["stairs/nether_brick", "nether_brick"]
 			}
 		}
 	},
@@ -3398,10 +3398,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/stone","stone"],
-				"side": ["stone","stone"],
-				"north": ["stairs/stone","stone"],
-				"down": ["stairs/stone","stone"]
+				"up": ["stairs/stone", "stone"],
+				"side": ["stone", "stone"],
+				"north": ["stairs/stone", "stone"],
+				"down": ["stairs/stone", "stone"]
 			}
 		}
 	},
@@ -3415,15 +3415,15 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/planks_oak","wood/planks_oak"],
-				"side": ["wood/planks_oak","wood/planks_oak"],
-				"north": ["stairs/planks_oak","wood/planks_oak"],
-				"down": ["stairs/planks_oak","wood/planks_oak"]
+				"up": ["stairs/planks_oak", "wood/planks_oak"],
+				"side": ["wood/planks_oak", "wood/planks_oak"],
+				"north": ["stairs/planks_oak", "wood/planks_oak"],
+				"down": ["stairs/planks_oak", "wood/planks_oak"]
 			}
 		}
 	},
 	"observer": {
-		"definition": ["cube","cube","facing_block"],
+		"definition": ["cube", "cube", "facing_block"],
 		"default": {
 			"textures": {
 				"up": ["redstone/observer_top"],
@@ -3443,7 +3443,7 @@
 				"west": ["redstone/observer_left_lit"],
 				"down": ["redstone/observer_bottom_lit"]
 			},
-			"material": {"observer":{"default":1}}
+			"material": {"observer": {"default":1}}
 		}
 	},
 	"obsidian": {
@@ -3453,7 +3453,7 @@
 		}
 	},
 	"ochre_froglight": {
-		"definition": ["cube","cube","tree"],
+		"definition": ["cube", "cube", "tree"],
 		"default": {
 			"textures": {
 				"up": ["ochre_froglight_top"],
@@ -3463,7 +3463,7 @@
 		}
 	},
 	"orange_glazed_terracotta": {
-		"definition": ["cube","glazed_terracotta","facing_block"],
+		"definition": ["cube", "glazed_terracotta", "facing_block"],
 		"default": {
 			"textures": ["colorful/glazed_terracotta_orange"]
 		}
@@ -3490,10 +3490,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/oxidized_cut_copper","ore/oxidized_cut_copper"],
-				"side": ["ore/oxidized_cut_copper","ore/oxidized_cut_copper"],
-				"north": ["stairs/oxidized_cut_copper","ore/oxidized_cut_copper"],
-				"down": ["stairs/oxidized_cut_copper","ore/oxidized_cut_copper"]
+				"up": ["stairs/oxidized_cut_copper", "ore/oxidized_cut_copper"],
+				"side": ["ore/oxidized_cut_copper", "ore/oxidized_cut_copper"],
+				"north": ["stairs/oxidized_cut_copper", "ore/oxidized_cut_copper"],
+				"down": ["stairs/oxidized_cut_copper", "ore/oxidized_cut_copper"]
 			}
 		}
 	},
@@ -3501,7 +3501,7 @@
 		"definition": ["cube"],
 		"default": {
 			"textures": ["double_slabs/oxidized_cut_copper"],
-			"material": {"oxidized_cut_copper_slab":{"default":2}}
+			"material": {"oxidized_cut_copper_slab": {"default":2}}
 		}
 	},
 	"packed_ice": {
@@ -3517,7 +3517,7 @@
 		}
 	},
 	"pearlescent_froglight": {
-		"definition": ["cube","cube","tree"],
+		"definition": ["cube", "cube", "tree"],
 		"default": {
 			"textures": {
 				"up": ["pearlescent_froglight_top"],
@@ -3527,7 +3527,7 @@
 		}
 	},
 	"pink_glazed_terracotta": {
-		"definition": ["cube","glazed_terracotta","facing_block"],
+		"definition": ["cube", "glazed_terracotta", "facing_block"],
 		"default": {
 			"textures": ["colorful/glazed_terracotta_pink"]
 		}
@@ -3540,7 +3540,7 @@
 				"side": ["redstone/piston_side", "redstone/piston_arm", "redstone/piston_side"],
 				"down": ["redstone/piston_bottom", "redstone/piston_arm", "redstone/piston_top"]
 			},
-			"material": {"piston": {"default":1}}
+			"material": {"piston": {"default": 1}}
 		},
 		"0.0": {
 			"textures": {
@@ -3592,7 +3592,7 @@
 	"pointed_dripstone": {
 		"definition": ["cross_texture"],
 		"default": {
-			"material": {"pointed_dripstone":{"default":2}}
+			"material": {"pointed_dripstone": {"default":2}}
 		},
 		"tip": {
 			"textures": ["pointed_dripstone_up_tip"]
@@ -3629,15 +3629,15 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/stone_andesite_smooth","stone_andesite_smooth"],
-				"side": ["stone_andesite_smooth","stone_andesite_smooth"],
-				"north": ["stairs/stone_andesite_smooth","stone_andesite_smooth"],
-				"down": ["stairs/stone_andesite_smooth","stone_andesite_smooth"]
+				"up": ["stairs/stone_andesite_smooth", "stone_andesite_smooth"],
+				"side": ["stone_andesite_smooth", "stone_andesite_smooth"],
+				"north": ["stairs/stone_andesite_smooth", "stone_andesite_smooth"],
+				"down": ["stairs/stone_andesite_smooth", "stone_andesite_smooth"]
 			}
 		}
 	},
 	"polished_basalt": {
-		"definition": ["cube","cube","tree"],
+		"definition": ["cube", "cube", "tree"],
 		"default": {
 			"textures": {
 				"up": ["polished_basalt_top"],
@@ -3656,7 +3656,7 @@
 		"definition": ["cube"],
 		"default": {
 			"textures": ["double_slabs/polished_blackstone_brick"],
-			"material": {"polished_blackstone_brick_slab":{"default":2}}
+			"material": {"polished_blackstone_brick_slab": {"default":2}}
 		}
 	},
 	"polished_blackstone_brick_slab": {
@@ -3669,10 +3669,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/polished_blackstone_brick","polished_blackstone_brick"],
-				"side": ["polished_blackstone_brick","polished_blackstone_brick"],
-				"north": ["stairs/polished_blackstone_brick","polished_blackstone_brick"],
-				"down": ["stairs/polished_blackstone_brick","polished_blackstone_brick"]
+				"up": ["stairs/polished_blackstone_brick", "polished_blackstone_brick"],
+				"side": ["polished_blackstone_brick", "polished_blackstone_brick"],
+				"north": ["stairs/polished_blackstone_brick", "polished_blackstone_brick"],
+				"down": ["stairs/polished_blackstone_brick", "polished_blackstone_brick"]
 			}
 		}
 	},
@@ -3698,7 +3698,7 @@
 		"definition": ["cube"],
 		"default": {
 			"textures": ["double_slabs/polished_blackstone"],
-			"material": {"polished_blackstone_slab":{"default":2}}
+			"material": {"polished_blackstone_slab": {"default":2}}
 		}
 	},
 	"polished_blackstone_pressure_plate": {
@@ -3717,10 +3717,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/polished_blackstone","polished_blackstone"],
-				"side": ["polished_blackstone","polished_blackstone"],
-				"north": ["stairs/polished_blackstone","polished_blackstone"],
-				"down": ["stairs/polished_blackstone","polished_blackstone"]
+				"up": ["stairs/polished_blackstone", "polished_blackstone"],
+				"side": ["polished_blackstone", "polished_blackstone"],
+				"north": ["stairs/polished_blackstone", "polished_blackstone"],
+				"down": ["stairs/polished_blackstone", "polished_blackstone"]
 			}
 		}
 	},
@@ -3740,7 +3740,7 @@
 		"definition": ["cube"],
 		"default": {
 			"textures": ["double_slabs/polished_deepslate"],
-			"material": {"polished_deepslate_slab":{"default":2}}
+			"material": {"polished_deepslate_slab": {"default":2}}
 		}
 	},
 	"polished_deepslate_slab": {
@@ -3753,10 +3753,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/polished_deepslate","polished_deepslate"],
-				"side": ["polished_deepslate","polished_deepslate"],
-				"north": ["stairs/polished_deepslate","polished_deepslate"],
-				"down": ["stairs/polished_deepslate","polished_deepslate"]
+				"up": ["stairs/polished_deepslate", "polished_deepslate"],
+				"side": ["polished_deepslate", "polished_deepslate"],
+				"north": ["stairs/polished_deepslate", "polished_deepslate"],
+				"down": ["stairs/polished_deepslate", "polished_deepslate"]
 			}
 		}
 	},
@@ -3770,10 +3770,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/stone_diorite_smooth","stone_diorite_smooth"],
-				"side": ["stone_diorite_smooth","stone_diorite_smooth"],
-				"north": ["stairs/stone_diorite_smooth","stone_diorite_smooth"],
-				"down": ["stairs/stone_diorite_smooth","stone_diorite_smooth"]
+				"up": ["stairs/stone_diorite_smooth", "stone_diorite_smooth"],
+				"side": ["stone_diorite_smooth", "stone_diorite_smooth"],
+				"north": ["stairs/stone_diorite_smooth", "stone_diorite_smooth"],
+				"down": ["stairs/stone_diorite_smooth", "stone_diorite_smooth"]
 			}
 		}
 	},
@@ -3781,10 +3781,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/stone_granite_smooth","stone_granite_smooth"],
-				"side": ["stone_granite_smooth","stone_granite_smooth"],
-				"north": ["stairs/stone_granite_smooth","stone_granite_smooth"],
-				"down": ["stairs/stone_granite_smooth","stone_granite_smooth"]
+				"up": ["stairs/stone_granite_smooth", "stone_granite_smooth"],
+				"side": ["stone_granite_smooth", "stone_granite_smooth"],
+				"north": ["stairs/stone_granite_smooth", "stone_granite_smooth"],
+				"down": ["stairs/stone_granite_smooth", "stone_granite_smooth"]
 			}
 		}
 	},
@@ -3807,8 +3807,8 @@
 		}
 	},
 	"powered_comparator": {
-		"definition": ["comparator","comparator","pumpkin"],
-		"default": {"material": {"comparator":{"default":1}}},
+		"definition": ["comparator", "comparator", "pumpkin"],
+		"default": {"material": {"comparator": {"default":1}}},
 		"0": {
 			"textures": {
 				"up": ["redstone/comparator_on", "redstone/torch_on", "redstone/torch_on", "redstone/torch_off"],
@@ -3825,14 +3825,14 @@
 		}
 	},
 	"powered_repeater": {
-		"definition": ["repeater","repeater","pumpkin"],
+		"definition": ["repeater", "repeater", "pumpkin"],
 		"default": {
 			"textures": {
 				"up": ["redstone/repeater_on", "redstone/torch_on", "redstone/torch_on"],
 				"side": ["redstone/repeater_floor_on", "redstone/torch_on", "redstone/torch_on"],
 				"down": ["redstone/repeater_floor_on", "redstone/torch_on", "redstone/torch_on"]
 			},
-		"material": {"repeater":{"default":1}}
+		"material": {"repeater": {"default":1}}
 		}
 	},
 	"prismarine": {
@@ -3851,10 +3851,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/prismarine_brick","prismarine_brick"],
-				"side": ["prismarine_brick","prismarine_brick"],
-				"north": ["stairs/prismarine_brick","prismarine_brick"],
-				"down": ["stairs/prismarine_brick","prismarine_brick"]
+				"up": ["stairs/prismarine_brick", "prismarine_brick"],
+				"side": ["prismarine_brick", "prismarine_brick"],
+				"north": ["stairs/prismarine_brick", "prismarine_brick"],
+				"down": ["stairs/prismarine_brick", "prismarine_brick"]
 			}
 		}
 	},
@@ -3862,15 +3862,15 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/prismarine_rough","prismarine_rough"],
-				"side": ["prismarine_rough","prismarine_rough"],
-				"north": ["stairs/prismarine_rough","prismarine_rough"],
-				"down": ["stairs/prismarine_rough","prismarine_rough"]
+				"up": ["stairs/prismarine_rough", "prismarine_rough"],
+				"side": ["prismarine_rough", "prismarine_rough"],
+				"north": ["stairs/prismarine_rough", "prismarine_rough"],
+				"down": ["stairs/prismarine_rough", "prismarine_rough"]
 			}
 		}
 	},
 	"pumpkin": {
-		"definition": ["cube","cube","pumpkin"],
+		"definition": ["cube", "cube", "pumpkin"],
 		"default": {
 			"textures": {
 				"up": ["plant/pumpkin_top"],
@@ -3886,13 +3886,13 @@
 		}
 	},
 	"purple_glazed_terracotta": {
-		"definition": ["cube","glazed_terracotta","facing_block"],
+		"definition": ["cube", "glazed_terracotta", "facing_block"],
 		"default": {
 			"textures": ["colorful/glazed_terracotta_purple"]
 		}
 	},
 	"purpur_block": {
-		"definition": ["cube","cube","tree"],
+		"definition": ["cube", "cube", "tree"],
 		"default": {
 			"textures": ["purpur_block"]
 		},
@@ -3908,15 +3908,15 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/purpur_block","purpur_block"],
-				"side": ["purpur_block","purpur_block"],
-				"north": ["stairs/purpur_block","purpur_block"],
-				"down": ["stairs/purpur_block","purpur_block"]
+				"up": ["stairs/purpur_block", "purpur_block"],
+				"side": ["purpur_block", "purpur_block"],
+				"north": ["stairs/purpur_block", "purpur_block"],
+				"down": ["stairs/purpur_block", "purpur_block"]
 			}
 		}
 	},
 	"quartz_block": {
-		"definition": ["cube","cube","tree"],
+		"definition": ["cube", "cube", "tree"],
 		"default": {
 			"textures": ["quartz_block"]
 		},
@@ -3954,10 +3954,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/quartz_block","quartz_block"],
-				"side": ["quartz_block","quartz_block"],
-				"north": ["stairs/quartz_block","quartz_block"],
-				"down": ["stairs/quartz_block","quartz_block"]
+				"up": ["stairs/quartz_block", "quartz_block"],
+				"side": ["quartz_block", "quartz_block"],
+				"north": ["stairs/quartz_block", "quartz_block"],
+				"down": ["stairs/quartz_block", "quartz_block"]
 			}
 		}
 	},
@@ -3965,7 +3965,7 @@
 		"definition": ["rail"],
 		"default": {
 			"textures": ["rail_normal"],
-			"material": {"rail": {"default":1}}
+			"material": {"rail": {"default": 1}}
 		},
 		"6": {
 			"textures": ["rail_normal_turned"]
@@ -4035,7 +4035,7 @@
 		}
 	},
 	"red_glazed_terracotta": {
-		"definition": ["cube","glazed_terracotta","facing_block"],
+		"definition": ["cube", "glazed_terracotta", "facing_block"],
 		"default": {
 			"textures": ["colorful/glazed_terracotta_red"]
 		}
@@ -4050,15 +4050,15 @@
 		"definition": ["cube"],
 		"default": {
 			"textures": ["plant/mushroom_block_skin_red"],
-			"material": {"red_mushroom_block":{"default":1}}
+			"material": {"red_mushroom_block": {"default":1}}
 		},
 		"10": {
 			"textures": ["plant/mushroom_block_skin_stem"],
-			"material": {"mushroom_stem":{"default":1}}
+			"material": {"mushroom_stem": {"default":1}}
 		},
 		"15": {
 			"textures": ["plant/mushroom_block_skin_stem"],
-			"material": {"mushroom_stem":{"default":1}}
+			"material": {"mushroom_stem": {"default":1}}
 		}
 	},
 	"red_nether_brick": {
@@ -4071,10 +4071,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/red_nether_brick","red_nether_brick"],
-				"side": ["red_nether_brick","red_nether_brick"],
-				"north": ["stairs/red_nether_brick","red_nether_brick"],
-				"down": ["stairs/red_nether_brick","red_nether_brick"]
+				"up": ["stairs/red_nether_brick", "red_nether_brick"],
+				"side": ["red_nether_brick", "red_nether_brick"],
+				"north": ["stairs/red_nether_brick", "red_nether_brick"],
+				"down": ["stairs/red_nether_brick", "red_nether_brick"]
 			}
 		}
 	},
@@ -4109,10 +4109,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/red_sandstone_top","red_sandstone_top"],
-				"side": ["red_sandstone_normal","red_sandstone_normal"],
-				"north": ["stairs/red_sandstone_normal","red_sandstone_normal"],
-				"down": ["stairs/red_sandstone_bottom","red_sandstone_bottom"]
+				"up": ["stairs/red_sandstone_top", "red_sandstone_top"],
+				"side": ["red_sandstone_normal", "red_sandstone_normal"],
+				"north": ["stairs/red_sandstone_normal", "red_sandstone_normal"],
+				"down": ["stairs/red_sandstone_bottom", "red_sandstone_bottom"]
 			}
 		}
 	},
@@ -4164,7 +4164,7 @@
 	},
 	"respawn_anchor": {
 		"definition": ["cube"],
-		"default": {"material": {"respawn_anchor": {"default":1}}},
+		"default": {"material": {"respawn_anchor": {"default": 1}}},
 		"0": {
 			"textures": {
 				"up": ["respawn_anchor_top_off"],
@@ -4241,10 +4241,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/sandstone_top","sandstone_top"],
-				"side": ["sandstone_normal","sandstone_normal"],
-				"north": ["stairs/sandstone_normal","sandstone_normal"],
-				"down": ["stairs/sandstone_bottom","sandstone_bottom"]
+				"up": ["stairs/sandstone_top", "sandstone_top"],
+				"side": ["sandstone_normal", "sandstone_normal"],
+				"north": ["stairs/sandstone_normal", "sandstone_normal"],
+				"down": ["stairs/sandstone_bottom", "sandstone_bottom"]
 			}
 		}
 	},
@@ -4339,18 +4339,18 @@
 		"definition": ["cube"],
 		"default": {
 			"textures": ["sea_lantern"],
-			"material": {"sea_lantern": {"default":1}}
+			"material": {"sea_lantern": {"default": 1}}
 		}
 	},
 	"sea_pickle": {
 		"definition": ["sea_pickle"],
 		"default": {
 			"textures": ["plant/sea_pickle"],
-			"material": {"sea_pickle":{
-				"0":1,
-				"1":2,
-				"2":3,
-				"3":4
+			"material": {"sea_pickle": {
+				"0": 1,
+				"1": 2,
+				"2": 3,
+				"3": 4
 			}}
 		}
 	},
@@ -4374,7 +4374,7 @@
 		}
 	},
 	"shulker_box": {
-		"definition": ["cube","cube","dispenser"],
+		"definition": ["cube", "cube", "dispenser"],
 		"white": {
 			"textures": {
 				"up": ["colorful/shulker_top_white"],
@@ -4489,7 +4489,7 @@
 		}
 	},
 	"silver_glazed_terracotta": {
-		"definition": ["cube","glazed_terracotta","facing_block"],
+		"definition": ["cube", "glazed_terracotta", "facing_block"],
 		"default": {
 			"textures": ["colorful/glazed_terracotta_silver"]
 		}
@@ -4534,23 +4534,23 @@
 		}
 	},
 	"small_amethyst_bud": {
-		"definition": ["cross_texture","cross_texture","dispenser"],
+		"definition": ["cross_texture", "cross_texture", "dispenser"],
 		"default": {
 			"textures": ["small_amethyst_bud"]
 		}
 	},
 	"small_dripleaf_block": {
-		"definition": ["small_dripleaf","small_dripleaf","pumpkin_reverse"],
+		"definition": ["small_dripleaf", "small_dripleaf", "pumpkin_reverse"],
 		"default": {
 			"textures": {
-				"up": ["plant/small_dripleaf_stem","plant/small_dripleaf_stem","plant/small_dripleaf_top"],
-				"side": ["plant/small_dripleaf_stem","plant/small_dripleaf_stem","plant/small_dripleaf_side"],
-				"down": ["plant/small_dripleaf_stem","plant/small_dripleaf_stem","plant/small_dripleaf_side"]
+				"up": ["plant/small_dripleaf_stem", "plant/small_dripleaf_stem", "plant/small_dripleaf_top"],
+				"side": ["plant/small_dripleaf_stem", "plant/small_dripleaf_stem", "plant/small_dripleaf_side"],
+				"down": ["plant/small_dripleaf_stem", "plant/small_dripleaf_stem", "plant/small_dripleaf_side"]
 			}
 		}
 	},
 	"smoker": {
-		"definition": ["cube","cube","furnace"],
+		"definition": ["cube", "cube", "furnace"],
 		"default": {
 			"textures": {
 				"up": ["smoker_top"],
@@ -4570,10 +4570,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/quartz_block_smooth","quartz_block_smooth"],
-				"side": ["quartz_block_smooth","quartz_block_smooth"],
-				"north": ["stairs/quartz_block_smooth","quartz_block_smooth"],
-				"down": ["stairs/quartz_block_smooth","quartz_block_smooth"]
+				"up": ["stairs/quartz_block_smooth", "quartz_block_smooth"],
+				"side": ["quartz_block_smooth", "quartz_block_smooth"],
+				"north": ["stairs/quartz_block_smooth", "quartz_block_smooth"],
+				"down": ["stairs/quartz_block_smooth", "quartz_block_smooth"]
 			}
 		}
 	},
@@ -4581,10 +4581,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/red_sandstone_top","red_sandstone_top"],
-				"side": ["red_sandstone_top","red_sandstone_top"],
-				"north": ["stairs/red_sandstone_top","red_sandstone_top"],
-				"down": ["stairs/red_sandstone_top","red_sandstone_top"]
+				"up": ["stairs/red_sandstone_top", "red_sandstone_top"],
+				"side": ["red_sandstone_top", "red_sandstone_top"],
+				"north": ["stairs/red_sandstone_top", "red_sandstone_top"],
+				"down": ["stairs/red_sandstone_top", "red_sandstone_top"]
 			}
 		}
 	},
@@ -4592,10 +4592,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/sandstone_top","sandstone_top"],
-				"side": ["sandstone_top","sandstone_top"],
-				"north": ["stairs/sandstone_top","sandstone_top"],
-				"down": ["stairs/sandstone_top","sandstone_top"]
+				"up": ["stairs/sandstone_top", "sandstone_top"],
+				"side": ["sandstone_top", "sandstone_top"],
+				"north": ["stairs/sandstone_top", "sandstone_top"],
+				"down": ["stairs/sandstone_top", "sandstone_top"]
 			}
 		}
 	},
@@ -4629,7 +4629,7 @@
 	},
 	"soul_campfire": {
 		"definition": ["campfire"],
-		"default": {"material": {"soul_campfire":{"default":1}}},
+		"default": {"material": {"soul_campfire": {"default":1}}},
 		"0": {
 			"textures": {
 				"up": ["soul_campfire_log_lit", "campfire_log", "campfire_log", "campfire_log", "campfire_log", "soul_campfire", "soul_campfire"],
@@ -4658,7 +4658,7 @@
 		"definition": ["lantern"],
 		"default": {
 			"textures": ["soul_lantern"],
-			"material": {"soul_lantern":{"default":1}}
+			"material": {"soul_lantern": {"default":1}}
 		}
 	},
 	"soul_sand": {
@@ -4707,7 +4707,7 @@
 		}
 	},
 	"spruce_fence_gate": {
-		"definition": ["fence_gate","fence_gate","pumpkin"],
+		"definition": ["fence_gate", "fence_gate", "pumpkin"],
 		"default": {
 			"textures": ["wood/planks_spruce"]
 		}
@@ -4722,10 +4722,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/planks_spruce","wood/planks_spruce"],
-				"side": ["wood/planks_spruce","wood/planks_spruce"],
-				"north": ["stairs/planks_spruce","wood/planks_spruce"],
-				"down": ["stairs/planks_spruce","wood/planks_spruce"]
+				"up": ["stairs/planks_spruce", "wood/planks_spruce"],
+				"side": ["wood/planks_spruce", "wood/planks_spruce"],
+				"north": ["stairs/planks_spruce", "wood/planks_spruce"],
+				"down": ["stairs/planks_spruce", "wood/planks_spruce"]
 			}
 		}
 	},
@@ -4926,7 +4926,7 @@
 				"side": ["redstone/piston_side_sticky", "redstone/piston_arm_sticky", "redstone/piston_side_sticky"],
 				"down": ["redstone/piston_bottom_sticky", "redstone/piston_arm_sticky", "redstone/piston_top_sticky"]
 			},
-			"material": {"sticky_piston": {"default":1}}
+			"material": {"sticky_piston": {"default": 1}}
 		},
 		"0.0": {
 			"textures": {
@@ -4972,10 +4972,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/stonebrick","stonebrick"],
-				"side": ["stonebrick","stonebrick"],
-				"north": ["stairs/stonebrick","stonebrick"],
-				"down": ["stairs/stonebrick","stonebrick"]
+				"up": ["stairs/stonebrick", "stonebrick"],
+				"side": ["stonebrick", "stonebrick"],
+				"north": ["stairs/stonebrick", "stonebrick"],
+				"down": ["stairs/stonebrick", "stonebrick"]
 			}
 		}
 	},
@@ -4995,7 +4995,7 @@
 		"definition": ["slab"],
 		"cobblestone": {
 			"textures": ["slabs/cobblestone"],
-			"material": {"stone_slab_cobblestone":{"default":1}}
+			"material": {"stone_slab_cobblestone": {"default":1}}
 		},
 		"smooth_stone": {
 			"textures": {
@@ -5003,19 +5003,19 @@
 				"side": ["slabs/smooth_stone_slab_side"],
 				"down": ["slabs/smooth_stone"]
 			},
-			"material": {"stone_slab_smooth_stone":{"default":1}}
+			"material": {"stone_slab_smooth_stone": {"default":1}}
 		},
 		"stone_brick": {
 			"textures": ["slabs/stonebrick"],
-			"material": {"stone_slab_stone_brick":{"default":1}}
+			"material": {"stone_slab_stone_brick": {"default":1}}
 		},
 		"brick": {
 			"textures": ["slabs/brick"],
-			"material": {"stone_slab_brick":{"default":1}}
+			"material": {"stone_slab_brick": {"default":1}}
 		},
 		"nether_brick": {
 			"textures": ["slabs/nether_brick"],
-			"material": {"stone_slab_nether_brick":{"default":1}}
+			"material": {"stone_slab_nether_brick": {"default":1}}
 		},
 		"sandstone": {
 			"textures": {
@@ -5023,26 +5023,26 @@
 				"side": ["slabs/sandstone_normal"],
 				"down": ["slabs/sandstone_bottom"]
 			},
-			"material": {"stone_slab_sandstone":{"default":1}}
+			"material": {"stone_slab_sandstone": {"default":1}}
 		},
 		"quartz": {
 			"textures": ["slabs/quartz_block"],
-			"material": {"stone_slab_quartz":{"default":1}}
+			"material": {"stone_slab_quartz": {"default":1}}
 		}
 	},
 	"stone_block_slab2": {
 		"definition": ["slab"],
 		"mossy_cobblestone": {
 			"textures": ["slabs/cobblestone_mossy"],
-			"material": {"stone_slab2_mossy_cobblestone":{"default":1}}
+			"material": {"stone_slab2_mossy_cobblestone": {"default":1}}
 		},
 		"red_nether_brick": {
 			"textures": ["slabs/red_nether_brick"],
-			"material": {"stone_slab2_red_nether_brick":{"default":1}}
+			"material": {"stone_slab2_red_nether_brick": {"default":1}}
 		},
 		"smooth_sandstone": {
 			"textures": ["slabs/sandstone_top"],
-			"material": {"stone_slab2_smooth_sandstone":{"default":1}}
+			"material": {"stone_slab2_smooth_sandstone": {"default":1}}
 		},
 		"red_sandstone": {
 			"textures": {
@@ -5050,69 +5050,69 @@
 				"side": ["slabs/red_sandstone_normal"],
 				"down": ["slabs/red_sandstone_bottom"]
 			},
-			"material": {"stone_slab2_red_sandstone":{"default":1}}
+			"material": {"stone_slab2_red_sandstone": {"default":1}}
 		},
 		"purpur": {
 			"textures": ["slabs/purpur_block"],
-			"material": {"stone_slab2_purpur":{"default":1}}
+			"material": {"stone_slab2_purpur": {"default":1}}
 		},
 		"prismarine_rough": {
 			"textures": ["slabs/prismarine_rough"],
-			"material": {"stone_slab2_prismarine_rough":{"default":1}}
+			"material": {"stone_slab2_prismarine_rough": {"default":1}}
 		},
 		"prismarine_dark": {
 			"textures": ["slabs/prismarine_dark"],
-			"material": {"stone_slab2_prismarine_dark":{"default":1}}
+			"material": {"stone_slab2_prismarine_dark": {"default":1}}
 		},
 		"prismarine_brick": {
 			"textures": ["slabs/prismarine_brick"],
-			"material": {"stone_slab2_prismarine_brick":{"default":1}}
+			"material": {"stone_slab2_prismarine_brick": {"default":1}}
 		}
 	},
 	"stone_block_slab3": {
 		"definition": ["slab"],
 		"andesite": {
 			"textures": ["slabs/stone_andesite"],
-			"material": {"stone_slab3_andesite":{"default":1}}
+			"material": {"stone_slab3_andesite": {"default":1}}
 		},
 		"polished_andesite": {
 			"textures": ["slabs/stone_andesite_smooth"],
-			"material": {"stone_slab3_polished_andesite":{"default":1}}
+			"material": {"stone_slab3_polished_andesite": {"default":1}}
 		},
 		"diorite": {
 			"textures": ["slabs/stone_diorite"],
-			"material": {"stone_slab3_diorite":{"default":1}}
+			"material": {"stone_slab3_diorite": {"default":1}}
 		},
 		"polished_diorite": {
 			"textures": ["slabs/stone_diorite_smooth"],
-			"material": {"stone_slab3_polished_diorite":{"default":1}}
+			"material": {"stone_slab3_polished_diorite": {"default":1}}
 		},
 		"granite": {
 			"textures": ["slabs/stone_granite"],
-			"material": {"stone_slab3_granite":{"default":1}}
+			"material": {"stone_slab3_granite": {"default":1}}
 		},
 		"polished_granite": {
 			"textures": ["slabs/stone_granite_smooth"],
-			"material": {"stone_slab3_polished_granite":{"default":1}}
+			"material": {"stone_slab3_polished_granite": {"default":1}}
 		},
 		"end_stone_brick": {
 			"textures": ["slabs/end_brick"],
-			"material": {"stone_slab3_end_stone_brick":{"default":1}}
+			"material": {"stone_slab3_end_stone_brick": {"default":1}}
 		},
 		"smooth_red_sandstone": {
 			"textures": ["slabs/red_sandstone_top"],
-			"material": {"stone_slab3_smooth_red_sandstone":{"default":1}}
+			"material": {"stone_slab3_smooth_red_sandstone": {"default":1}}
 		}
 	},
 	"stone_block_slab4": {
 		"definition": ["slab"],
 		"stone": {
 			"textures": ["slabs/stone"],
-			"material": {"stone_slab4_stone":{"default":1}}
+			"material": {"stone_slab4_stone": {"default":1}}
 		},
 		"mossy_stone_brick": {
 			"textures": ["slabs/stonebrick_mossy"],
-			"material": {"stone_slab4_mossy_stone_brick":{"default":1}}
+			"material": {"stone_slab4_mossy_stone_brick": {"default":1}}
 		},
 		"cut_sandstone": {
 			"textures": {
@@ -5120,7 +5120,7 @@
 				"side": ["slabs/sandstone_smooth"],
 				"down": ["slabs/sandstone_top"]
 			},
-			"material": {"stone_slab4_cut_sandstone":{"default":1}}
+			"material": {"stone_slab4_cut_sandstone": {"default":1}}
 		},
 		"cut_red_sandstone": {
 			"textures": {
@@ -5128,11 +5128,11 @@
 				"side": ["slabs/red_sandstone_smooth"],
 				"down": ["slabs/red_sandstone_top"]
 			},
-			"material": {"stone_slab4_cut_red_sandstone":{"default":1}}
+			"material": {"stone_slab4_cut_red_sandstone": {"default":1}}
 		},
 		"smooth_quartz": {
 			"textures": ["slabs/quartz_block_smooth"],
-			"material": {"stone_slab4_smooth_quartz":{"default":1}}
+			"material": {"stone_slab4_smooth_quartz": {"default":1}}
 		}
 	},
 	"stone_slab": {
@@ -5255,10 +5255,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/cobblestone","cobblestone"],
-				"side": ["cobblestone","cobblestone"],
-				"north": ["stairs/cobblestone","cobblestone"],
-				"down": ["stairs/cobblestone","cobblestone"]
+				"up": ["stairs/cobblestone", "cobblestone"],
+				"side": ["cobblestone", "cobblestone"],
+				"north": ["stairs/cobblestone", "cobblestone"],
+				"down": ["stairs/cobblestone", "cobblestone"]
 			}
 		}
 	},
@@ -5278,7 +5278,7 @@
 		}
 	},
 	"stonecutter_block": {
-		"definition": ["stonecutter","stonecutter","facing_block"],
+		"definition": ["stonecutter", "stonecutter", "facing_block"],
 		"default": {
 			"textures": {
 				"up": ["stonecutter2_top", "stonecutter2_saw"],
@@ -5288,7 +5288,7 @@
 		}
 	},
 	"stripped_acacia_log": {
-		"definition": ["cube","cube","tree"],
+		"definition": ["cube", "cube", "tree"],
 		"default": {
 			"textures": {
 				"up": ["wood/stripped_acacia_log_top"],
@@ -5298,7 +5298,7 @@
 		}
 	},
 	"stripped_birch_log": {
-		"definition": ["cube","cube","tree"],
+		"definition": ["cube", "cube", "tree"],
 		"default": {
 			"textures": {
 				"up": ["wood/stripped_birch_log_top"],
@@ -5308,13 +5308,13 @@
 		}
 	},
 	"stripped_crimson_hyphae": {
-		"definition": ["cube","cube","tree"],
+		"definition": ["cube", "cube", "tree"],
 		"default": {
 			"textures": ["wood/stripped_crimson_log_side"]
 		}
 	},
 	"stripped_crimson_stem": {
-		"definition": ["cube","cube","tree"],
+		"definition": ["cube", "cube", "tree"],
 		"default": {
 			"textures": {
 				"up": ["wood/stripped_crimson_log_top"],
@@ -5324,7 +5324,7 @@
 		}
 	},
 	"stripped_dark_oak_log": {
-		"definition": ["cube","cube","tree"],
+		"definition": ["cube", "cube", "tree"],
 		"default": {
 			"textures": {
 				"up": ["wood/stripped_dark_oak_log_top"],
@@ -5334,7 +5334,7 @@
 		}
 	},
 	"stripped_jungle_log": {
-		"definition": ["cube","cube","tree"],
+		"definition": ["cube", "cube", "tree"],
 		"default": {
 			"textures": {
 				"up": ["wood/stripped_jungle_log_top"],
@@ -5344,7 +5344,7 @@
 		}
 	},
 	"stripped_mangrove_log": {
-		"definition": ["cube","cube","tree"],
+		"definition": ["cube", "cube", "tree"],
 		"default": {
 			"textures": {
 				"up": ["wood/stripped_mangrove_log_top"],
@@ -5354,13 +5354,13 @@
 		}
 	},
 	"stripped_mangrove_wood": {
-		"definition": ["cube","cube","tree"],
+		"definition": ["cube", "cube", "tree"],
 		"default": {
 			"textures": ["wood/stripped_mangrove_log_side"]
 		}
 	},
 	"stripped_oak_log": {
-		"definition": ["cube","cube","tree"],
+		"definition": ["cube", "cube", "tree"],
 		"default": {
 			"textures": {
 				"up": ["wood/stripped_oak_log_top"],
@@ -5370,7 +5370,7 @@
 		}
 	},
 	"stripped_spruce_log": {
-		"definition": ["cube","cube","tree"],
+		"definition": ["cube", "cube", "tree"],
 		"default": {
 			"textures": {
 				"up": ["wood/stripped_spruce_log_top"],
@@ -5380,13 +5380,13 @@
 		}
 	},
 	"stripped_warped_hyphae": {
-		"definition": ["cube","cube","tree"],
+		"definition": ["cube", "cube", "tree"],
 		"default": {
 			"textures": ["wood/stripped_warped_log_side"]
 		}
 	},
 	"stripped_warped_stem": {
-		"definition": ["cube","cube","tree"],
+		"definition": ["cube", "cube", "tree"],
 		"default": {
 			"textures": {
 				"up": ["wood/stripped_warped_log_top"],
@@ -5456,7 +5456,7 @@
 		}
 	},
 	"trapped_chest": {
-		"definition": ["chest","chest","furnace"],
+		"definition": ["chest", "chest", "furnace"],
 		"default": {
 			"textures": {
 				"up": ["chest_top"],
@@ -5476,11 +5476,11 @@
 		"definition": ["tripwire"],
 		"default": {
 			"textures": ["trip_wire"],
-			"material": {"trip_wire": {"default":1}}
+			"material": {"trip_wire": {"default": 1}}
 		}
 	},
 	"tripwire_hook": {
-		"definition": ["tripwire_hook","tripwire_hook","punmpkin_reverse"],
+		"definition": ["tripwire_hook", "tripwire_hook", "pumpkin_reverse"],
 		"default": {
 			"textures": ["wood/planks_oak", "trip_wire_source", "trip_wire_source"]
 		}
@@ -5493,11 +5493,11 @@
 	},
 	"turtle_egg": {
 		"definition": ["turtle_egg"],
-		"default": {"material": {"turtle_egg":{
-			"one_egg":1,
-			"two_egg":2,
-			"three_egg":3,
-			"four_egg":4
+		"default": {"material": {"turtle_egg": {
+			"one_egg": 1,
+			"two_egg": 2,
+			"three_egg": 3,
+			"four_egg": 4
 		}}},
 		"no_cracks": {
 			"textures": ["turtle_egg_not_cracked"]
@@ -5516,7 +5516,7 @@
 		}
 	},
 	"undyed_shulker_box": {
-		"definition": ["cube","cube","dispenser"],
+		"definition": ["cube", "cube", "dispenser"],
 		"default": {
 			"textures": {
 				"up": ["colorful/shulker_top_undyed"],
@@ -5529,12 +5529,12 @@
 		"definition": ["torch"],
 		"default": {
 			"textures": ["redstone/torch_off"],
-			"material": {"redstone_torch":{"default":1}}
+			"material": {"redstone_torch": {"default":1}}
 		}
 	},
 	"unpowered_comparator": {
-		"definition": ["comparator","comparator","pumpkin"],
-		"default": {"material": {"comparator":{"default":1}}},
+		"definition": ["comparator", "comparator", "pumpkin"],
+		"default": {"material": {"comparator": {"default":1}}},
 		"0": {
 			"textures": {
 				"up": ["redstone/comparator_off", "redstone/torch_off", "redstone/torch_off", "redstone/torch_off"],
@@ -5551,18 +5551,18 @@
 		}
 	},
 	"unpowered_repeater": {
-		"definition": ["repeater","repeater","pumpkin"],
+		"definition": ["repeater", "repeater", "pumpkin"],
 		"default": {
 			"textures": {
 				"up": ["redstone/repeater_off", "redstone/torch_off", "redstone/torch_off"],
 				"side": ["redstone/repeater_floor_off", "redstone/torch_off", "redstone/torch_off"],
 				"down": ["redstone/repeater_floor_off", "redstone/torch_off", "redstone/torch_off"]
 			},
-		"material": {"repeater":{"default":1}}
+		"material": {"repeater": {"default":1}}
 		}
 	},
 	"verdant_froglight": {
-		"definition": ["cube","cube","tree"],
+		"definition": ["cube", "cube", "tree"],
 		"default": {
 			"textures": {
 				"up": ["verdant_froglight_top"],
@@ -5605,7 +5605,7 @@
 		"definition": ["cube"],
 		"default": {
 			"textures": ["double_slabs/warped_planks"],
-			"material": {"warped_slab":{"default":2}}
+			"material": {"warped_slab": {"default":2}}
 		}
 	},
 	"warped_fence": {
@@ -5615,7 +5615,7 @@
 		}
 	},
 	"warped_fence_gate": {
-		"definition": ["fence_gate","fence_gate","pumpkin"],
+		"definition": ["fence_gate", "fence_gate", "pumpkin"],
 		"default": {
 			"textures": ["wood/warped_planks"]
 		}
@@ -5627,7 +5627,7 @@
 		}
 	},
 	"warped_hyphae": {
-		"definition": ["cube","cube","tree"],
+		"definition": ["cube", "cube", "tree"],
 		"default": {
 			"textures": ["wood/log_warped_side"]
 		}
@@ -5670,10 +5670,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/warped_planks","wood/warped_planks"],
-				"side": ["wood/warped_planks","wood/warped_planks"],
-				"north": ["stairs/warped_planks","wood/warped_planks"],
-				"down": ["stairs/warped_planks","wood/warped_planks"]
+				"up": ["stairs/warped_planks", "wood/warped_planks"],
+				"side": ["wood/warped_planks", "wood/warped_planks"],
+				"north": ["stairs/warped_planks", "wood/warped_planks"],
+				"down": ["stairs/warped_planks", "wood/warped_planks"]
 			}
 		}
 	},
@@ -5797,10 +5797,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/cut_copper","ore/cut_copper"],
-				"side": ["ore/cut_copper","ore/cut_copper"],
-				"north": ["stairs/cut_copper","ore/cut_copper"],
-				"down": ["stairs/cut_copper","ore/cut_copper"]
+				"up": ["stairs/cut_copper", "ore/cut_copper"],
+				"side": ["ore/cut_copper", "ore/cut_copper"],
+				"north": ["stairs/cut_copper", "ore/cut_copper"],
+				"down": ["stairs/cut_copper", "ore/cut_copper"]
 			}
 		}
 	},
@@ -5808,7 +5808,7 @@
 		"definition": ["cube"],
 		"default": {
 			"textures": ["double_slabs/cut_copper"],
-			"material": {"waxed_cut_copper_slab":{"default":2}}
+			"material": {"waxed_cut_copper_slab": {"default":2}}
 		}
 	},
 	"waxed_exposed_cut_copper": {
@@ -5827,10 +5827,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/exposed_cut_copper","ore/exposed_cut_copper"],
-				"side": ["ore/exposed_cut_copper","ore/exposed_cut_copper"],
-				"north": ["stairs/exposed_cut_copper","ore/exposed_cut_copper"],
-				"down": ["stairs/exposed_cut_copper","ore/exposed_cut_copper"]
+				"up": ["stairs/exposed_cut_copper", "ore/exposed_cut_copper"],
+				"side": ["ore/exposed_cut_copper", "ore/exposed_cut_copper"],
+				"north": ["stairs/exposed_cut_copper", "ore/exposed_cut_copper"],
+				"down": ["stairs/exposed_cut_copper", "ore/exposed_cut_copper"]
 			}
 		}
 	},
@@ -5838,7 +5838,7 @@
 		"definition": ["cube"],
 		"default": {
 			"textures": ["double_slabs/exposed_cut_copper"],
-			"material": {"waxed_exposed_cut_copper_slab":{"default":2}}
+			"material": {"waxed_exposed_cut_copper_slab": {"default":2}}
 		}
 	},
 	"waxed_oxidized_cut_copper": {
@@ -5857,10 +5857,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/oxidized_cut_copper","ore/oxidized_cut_copper"],
-				"side": ["ore/oxidized_cut_copper","ore/oxidized_cut_copper"],
-				"north": ["stairs/oxidized_cut_copper","ore/oxidized_cut_copper"],
-				"down": ["stairs/oxidized_cut_copper","ore/oxidized_cut_copper"]
+				"up": ["stairs/oxidized_cut_copper", "ore/oxidized_cut_copper"],
+				"side": ["ore/oxidized_cut_copper", "ore/oxidized_cut_copper"],
+				"north": ["stairs/oxidized_cut_copper", "ore/oxidized_cut_copper"],
+				"down": ["stairs/oxidized_cut_copper", "ore/oxidized_cut_copper"]
 			}
 		}
 	},
@@ -5868,7 +5868,7 @@
 		"definition": ["cube"],
 		"default": {
 			"textures": ["double_slabs/oxidized_cut_copper"],
-			"material": {"waxed_oxidized_cut_copper_slab":{"default":2}}
+			"material": {"waxed_oxidized_cut_copper_slab": {"default":2}}
 		}
 	},
 	"waxed_weathered_cut_copper": {
@@ -5887,10 +5887,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/weathered_cut_copper","ore/weathered_cut_copper"],
-				"side": ["ore/weathered_cut_copper","ore/weathered_cut_copper"],
-				"north": ["stairs/weathered_cut_copper","ore/weathered_cut_copper"],
-				"down": ["stairs/weathered_cut_copper","ore/weathered_cut_copper"]
+				"up": ["stairs/weathered_cut_copper", "ore/weathered_cut_copper"],
+				"side": ["ore/weathered_cut_copper", "ore/weathered_cut_copper"],
+				"north": ["stairs/weathered_cut_copper", "ore/weathered_cut_copper"],
+				"down": ["stairs/weathered_cut_copper", "ore/weathered_cut_copper"]
 			}
 		}
 	},
@@ -5898,7 +5898,7 @@
 		"definition": ["cube"],
 		"default": {
 			"textures": ["double_slabs/weathered_cut_copper"],
-			"material": {"waxed_weathered_cut_copper_slab":{"default":2}}
+			"material": {"waxed_weathered_cut_copper_slab": {"default":2}}
 		}
 	},
 	"weathered_copper": {
@@ -5923,10 +5923,10 @@
 		"definition": ["stairs"],
 		"default": {
 			"textures": {
-				"up": ["stairs/weathered_cut_copper","ore/weathered_cut_copper"],
-				"side": ["ore/weathered_cut_copper","ore/weathered_cut_copper"],
-				"north": ["stairs/weathered_cut_copper","ore/weathered_cut_copper"],
-				"down": ["stairs/weathered_cut_copper","ore/weathered_cut_copper"]
+				"up": ["stairs/weathered_cut_copper", "ore/weathered_cut_copper"],
+				"side": ["ore/weathered_cut_copper", "ore/weathered_cut_copper"],
+				"north": ["stairs/weathered_cut_copper", "ore/weathered_cut_copper"],
+				"down": ["stairs/weathered_cut_copper", "ore/weathered_cut_copper"]
 			}
 		}
 	},
@@ -5934,7 +5934,7 @@
 		"definition": ["cube"],
 		"default": {
 			"textures": ["double_slabs/weathered_cut_copper"],
-			"material": {"weathered_cut_copper_slab":{"default":2}}
+			"material": {"weathered_cut_copper_slab": {"default":2}}
 		}
 	},
 	"web": {
@@ -5959,7 +5959,7 @@
 		"definition": ["candle"],
 		"default": {
 			"textures": ["colorful/white_candle"],
-			"material": {"white_candle":{
+			"material": {"white_candle": {
 				"0": 1, "1": 2, "2": 3, "3": 4
 			}}
 		},
@@ -5971,9 +5971,9 @@
 		"definition": ["candle_cake"],
 		"default": {
 			"textures": {
-				"up": ["cake_top","colorful/white_candle"],
-				"side": ["cake_side","colorful/white_candle"],
-				"down": ["cake_bottom","colorful/white_candle"]
+				"up": ["cake_top", "colorful/white_candle"],
+				"side": ["cake_side", "colorful/white_candle"],
+				"down": ["cake_bottom", "colorful/white_candle"]
 			},
 			"material": {
 				"white_candle": {"default": 1},
@@ -5982,14 +5982,14 @@
 		},
 		"default_lit": {
 			"textures": {
-				"up": ["cake_top","colorful/white_candle_lit"],
-				"side": ["cake_side","colorful/white_candle_lit"],
-				"down": ["cake_bottom","colorful/white_candle_lit"]
+				"up": ["cake_top", "colorful/white_candle_lit"],
+				"side": ["cake_side", "colorful/white_candle_lit"],
+				"down": ["cake_bottom", "colorful/white_candle_lit"]
 			}
 		}
 	},
 	"white_glazed_terracotta": {
-		"definition": ["cube","glazed_terracotta","facing_block"],
+		"definition": ["cube", "glazed_terracotta", "facing_block"],
 		"default": {
 			"textures": ["colorful/glazed_terracotta_white"]
 		}
@@ -6001,7 +6001,7 @@
 		}
 	},
 	"wood": {
-		"definition": ["cube","cube","tree"],
+		"definition": ["cube", "cube", "tree"],
 		"oak": {
 			"textures": ["wood/log_oak"]
 		},
@@ -6136,7 +6136,7 @@
 		}
 	},
 	"yellow_glazed_terracotta": {
-		"definition": ["cube","glazed_terracotta","facing_block"],
+		"definition": ["cube", "glazed_terracotta", "facing_block"],
 		"default": {
 			"textures": ["colorful/glazed_terracotta_yellow"]
 		}
@@ -6145,7 +6145,7 @@
 		"definition": ["candle"],
 		"default": {
 			"textures": ["colorful/light_gray_candle"],
-			"material": {"light_gray_candle":{
+			"material": {"light_gray_candle": {
 				"0": 1, "1": 2, "2": 3, "3": 4
 			}}
 		},
@@ -6157,9 +6157,9 @@
 		"definition": ["candle_cake"],
 		"default": {
 			"textures": {
-				"up": ["cake_top","colorful/light_gray_candle"],
-				"side": ["cake_side","colorful/light_gray_candle"],
-				"down": ["cake_bottom","colorful/light_gray_candle"]
+				"up": ["cake_top", "colorful/light_gray_candle"],
+				"side": ["cake_side", "colorful/light_gray_candle"],
+				"down": ["cake_bottom", "colorful/light_gray_candle"]
 			},
 			"material": {
 				"light_gray_candle": {"default": 1},
@@ -6168,9 +6168,9 @@
 		},
 		"default_lit": {
 			"textures": {
-				"up": ["cake_top","colorful/light_gray_candle_lit"],
-				"side": ["cake_side","colorful/light_gray_candle_lit"],
-				"down": ["cake_bottom","colorful/light_gray_candle_lit"]
+				"up": ["cake_top", "colorful/light_gray_candle_lit"],
+				"side": ["cake_side", "colorful/light_gray_candle_lit"],
+				"down": ["cake_bottom", "colorful/light_gray_candle_lit"]
 			}
 		}
 	},
@@ -6178,7 +6178,7 @@
 		"definition": ["candle"],
 		"default": {
 			"textures": ["colorful/gray_candle"],
-			"material": {"gray_candle":{
+			"material": {"gray_candle": {
 				"0": 1, "1": 2, "2": 3, "3": 4
 			}}
 		},
@@ -6190,9 +6190,9 @@
 		"definition": ["candle_cake"],
 		"default": {
 			"textures": {
-				"up": ["cake_top","colorful/gray_candle"],
-				"side": ["cake_side","colorful/gray_candle"],
-				"down": ["cake_bottom","colorful/gray_candle"]
+				"up": ["cake_top", "colorful/gray_candle"],
+				"side": ["cake_side", "colorful/gray_candle"],
+				"down": ["cake_bottom", "colorful/gray_candle"]
 			},
 			"material": {
 				"gray_candle": {"default": 1},
@@ -6201,9 +6201,9 @@
 		},
 		"default_lit": {
 			"textures": {
-				"up": ["cake_top","colorful/gray_candle_lit"],
-				"side": ["cake_side","colorful/gray_candle_lit"],
-				"down": ["cake_bottom","colorful/gray_candle_lit"]
+				"up": ["cake_top", "colorful/gray_candle_lit"],
+				"side": ["cake_side", "colorful/gray_candle_lit"],
+				"down": ["cake_bottom", "colorful/gray_candle_lit"]
 			}
 		}
 	},
@@ -6211,7 +6211,7 @@
 		"definition": ["candle"],
 		"default": {
 			"textures": ["colorful/red_candle"],
-			"material": {"red_candle":{
+			"material": {"red_candle": {
 				"0": 1, "1": 2, "2": 3, "3": 4
 			}}
 		},
@@ -6223,9 +6223,9 @@
 		"definition": ["candle_cake"],
 		"default": {
 			"textures": {
-				"up": ["cake_top","colorful/red_candle"],
-				"side": ["cake_side","colorful/red_candle"],
-				"down": ["cake_bottom","colorful/red_candle"]
+				"up": ["cake_top", "colorful/red_candle"],
+				"side": ["cake_side", "colorful/red_candle"],
+				"down": ["cake_bottom", "colorful/red_candle"]
 			},
 			"material": {
 				"red_candle": {"default": 1},
@@ -6234,9 +6234,9 @@
 		},
 		"default_lit": {
 			"textures": {
-				"up": ["cake_top","colorful/red_candle_lit"],
-				"side": ["cake_side","colorful/red_candle_lit"],
-				"down": ["cake_bottom","colorful/red_candle_lit"]
+				"up": ["cake_top", "colorful/red_candle_lit"],
+				"side": ["cake_side", "colorful/red_candle_lit"],
+				"down": ["cake_bottom", "colorful/red_candle_lit"]
 			}
 		}
 	},
@@ -6244,7 +6244,7 @@
 		"definition": ["candle"],
 		"default": {
 			"textures": ["colorful/black_candle"],
-			"material": {"black_candle":{
+			"material": {"black_candle": {
 				"0": 1, "1": 2, "2": 3, "3": 4
 			}}
 		},
@@ -6256,9 +6256,9 @@
 		"definition": ["candle_cake"],
 		"default": {
 			"textures": {
-				"up": ["cake_top","colorful/black_candle"],
-				"side": ["cake_side","colorful/black_candle"],
-				"down": ["cake_bottom","colorful/black_candle"]
+				"up": ["cake_top", "colorful/black_candle"],
+				"side": ["cake_side", "colorful/black_candle"],
+				"down": ["cake_bottom", "colorful/black_candle"]
 			},
 			"material": {
 				"black_candle": {"default": 1},
@@ -6267,9 +6267,9 @@
 		},
 		"default_lit": {
 			"textures": {
-				"up": ["cake_top","colorful/black_candle_lit"],
-				"side": ["cake_side","colorful/black_candle_lit"],
-				"down": ["cake_bottom","colorful/black_candle_lit"]
+				"up": ["cake_top", "colorful/black_candle_lit"],
+				"side": ["cake_side", "colorful/black_candle_lit"],
+				"down": ["cake_bottom", "colorful/black_candle_lit"]
 			}
 		}
 	},
@@ -6277,7 +6277,7 @@
 		"definition": ["candle"],
 		"default": {
 			"textures": ["colorful/brown_candle"],
-			"material": {"brown_candle":{
+			"material": {"brown_candle": {
 				"0": 1, "1": 2, "2": 3, "3": 4
 			}}
 		},
@@ -6289,9 +6289,9 @@
 		"definition": ["candle_cake"],
 		"default": {
 			"textures": {
-				"up": ["cake_top","colorful/brown_candle"],
-				"side": ["cake_side","colorful/brown_candle"],
-				"down": ["cake_bottom","colorful/brown_candle"]
+				"up": ["cake_top", "colorful/brown_candle"],
+				"side": ["cake_side", "colorful/brown_candle"],
+				"down": ["cake_bottom", "colorful/brown_candle"]
 			},
 			"material": {
 				"brown_candle": {"default": 1},
@@ -6300,9 +6300,9 @@
 		},
 		"default_lit": {
 			"textures": {
-				"up": ["cake_top","colorful/brown_candle_lit"],
-				"side": ["cake_side","colorful/brown_candle_lit"],
-				"down": ["cake_bottom","colorful/brown_candle_lit"]
+				"up": ["cake_top", "colorful/brown_candle_lit"],
+				"side": ["cake_side", "colorful/brown_candle_lit"],
+				"down": ["cake_bottom", "colorful/brown_candle_lit"]
 			}
 		}
 	},
@@ -6310,7 +6310,7 @@
 		"definition": ["candle"],
 		"default": {
 			"textures": ["colorful/orange_candle"],
-			"material": {"orange_candle":{
+			"material": {"orange_candle": {
 				"0": 1, "1": 2, "2": 3, "3": 4
 			}}
 		},
@@ -6322,9 +6322,9 @@
 		"definition": ["candle_cake"],
 		"default": {
 			"textures": {
-				"up": ["cake_top","colorful/orange_candle"],
-				"side": ["cake_side","colorful/orange_candle"],
-				"down": ["cake_bottom","colorful/orange_candle"]
+				"up": ["cake_top", "colorful/orange_candle"],
+				"side": ["cake_side", "colorful/orange_candle"],
+				"down": ["cake_bottom", "colorful/orange_candle"]
 			},
 			"material": {
 				"orange_candle": {"default": 1},
@@ -6333,9 +6333,9 @@
 		},
 		"default_lit": {
 			"textures": {
-				"up": ["cake_top","colorful/orange_candle_lit"],
-				"side": ["cake_side","colorful/orange_candle_lit"],
-				"down": ["cake_bottom","colorful/orange_candle_lit"]
+				"up": ["cake_top", "colorful/orange_candle_lit"],
+				"side": ["cake_side", "colorful/orange_candle_lit"],
+				"down": ["cake_bottom", "colorful/orange_candle_lit"]
 			}
 		}
 	},
@@ -6343,7 +6343,7 @@
 		"definition": ["candle"],
 		"default": {
 			"textures": ["colorful/yellow_candle"],
-			"material": {"yellow_candle":{
+			"material": {"yellow_candle": {
 				"0": 1, "1": 2, "2": 3, "3": 4
 			}}
 		},
@@ -6355,9 +6355,9 @@
 		"definition": ["candle_cake"],
 		"default": {
 			"textures": {
-				"up": ["cake_top","colorful/yellow_candle"],
-				"side": ["cake_side","colorful/yellow_candle"],
-				"down": ["cake_bottom","colorful/yellow_candle"]
+				"up": ["cake_top", "colorful/yellow_candle"],
+				"side": ["cake_side", "colorful/yellow_candle"],
+				"down": ["cake_bottom", "colorful/yellow_candle"]
 			},
 			"material": {
 				"yellow_candle": {"default": 1},
@@ -6366,9 +6366,9 @@
 		},
 		"default_lit": {
 			"textures": {
-				"up": ["cake_top","colorful/yellow_candle_lit"],
-				"side": ["cake_side","colorful/yellow_candle_lit"],
-				"down": ["cake_bottom","colorful/yellow_candle_lit"]
+				"up": ["cake_top", "colorful/yellow_candle_lit"],
+				"side": ["cake_side", "colorful/yellow_candle_lit"],
+				"down": ["cake_bottom", "colorful/yellow_candle_lit"]
 			}
 		}
 	},
@@ -6376,7 +6376,7 @@
 		"definition": ["candle"],
 		"default": {
 			"textures": ["colorful/lime_candle"],
-			"material": {"lime_candle":{
+			"material": {"lime_candle": {
 				"0": 1, "1": 2, "2": 3, "3": 4
 			}}
 		},
@@ -6388,9 +6388,9 @@
 		"definition": ["candle_cake"],
 		"default": {
 			"textures": {
-				"up": ["cake_top","colorful/lime_candle"],
-				"side": ["cake_side","colorful/lime_candle"],
-				"down": ["cake_bottom","colorful/lime_candle"]
+				"up": ["cake_top", "colorful/lime_candle"],
+				"side": ["cake_side", "colorful/lime_candle"],
+				"down": ["cake_bottom", "colorful/lime_candle"]
 			},
 			"material": {
 				"lime_candle": {"default": 1},
@@ -6399,9 +6399,9 @@
 		},
 		"default_lit": {
 			"textures": {
-				"up": ["cake_top","colorful/lime_candle_lit"],
-				"side": ["cake_side","colorful/lime_candle_lit"],
-				"down": ["cake_bottom","colorful/lime_candle_lit"]
+				"up": ["cake_top", "colorful/lime_candle_lit"],
+				"side": ["cake_side", "colorful/lime_candle_lit"],
+				"down": ["cake_bottom", "colorful/lime_candle_lit"]
 			}
 		}
 	},
@@ -6409,7 +6409,7 @@
 		"definition": ["candle"],
 		"default": {
 			"textures": ["colorful/green_candle"],
-			"material": {"green_candle":{
+			"material": {"green_candle": {
 				"0": 1, "1": 2, "2": 3, "3": 4
 			}}
 		},
@@ -6421,9 +6421,9 @@
 		"definition": ["candle_cake"],
 		"default": {
 			"textures": {
-				"up": ["cake_top","colorful/green_candle"],
-				"side": ["cake_side","colorful/green_candle"],
-				"down": ["cake_bottom","colorful/green_candle"]
+				"up": ["cake_top", "colorful/green_candle"],
+				"side": ["cake_side", "colorful/green_candle"],
+				"down": ["cake_bottom", "colorful/green_candle"]
 			},
 			"material": {
 				"green_candle": {"default": 1},
@@ -6432,9 +6432,9 @@
 		},
 		"default_lit": {
 			"textures": {
-				"up": ["cake_top","colorful/green_candle_lit"],
-				"side": ["cake_side","colorful/green_candle_lit"],
-				"down": ["cake_bottom","colorful/green_candle_lit"]
+				"up": ["cake_top", "colorful/green_candle_lit"],
+				"side": ["cake_side", "colorful/green_candle_lit"],
+				"down": ["cake_bottom", "colorful/green_candle_lit"]
 			}
 		}
 	},
@@ -6442,7 +6442,7 @@
 		"definition": ["candle"],
 		"default": {
 			"textures": ["colorful/blue_candle"],
-			"material": {"blue_candle":{
+			"material": {"blue_candle": {
 				"0": 1, "1": 2, "2": 3, "3": 4
 			}}
 		},
@@ -6454,9 +6454,9 @@
 		"definition": ["candle_cake"],
 		"default": {
 			"textures": {
-				"up": ["cake_top","colorful/blue_candle"],
-				"side": ["cake_side","colorful/blue_candle"],
-				"down": ["cake_bottom","colorful/blue_candle"]
+				"up": ["cake_top", "colorful/blue_candle"],
+				"side": ["cake_side", "colorful/blue_candle"],
+				"down": ["cake_bottom", "colorful/blue_candle"]
 			},
 			"material": {
 				"blue_candle": {"default": 1},
@@ -6465,9 +6465,9 @@
 		},
 		"default_lit": {
 			"textures": {
-				"up": ["cake_top","colorful/blue_candle_lit"],
-				"side": ["cake_side","colorful/blue_candle_lit"],
-				"down": ["cake_bottom","colorful/blue_candle_lit"]
+				"up": ["cake_top", "colorful/blue_candle_lit"],
+				"side": ["cake_side", "colorful/blue_candle_lit"],
+				"down": ["cake_bottom", "colorful/blue_candle_lit"]
 			}
 		}
 	},
@@ -6475,7 +6475,7 @@
 		"definition": ["candle"],
 		"default": {
 			"textures": ["colorful/light_blue_candle"],
-			"material": {"light_blue_candle":{
+			"material": {"light_blue_candle": {
 				"0": 1, "1": 2, "2": 3, "3": 4
 			}}
 		},
@@ -6487,9 +6487,9 @@
 		"definition": ["candle_cake"],
 		"default": {
 			"textures": {
-				"up": ["cake_top","colorful/light_blue_candle"],
-				"side": ["cake_side","colorful/light_blue_candle"],
-				"down": ["cake_bottom","colorful/light_blue_candle"]
+				"up": ["cake_top", "colorful/light_blue_candle"],
+				"side": ["cake_side", "colorful/light_blue_candle"],
+				"down": ["cake_bottom", "colorful/light_blue_candle"]
 			},
 			"material": {
 				"light_blue_candle": {"default": 1},
@@ -6498,9 +6498,9 @@
 		},
 		"default_lit": {
 			"textures": {
-				"up": ["cake_top","colorful/light_blue_candle_lit"],
-				"side": ["cake_side","colorful/light_blue_candle_lit"],
-				"down": ["cake_bottom","colorful/light_blue_candle_lit"]
+				"up": ["cake_top", "colorful/light_blue_candle_lit"],
+				"side": ["cake_side", "colorful/light_blue_candle_lit"],
+				"down": ["cake_bottom", "colorful/light_blue_candle_lit"]
 			}
 		}
 	},
@@ -6508,7 +6508,7 @@
 		"definition": ["candle"],
 		"default": {
 			"textures": ["colorful/cyan_candle"],
-			"material": {"cyan_candle":{
+			"material": {"cyan_candle": {
 				"0": 1, "1": 2, "2": 3, "3": 4
 			}}
 		},
@@ -6520,9 +6520,9 @@
 		"definition": ["candle_cake"],
 		"default": {
 			"textures": {
-				"up": ["cake_top","colorful/cyan_candle"],
-				"side": ["cake_side","colorful/cyan_candle"],
-				"down": ["cake_bottom","colorful/cyan_candle"]
+				"up": ["cake_top", "colorful/cyan_candle"],
+				"side": ["cake_side", "colorful/cyan_candle"],
+				"down": ["cake_bottom", "colorful/cyan_candle"]
 			},
 			"material": {
 				"cyan_candle": {"default": 1},
@@ -6531,9 +6531,9 @@
 		},
 		"default_lit": {
 			"textures": {
-				"up": ["cake_top","colorful/cyan_candle_lit"],
-				"side": ["cake_side","colorful/cyan_candle_lit"],
-				"down": ["cake_bottom","colorful/cyan_candle_lit"]
+				"up": ["cake_top", "colorful/cyan_candle_lit"],
+				"side": ["cake_side", "colorful/cyan_candle_lit"],
+				"down": ["cake_bottom", "colorful/cyan_candle_lit"]
 			}
 		}
 	},
@@ -6541,7 +6541,7 @@
 		"definition": ["candle"],
 		"default": {
 			"textures": ["colorful/purple_candle"],
-			"material": {"purple_candle":{
+			"material": {"purple_candle": {
 				"0": 1, "1": 2, "2": 3, "3": 4
 			}}
 		},
@@ -6553,9 +6553,9 @@
 		"definition": ["candle_cake"],
 		"default": {
 			"textures": {
-				"up": ["cake_top","colorful/purple_candle"],
-				"side": ["cake_side","colorful/purple_candle"],
-				"down": ["cake_bottom","colorful/purple_candle"]
+				"up": ["cake_top", "colorful/purple_candle"],
+				"side": ["cake_side", "colorful/purple_candle"],
+				"down": ["cake_bottom", "colorful/purple_candle"]
 			},
 			"material": {
 				"purple_candle": {"default": 1},
@@ -6564,9 +6564,9 @@
 		},
 		"default_lit": {
 			"textures": {
-				"up": ["cake_top","colorful/purple_candle_lit"],
-				"side": ["cake_side","colorful/purple_candle_lit"],
-				"down": ["cake_bottom","colorful/purple_candle_lit"]
+				"up": ["cake_top", "colorful/purple_candle_lit"],
+				"side": ["cake_side", "colorful/purple_candle_lit"],
+				"down": ["cake_bottom", "colorful/purple_candle_lit"]
 			}
 		}
 	},
@@ -6574,7 +6574,7 @@
 		"definition": ["candle"],
 		"default": {
 			"textures": ["colorful/magenta_candle"],
-			"material": {"magenta_candle":{
+			"material": {"magenta_candle": {
 				"0": 1, "1": 2, "2": 3, "3": 4
 			}}
 		},
@@ -6586,9 +6586,9 @@
 		"definition": ["candle_cake"],
 		"default": {
 			"textures": {
-				"up": ["cake_top","colorful/magenta_candle"],
-				"side": ["cake_side","colorful/magenta_candle"],
-				"down": ["cake_bottom","colorful/magenta_candle"]
+				"up": ["cake_top", "colorful/magenta_candle"],
+				"side": ["cake_side", "colorful/magenta_candle"],
+				"down": ["cake_bottom", "colorful/magenta_candle"]
 			},
 			"material": {
 				"magenta_candle": {"default": 1},
@@ -6597,9 +6597,9 @@
 		},
 		"default_lit": {
 			"textures": {
-				"up": ["cake_top","colorful/magenta_candle_lit"],
-				"side": ["cake_side","colorful/magenta_candle_lit"],
-				"down": ["cake_bottom","colorful/magenta_candle_lit"]
+				"up": ["cake_top", "colorful/magenta_candle_lit"],
+				"side": ["cake_side", "colorful/magenta_candle_lit"],
+				"down": ["cake_bottom", "colorful/magenta_candle_lit"]
 			}
 		}
 	},
@@ -6607,7 +6607,7 @@
 		"definition": ["candle"],
 		"default": {
 			"textures": ["colorful/pink_candle"],
-			"material": {"pink_candle":{
+			"material": {"pink_candle": {
 				"0": 1, "1": 2, "2": 3, "3": 4
 			}}
 		},
@@ -6619,9 +6619,9 @@
 		"definition": ["candle_cake"],
 		"default": {
 			"textures": {
-				"up": ["cake_top","colorful/pink_candle"],
-				"side": ["cake_side","colorful/pink_candle"],
-				"down": ["cake_bottom","colorful/pink_candle"]
+				"up": ["cake_top", "colorful/pink_candle"],
+				"side": ["cake_side", "colorful/pink_candle"],
+				"down": ["cake_bottom", "colorful/pink_candle"]
 			},
 			"material": {
 				"pink_candle": {"default": 1},
@@ -6630,9 +6630,9 @@
 		},
 		"default_lit": {
 			"textures": {
-				"up": ["cake_top","colorful/pink_candle_lit"],
-				"side": ["cake_side","colorful/pink_candle_lit"],
-				"down": ["cake_bottom","colorful/pink_candle_lit"]
+				"up": ["cake_top", "colorful/pink_candle_lit"],
+				"side": ["cake_side", "colorful/pink_candle_lit"],
+				"down": ["cake_bottom", "colorful/pink_candle_lit"]
 			}
 		}
 	}

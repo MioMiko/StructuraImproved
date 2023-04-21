@@ -43,7 +43,7 @@ pip install -r requirements.txt
 进入项目根目录并运行StructuraImproved程序:
 ```bash
 cd structura
-python structura.py
+python main.py
 ```
 
 ## 修改设置
@@ -87,7 +87,7 @@ python structura.py
 
 使用命令行工具：
 ```shell
-python main_cli.py
+python main.py
 ```
 
 如下是一个简单的演示：
@@ -96,9 +96,6 @@ set makelist true # 设置制作材料列表
 add "" -s "结构文件.mcstructure" # 添加一个命名为空的模型并指定结构文件
 make # 开始制作投影
 ```
-
-## 目前企划
-- 小瑕疵修复
 
 ## 版权声明
 所有StructuraImproved的自制贴图均采用[知识共享CC BY 4.0协议](https://creativecommons.org/licenses/by/4.0/)授权。

@@ -20,6 +20,11 @@ class Entity:
         desc["textures"]["default"] = "textures/entity/armor_stand"
         desc["geometry"]["default"] = "geometry.armor_stand.larger_render"
 
+        for i in range(13):
+            desc["textures"][f"pose_num_{i}"] = f"textures/entity/pose_num_{i}"
+        desc["geometry"]["pose_num"] = "geometry.armor_stand.pose_num"
+        desc["render_controllers"].append("controller.render.armor_stand.pose_num")
+
         self.geos = desc["geometry"]
         self.textures =  desc["textures"]
 

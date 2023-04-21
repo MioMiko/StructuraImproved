@@ -1,8 +1,17 @@
 import json
+from typing import Optional
+
 import nbtlib
 import numpy as np
 
 debug = False
+
+BlockName = str # block name without "minecraft:"
+Rotation = str  # rotation of the block
+Variant = str   # texture variant of the block
+Lit = bool      # a bool further describe the texture variant
+Data = str      # other data, determine the shape and uv variant of the block
+BlockInfo = tuple[BlockName, Rotation, Variant, Lit, Data]
 
 def nbt_to_str(nbt):
     if isinstance(nbt,int):
@@ -13,20 +22,30 @@ def nbt_to_str(nbt):
         return str(float(nbt))
 
 class StructureProcessor:
-    """read the structure file and draw the block info"""
+    """
+    Read the structure file and draw the block info
+
+    Attributes:
+        cube (numpy.ndarray):
+            a list of index mapping to palette. each elem represent to a block
+        palette (nbtlib.List[nbtlib.Compound]):
+            stores block information
+        block_entities (nbtlib.Compound[str, nbtlib.Compound])
+            stores block entity data
+            Key: the index of the block in flattened cube attribute
+    """
 
     __slots__ = ("index","size","palette","block_entities","cube")
-    """
-    cube is a list of index mapping to palette by z,y,x order
-    palette is a list of block information
-    """
 
     with open("lookups/nbt_defs.json",encoding="utf-8") as f:
         nbt_def = json.load(f)
 
-    def __init__(self, file):
+    def __init__(self, file: nbtlib.File | str | bytes):
 
-        nbt = nbtlib.load(file, byteorder='little')
+        if isinstance(file, nbtlib.File):
+            nbt = file
+        else:
+            nbt = nbtlib.load(file, byteorder='little')
 
         self.size = nbt["size"]
         self.cube = np.array(nbt["structure"]["block_indices"][0],dtype=np.int32).reshape(self.size)
@@ -34,18 +53,16 @@ class StructureProcessor:
         self.palette = tuple(map(self._process_palette, nbt["structure"]["palette"]["default"]["block_palette"]))
         self.index = np.arange(0, np.prod(self.size), 1, np.int32).reshape(self.size)
 
-    def get_block(self, x, y, z):
+    def iter_block(self) -> tuple[BlockInfo, tuple[int, int, int]]:
+        xlen, ylen, zlen = self.size
+        for x in range(xlen):
+            for y in range(ylen):
+                for z in range(zlen):
+                    yield (self.get_block(x, y, z), (x, y, z))
+
+    def get_block(self, x, y, z) -> Optional[BlockInfo]:
         """
         get the block info by given position
-
-        Return:
-            Option[Tuple[str, str, str, bool, str]]:
-                elem 1: block name without "minecraft:"
-                elem 2: rotation of the block
-                elem 3: texture variant of the block
-                elem 4: a bool furthur describe the texture variant
-                elem 5: other data, determine the shape and uv variant of the block
-                if the block does't needed processing, it returns None
         """
 
         block_entity_index = str(self.index[x,y,z])
@@ -57,7 +74,7 @@ class StructureProcessor:
         return block_info
 
     @classmethod
-    def _process_palette(cls, block_palette):
+    def _process_palette(cls, block_palette) -> Optional[BlockInfo]:
         rot = None
         lit = False
         data = "0"
@@ -102,10 +119,14 @@ class StructureProcessor:
                     data += "_top"
                     break
 
+        # hardcoded exceptions
+        if blk_name == "hopper" and rot != 0:
+            data = "side"
+
         return (blk_name, rot, variant, lit, data)
 
     @classmethod
-    def _process_block_entity(cls, block_info, block_entity):
+    def _process_block_entity(cls, block_info, block_entity) -> BlockInfo:
         blk_name, rot, variant, lit, data = block_info
 
         for key in cls.nbt_def["block_entity_variant"]:

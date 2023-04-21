@@ -4,7 +4,7 @@ import json
 
 
 class Animation:
-    """control the scale animation when change poses"""
+    """Control the scale animation when pose is changed"""
 
     __slots__ = ("sizing",)
 
@@ -29,7 +29,7 @@ class Animation:
         "animations": {"animation.armor_stand.ghost_blocks.scale": {
             "loop": True,
             "bones": {
-            "ghost_blocks": {"scale": 1.28}}}}
+            "ghost_blocks": {"scale": 0.08}}}}
     }
 
     def __init__(self):

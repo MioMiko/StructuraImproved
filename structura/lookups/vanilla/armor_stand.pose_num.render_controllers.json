@@ -1,0 +1,31 @@
+{
+	"format_version": "1.8.0",
+	"render_controllers": {
+		"controller.render.armor_stand.pose_num": {
+			"arrays": {
+				"textures": {
+					"Array.textures": [
+						"Texture.pose_num_0",
+						"Texture.pose_num_1",
+						"Texture.pose_num_2",
+						"Texture.pose_num_3",
+						"Texture.pose_num_4",
+						"Texture.pose_num_5",
+						"Texture.pose_num_6",
+						"Texture.pose_num_7",
+						"Texture.pose_num_8",
+						"Texture.pose_num_9",
+						"Texture.pose_num_10",
+						"Texture.pose_num_11",
+						"Texture.pose_num_12"
+					]
+				}
+			},
+			"materials": [{"*": "Material.ghost_blocks"}],
+			"geometry": "Geometry.pose_num",
+			"textures": [
+				"Array.textures[variable.armor_stand.pose_index]"
+			]
+		}
+	}
+}

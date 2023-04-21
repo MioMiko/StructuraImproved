@@ -9,19 +9,31 @@ from PIL import Image
 debug = False
 
 FilePath = NewType("FilePath",str)
-Direction = NewType("FilePath",str)
+Direction = NewType("Direction",str)
 
 class default_key_dict(dict):
     def __missing__(self,key):
         return self["default"]
 
 class Geometry:
+    """
+    Generate the geometry file and the texture file,
+    which are the most important sections in the pack
+
+    Attributes:
+        name (str): model name
+        uv_deque (deque[np.ndarray]):
+            stores each used image in the deque,
+            which will be poped to merge a spirite when being exported
+        uv_map (dict[FilePath, int]): record the offset of each image in spirite
+        uv_height (int): current spirite uv_height
+        stand (dict): the entire geometry data, which will be dumped to json
+        geometry (dict): a reference to self.stand['minecraft:geometry'][0]
+    """
 
     __slots__ = ("name","stand","offsets","alpha","geometry","uv_map",
                  "material_list","uv_height","uv_deque")
 
-    ## we load all of these items containing the mapping of blocks to the some property that is either hidden, implied or just not clear
-    ## custom look up table i wrote to help with rotations, error messages dump if somehting has undefined rotations
     with open("lookups/block_rotation.json",encoding="utf-8") as f:
         block_rotations = json.load(f)
     with open("lookups/block_shapes.json",encoding="utf-8") as f:
@@ -33,13 +45,17 @@ class Geometry:
 
     def __init__(self, name:str, alpha:float = 0.8, offsets=(0,0,0)):
         self.name = name.replace(" ","_").lower()
-        self.offsets = (offsets[0]+8,offsets[1],offsets[2]+7)
+        self.offsets = (
+            (offsets[0]+0.5) * 16,
+            (offsets[1]) * 16,
+            (offsets[2]-0.5) * 16
+        )
         self.alpha = alpha
         self._stand_init()
         self.uv_map: dict[FilePath,int] = {}
         self.material_list = Counter()
         self.uv_height = 0
-        self.uv_deque = deque()
+        self.uv_deque: deque[np.ndarray] = deque()
 
     def _stand_init(self) -> None:
         """helper function to initialize the dictionary that will be exported as the json object"""
@@ -49,7 +65,7 @@ class Geometry:
             "minecraft:geometry": ({
                 "description": {
                     "identifier": f"geometry.armor_stand.ghost_blocks_{self.name}",
-                    "texture_width": 1,
+                    "texture_width": 16,
                     "visible_bounds_offset": (0.0,1.5,0.0),
                     "visible_bounds_width" : 5120,
                     "visible_bounds_height" : 5120,
@@ -65,13 +81,14 @@ class Geometry:
         As well as exports the UV file
         """
 
-        self.uv_height = ((self.uv_height + 15) // 16) * 16
-        self.geometry["description"]["texture_height"] = self.uv_height//16
+        self.geometry["description"]["texture_height"] = self.uv_height
 
-        path_to_geo = f"models/entity/armor_stand.ghost_blocks_{self.name}.geo.json"
-        zip_file.writestr(path_to_geo,json.dumps(self.stand, indent = 2 if debug else None))
-        texture_path = f"textures/entity/ghost_blocks_{self.name}.png"
-        self._save_uv(texture_path, zip_file)
+        zip_file.writestr(
+            f"models/entity/armor_stand.ghost_blocks_{self.name}.geo.json",
+            json.dumps(self.stand, indent = 2 if debug else None))
+
+        self._save_uv(f"textures/entity/ghost_blocks_{self.name}.png",
+                      zip_file)
 
     def _save_uv(self, name, zip_file) -> None:
         """pop uv to make sprite and save it"""
@@ -121,12 +138,12 @@ class Geometry:
             for material_name, data_list in material.items():
                 self.material_list[material_name] += default_key_dict(data_list)[data]
 
-    def make_block(self ,x:int, y:int, z:int, block, make_list:bool) -> None:
+    def make_block(self , pos: tuple[int, int, int], block, make_list:bool) -> None:
         """
         Make_block handles all the block processing.
-        This function does need cleanup and probably should be broken into other helperfunctions for ledgiblity.
         """
 
+        x, y, z = pos
         block_name, rot, variant, lit, data = block
 
         if debug:
@@ -145,9 +162,7 @@ class Geometry:
             return
 
         # hardcoded exceptions
-        if shape == "hopper" and rot != 0:
-            data = "side"
-        elif uv == "glazed_terracotta":
+        if uv == "glazed_terracotta":
             data = rot
 
         if debug and data != "0":
@@ -157,9 +172,9 @@ class Geometry:
         block_shapes = default_key_dict(self.block_shapes[shape])[data]
 
         pivot = (
-            -x - self.offsets[0] + 0.5,
-            y + self.offsets[1] + 0.5,
-            z + self.offsets[2] + 0.5
+            -x*16 - self.offsets[0] + 8,
+            y*16 + self.offsets[1] + 8,
+            z*16 + self.offsets[2] + 8
         )
         block = {
             "name": f"block_{x}_{y}_{z}",
@@ -168,7 +183,7 @@ class Geometry:
         }
 
         if rot_type in self.block_rotations.keys():
-            block["rotation"] = self.block_rotations[rot_type][rot]
+            block["rotation"] = self.block_rotations[rot_type].get(rot,(0,0,0))
             block["pivot"] = pivot
             if debug:
                 print(f"no rotation for {block_name} found")
@@ -180,14 +195,14 @@ class Geometry:
                 uv_idx = i
             xoff = yoff = zoff = 0
             if "offsets" in block_shapes.keys():
-                xoff,yoff,zoff = block_shapes["offsets"][i]
+                xoff, yoff, zoff = block_shapes["offsets"][i]
             cube["size"] = block_shapes["size"][i]
             cube["origin"] = (
-                -x + xoff - self.offsets[0],
-                y + yoff + self.offsets[1],
-                z + zoff + self.offsets[2]
+                -x*16 + xoff - self.offsets[0],
+                y*16 + yoff + self.offsets[1],
+                z*16 + zoff + self.offsets[2]
             )
-            cube["inflate"] = -0.03
+            cube["inflate"] = -0.5
             if "rot" in block_shapes:
                 cube["pivot"] = list(pivot)
                 cube["rotation"] = block_shapes["rot"][i]
@@ -212,10 +227,13 @@ class Geometry:
 
         self.geometry["bones"].append(block)
 
-    def _append_uv_image(self, new_image_filename) -> int:
+    def _append_uv_image(self, new_image_filename: str) -> int:
         """
-        push uv to the deque
-        return the height of the uv in final sprite
+        Push uv to the deque
+
+        Returns:
+            int:
+                The height of the uv in sprite
         """
 
         img = np.array(Image.open(new_image_filename))
@@ -230,27 +248,40 @@ class Geometry:
         return self.uv_height - shape[0]
 
     def _block_name_to_uv(self, block_ref, variant="default", lit=False, index=0):
-        """helper function maps the the section of the uv file to the side of the block"""
+        """
+        Add image to the sprite if the image never be added before
+            and record its offset in the sprite in uv_map attribute
+        If the image is added before return its offset directly
 
-        temp_uv: [Direction,int] = {}
-        texture_files: dict[Direction,FilePath] = (
+        Returns:
+            dict[Direction, int]:
+                Values: offset of the image
+        """
+
+        temp_uv: dict[Direction, int] = {}
+        texture_files: dict[Direction, FilePath] = (
             self._get_block_texture_paths(block_ref,variant,lit,index))
 
         for key,uv in texture_files.items():
             if uv not in self.uv_map:
-                self.uv_map[uv] = self._append_uv_image(f"lookups/uv/blocks/{uv}.png")/16
+                self.uv_map[uv] = self._append_uv_image(f"lookups/uv/blocks/{uv}.png")
             temp_uv[key] = {"uv": [0, self.uv_map[uv]]}
 
         return temp_uv
 
     def _get_block_texture_paths(self, block_ref, variant = "",lit=False,
-                                 index=0) -> dict[Direction,int]:
-        """helper function for getting the texture file locations"""
+                                 index=0) -> dict[Direction, FilePath]:
+        """
+        Getting the texture file locations by given info
+
+        Returns (dict[Direction, FilePath]):
+            Textures' path for each direction
+        """
 
         if not (lit and (texture_layout := block_ref.get(variant+"_lit"))):
             texture_layout = default_key_dict(block_ref)[variant]
         texture_layout = texture_layout["textures"]
-        textures: dict[Direction,FilePath] = {}
+        textures: dict[Direction, FilePath] = {}
 
         if isinstance(texture_layout,dict):
             if index >= (i := len(texture_layout["up"])):

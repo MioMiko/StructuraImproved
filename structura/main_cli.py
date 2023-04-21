@@ -1,11 +1,9 @@
 """
-ad "/sdcard/结构和投影/cmd/multi_testall2.txt"
 cli tool for StructiraImroved
 class Cli(cmd.Cmd): Create a object of it to run the tool
 """
 
 import cmd
-import re
 import shlex
 import sys
 import traceback

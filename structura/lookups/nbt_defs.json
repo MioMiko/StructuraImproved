@@ -47,10 +47,10 @@
 		"coral_direction",
 		"lever_direction",
 		"rail_direction",
-		"torch_facing_direction",
 		"weirdo_direction",
 		"ground_sign_direction",
 		"pillar_axis",
+		"torch_facing_direction",
 		"portal_axis"
 	],
 	"top": [
@@ -82,6 +82,7 @@
 		"composter_fill_level",
 		"fill_level",
 		"rail_direction",
+		"torch_facing_direction",
 		"head_piece_bit"
 	],
 	"skip": [
