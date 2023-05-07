@@ -42,16 +42,13 @@ pip install -r requirements.txt
 
 进入项目根目录并运行StructuraImproved程序:
 ```bash
-cd structura
-python main.py
+python structura
 ```
 
 ## 修改设置
 
 ### 语言设置
 运行StructuraImproved后，点击右上角的齿轮图标，将弹出的框中将Language改为简体中文，再点击右下角的确认，StructuraImproved会自动关闭，重新启动即可加载配置。
-
-其他的设置也应当被修改，因为可以在我设备上运行的设置并不能在所有人的设备上运行。
 
 ## 生成.mcstructure文件
 
@@ -83,18 +80,18 @@ python main.py
 ![alt text](docs/example_layer.png?raw=true)
 
 ## 命令行工具
-对于无法使用桌面环境的用户，StructuraImproved提供了一个命令行工具，可以在 项目根目录/structura 中找到。
+对于无法使用桌面环境的用户，StructuraImproved提供了一个命令行工具。
 
 使用命令行工具：
 ```shell
-python main.py
+python structura cli
 ```
 
 如下是一个简单的演示：
 ```
-set makelist true # 设置制作材料列表
-add "" -s "结构文件.mcstructure" # 添加一个命名为空的模型并指定结构文件
-make # 开始制作投影
+set makelist true  # 设置制作材料列表
+add "" -s "结构文件.mcstructure"  # 添加一个命名为空的模型并指定结构文件
+make  # 开始制作投影
 ```
 
 ## 版权声明

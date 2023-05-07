@@ -35,13 +35,12 @@ pip install -r requirements.txt
 
 To start StructuraImproved:
 ```bash
-cd structura
-python main.py
+python structura
 ```
 
 ## Setting
 
-After StructuraImproved is launched,click the gear icon on the top right side.Then you will see a pop up window.You need to change the setting on it because the setting can run on my device may not run on everyone's devices.
+After StructuraImproved is launched, click the gear icon on the top right side.Then you will see a pop up window.When settings are saved it will closed automaticly.Restart it to load the new setting.
 
 ## Generating an .mcstructure file
 
@@ -73,11 +72,11 @@ You can go through a structure layer by layer by shift right clicking on the sta
 ![alt text](docs/example_layer.png?raw=true)
 
 ## Command Line Tool
-For the users unable to acess to desktop environment.StructuraImproved provides a command line tool which can be found in `[root of the project]/structura`.
+For the users unable to acess to desktop environment.StructuraImproved provides a command line tool.
 
 Using command line tool:
 ```shell
-python main.py cli
+python structura cli
 ```
 
 Here's a simple demonstrate:

@@ -1,95 +1,87 @@
-import tkinter as tk
-from tkinter import ttk
 import json
+from pathlib import Path
 
-class setting_gui():
-    """show GUI of setting"""
+ROOT = Path(__file__).parent.resolve()
 
-    def __init__(self,conf,save_path,lang):
-        self.conf = conf
-        self.path = save_path
-        self.lang = lang
 
-        setting = tk.Toplevel()
-        self.setting = setting
-        setting.title(lang["setting"])
+class _Config():
 
-        r = 0
-        tk.Label(setting,text=lang["lang"]).grid(row=r,column=0)
-        self.language = tk.StringVar()
-        lang_option = ttk.Combobox(setting,textvariable=self.language)
-        tmp = ("English","简体中文")
-        lang_option["value"] = tmp
-        lang_option.current(tmp.index(conf["lang"]))
-        lang_option.grid(row=r,column=1)
+    __slots__=("conf", "std_lang_name", "lang", "_lang_ref")
 
-        r += 1
-        self.structure_path = tk.StringVar()
-        self.structure_path.set(conf["default_structure_path"])
-        tk.Label(setting,text=lang["structure_path"]).grid(row=r,column=0)
-        tk.Entry(setting,textvariable=self.structure_path).grid(row=r,column=1)
-        tk.Button(setting,command=self.browse_structure_path,text=lang["browse"]).grid(row=r,column=2)
+    conf_path = ROOT / "config/config.json"
 
-        r += 1
-        self.save_path = tk.StringVar()
-        self.save_path.set(conf["save_path"])
-        tk.Label(setting,text=lang["save_path"]).grid(row=r,column=0)
-        tk.Entry(setting,textvariable=self.save_path).grid(row=r,column=1)
-        tk.Button(setting,command=self.browse_save_path,text=lang["browse"]).grid(row=r,column=2)
-
-        r += 1
-        self.info_save_path = tk.StringVar()
-        self.info_save_path.set(conf["info_save_path"])
-        tk.Label(setting,text=lang["info_save_path"]).grid(row=r,column=0,columnspan=2)
-        r += 1
-        tk.Entry(setting,textvariable=self.info_save_path).grid(row=r,column=1)
-        tk.Button(setting,command=self.browse_info_save_path,text=lang["browse"]).grid(row=r,column=2)
-
-        r += 1
-        self.icon_path = tk.StringVar()
-        self.icon_path.set(conf["icon_path"])
-        tk.Label(setting,text=lang["icon_path"]).grid(row=r,column=0)
-        tk.Entry(setting,textvariable=self.icon_path).grid(row=r,column=1)
-        tk.Button(setting,command=self.browse_icon_path,text=lang["browse"]).grid(row=r,column=2)
-
-        r += 1
-        self.is_overwrite = tk.BooleanVar()
-        self.is_overwrite.set(conf["overwrite_same_packname"])
-        tk.Checkbutton(setting, text=lang["overwrite_same_packname"], variable=self.is_overwrite).grid(row=r,column=0,columnspan=2)
-
-        r += 1
-        tk.Button(setting,text=lang["cancel"],command=setting.destroy).grid(row=r,column=1,sticky="se")
-        tk.Button(setting,text=lang["confirm"],command=self.save_conf).grid(row=r,column=2)
-
-    def browse_structure_path(self):
-        self.structure_path.set(
-            tk.filedialog.askdirectory(initialdir=self.conf["default_structure_path"]))
-
-    def browse_save_path(self):
-        self.save_path.set(
-            tk.filedialog.askdirectory(initialdir=self.conf["save_path"]))
-
-    def browse_info_save_path(self):
-        self.info_save_path.set(
-            tk.filedialog.askdirectory(initialdir=self.conf["info_save_path"]))
-
-    def browse_icon_path(self):
-        self.icon_path.set(
-            tk.filedialog.askopenfilename(
-                filetypes=(("Image File", "pack_icon.png"),),
-                initialdir=self.conf["icon_path"]
-            )
-        )
-
-    def save_conf(self):
-        self.conf = {
-            "lang": self.language.get(),
-            "default_structure_path": self.structure_path.get(),
-            "save_path": tmp if (tmp := self.save_path.get())[-1] == "/" else f"{tmp}/",
-            "info_save_path": tmp if (tmp := self.info_save_path.get())[-1] == "/" else f"{tmp}/",
-            "icon_path": self.icon_path.get(),
-            "overwrite_same_packname": self.is_overwrite.get()
+    def __init__(self):
+        version = "1.0.0"
+        default_conf = {
+            "version": version,
+            "lang": "English",
+            "save_path": "../mcpacks",
+            "info_save_path": "../packinfos",
+            "icon_path": "api/res/pack_icon.png",
+            "default_structure_path": ".",
+            "overwrite_same_packname": False,
         }
-        with open("config/config.json","w",encoding="utf-8") as f:
-            json.dump(self.conf,f)
-        self.setting.quit()
+        try:
+            self.conf = conf = json.loads((self.conf_path).read_text("utf-8"))
+        except FileNotFoundError:
+            self.conf = conf = default_conf
+            self.conf_path.write_text(json.dumps(conf), encoding="utf-8")
+
+        if "version" not in conf:
+            conf["version"] = "0.0.0"
+        if self._Version(conf["version"]) < self._Version(version):
+            keys = default_conf.keys() - conf.keys()
+            if keys:
+                for k in keys:
+                    conf[k] = default_conf[k]
+                for k in conf.keys() - default_conf.keys():
+                    del conf[k]
+            conf["version"] = default_conf["version"]
+            self.save()
+
+        self._lang_ref = json.loads((ROOT /
+                "config/lang/lang_ref.json").read_text("utf-8"))
+        try:
+            self.std_lang_name = self._lang_ref[self.conf["lang"]]
+        except KeyError:
+            self.std_lang_name = "en-US"
+        self.lang = json.loads((ROOT /
+            f"config/lang/{self.std_lang_name}.json").read_text("utf-8"))
+
+    def save(self):
+        """Save configuration"""
+        self.conf_path.write_text(json.dumps(self.conf), encoding="utf-8")
+
+    class _Version(object):
+
+        __slots__ = ("_version",)
+
+        VERSION_LEN = 3
+
+        def __init__(self, version:str):
+            try:
+                self._version = tuple(map(int, version.split(".")))
+            except ValueError as exc:
+                raise ValueError("Uncorrect version formar") from exc
+            if len(self._version) != self.VERSION_LEN:
+                raise ValueError("Uncorrect version formar")
+
+        def __eq__(self, obj):
+            return self._version == obj._version
+
+        def __lt__(self, obj):
+            for i in range(self.VERSION_LEN):
+                if self._version[i] != obj._version[i]:
+                    return self._version[i] < obj._version[i]
+            return False
+
+        def __le__(self, obj):
+            return self < obj or self == obj
+
+        def __str__(self):
+            return ".".join(map(str,self._version))
+
+        def __repr__(self):
+            return f"Version({str(self)})"
+
+config = _Config()

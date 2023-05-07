@@ -1,0 +1,19 @@
+{
+	"": "文件",
+	"name_tags_filename": "Name Tags.txt",
+	"name_tags_contain": "Here're the nametags used in this file",
+	"material_list_filename": "{} Block List.csv",
+	"all_material_list_filename": "All Block List.csv",
+
+	"": "Structura",
+	"unsupported_block": "There is an unsupported block in this world and it was skipped",
+	"block_info": "X:{} Y:{} Z:{}, Block:{}, Variant:{}",
+	"pack_complete": "Pack Making Completed",
+
+	"block_name": "Block Name",
+	"count": "Count",
+
+	"block_name_ref": {
+		
+	}
+}
