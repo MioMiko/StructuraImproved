@@ -8,6 +8,8 @@
 	"": "Structura",
 	"unsupported_block": "有一个不支持的方块被跳过了",
 	"block_info": "X:{} Y:{} Z:{}, 方块名:{}, 变种:{}",
+	"start_making_pack": "开始制作投影",
+	"pack_saved": "投影保存至 {}",
 	"pack_complete": "投影制作完成",
 
 	"block_name": "方块名称",

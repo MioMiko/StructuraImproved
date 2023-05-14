@@ -13,6 +13,7 @@ import logger
 
 logger.init_logger()
 logger = logging.getLogger("StructuraImproved")
+conf, lang = config.conf, config.lang
 
 # check if a cli should be started
 def start_cli():
@@ -29,22 +30,19 @@ try:
         StringVar, Button, Label, Entry, Tk, Checkbutton, END, ACTIVE,
         filedialog, Scale, DoubleVar, HORIZONTAL, IntVar, Listbox, ANCHOR)
 except ImportError:
-    logger.warning("Opps, it looks like you didn't install Tkinter.\n"
-                   "Trying to use command line tool.")
+    logger.warning(lang["missing_tk"] + lang["try_start_cli"])
     start_cli()
 
 try:
     root = Tk()
 except TclError:
-    logger.warning("Opps, it looks like you don't have a desktop environment.\n"
-                   "Trying to use command line tool.")
+    logger.warning(lang["missing_de"] + lang["try_start_cli"])
     start_cli()
 
 from setting_gui import SettingGui
 
 ROOT = Path(__file__).parent
 
-conf, lang = config.conf, config.lang
 structura = Structura(lang_name=config.std_lang_name,
                       save_path=ROOT / conf["save_path"],
                       info_save_path=ROOT / conf["info_save_path"],

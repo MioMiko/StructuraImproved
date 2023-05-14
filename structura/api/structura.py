@@ -122,7 +122,7 @@ class Structura:
         lang = self._lang
         logger = self.logger
 
-        logger.info("Start Making Pack.")
+        logger.info(lang["start_making_pack"])
 
 
         if big_model:
@@ -241,7 +241,7 @@ class Structura:
                 zip_file.write(ROOT / f"res/uv/others/{i}.png",
                                f"textures/entity/pose_num_{i}.png")
 
-            logger.info(f"Pack Saved To {pack_path}")
+            logger.info(lang["pack_saved"].format(pack_path))
 
         # end open zip
 

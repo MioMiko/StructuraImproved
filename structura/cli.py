@@ -31,17 +31,18 @@ class Para_Parser:
         if self.count == -1:
             return lambda this, _, *args ,**kwards: callback(this, *args, **kwards)
 
-        def fun(this,para,*args,**kwards):
-            para = shlex.split(para,comments=True)
+        def fun(this, para, *args,**kwards):
+            para = shlex.split(para, comments=True)
             if len(para) < self.count:
-                raise Exception(f"Too less parameters, it takes at least {self.count} parameters.")
+                raise Exception(lang["too_few_args"].format(
+                                                    self.count, len(para)))
             return callback(this,para,*args,**kwards)
         return fun
 
 
 class Cli(Cmd):
 
-    intro = "Welcome to use StructuraImproved.Type *help* to list commands."
+    intro = lang["intro"]
     prompt = "> "
 
     def __init__(self, *args, **kwards):
@@ -68,12 +69,13 @@ class Cli(Cmd):
         except Exception as err:
             logger.error(err)
             if self.file_stack:
-                logger.error(f"File Stack: {' > '.join(self.file_stack)} in line {self.line}")
+                logger.error("File Stack: %s in line %s",
+                             " > ".join(self.file_stack), self.line)
                 self.file_stack.clear()
             return False
 
-    def default(self,line):
-        raise Exception(f"Unknown command *{line.split(' ')[0]}*.")
+    def default(self, line):
+        raise Exception(lang["unknown_command"].format(line.split(' ')[0]))
 
     @Para_Parser(-1)
     def do_quit(self):
@@ -81,42 +83,43 @@ class Cli(Cmd):
 
     def modify_model(self, para):
         if para[0] not in self.models:
-            raise KeyError(f"No such model *{para[0]}*")
+            raise KeyError(lang["model_not_found"].format(para[0]))
         i = 1
         while i < len(para):
             match para[i]:
                 case "-s":
                     i += 1
                     if i >= len(para):
-                        raise Exception("-s option takes no parameters.")
+                        raise Exception(lang["option_too_few_args"].format(
+                                                    f"-s{lang['option']}", 1))
                     self.models[para[0]]["structure"] = para[i]
                 case "-o":
                     i += 1
-                    if i >= len(para):
-                        raise Exception("-o option takes no parameters.")
                     if i + 2 >= len(para):
-                        raise Exception("-o option takes too less parameters,need 3.")
+                        raise Exception(lang["option_too_few_args"].format(
+                                                    f"-o{lang['option']}", 3))
                     self.models[para[0]]["offsets"] = [int(i) for i in para[i:i+3]]
                     i += 2
                 case "-a":
                     i += 1
                     if i >= len(para):
-                        raise Exception("-a option takes no parameters.")
+                        raise Exception(lang["option_too_few_args"].format(
+                                                    f"-a{lang['option']}", 1))
                     try:
                         alpha = int(para[i])
                     except ValueError:
-                        raise ValueError("-a option need a integer from 0 to 100.")
+                        raise ValueError(lang["opacity_option"])
                     if not 0 <= alpha <= 100:
-                        raise ValueError("-a option need a integer from 0 to 100.")
+                        raise ValueError(lang["opacity_option"])
                     self.models[para[0]]["opacity"] = (100 - para[i]) / 100
                 case option:
-                    raise Exception(f"Unknown parameter *{option}*")
+                    raise Exception(lang["unknown_option"].format(option))
             i += 1
 
     @Para_Parser(1)
     def do_add(self,para):
         if para[0] in self.models:
-            raise Exception("Model name must be unique")
+            raise Exception(lang["same_nametag"])
         self.models[para[0]] = {
             "structure": "",
             "offsets": [0,0,0],
@@ -137,7 +140,7 @@ class Cli(Cmd):
             except KeyError:
                 fail_model.append(name)
         if fail_model:
-            raise Exception(f"Model *{','.join(fail_model)}* doesn't exist.")
+            raise Exception(lang["model_not_found"].format(",".join(fail_model)))
 
     @Para_Parser(-1)
     def do_list(self):
@@ -148,7 +151,9 @@ class Cli(Cmd):
 
     @Para_Parser(-1)
     def do_clear(self):
-        if "y" == input("Do you really want to clear all models(y/N):").lower():
+        if self.file_stack:
+            self.models.clear()
+        elif self.models and "y" == input(lang["verify_del_all_model"]).lower():
             self.models.clear()
 
     @staticmethod
@@ -157,7 +162,7 @@ class Cli(Cmd):
             return False
         if s.lower() == "true":
             return True
-        raise ValueError(f"Unknown value {s}")
+        raise ValueError(lang["unknown_value"].format(s))
 
     @Para_Parser(2)
     def do_set(self, para):
@@ -171,12 +176,12 @@ class Cli(Cmd):
             case "bigmodel":
                 self.big_model = self.parse_bool(para[1])
             case _:
-                raise Exception(f"Unknown setting {para[0]}")
+                raise Exception(lang["unknown_setting"].format(para[0]))
 
     @Para_Parser(1)
     def do_load(self, para):
         if para[0] in self.file_stack:
-            raise RuntimeError("Recursive call detected")
+            raise RuntimeError(lang["recursive call"])
         with open(para[0]) as f:
             self.file_stack.append(para[0])
             i = 0
@@ -191,17 +196,17 @@ class Cli(Cmd):
     @Para_Parser(-1)
     def do_make(self):
         if len(self.models) == 0:
-            raise Exception("Please add model first.")
+            raise Exception(lang["need_models"])
         if len(self.models) > 1:
             if self.pack_name == "":
-                raise Exception("Please set a packname")
+                raise Exception(lang["need_packname"])
         else:
             if self.pack_name == "":
                 name = next(iter(self.models))
                 self.pack_name = Structura.draw_packname(self.models[name]["structure"])
         for name, value in self.models.items():
             if value["structure"] == "":
-                raise Exception(f'Model "{name}" need a structure file')
+                raise Exception(lang["model_need_structure"].format(name))
 
         try:
             structura.make_pack(self.pack_name, self.models,
@@ -209,17 +214,18 @@ class Cli(Cmd):
                                 ROOT / self.icon)
         except Exception as exc:
             logger.exception("")
-            raise RuntimeError(f"Pack make failed: {exc}") from exc
+            raise RuntimeError(lang["pack_make_failed"].format(exc)) from exc
 
         self.pack_name = ""
-
 
     @Para_Parser(0)
     def do_help(self,arg):
         if len(arg) == 0:
             print(lang["help_summary"])
         for command in arg:
-            print(lang.get(f"help_{command}",f"Unknown command *{command}*"))
+            print(lang.get(f"help_{command}",
+                           lang["unknown_command"].format(command)))
+
 
 def main():
     try:
@@ -228,4 +234,6 @@ def main():
         sys.exit()
 
 if __name__ == "__main__":
+    import logger as log
+    log.init_logger()
     main()
