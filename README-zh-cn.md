@@ -2,18 +2,16 @@
 
 简体中文丨[**English**](README)
 
-Structura的灵感来自Litematica模组。它是一个可以用.mcstructure文件生成资源包的工具，这个资源包被称作投影。在这个资源包中，盔甲架模型被修改为被投影的方块。它会把结构文件中的所有方块作为模型中的骨骼。然后投影出“幽灵块”用于向玩家显示原本方块的位置。
+Structura的灵感来自Litematica模组，它是一个可以用.mcstructure文件生成资源包的工具，这个资源包被称作投影。在这个资源包中，盔甲架模型被修改为被投影的方块，以此投影出“幽灵方块”用于向玩家显示原本方块的位置。
 
-这是一个基于Stuctura做出改进的工具，以期望更好的提供生存模式建造的体验。
+这是一个基于Stuctura做出改进的工具，以期望更好的提供生存模式建造的体验。([原项目地址](https://github.com/RavinMaddHatter/Structura))
 
-改动:
-- 抛弃原有通过官方文件terrain_texture.json和blocks.json查找方块贴图的方式，并使用lookups/block_ref.json替代
+## 改动:
 - 精细化了部分物品的模型
 - 加入了红石显示功能，可以更清晰得看到漏斗侦测器等物品方向
 - 更容易辨识的楼梯和半砖
+- 更好的材料表输出功能
 - 中文支持
-
-[原项目地址](https://github.com/RavinMaddHatter/Structura)
 
 ## 支持版本
 - 1.16.40
@@ -35,7 +33,7 @@ Arch Linux:
 sudo pacman -S python python-pip
 ```
 
-接着你需要安装一些Python的依赖库:
+接着需要安装一些Python的依赖库:
 ```bash
 pip install -r requirements.txt
 ```
@@ -46,6 +44,8 @@ python structura
 ```
 
 ## 修改设置
+
+当程序第一次运行时，会在项目根目录生成一个config文件夹，里面记录了程序的设置，更新时注意不要覆盖。
 
 ### 语言设置
 运行StructuraImproved后，点击右上角的齿轮图标，将弹出的框中将Language改为简体中文，再点击右下角的确认，StructuraImproved会自动关闭，重新启动即可加载配置。
@@ -66,7 +66,7 @@ python structura
 ![alt text](docs/browse_file.PNG?raw=true)
 输入生成后资源包的名称。
 ![alt text](docs/name.PNG?raw=true)
-如果你错误地将两个文件名重复，它会直接覆盖原有的包，但是你可以在设置中改变它，此时它会自动为文件名添加一个序号来区分。
+如果你错误地将两个投影包名重复，它会自动为文件名添加一个序号来区分，你可以在设置中改变它，此时它将会直接覆盖原有的投影。
 
 如果一切正常，您现在应该有一个mcpack文件。
 ![alt text](docs/pack_made.PNG?raw=true)

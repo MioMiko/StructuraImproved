@@ -4,21 +4,23 @@ class Cli(cmd.Cmd): Create a object of it to run the tool
 """
 
 from cmd import Cmd
+import logging
 from pathlib import Path
 import shlex
 import sys
-from traceback import print_exc
 
 from api import Structura
 from config import config
 
-ROOT = Path(__file__).parent.resolve()
+ROOT = Path(__file__).parent
+logger = logging.getLogger("StructuraImproved")
 
 conf, lang = config.conf, config.lang
 structura = Structura(lang_name=config.std_lang_name,
                       save_path=ROOT / conf["save_path"],
                       info_save_path=ROOT / conf["info_save_path"],
-                      overwrite_same_packname=conf["overwrite_same_packname"])
+                      overwrite_same_packname=conf["overwrite_same_packname"],
+                      skip_unsupported_block=conf["skip_unsupported_block"])
 
 class Para_Parser:
     """slpit the parameters and check the counts of it"""
@@ -64,9 +66,9 @@ class Cli(Cmd):
         try:
             return super().onecmd(line)
         except Exception as err:
-            print(f"\a\033[1;31m{err}\033[0m")
+            logger.error(err)
             if self.file_stack:
-                print(f"File Stack: {' > '.join(self.file_stack)} in line {self.line}")
+                logger.error(f"File Stack: {' > '.join(self.file_stack)} in line {self.line}")
                 self.file_stack.clear()
             return False
 
@@ -206,7 +208,7 @@ class Cli(Cmd):
                                 self.make_list, self.big_model,
                                 ROOT / self.icon)
         except Exception as exc:
-            print_exc()
+            logger.exception("")
             raise RuntimeError(f"Pack make failed: {exc}") from exc
 
         self.pack_name = ""

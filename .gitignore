@@ -2,10 +2,10 @@
 unused/
 
 # configuration
-structura/config/config.json
+/config/
 
 # Byte-compiled / optimized / DLL files
-**/__pycache__/
+__pycache__/
 *.py[cod]
 *$py.class
 

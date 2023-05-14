@@ -1,17 +1,19 @@
 import json
+import os
 from pathlib import Path
 
-ROOT = Path(__file__).parent.resolve()
+ROOT = Path(__file__).parent
 
 
 class _Config():
 
     __slots__=("conf", "std_lang_name", "lang", "_lang_ref")
 
-    conf_path = ROOT / "config/config.json"
+    conf_path = ROOT / "../config/config.json"
+    lang_path = ROOT / "lang"
 
     def __init__(self):
-        version = "1.0.0"
+        version = "1.0.1"
         default_conf = {
             "version": version,
             "lang": "English",
@@ -20,12 +22,15 @@ class _Config():
             "icon_path": "api/res/pack_icon.png",
             "default_structure_path": ".",
             "overwrite_same_packname": False,
+            "skip_unsupported_block": True,
+            "log_level": "info",
         }
         try:
             self.conf = conf = json.loads((self.conf_path).read_text("utf-8"))
         except FileNotFoundError:
+            os.makedirs(self.conf_path.parent, exist_ok=True)
             self.conf = conf = default_conf
-            self.conf_path.write_text(json.dumps(conf), encoding="utf-8")
+            self.save()
 
         if "version" not in conf:
             conf["version"] = "0.0.0"
@@ -39,18 +44,19 @@ class _Config():
             conf["version"] = default_conf["version"]
             self.save()
 
-        self._lang_ref = json.loads((ROOT /
-                "config/lang/lang_ref.json").read_text("utf-8"))
+        self._lang_ref = json.loads((self.lang_path / "lang_ref.json").read_text(
+                                                                        "utf-8"))
         try:
             self.std_lang_name = self._lang_ref[self.conf["lang"]]
         except KeyError:
             self.std_lang_name = "en-US"
-        self.lang = json.loads((ROOT /
-            f"config/lang/{self.std_lang_name}.json").read_text("utf-8"))
+        self.lang = json.loads((self.lang_path /
+                                f"{self.std_lang_name}.json").read_text("utf-8"))
 
     def save(self):
         """Save configuration"""
-        self.conf_path.write_text(json.dumps(self.conf), encoding="utf-8")
+        self.conf_path.write_text(json.dumps(self.conf, indent=2),
+                                  encoding="utf-8")
 
     class _Version(object):
 
@@ -85,3 +91,4 @@ class _Config():
             return f"Version({str(self)})"
 
 config = _Config()
+del _Config

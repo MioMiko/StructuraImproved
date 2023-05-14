@@ -3,6 +3,7 @@ Main file contains the api to make the structura
 """
 from collections import Counter
 import json
+import logging
 import os
 from pathlib import Path
 import re
@@ -15,10 +16,7 @@ from . import manifest
 from .render_controller_class import RenderController, BigModelRenderController
 from .structure_reader import StructureProcessor
 
-ROOT = Path(__file__).parent.resolve()
-
-skip_unsupported_block = True
-debug = False
+ROOT = Path(__file__).parent
 
 
 class Structura:
@@ -27,10 +25,15 @@ class Structura:
     """
 
     __slots__ = ("_lang_name", "_lang", "save_path", "info_save_path",
-                 "overwrite_same_packname")
+                 "overwrite_same_packname", "skip_unsupported_block", "logger")
 
-    def __init__(self, *, lang_name: str, save_path: str | Path,
-                 info_save_path: str | Path, overwrite_same_packname: bool=False):
+    def __init__(self, *,
+                 lang_name: str,
+                 save_path: str | Path,
+                 info_save_path: str | Path,
+                 overwrite_same_packname: bool=False,
+                 skip_unsupported_block:bool=True,
+                 logger:logging.Logger=logging.getLogger("StructuraImproved")):
         """
         Init Structura with some basic configurations
 
@@ -53,12 +56,22 @@ class Structura:
 
             overwrite_same_pack (bool):
                 If the mcpack file exists, it will raise a FileExistsError
+
+            skip_unsupported_block (bool):
+                Whether to skip or raise an exception when a block cannot be processed(for debug)
+
+            logger:
+                Set a logger (which is in builtin logging package)
+                By default it will be set logging.getLogger("StructuraImproved")
+
         """
         self._lang_name = None
         self.lang = lang_name
         self.save_path = Path(save_path)
         self.info_save_path = Path(info_save_path)
         self.overwrite_same_packname = overwrite_same_packname
+        self.skip_unsupported_block = skip_unsupported_block
+        self.logger = logger
 
     @property
     def lang(self):
@@ -105,8 +118,11 @@ class Structura:
             icon (str): the icon file path
         """
 
+        skip_unsupported_block = self.skip_unsupported_block
         lang = self._lang
-        print("Start Making Pack.")
+        logger = self.logger
+
+        logger.info("Start Making Pack.")
 
 
         if big_model:
@@ -154,8 +170,7 @@ class Structura:
 
             for model_name, model in models.items():
 
-                if debug:
-                    print(model['offsets'])
+                logger.debug(f"offset of {model_name}: {model['offsets']}")
 
                 rc.add_model(model_name)
                 entity.add_model(model_name)
@@ -170,16 +185,15 @@ class Structura:
 
                 # make geometry for each block
                 for blk, pos in structure.iter_block():
-    
+
+                    logger.debug(f"{pos}: {blk}")
                     try:
                         geo.make_block(pos, blk, make_list)
                     except Exception as err:
-                        print(lang["unsupported_block"])
-                        print(lang["block_info"].format(*pos, blk[0], blk[2]))
+                        logger.warning(lang["unsupported_block"])
+                        logger.warning(lang["block_info"].format(*pos, blk[0], blk[2]))
                         if not skip_unsupported_block:
                             raise err
-
-                # endfor(ylen)
 
                 if make_list:
                     if multi_model:
@@ -221,18 +235,16 @@ class Structura:
             # A series of files intended to show the number of the current pose above armor stand
             zip_file.write(ROOT / "res/vanilla/armor_stand.pose_num.geo.json",
                            "models/entity/armor_stand.pose_num.geo.json")
-
             zip_file.write(ROOT / "res/vanilla/armor_stand.pose_num.render_controllers.json",
             "render_controllers/armor_stand.pose_num.render_controllers.json")
-
             for i in range(13):
                 zip_file.write(ROOT / f"res/uv/others/{i}.png",
                                f"textures/entity/pose_num_{i}.png")
 
-            print(f"Pack Saved To {pack_path}")
+            logger.info(f"Pack Saved To {pack_path}")
 
         # end open zip
 
         models.clear()
 
-        print(f"\033[1;32m{lang['pack_complete']}\033[0m")
+        logger.log(25, lang["pack_complete"])

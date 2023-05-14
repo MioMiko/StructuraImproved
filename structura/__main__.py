@@ -3,13 +3,18 @@ Main file of StructuraImproved GUI
 Start a cli if tkinter or desktop environment is missing
 """
 
-import os
+import logging
 from pathlib import Path
 import sys
 
 from api import Structura
 from config import config
+import logger
 
+logger.init_logger()
+logger = logging.getLogger("StructuraImproved")
+
+# check if a cli should be started
 def start_cli():
     from cli import main
     main()
@@ -20,23 +25,31 @@ if "cli" in sys.argv[1:]:
 
 try:
     from _tkinter import TclError
-    from tkinter import (messagebox,Message,Toplevel, Frame,
+    from tkinter import (messagebox, Message, Toplevel, Frame,
         StringVar, Button, Label, Entry, Tk, Checkbutton, END, ACTIVE,
-        filedialog, Scale,DoubleVar,HORIZONTAL,IntVar,Listbox, ANCHOR)
+        filedialog, Scale, DoubleVar, HORIZONTAL, IntVar, Listbox, ANCHOR)
 except ImportError:
-    print("Opps, it looks like you didn't install Tkinter.\n"
-          "Trying to use command line tool.")
+    logger.warning("Opps, it looks like you didn't install Tkinter.\n"
+                   "Trying to use command line tool.")
     start_cli()
+
+try:
+    root = Tk()
+except TclError:
+    logger.warning("Opps, it looks like you don't have a desktop environment.\n"
+                   "Trying to use command line tool.")
+    start_cli()
+
 from setting_gui import SettingGui
 
-debug = False
-ROOT = Path(__file__).parent.resolve()
+ROOT = Path(__file__).parent
 
 conf, lang = config.conf, config.lang
 structura = Structura(lang_name=config.std_lang_name,
                       save_path=ROOT / conf["save_path"],
                       info_save_path=ROOT / conf["info_save_path"],
-                      overwrite_same_packname=conf["overwrite_same_packname"])
+                      overwrite_same_packname=conf["overwrite_same_packname"],
+                      skip_unsupported_block=conf["skip_unsupported_block"])
 
 def showabout():
     about = Toplevel()
@@ -128,8 +141,7 @@ def runFromGui():
         pack_icon = "api/res/pack_icon.png"
 
     if not stop:
-        if debug:
-            print(models)
+        logger.debug(models)
         try:
             structura.make_pack(
                 pack_name,
@@ -139,19 +151,12 @@ def runFromGui():
                 icon=ROOT / pack_icon
             )
         except Exception as err:
-            print(f"\a\033[1;31m{err}\033[0m")
+            logger.exception(err)
             messagebox.showerror(lang["error"], err)
         else:
             packName.set('')
             listbox.delete(0,END)
 
-
-try:
-    root = Tk()
-except TclError:
-    print("Opps, it looks like you don't have a desktop environment.\n"
-          "Trying to use command line tool.")
-    start_cli()
 
 models = {}
 root.resizable(False,False)

@@ -5,9 +5,7 @@ from typing import Optional
 import nbtlib
 import numpy as np
 
-ROOT = Path(__file__).parent.resolve()
-
-debug = False
+ROOT = Path(__file__).parent
 
 BlockName = str # block name without "minecraft:"
 Rotation = str  # rotation of the block
@@ -165,6 +163,4 @@ class StructureProcessor:
             elif block_entity["id"] == "Hopper":
                 variant = nbt_to_str(rot)
 
-        if debug:
-            print((rot, variant, lit, data))
         return (blk_name, rot, variant, lit, data)

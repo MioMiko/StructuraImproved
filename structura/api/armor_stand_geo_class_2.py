@@ -7,9 +7,7 @@ from typing import NewType
 import numpy as np
 from PIL import Image
 
-ROOT = Path(__file__).parent.resolve()
-
-debug = False
+ROOT = Path(__file__).parent
 
 FilePath = NewType("FilePath",str)
 Direction = NewType("Direction",str)
@@ -86,7 +84,7 @@ class Geometry:
 
         zip_file.writestr(
             f"models/entity/armor_stand.ghost_blocks_{self.name}.geo.json",
-            json.dumps(self.stand, indent = 2 if debug else None))
+            json.dumps(self.stand))
 
         self._save_uv(f"textures/entity/ghost_blocks_{self.name}.png",
                       zip_file)
@@ -147,9 +145,6 @@ class Geometry:
         x, y, z = pos
         block_name, rot, variant, lit, data = block
 
-        if debug:
-            print(block_name,variant)
-
         if make_list:
             self._add_material(block_name, variant, lit, data)
 
@@ -165,9 +160,6 @@ class Geometry:
         # hardcoded exceptions
         if uv == "glazed_terracotta":
             data = rot
-
-        if debug and data != "0":
-            print(data)
 
         block_uv = default_key_dict(self.block_uv[uv])[data]
         block_shapes = default_key_dict(self.block_shapes[shape])[data]
@@ -187,8 +179,6 @@ class Geometry:
         if rot_type in self.block_rotations:
             block["rotation"] = self.block_rotations[rot_type].get(rot,(0,0,0))
             block["pivot"] = pivot
-            if debug:
-                print(f"no rotation for {block_name} found")
 
         uv_idx = 0
         for i in range(len(block_shapes["size"])):
