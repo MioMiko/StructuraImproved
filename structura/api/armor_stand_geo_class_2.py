@@ -173,7 +173,7 @@ class Geometry:
             "name": f"block_{x}_{y}_{z}",
             "cubes": [],
         }
-        if self.big_model:
+        if not self.big_model:
             block["parent"] = f"layer_{y%12}"
 
         if rot_type in self.block_rotations:

@@ -170,7 +170,8 @@ class Structura:
 
             for model_name, model in models.items():
 
-                logger.debug(f"offset of {model_name}: {model['offsets']}")
+                logger.debug("offset of %s: %s",
+                             model_name, model["offsets"])
 
                 rc.add_model(model_name)
                 entity.add_model(model_name)
@@ -186,7 +187,7 @@ class Structura:
                 # make geometry for each block
                 for blk, pos in structure.iter_block():
 
-                    logger.debug(f"{pos}: {blk}")
+                    logger.debug("%s: %s", pos, blk)
                     try:
                         geo.make_block(pos, blk, make_list)
                     except Exception as err:
