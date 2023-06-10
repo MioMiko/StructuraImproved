@@ -12,14 +12,19 @@ This tool is based on Structura and improved to get better building expenrice in
 - 1.18.31
 - 1.19.50
 
-The versions above is what I tested it in.It not means this tool can only be used in these versions.Once the mcpack file is generated,it will work in all versions above 1.16.40.
+The versions above is what I tested it in.It not means this tool can only be used in these versions.Once the mcpack file is generated, it will work in all versions above 1.16.40.
 
 ## Install
 
 To start, you need to download the source code.
 
-Then you definitely need to install python3.10-tk.</br>
+Then you definitely need to install python3.11.</br>
 Choose the method that suits you:
+
+Android(Termux):
+```bash
+pkg install python
+```
 
 Arch Linux:
 ```bash
@@ -35,6 +40,7 @@ To start StructuraImproved:
 ```bash
 python structura
 ```
+If package Tkinter or desktop environment is missing, a cli will be started(See Command Line Tool)
 
 ## Setting
 

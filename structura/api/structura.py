@@ -164,19 +164,19 @@ class Structura:
                 rc = BigModelRenderController()
             else:
                 rc = RenderController()
+                animation = Animation()
             entity = Entity()
-            animation = Animation(big_model)
             manifest.export(pack_name, zip_file)
 
-            for model_name, model in models.items():
+            for index, (model_name, model) in enumerate(models.items()):
 
                 logger.debug("offset of %s: %s",
                              model_name, model["offsets"])
 
-                rc.add_model(model_name)
-                entity.add_model(model_name)
+                rc.add_model(model_name, index)
+                entity.add_model(index)
                 structure = StructureProcessor(model["structure"])
-                geo = Geometry(model_name,model['opacity'],model["offsets"],big_model)
+                geo = Geometry(index, model['opacity'], model["offsets"], big_model)
 
                 if not big_model:
                     for y in range(min(structure.size[1], 12)):
@@ -186,7 +186,6 @@ class Structura:
 
                 # make geometry for each block
                 for blk, pos in structure.iter_block():
-
                     logger.debug("%s: %s", pos, blk)
                     try:
                         geo.make_block(pos, blk, make_list)
@@ -209,10 +208,10 @@ class Structura:
                         all_material_list = geo.material_list
 
                 geo.export(zip_file)
-
             # endfor(models)
 
-            animation.export(zip_file)
+            if not big_model:
+                animation.export(zip_file)
             entity.export(zip_file)
             rc.export(zip_file)
 
@@ -232,7 +231,6 @@ class Structura:
             # A modified armor stand geometry to enlarge the render area of the entity
             zip_file.write(ROOT / "res/vanilla/armor_stand.larger_render.geo.json",
                            "models/entity/armor_stand.larger_render.geo.json")
-
             # A series of files intended to show the number of the current pose above armor stand
             zip_file.write(ROOT / "res/vanilla/armor_stand.pose_num.geo.json",
                            "models/entity/armor_stand.pose_num.geo.json")
@@ -243,9 +241,7 @@ class Structura:
                                f"textures/entity/pose_num_{i}.png")
 
             logger.info(lang["pack_saved"].format(pack_path))
-
         # end open zip
 
         models.clear()
-
         logger.log(25, lang["pack_complete"])

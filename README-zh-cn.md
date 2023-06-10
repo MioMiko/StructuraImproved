@@ -25,8 +25,13 @@ Structura的灵感来自Litematica模组，它是一个可以用.mcstructure文�
 
 首先需要下载源码
 
-然后需要安装Python3.10-tk。</br>
+然后需要安装Python3.11。</br>
 根据你的操作系统选择安装方式:
+
+安卓(Termux):
+```bash
+pkg install python
+```
 
 Arch Linux:
 ```bash
@@ -42,6 +47,7 @@ pip install -r requirements.txt
 ```bash
 python structura
 ```
+如果Tkinter包或桌面环境缺失，命令行工具将会启动(见命令行工具)
 
 ## 修改设置
 

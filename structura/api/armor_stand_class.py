@@ -22,7 +22,6 @@ class Entity:
         desc["render_controllers"].append("controller.render.armor_stand.ghost_blocks")
         desc["textures"]["default"] = "textures/entity/armor_stand"
         desc["geometry"]["default"] = "geometry.armor_stand.larger_render"
-
         for i in range(13):
             desc["textures"][f"pose_num_{i}"] = f"textures/entity/pose_num_{i}"
         desc["geometry"]["pose_num"] = "geometry.armor_stand.pose_num"
@@ -32,9 +31,9 @@ class Entity:
         self.textures =  desc["textures"]
 
     def add_model(self, name):
-        prog_name = "ghost_blocks_{}".format(name.replace(" ","_").lower())
-        self.geos[prog_name] = f"geometry.armor_stand.{prog_name}"
-        self.textures[prog_name] = f"textures/entity/{prog_name}"
+        name = f"ghost_blocks_{name}"
+        self.geos[name] = f"geometry.armor_stand.{name}"
+        self.textures[name] = f"textures/entity/{name}"
 
     def export(self, zip_file):
         path = "entity/armor_stand.entity.json"

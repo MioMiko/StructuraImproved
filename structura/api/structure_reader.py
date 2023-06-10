@@ -50,7 +50,10 @@ class StructureProcessor:
         self.size = nbt["size"]
         self.cube = np.array(nbt["structure"]["block_indices"][0],dtype=np.int32).reshape(self.size)
         self.block_entities = nbt["structure"]["palette"]["default"]["block_position_data"]
-        self.palette = tuple(map(self._process_palette, nbt["structure"]["palette"]["default"]["block_palette"]))
+        self.palette = list(map(self._process_palette,
+            nbt["structure"]["palette"]["default"]["block_palette"]))
+        # ensure structure_void, which is -1 index in palette, can be skiped
+        self.palette.append(None)
         self.index = np.arange(0, np.prod(self.size), 1, np.int32).reshape(self.size)
 
     def iter_block(self) -> tuple[BlockInfo, tuple[int, int, int]]:
@@ -128,7 +131,7 @@ class StructureProcessor:
                 break
 
         # hardcoded exceptions
-        if blk_name == "hopper" and rot != 0:
+        if blk_name == "hopper" and rot != "0":
             data = "side"
 
         return (blk_name, rot, variant, lit, data)

@@ -27,12 +27,12 @@ class Animation:
         "animation.armor_stand.default_pose"
     )
 
-    def __init__(self, big_model:bool=False):
+    def __init__(self):
         self.default_size = {
             "format_version": "1.8.0",
             "animations": {"animation.armor_stand.ghost_blocks.scale": {
                 "loop": True,
-                "bones": {"ghost_blocks": {"scale": 1 if big_model else 0.08}}}}}
+                "bones": {"ghost_blocks": {"scale": 0.08}}}}}
 
         pathtofile = "res/vanilla/armor_stand.animation.json"
         self.sizing = json.loads((ROOT / pathtofile).read_text("utf-8"))

@@ -42,7 +42,7 @@ class Geometry:
 
     def __init__(self, name:str, alpha:float = 0.8, offsets=(0,0,0),
                  big_model:bool=False):
-        self.name = name.replace(" ","_").lower()
+        self.name = name
         self.offsets = (
             (offsets[0]+0.5) * 16,
             (offsets[1]) * 16,
@@ -81,11 +81,9 @@ class Geometry:
         """
 
         self.geometry["description"]["texture_height"] = self.uv_height
-
         zip_file.writestr(
             f"models/entity/armor_stand.ghost_blocks_{self.name}.geo.json",
             json.dumps(self.stand))
-
         self._save_uv(f"textures/entity/ghost_blocks_{self.name}.png",
                       zip_file)
 

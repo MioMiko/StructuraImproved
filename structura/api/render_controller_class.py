@@ -21,11 +21,10 @@ class RenderController:
         self.geometry = "{}"
         self.textures = "{}"
 
-    def add_model(self, name_raw):
-        name = name_raw.replace(" ","_").lower()
-        new_geo = f"query.get_name == '{name_raw}' ? Geometry.ghost_blocks_{name} : ({{}})"
+    def add_model(self, model_name, name):
+        new_geo = f"query.get_name == '{model_name}' ? Geometry.ghost_blocks_{name} : ({{}})"
         self.geometry = self.geometry.format(new_geo)
-        new_texture = f"query.get_name == '{name_raw}' ? Texture.ghost_blocks_{name} : ({{}})"
+        new_texture = f"query.get_name == '{model_name}' ? Texture.ghost_blocks_{name} : ({{}})"
         self.textures = self.textures.format(new_texture)
 
     def export(self, zip_file):
@@ -55,15 +54,14 @@ class BigModelRenderController:
         self.textures = rc["arrays"]["textures"]["Array.textures"]
         self.geometry = rc["arrays"]["geometries"]["Array.geometry"]
 
-    def add_model(self, name):
-        name = name.replace(" ","_").lower()
+    def add_model(self, _, name):
         self.geometry.append(f"Geometry.ghost_blocks_{name}")
         self.textures.append(f"Texture.ghost_blocks_{name}")
 
     def export(self, zip_file):
         if (length := len(self.geometry)) < 13:
-            self.geometry.extend((f"Geometry.default",)*(13-length))
-            self.textures.extend((f"Texture.default",)*(13-length))
+            self.geometry.extend(("Geometry.default",)*(13-length))
+            self.textures.extend(("Texture.default",)*(13-length))
         rcpath = ("render_controllers/"
                   "armor_stand.ghost_blocks.render_controllers.json")
         zip_file.writestr(rcpath, json.dumps(self.rc, indent=2))
